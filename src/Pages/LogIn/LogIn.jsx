@@ -1,5 +1,7 @@
+import LogInContainer from "../../Components/LogIn/LogInContainer.jsx";
+
 const LogIn = () => {
-  return <div>This is LogIn Page</div>;
+  return <LogInContainer />;
 };
 
 export default LogIn;

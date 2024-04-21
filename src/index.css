@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: IranSanse;
+  src: url(./Font/IranSans.ttf);
+}
+
 body {
   background-color: #f5f5f4;
+  font-family: IranSanse;
+}
+
+/* Login calsses */
+@layer components {
+  .InputHolder {
+    @apply text-[14px] text-[#C7C7C7] transition duration-500
+           drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
+           w-[310px] h-[42px] bg-white border-2 border-[#F8F8F8] rounded-[10px];
+  }
+
+  .InputHolder:hover {
+    @apply drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.3)];
+  }
+
+  .InputHolder > input {
+    @apply outline-none w-[86%] indent-[15px] focus:text-[#000000];
+  }
 }
