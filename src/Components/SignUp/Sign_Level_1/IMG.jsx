@@ -2,8 +2,8 @@ function IMG() {
   return (
     <img
       className="ResponsiveIMG"
-      src="./Image/ForgetPass/Image-8.png"
-      alt=""
+      src="./Image/SignUp/Image-9.png"
+      alt="Image"
     />
   );
 }
