@@ -12,7 +12,7 @@ body {
   font-family: IranSanse;
 }
 
-/* Login calsses */
+/*------------------------ Login calsses -------------------------*/
 @layer components {
   .InputHolder {
     @apply text-[14px] text-[#C7C7C7] transition duration-500
@@ -26,5 +26,15 @@ body {
 
   .InputHolder > input {
     @apply outline-none w-[86%] indent-[15px] focus:text-[#000000];
+  }
+}
+
+/*----------------- Header classes --------------------*/
+@layer components {
+  .HeaderPics {
+    @apply cursor-pointer bg-no-repeat bg-[20px] 
+      bg-center h-[30px] w-[45px] rounded-[15px]
+     bg-[#FAFAF9] border-[#F2F2F1] 
+     drop-shadow-[#000000];
   }
 }
