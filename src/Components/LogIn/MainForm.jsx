@@ -11,7 +11,7 @@ function MainForm() {
           حساب
         </h3>
 
-        <div className="InputHolder bg-[url('/Image/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder bg-[url('./Image/LogIn/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
             placeholder="ایمیل یا شماره تلفن خود را وارد کنید"
             dir="rtl"
@@ -28,7 +28,7 @@ function MainForm() {
           رمز عبور
         </h3>
 
-        <div className="InputHolder bg-[url('/Image/lock.svg')] bg-no-repeat bg-[10px_7px]  w-[100%]">
+        <div className="InputHolder bg-[url('/Image/LogIn/lock.svg')] bg-no-repeat bg-[10px_7px]  w-[100%]">
           <input
             placeholder="رمز عبور خود را وارد کنید"
             dir="rtl"
