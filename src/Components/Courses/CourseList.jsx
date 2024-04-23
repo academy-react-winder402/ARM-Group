@@ -107,7 +107,7 @@ export const CourseList = () => {
     },
   ]);
   return (
-    <div className="my-14 flex flex-wrap justify-evenly gap-10 h-auto">
+    <div className="mt-[30px] flex flex-wrap max-md:justify-center justify-between  gap-10 h-auto">
       {courses.map((item, key) => {
         return (
           <CourseListDetail

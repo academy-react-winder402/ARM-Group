@@ -1,32 +1,28 @@
-// import { useState } from "react";
-// import { RangeSlider } from "./RangeSlider.jsx";
+import { Box, Slider } from "@mui/material";
+import * as React from "react";
+
+function valuetext(value) {
+  return `${value}°C`;
+}
 
 export function FilterCourse() {
-  //   const [value, setValue] = useState("");
+  const [value, setValue] = React.useState([20, 37]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <div className="mt-5 pl-4 pb-2 rounded-lg shadow-3xl flex flex-row-reverse gap-4">
-      <div className="flex flex-col">
-        <div className="flex justify-between gap-24">
-          <div className="text-sm py-2">
-            <span>حداقل: </span>
-            <span className="text-xs">100,000</span>
-          </div>
-          <div className="text-sm py-2">
-            <span>حداکثر: </span>
-            <span className="text-xs">400,000</span>
-          </div>
-        </div>
-        <input
-          type="range"
-          className="flex justify-center h-4"
-          min="0"
-          max="100"
-          step="10"
+    <div className="mt-5 pl-4 pb-2 rounded-lg shadow-3xl flex flex-row-reverse gap-4 h-[60px]">
+      <Box className="max-md:w-[300px] w-[400px] h-[30px] mt-[16px]">
+        <Slider
+          getAriaLabel={() => "Temperature range"}
+          value={value}
+          onChange={handleChange}
+          valueLabelDisplay="auto"
+          getAriaValueText={valuetext}
         />
-        {/* <RangeSlider /> */}
-      </div>
-      <div className="text-sm flex items-center">قیمت :</div>
+      </Box>
     </div>
   );
 }

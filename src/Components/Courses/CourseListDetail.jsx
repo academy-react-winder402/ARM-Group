@@ -46,7 +46,7 @@ export const CourseListDetail = ({
             <img src="./Image/Course/toman.svg" alt="" />
           </div>
         </div>
-        <div className="w-auto h-0.5 bg-gradient-to-t from-[#c4cdd5]"></div>
+        <div className="w-auto h-[1px] bg-gradient-to-r from-[#c4cdd512] via-[#c4cdd5] to-[#c4cdd512] "></div>
         <div className="flex justify-evenly pt-2">
           <div className="flex gap-1 items-center text-textMidColor">
             <span className="text-xs">{comment}</span>
