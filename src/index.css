@@ -32,7 +32,7 @@ body {
   .ResponsiveIMG {
     @apply block mt-[50px] max-md:hidden
            max-lg:w-1/3 max-lg:h-[300px] max-lg:mt-[100px]  
-           mix-blend-darken  w-1/2 h-3/4;
+           mix-blend-darken  w-[40%] h-3/4;
   }
 }
 
