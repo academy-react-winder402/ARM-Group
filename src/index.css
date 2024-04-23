@@ -48,3 +48,10 @@ body {
     @apply text-[#D4AF37] border-b-4 border-[#D4AF37] transition-all;
   }
 }
+
+/*----------------- Footer classes --------------------*/
+@layer components {
+  .FooterIcons {
+    @apply w-[35px] h-[35px] bg-no-repeat rounded-[5px] cursor-pointer;
+  }
+}
