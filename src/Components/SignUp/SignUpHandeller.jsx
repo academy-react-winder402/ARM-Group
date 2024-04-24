@@ -1,32 +1,25 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
+import { useState } from "react";
+import "./ButtStyle.css";
 import Sign_1 from "./Sign_Level_1/Container";
 
 export default function simple() {
-  const handleComplete = () => {
-    console.log("Form completed!");
-    // Handle form completion logic here
-  };
-
-  const tabChanged = ({ prevIndex, nextIndex }) => {
-    console.log("prevIndex", prevIndex);
-    console.log("nextIndex", nextIndex);
-  };
-
-  const ClickHandler = () => {};
+  const [PhoneNumber, setPhoneNumber] = useState("");
 
   return (
     <>
-      <div className="mx-auto mt-[30px] bg-[#FBFBFB] w-[75%] h-[700px] border border-[#DCDCDC] rounded-[20px]">
+      <div className="pb-8 mx-auto mt-[70px] bg-[#FBFBFB] w-[75%] h-auto border border-[#DCDCDC] rounded-[20px]">
         <FormWizard
-          color="green"
+          color="#009087"
           stepSize="xs"
-          onComplete={handleComplete}
-          onTabChange={tabChanged}
           startIndex={0}
+          /* nextButtonTemplate={nextTemplate} */
         >
           <FormWizard.TabContent icon="ti-user">
-            <Sign_1 />
+            <Sign_1 PhoneNumber={PhoneNumber} setPhoneNumber={setPhoneNumber} />
           </FormWizard.TabContent>
 
           <FormWizard.TabContent icon="ti-settings">
