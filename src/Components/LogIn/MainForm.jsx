@@ -20,7 +20,7 @@ function MainForm() {
         </div>
       </div>
 
-      <div className="mt-[25px]  w-[100%] m-auto">
+      <div className="mt-[25px]  w-[100%] m-auto mb-[50px]">
         <h3
           dir="rtl"
           className="text-[#727272] text[17px]  indent-[15px] mb-[10px]"

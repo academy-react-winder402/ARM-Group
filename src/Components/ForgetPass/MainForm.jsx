@@ -3,7 +3,7 @@ import DefualtButton from "../common/DefualtButton";
 function MainForm() {
   return (
     <form action="">
-      <div className="mt-[55px] w-[100%] m-auto mb-[20px]">
+      <div className="mt-[55px] w-[100%] m-auto  mb-[50px]">
         <h3
           dir="rtl"
           className="text-[#727272] text[17px]  indent-[15px]  mb-[10px]"
