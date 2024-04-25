@@ -6,10 +6,10 @@ export default {
       colors: {
         iceBlue: "#91ACCF",
         gray: "#9D9D9C",
-        darkGray: "#5E5E5E",
         headerBgColor: "#f1f5f9",
         textColorBold: "#343a40",
         textColor: "#5E5E5E",
+        textPcolor: "#7E7E7E",
         textPaleColor: "#9A9A9A",
         textMidColor: "#8A8A8A",
         backGroundColor: "#e9ecef",
