@@ -1,7 +1,7 @@
-import LogInContainer from "../../Components/LogIn/LogInContainer.jsx";
+import Container from "../../Components/LogIn/Container.jsx";
 
 const LogIn = () => {
-  return <LogInContainer />;
+  return <Container />;
 };
 
 export default LogIn;

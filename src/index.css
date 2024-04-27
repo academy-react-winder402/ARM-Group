@@ -13,12 +13,12 @@ body {
   font-family: IranSanse;
 }
 
-/*------------------------ Login calsses -------------------------*/
+/*------------------------ Login/SignUp/ForgetPass calsses -------------------------*/
 @layer components {
   .InputHolder {
     @apply text-[14px] text-[#C7C7C7] transition duration-500 overflow-hidden
            drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
-           w-[310px] h-[42px] bg-white border-2 border-[#F8F8F8] rounded-[10px];
+           w-[100%] h-[42px] bg-white border-2 border-[#F8F8F8] rounded-[10px];
   }
 
   .InputHolder:hover {
@@ -30,16 +30,20 @@ body {
   }
 
   .ResponsiveIMG {
-    @apply block mt-[50px] max-md:hidden
-           max-lg:w-1/3 max-lg:h-[300px] max-lg:mt-[100px]  
-           mix-blend-darken  w-[40%] h-3/4;
+    @apply block mt-[80px]  max-md:hidden
+           max-lg:w-1/3 max-lg:h-[300px] max-lg:mt-[140px]  
+           mix-blend-darken  w-[40%] h-3/5;
+  }
+
+  .ResponsiveIMG.Sign {
+    @apply max-lg:mt-[160px] mt-[70px] h-2/4;
   }
 }
 
 /*----------------- Header classes --------------------*/
 @layer components {
   .HeaderPics {
-    @apply cursor-pointer bg-no-repeat bg-[20px] 
+    @apply cursor-pointer bg-no-repeat  
       bg-center h-[30px] w-[45px] rounded-[15px]
      bg-[#FAFAF9] border-[#F2F2F1] border-[2px]
      drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.2)];

@@ -1,32 +1,76 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/rules-of-hooks */
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
+import { useEffect, useState } from "react";
+import "./ButtStyle.css";
 import Sign_1 from "./Sign_Level_1/Container";
+import { useSelector } from "react-redux";
+import { Button } from "@mui/material";
+import toast from "react-hot-toast";
 
 export default function simple() {
-  const handleComplete = () => {
-    console.log("Form completed!");
-    // Handle form completion logic here
+  const [PhoneNumber, setPhoneNumber] = useState("");
+  const Form = useSelector((state) => state.Form);
+
+  const GetCodeButt = () => {
+    console.log(Form);
+    toast("we sent you a code to: " + Form.PhoneNumber);
   };
 
-  const tabChanged = ({ prevIndex, nextIndex }) => {
-    console.log("prevIndex", prevIndex);
-    console.log("nextIndex", nextIndex);
+  const nextTemplate = (e) => {
+    return (
+      <Button
+        className="w-[100px] h-[40px]"
+        style={{
+          background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+          fontSize: "16px",
+          fontWeight: "bold",
+          position: "absolute",
+          right: "9%",
+          bottom: "12%",
+        }}
+        variant="contained"
+        onClick={e}
+      >
+        مرحله بعد
+      </Button>
+    );
   };
 
-  const ClickHandler = () => {};
+  const backTemplate = (e) => {
+    return (
+      <Button
+        className="w-[100px] h-[40px]"
+        style={{
+          background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+          fontSize: "16px",
+          fontWeight: "bold",
+          position: "absolute",
+          left: "10%",
+          bottom: "5%",
+        }}
+        variant="contained"
+        onClick={e}
+      >
+        مرحله قبل
+      </Button>
+    );
+  };
 
   return (
     <>
-      <div className="mx-auto mt-[30px] bg-[#FBFBFB] w-[75%] h-[700px] border border-[#DCDCDC] rounded-[20px]">
+      <div className="relative pb-24 mx-auto mt-[70px] bg-[#FBFBFB] w-[75%] h-auto border border-[#DCDCDC] rounded-[20px]">
         <FormWizard
-          color="green"
+          color="#009087"
           stepSize="xs"
-          onComplete={handleComplete}
-          onTabChange={tabChanged}
           startIndex={0}
+          nextButtonTemplate={nextTemplate}
+          backButtonTemplate={backTemplate}
         >
           <FormWizard.TabContent icon="ti-user">
-            <Sign_1 />
+            <Sign_1 PhoneNumber={PhoneNumber} setPhoneNumber={setPhoneNumber} />
           </FormWizard.TabContent>
 
           <FormWizard.TabContent icon="ti-settings">
