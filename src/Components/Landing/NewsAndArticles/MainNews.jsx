@@ -1,9 +1,9 @@
 import React from "react";
 import "../../../index.css";
-import { RightNews } from "./RightNews.jsx";
-import { LeftNews } from "./LeftNews.jsx";
+import { RightNews } from "./RightNews";
+import { LeftNews } from "./LeftNews";
 
-const MainNews = () => {
+export const MainNews = () => {
   return (
     <div
       className="w-[87.5%] h-[920px] mx-auto px-[85px] text-center mb-[115px]"
@@ -27,5 +27,3 @@ const MainNews = () => {
     </div>
   );
 };
-
-export default MainNews;
