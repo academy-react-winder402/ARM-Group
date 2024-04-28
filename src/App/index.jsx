@@ -5,7 +5,7 @@ import Public from "../Config/Router/public.router.jsx";
 import { useState } from "react";
 
 import { Provider } from "react-redux";
-import store from "./Redux/store.jsx";
+import store from "../Redux/store.jsx";
 import { Toaster } from "react-hot-toast";
 
 function App() {
