@@ -14,12 +14,16 @@ export default function simple() {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const Form = useSelector((state) => state.Form);
 
-  const GetCodeButt = () => {
-    console.log(Form);
-    toast("we sent you a code to: " + Form.PhoneNumber);
+  const checkValidateTab = () => {
+    return false;
+  };
+  const errorMessages = () => {
+    toast.error("لطفا فیلد های این مرحله را به درستی وارد کنید", {
+      style: { direction: "rtl", marginTop: "42px" },
+    });
   };
 
-  const nextTemplate = (e) => {
+  const nextTemplate = (GoNext) => {
     return (
       <Button
         className="w-[100px] h-[40px]"
@@ -32,13 +36,12 @@ export default function simple() {
           bottom: "12%",
         }}
         variant="contained"
-        onClick={e}
+        onClick={GoNext}
       >
         مرحله بعد
       </Button>
     );
   };
-
   const backTemplate = (e) => {
     return (
       <Button
@@ -73,14 +76,16 @@ export default function simple() {
             <Sign_1 PhoneNumber={PhoneNumber} setPhoneNumber={setPhoneNumber} />
           </FormWizard.TabContent>
 
-          <FormWizard.TabContent icon="ti-settings">
+          <FormWizard.TabContent
+            icon="ti-settings"
+            isValid={checkValidateTab()}
+            validationError={errorMessages}
+          >
             <h3>Second Tab</h3>
-            <p>Some content for the second tab</p>
           </FormWizard.TabContent>
 
           <FormWizard.TabContent icon="ti-check">
             <h3>Last Tab</h3>
-            <p>Some content for the last tab</p>
           </FormWizard.TabContent>
         </FormWizard>
         {/* add style */}
