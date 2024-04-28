@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { SetPhoneNumber } from "../FormSlice";
+import { SetPhoneNumber } from "../../../Redux/Slices/FormSlice";
 import DefualtButton from "../../Common/DefualtButton";
 
 import { PhoneValidation } from "../../../Core/Validations/SingUp.validation";
