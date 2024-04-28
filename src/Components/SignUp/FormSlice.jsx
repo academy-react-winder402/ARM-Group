@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   PhoneNumber: null,
+  Validation_1: false,
 };
 
 const FormSlice = createSlice({
@@ -10,6 +11,9 @@ const FormSlice = createSlice({
   reducers: {
     SetPhoneNumber: (state, action) => {
       state.PhoneNumber = action.payload;
+    },
+    SetValidation_1: (state, action) => {
+      state.Validation_1 = action.payload;
     },
   },
 });

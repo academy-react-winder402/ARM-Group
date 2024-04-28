@@ -3,26 +3,53 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SetPhoneNumber } from "../FormSlice";
 import DefualtButton from "../../common/DefualtButton";
-//import toast from "react-hot-toast";
+
+import { PhoneValidation } from "../../../core/validations/SingUp.validation";
+import toast from "react-hot-toast";
 
 function MainForm() {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [Code, setCode] = useState("");
+  const Errortxt = document.querySelectorAll(".InputHolder > span");
   const dispatch = useDispatch();
+
+  const ShowPhoneErr = (innerHTML) => {
+    Errortxt[0].classList.remove("HideError");
+    Errortxt[0].classList.add("ShowError");
+    Errortxt[0].classList.add("scale-down-center");
+    Errortxt[0].innerHTML = innerHTML;
+    setTimeout(() => {
+      Errortxt[0].classList.remove("scale-down-center");
+    }, 1000);
+  };
+  const HidePhoneErr = () => {
+    Errortxt[0].classList.add("HideError");
+    Errortxt[0].classList.remove("ShowError");
+  };
+
+  const SendCodeHandler = () => {
+    if (PhoneNumber === "") {
+      ShowPhoneErr("شماره موبایل خود را وارد کنید *");
+    } else {
+      if (PhoneValidation(PhoneNumber)) {
+        toast.success("We Sent Code to " + PhoneNumber);
+
+        const CodeTitle = document.getElementById("CodeTitle");
+        const CodeInput = document.getElementById("CodeInput");
+        CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
+        CodeInput.classList.remove("invisible", "opacity-0", "h-0");
+
+        HidePhoneErr();
+      } else {
+        ShowPhoneErr("شماره موبایل خود را به درستی وارد کنید *");
+      }
+    }
+  };
 
   useEffect(() => {
     dispatch(SetPhoneNumber(PhoneNumber));
     console.log(PhoneNumber);
   }, [PhoneNumber]);
-
-  const SendCodeHandler = () => {
-    //toast(PhoneNumber);
-    const CodeTitle = document.getElementById("CodeTitle");
-    const CodeInput = document.getElementById("CodeInput");
-
-    CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
-    CodeInput.classList.remove("invisible", "opacity-0", "h-0");
-  };
 
   return (
     <form action="">
@@ -41,6 +68,7 @@ function MainForm() {
             value={PhoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
+          <span className="HideError text-[10px] text-red-700 absolute left-[40px] top-[-30px]  "></span>
         </div>
 
         <h3

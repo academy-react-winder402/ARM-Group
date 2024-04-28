@@ -16,7 +16,7 @@ body {
 /*------------------------ Login/SignUp/ForgetPass calsses -------------------------*/
 @layer components {
   .InputHolder {
-    @apply text-[14px] text-[#C7C7C7] transition duration-500 overflow-hidden
+    @apply text-[14px] text-[#C7C7C7] transition duration-500 
            drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
            w-[100%] h-[42px] bg-white border-2 border-[#F8F8F8] rounded-[10px];
   }
@@ -37,6 +37,32 @@ body {
 
   .ResponsiveIMG.Sign {
     @apply max-lg:mt-[160px] mt-[70px] h-2/4;
+  }
+
+  .ShowError {
+    opacity: 1;
+    visibility: visible;
+  }
+  .HideError {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Animations */
+  @keyframes scale-down-center {
+    0% {
+      -webkit-transform: scale(2);
+      transform: scale(2);
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+  .scale-down-center {
+    -webkit-animation: scale-down-center 0.4s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   }
 }
 
