@@ -6,16 +6,14 @@ import "react-form-wizard-component/dist/style.css";
 import { useEffect, useState } from "react";
 import "./ButtStyle.css";
 import Sign_1 from "./Sign_Level_1/Container";
+import Sign_2 from "./Sign_Level_2/Container";
 import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import toast from "react-hot-toast";
 
 export default function simple() {
-  const [PhoneNumber, setPhoneNumber] = useState("");
-  const Form = useSelector((state) => state.Form);
-
   const checkValidateTab = () => {
-    return false;
+    return true;
   };
   const errorMessages = () => {
     toast.error("لطفا فیلد های این مرحله را به درستی وارد کنید", {
@@ -73,7 +71,7 @@ export default function simple() {
           backButtonTemplate={backTemplate}
         >
           <FormWizard.TabContent icon="ti-user">
-            <Sign_1 PhoneNumber={PhoneNumber} setPhoneNumber={setPhoneNumber} />
+            <Sign_1 />
           </FormWizard.TabContent>
 
           <FormWizard.TabContent

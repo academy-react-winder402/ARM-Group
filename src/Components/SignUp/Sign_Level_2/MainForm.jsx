@@ -10,12 +10,13 @@ import toast from "react-hot-toast";
 function MainForm() {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [Code, setCode] = useState("");
-  const dispatch = useDispatch();
   const Errortxt = document.querySelectorAll(".InputHolder > span");
+  const dispatch = useDispatch();
 
   const ShowPhoneErr = (innerHTML) => {
     Errortxt[0].classList.remove("HideError");
-    Errortxt[0].classList.add("ShowError", "scale-down-center");
+    Errortxt[0].classList.add("ShowError");
+    Errortxt[0].classList.add("scale-down-center");
     Errortxt[0].innerHTML = innerHTML;
     setTimeout(() => {
       Errortxt[0].classList.remove("scale-down-center");

@@ -105,6 +105,20 @@ export const CourseList = () => {
       like: 190,
       // FaBeer: { FaBeer },
     },
+    {
+      courseImg: "./Image/Course/react.jpg",
+      title: "دوره تخصصی ریکت",
+      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
+      teacherImg: "./Image/Course/teacher.png",
+      dateDay: 10,
+      dateMonth: "اردیبهشت",
+      dateYear: 1401,
+      startDate: 4,
+      price: "1,500,000",
+      comment: 68,
+      like: 190,
+      // FaBeer: { FaBeer },
+    },
   ]);
   return (
     <div className="mt-[30px] flex flex-wrap max-md:justify-center justify-between  gap-10 h-auto">
