@@ -61,7 +61,7 @@ export const Deatails = () => {
           <div className="w-1/2 flex">
             <img
               className="h-28"
-              src="./Image/Landing/Goals03.svg"
+              src="./Image/Landing/Goals04.svg"
               alt="آموزش های تخصصی"
             />
             <h3 className="mt-16 mr-4 text-xl font-light text-textColor">
