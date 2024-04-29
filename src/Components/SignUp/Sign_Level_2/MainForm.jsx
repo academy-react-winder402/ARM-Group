@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { SetPhoneNumber } from "../FormSlice";
-import DefualtButton from "../../Common/DefualtButton";
+import { SetNameAndFamily } from "../../../Redux/Slices/FormSlice";
 
-import { PhoneValidation } from "../../../Core/Validations/SingUp.validation";
-import toast from "react-hot-toast";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 function MainForm() {
-  const [PhoneNumber, setPhoneNumber] = useState("");
-  const [Code, setCode] = useState("");
+  const [NameAndFamily, setNameAndFamily] = useState("");
   const Errortxt = document.querySelectorAll(".InputHolder > span");
   const dispatch = useDispatch();
 
@@ -27,29 +25,17 @@ function MainForm() {
     Errortxt[0].classList.remove("ShowError");
   };
 
-  const SendCodeHandler = () => {
-    if (PhoneNumber === "") {
-      ShowPhoneErr("شماره موبایل خود را وارد کنید *");
-    } else {
-      if (PhoneValidation(PhoneNumber)) {
-        toast.success("We Sent Code to " + PhoneNumber);
-
-        const CodeTitle = document.getElementById("CodeTitle");
-        const CodeInput = document.getElementById("CodeInput");
-        CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
-        CodeInput.classList.remove("invisible", "opacity-0", "h-0");
-
-        HidePhoneErr();
-      } else {
-        ShowPhoneErr("شماره موبایل خود را به درستی وارد کنید *");
-      }
-    }
-  };
+  useEffect(() => {
+    dispatch(SetNameAndFamily(NameAndFamily));
+    console.log(NameAndFamily);
+  }, [NameAndFamily]);
 
   useEffect(() => {
-    dispatch(SetPhoneNumber(PhoneNumber));
-    console.log(PhoneNumber);
-  }, [PhoneNumber]);
+    const Calender = document.getElementsByClassName("MuiButtonBase-root");
+    Calender[0].style.display = "none";
+    Calender[1].style.display = "none";
+    Calender[2].style.display = "none";
+  }, []);
 
   return (
     <form action="">
@@ -58,41 +44,44 @@ function MainForm() {
           dir="rtl"
           className="text-[#727272] text[17px] text-right indent-[15px]  mb-[10px]"
         >
-          شماره تلفن
+          نام و نام خانوادگی
         </h3>
         <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
-            placeholder="شماره تلفن خود را وارد کنید"
+            placeholder="نام و نام خانوادگی خود را وارد کنید"
             dir="rtl"
             type="text"
-            value={PhoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            value={NameAndFamily}
+            onChange={(e) => setNameAndFamily(e.target.value)}
           />
           <span className="HideError text-[10px] text-red-700 absolute left-[40px] top-[-30px]  "></span>
         </div>
 
         <h3
           dir="rtl"
-          id="CodeTitle"
-          className="text-[#727272] transition-all text-center indent-[15px]  mb-[10px] invisible opacity-0 h-0"
+          className="text-[#727272] text[17px] text-right indent-[15px]  mb-[10px]"
         >
-          کد تایید
+          تاریخ تولد
         </h3>
-        <div
-          id="CodeInput"
-          className=" transition-all InputHolder mb-10 m-auto border w-[70%] invisible opacity-0 h-0"
-        >
-          <input
-            className="text-center indent-0 tracking-[10px]"
-            style={{ width: "100%" }}
-            dir="rtl"
-            type="text"
-            value={Code}
-            onChange={(e) => setCode(e.target.value)}
-          />
+        <div className=" w-[100%] h-[50px]">
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              label={"روز"}
+              views={["day"]}
+              className="w-[55px] border-[3px]"
+            />
+            <DatePicker
+              label={"روز"}
+              views={["day"]}
+              className="w-[55px] border-[3px]"
+            />
+            <DatePicker
+              label={"روز"}
+              views={["day"]}
+              className="w-[55px] border-[3px]"
+            />
+          </LocalizationProvider>
         </div>
-
-        <DefualtButton innerHTML="دریافت کد" onClick={SendCodeHandler} />
       </div>
     </form>
   );
