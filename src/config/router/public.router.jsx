@@ -6,8 +6,8 @@ import Courses from "../../Pages/Courses/Courses.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
 
 /* LayOuts: */
-import Header from "../../app/LayOut/Header.jsx";
-import Footer_Header from "../../app/LayOut/Header_Footer.jsx";
+import Header from "../../App/LayOut/Header.jsx";
+import Footer_Header from "../../App/LayOut/Header_Footer.jsx";
 
 const Public = new createBrowserRouter([
   { path: "/", element: <Navigate to="/Home" /> },

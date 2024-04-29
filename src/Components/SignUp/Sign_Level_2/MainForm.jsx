@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SetPhoneNumber } from "../FormSlice";
-import DefualtButton from "../../common/DefualtButton";
+import DefualtButton from "../../Common/DefualtButton";
 
-import { PhoneValidation } from "../../../core/validations/SingUp.validation";
+import { PhoneValidation } from "../../../Core/Validations/SingUp.validation";
 import toast from "react-hot-toast";
 
 function MainForm() {

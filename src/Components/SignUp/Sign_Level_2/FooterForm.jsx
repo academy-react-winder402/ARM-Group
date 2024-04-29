@@ -1,4 +1,4 @@
-import LogInLink from "../../common/LogInLink";
+import LogInLink from "../../Common/LogInLink";
 
 function FooterForm() {
   return (

@@ -1,4 +1,4 @@
-import DefualtButton from "../common/DefualtButton";
+import DefualtButton from "../Common/DefualtButton";
 
 function MainForm() {
   return (

@@ -1,4 +1,4 @@
-function Section_1() {
+function HeroSection() {
   return (
     <div
       className="container md:w-[1300px] h-[458px] m-auto mt-[30px] text-right flex flex-col max-md:items-center md:justify-start"
@@ -16,4 +16,4 @@ function Section_1() {
   );
 }
 
-export { Section_1 };
+export { HeroSection };

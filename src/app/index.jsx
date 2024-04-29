@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { RouterProvider } from "react-router-dom";
 
-import Public from "../config/router/public.router.jsx";
+import Public from "../Config/Router/public.router.jsx";
 import { useState } from "react";
 
 import { Provider } from "react-redux";

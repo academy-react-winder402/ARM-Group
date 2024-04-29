@@ -1,5 +1,5 @@
-import SignUpLink from "../common/SignUpLink";
-import ForgetPassLink from "../common/ForgetPassLink";
+import SignUpLink from "../Common/SignUpLink";
+import ForgetPassLink from "../Common/ForgetPassLink";
 
 function FooterForm() {
   return (
