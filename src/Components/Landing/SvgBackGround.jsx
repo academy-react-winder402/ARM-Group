@@ -1,4 +1,4 @@
-function SvgBackGround() {
+export const SvgBackGround = () => {
   return (
     <img
       className="w-[1300px] m-auto absolute z-[-1] left-[150px]"
@@ -6,6 +6,4 @@ function SvgBackGround() {
       alt="Main BackGround"
     />
   );
-}
-
-export default SvgBackGround;
+};

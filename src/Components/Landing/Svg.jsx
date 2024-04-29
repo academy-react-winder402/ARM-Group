@@ -1,4 +1,4 @@
-function Svg() {
+export const Svg = () => {
   return (
     <img
       className=" absolute top-[155px] left-[150px]"
@@ -6,6 +6,4 @@ function Svg() {
       alt="main svg"
     />
   );
-}
-
-export default Svg;
+};
