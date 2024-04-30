@@ -92,10 +92,8 @@ export default function simple() {
           display: flex;
           justify-content: end;
           gap:30px;
-          margin-right: 20px;
+          margin-right: 120px;
         }
-
-        @media (min-width:
 
         .FormWizardButton {
           width: 100px;

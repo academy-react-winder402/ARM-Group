@@ -2,9 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SetNameAndFamily } from "../../../Redux/Slices/FormSlice";
-
-import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { TextField } from "@mui/material";
 
 function MainForm() {
   const [NameAndFamily, setNameAndFamily] = useState("");
@@ -30,12 +28,7 @@ function MainForm() {
     console.log(NameAndFamily);
   }, [NameAndFamily]);
 
-  useEffect(() => {
-    const Calender = document.getElementsByClassName("MuiButtonBase-root");
-    Calender[0].style.display = "none";
-    Calender[1].style.display = "none";
-    Calender[2].style.display = "none";
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <form action="">
@@ -63,24 +56,10 @@ function MainForm() {
         >
           تاریخ تولد
         </h3>
-        <div className=" w-[100%] h-[50px]">
-          <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              label={"روز"}
-              views={["day"]}
-              className="w-[55px] border-[3px]"
-            />
-            <DatePicker
-              label={"روز"}
-              views={["day"]}
-              className="w-[55px] border-[3px]"
-            />
-            <DatePicker
-              label={"روز"}
-              views={["day"]}
-              className="w-[55px] border-[3px]"
-            />
-          </LocalizationProvider>
+        <div className=" w-[100%] h-[50px] flex justify-center gap-8 mb-[40px]">
+          <TextField className="w-[70px]" label="روز" variant="filled" />
+          <TextField className="w-[70px]" label="ماه" variant="filled" />
+          <TextField className="w-[70px]" label="سال" variant="filled" />
         </div>
       </div>
     </form>
