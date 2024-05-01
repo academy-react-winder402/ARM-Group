@@ -6,6 +6,9 @@ import { Education } from "./Education/Container.jsx";
 import { Goals } from "./Goals/Container.jsx";
 import { Course } from "./Course/Container.jsx";
 import { MainNews } from "./NewsAndArticles/Container.jsx";
+import Statistics from "./Statistics/Statistics.jsx";
+import MainAdvertising from "./Advertising/MainAdvertising.jsx";
+
 
 function LandingHandler() {
   return (
@@ -17,6 +20,8 @@ function LandingHandler() {
       <Education />
       <Goals />
       <Course />
+      <Statistics />
+      <MainAdvertising />
       <MainNews />
     </div>
   );

@@ -1,8 +1,13 @@
+import BorderDiv from "./BorderDiv";
 import { FooterLinks } from "./FooterLinks";
 
 const RightFooter = () => {
   return (
-    <div className="w-[560px] mt-[50px] float-right">
+    <div>
+      <div className="hidden max-[1000px]:block">
+        <BorderDiv />
+      </div>
+      <div className="w-[560px] mt-[50px] max-[1000px]:w-[87%] max-[1000px]:mx-auto" style={{direction:'rtl'}}>
       <div className="text-[25px] mb-4">پژوهشگاه سپهر</div>
       <p className="text-[12px] h-[118px] mb-[10px]">
         متن مختصری درباره پژوهشگاه لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم
@@ -12,6 +17,7 @@ const RightFooter = () => {
       </p>
       <FooterLinks />
       <FooterLinks />
+    </div>
     </div>
   );
 };
