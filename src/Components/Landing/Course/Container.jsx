@@ -22,5 +22,6 @@ export const Course = () => {
         />
       </div>
     </div>
+    </div>
   );
 };
