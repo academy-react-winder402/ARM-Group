@@ -1,8 +1,19 @@
+import { useEffect } from "react";
 import "./ThemeModeBT.css";
+import toast from "react-hot-toast";
 function ThemeModeButt() {
+  const ThemeHandler = () => {
+    document.documentElement.classList.toggle("dark");
+  };
+
   return (
     <label className="theme-switch absolute left-[210px] top-[-7px]">
-      <input type="checkbox" className="theme-switch__checkbox" />
+      <input
+        id="DarkModeButt"
+        onClick={ThemeHandler}
+        type="checkbox"
+        className="theme-switch__checkbox"
+      />
       <div className="theme-switch__container">
         <div className="theme-switch__clouds"></div>
         <div className="theme-switch__stars-container">

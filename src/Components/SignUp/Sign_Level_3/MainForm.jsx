@@ -14,7 +14,7 @@ function MainForm() {
         >
           ایمیل
         </h3>
-        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] dark:bg-[url('./Image/LogIn/profileLogIn-Dark.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
             placeholder="ایمیل خود را وارد کنید"
             dir="rtl"
