@@ -12,8 +12,12 @@ body {
   font-family: IranSanse;
 }
 
-/*------------------------ Login calsses -------------------------*/
+/*------------------------ Login/SignUp/ForgetPass calsses -------------------------*/
 @layer components {
+  .MuiButtonBase-root {
+    display: none;
+  }
+
   .InputHolder {
     @apply text-[14px] text-[#C7C7C7] transition duration-500 
            drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
@@ -82,14 +86,54 @@ body {
   }
 }
 
+/*----------------- Statistics classes --------------------*/
+@layer components{
+  .border{
+    @apply border-black bg-[1px]; 
+  }
+}
+
+@layer components{
+  .StNumbers{
+    @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px]; 
+  }
+}
+
+@layer components{
+  .StTexts{
+    @apply text-[24px] text-[#5E5E5E] block max-[1000px]:text-[19px]; 
+  }
+}
+
+
+
+
+
+/*----------------- Advertising classes --------------------*/
+@layer components{
+  .SliderSpans{
+    @apply bg-[#D8D8D8] w-[14px] h-[14px] block rounded-full; 
+  }
+}
+
+@layer components{
+  .SliderImages{
+    @apply w-[60px] h-[60px] mt-[40px]; 
+  }
+}
+
+@layer components{
+  .RightLeft{
+    @apply w-[24px] h-[48px] mt-[40px]; 
+  }
+}
+
+
 /*----------------- News and Articles classes --------------------*/
 @layer components {
   .borderStyle {
     @apply border-black border-[1px];
   }
-}
-
-@layer components {
   .RightNewsSpans {
     @apply inline-block w-[80px] h-[25px] rounded-[20px] mt-[15px] border-[#787878] border-[3px] float-right;
   }
