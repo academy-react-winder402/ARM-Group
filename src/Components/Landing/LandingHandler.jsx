@@ -9,7 +9,7 @@ import { MainNews } from "./NewsAndArticles/Container.jsx";
 
 function LandingHandler() {
   return (
-    <>
+    <div className="cotainer md:w-[1300px] m-auto">
       <Svg />
       <SvgBackGround />
       <HeroSection />
@@ -18,9 +18,8 @@ function LandingHandler() {
       <Goals />
       <Course />
       <MainNews />
-    </>
+    </div>
   );
 }
-``;
 
 export default LandingHandler;
