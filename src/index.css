@@ -29,7 +29,7 @@ body {
   }
 
   .InputHolder > input {
-    @apply outline-none w-[86%] indent-[15px] focus:text-[#000000];
+    @apply outline-none w-[86%] indent-[15px] focus:text-[#000000] dark:bg-Dark_InputBG_1;
   }
 
   .ResponsiveIMG {
