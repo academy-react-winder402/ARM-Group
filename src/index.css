@@ -82,6 +82,49 @@ body {
   }
 }
 
+/*----------------- Statistics classes --------------------*/
+@layer components{
+  .border{
+    @apply border-black bg-[1px]; 
+  }
+}
+
+@layer components{
+  .StNumbers{
+    @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px]; 
+  }
+}
+
+@layer components{
+  .StTexts{
+    @apply text-[24px] text-[#5E5E5E] block max-[1000px]:text-[19px]; 
+  }
+}
+
+
+
+
+
+/*----------------- Advertising classes --------------------*/
+@layer components{
+  .SliderSpans{
+    @apply bg-[#D8D8D8] w-[14px] h-[14px] block rounded-full; 
+  }
+}
+
+@layer components{
+  .SliderImages{
+    @apply w-[60px] h-[60px] mt-[40px]; 
+  }
+}
+
+@layer components{
+  .RightLeft{
+    @apply w-[24px] h-[48px] mt-[40px]; 
+  }
+}
+
+
 /*----------------- News and Articles classes --------------------*/
 @layer components {
   .borderStyle {

@@ -6,7 +6,7 @@ export const LeftNewsSections = () => {
       <img
         src=""
         alt=""
-        className="block border w-[160px] h-[100%] rounded-[15px]"
+        className="block border w-[160px] h-[125px] rounded-[15px]"
       />
       <div className="h-[100%] w-[340px]">
         <span className="block w-[75px] h-[20px] text-[10px] text-[#FFFFFF] bg-[#7B7B7B] rounded-[13px] leading-[20px]">

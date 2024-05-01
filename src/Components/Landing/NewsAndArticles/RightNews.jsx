@@ -3,13 +3,11 @@ import React from "react";
 export const RightNews = () => {
   return (
     <div className="h-[435px] w-[395px]">
-      <div className="h-[280px]">
-        <img
-          src="/Image/NewsAndArticleSection/RightNews.svg"
-          alt=""
-          className="h-[100%] w-[100%] scale-[1.45]"
-        />
-      </div>
+      <img
+        src="/Image/NewsAndArticleSection/RightNews.svg"
+        alt=""
+        className="block w-[392px] h-[280px]"
+      />
       <div className="flex justify-between mt-[20px]">
         <span className="text-[10px] text-[#959595]">۱۴۰۰/۴/۲۳</span>
         <span className="inline-block w-[75px] h-[20px] text-[10px] text-[#FFFFFF] bg-[#7B7B7B] rounded-[13px] leading-[20px]">
