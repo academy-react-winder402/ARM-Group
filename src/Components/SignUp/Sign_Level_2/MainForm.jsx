@@ -2,10 +2,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SetNameAndFamily } from "../../../Redux/Slices/FormSlice";
-import { TextField } from "@mui/material";
+
+import BirthInputs from "./BirthInputs";
 
 function MainForm() {
   const [NameAndFamily, setNameAndFamily] = useState("");
+  const [BirthDay, setBirthDay] = useState("");
+  const [BirthMonth, setBirthMonth] = useState("");
+  const [BirthYear, setBirthYear] = useState("");
   const Errortxt = document.querySelectorAll(".InputHolder > span");
   const dispatch = useDispatch();
 
@@ -28,7 +32,9 @@ function MainForm() {
     console.log(NameAndFamily);
   }, [NameAndFamily]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    console.log(BirthDay);
+  }, [BirthDay]);
 
   return (
     <form action="">
@@ -57,9 +63,14 @@ function MainForm() {
           تاریخ تولد
         </h3>
         <div className=" w-[100%] h-[50px] flex justify-center gap-8 mb-[40px]">
-          <TextField className="w-[70px]" label="روز" variant="filled" />
-          <TextField className="w-[70px]" label="ماه" variant="filled" />
-          <TextField className="w-[70px]" label="سال" variant="filled" />
+          <BirthInputs
+            BirthDay={BirthDay}
+            BirthMonth={BirthMonth}
+            BirthYear={BirthYear}
+            setBirthDay={setBirthDay}
+            setBirthMonth={setBirthMonth}
+            setBirthYear={setBirthYear}
+          />
         </div>
       </div>
     </form>
