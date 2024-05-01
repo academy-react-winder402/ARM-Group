@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Slider = () => {
+export const Slider = () => {
   return (
     <div className='flex h-[100px]  gap-[30px] justify-between w-[100%] leading-[100px]'>
         <img src="./Image/Advertising/right.svg" className='RightLeft'/>
@@ -17,5 +17,3 @@ const Slider = () => {
     </div>      
   )
 }
-
-export default Slider

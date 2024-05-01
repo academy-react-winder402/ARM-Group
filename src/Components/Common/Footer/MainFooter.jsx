@@ -6,7 +6,7 @@ import FooterIcons from "./FooterIcons";
 
 const MainFooter = () => {
   return (
-    <div className="border w-[87.5%] mx-auto py-[25px] text-[#565656]">
+    <div className="w-[87.5%] mx-auto py-[25px] text-[#565656]">
       <div className="max-[1000px]:hidden">
         <BorderDiv/>
       </div>

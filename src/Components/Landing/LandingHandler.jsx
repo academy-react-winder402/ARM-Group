@@ -6,13 +6,13 @@ import { Education } from "./Education/Container.jsx";
 import { Goals } from "./Goals/Container.jsx";
 import { Course } from "./Course/Container.jsx";
 import { MainNews } from "./NewsAndArticles/Container.jsx";
-import Statistics from "./Statistics/Statistics.jsx";
-import MainAdvertising from "./Advertising/MainAdvertising.jsx";
+import { Statistics } from "./Statistics/Statistics.jsx";
+import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
 
 
 function LandingHandler() {
   return (
-    <div className="cotainer md:w-[1300px] m-auto">
+    <div className="container m-auto">
       <Svg />
       <SvgBackGround />
       <HeroSection />

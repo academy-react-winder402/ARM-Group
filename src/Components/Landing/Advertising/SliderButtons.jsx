@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SliderButtons = () => {
+export const SliderButtons = () => {
   return (
     <div className='flex flex-nowrap gap-[30px] justify-center mt-[100px] max-lg:gap-[20px]'>
         <span className='SliderSpans'></span>
@@ -14,5 +14,3 @@ const SliderButtons = () => {
     </div>
   )
 }
-
-export default SliderButtons

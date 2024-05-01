@@ -6,14 +6,14 @@ import { LeftNews } from "./LeftNews";
 export const MainNews = () => {
   return (
     <div
-      className="mt-[100px] border w-[87.5%] h-[920px] mx-auto px-[85px] text-center mb-[115px]"
+      className="mt-[100px] w-[87.5%] h-[920px] mx-auto text-center mb-[115px]"
       style={{ direction: "rtl" }}
     >
       <div className="text-[30px] text-[#5E5E5E] mt-[65px]">اخبار و مقالات</div>
       <div className="text-[16px] text-[#7E7E7E] mt-[20px]">
         مطالب روز حوزه تکنولوژی
       </div>
-      <div className="mt-[70px] flex gap-[35px] pt-[10px] px-[100px]">
+      <div className="mt-[70px] flex flex-nowrap justify-center gap-[30px] pt-[10px] px-[5%] overflow-hidden max-[800px]:px-[0px] overflow-visible">
         <RightNews />
         <LeftNews />
       </div>
