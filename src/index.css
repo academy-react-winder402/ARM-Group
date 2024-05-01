@@ -21,7 +21,8 @@ body {
   .InputHolder {
     @apply text-[14px] text-[#C7C7C7] transition duration-500 overflow-hidden
            drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
-           w-[310px] h-[42px] bg-white border-2 border-[#F8F8F8] rounded-[10px];
+           w-[310px] h-[42px] bg-white dark:bg-Dark_ContainerBG border-2 
+           border-[#F8F8F8] dark:border-Dark_Border  rounded-[10px];
   }
 
   .InputHolder:hover {
@@ -29,7 +30,8 @@ body {
   }
 
   .InputHolder > input {
-    @apply outline-none w-[86%] indent-[15px] focus:text-[#000000] dark:bg-Dark_InputBG_1;
+    @apply outline-none w-[86%] indent-[15px] focus:text-[#000000] dark:bg-Dark_InputBG_1 dark:text-Dark_TextColor_2
+    transition-all duration-[0.5s];
   }
 
   .ResponsiveIMG {

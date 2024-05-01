@@ -23,7 +23,7 @@ export default {
         Dark_MainBG: "#1E2022",
         Dark_ContainerBG: "#1A1C1E",
         Dark_InputBG_1: "#121212",
-        Dark_Border: "#495057",
+        Dark_Border: "#4f5152",
       },
       boxShadow: {
         "3xl": "1px 1px 6px 0px #adb5bd",
