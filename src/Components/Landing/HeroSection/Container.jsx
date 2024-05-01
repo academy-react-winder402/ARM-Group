@@ -1,7 +1,7 @@
 function HeroSection() {
   return (
     <div
-      className="container md:w-[1300px] h-[458px] m-auto mt-[30px] text-right flex flex-col max-md:items-center md:justify-start"
+      className="h-[458px] mt-[30px] text-right flex flex-col max-md:items-center md:justify-start"
       style={{ direction: "rtl" }}
     >
       <h1 className="text-3xl text-textColor mt-16">آکادمی بحرالعلوم</h1>

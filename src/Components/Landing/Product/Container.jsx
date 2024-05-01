@@ -1,10 +1,13 @@
 import { Details } from "./Details.jsx";
-import { Header } from "./Header.jsx";
+import { Subject } from "../../Common/Landing/Subject.jsx";
 
 function Product() {
   return (
-    <div className="cotainer border-black md:w-[1300px] md:h-[458px] m-auto md:mt-[100px] text-center">
-      <Header />
+    <div className="border-black md:h-[458px] m-auto md:mt-[100px] text-center">
+      <Subject
+        title="خدمات پژوهشگاه"
+        description="همه آنچه برای طی کردن مسیر پیشرفت نیاز دارید"
+      />
       <Details />
     </div>
   );
