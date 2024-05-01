@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import ThemeModeButt from "./ThemeModeButt";
 
 const HeaderSection3 = () => {
   return (
@@ -32,6 +33,8 @@ const HeaderSection3 = () => {
           ثبت نام
         </NavLink>
       </div>
+
+      <ThemeModeButt />
     </div>
   );
 };
