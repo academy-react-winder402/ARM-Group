@@ -12,8 +12,12 @@ body {
   font-family: IranSanse;
 }
 
-/*------------------------ Login calsses -------------------------*/
+/*------------------------ Login/SignUp/ForgetPass calsses -------------------------*/
 @layer components {
+  .MuiButtonBase-root {
+    display: none;
+  }
+
   .InputHolder {
     @apply text-[14px] text-[#C7C7C7] transition duration-500 
            drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.1)] flex justify-end 
@@ -87,9 +91,6 @@ body {
   .borderStyle {
     @apply border-black border-[1px];
   }
-}
-
-@layer components {
   .RightNewsSpans {
     @apply inline-block w-[80px] h-[25px] rounded-[20px] mt-[15px] border-[#787878] border-[3px] float-right;
   }
