@@ -3,7 +3,7 @@ export const Detail = () => {
     <div className="text-center flex flex-col md:items-end items-center md:justify-end">
       <div
         // style={{ direction: "rtl" }}
-        className="mt-12 pr-12 w-1/2 md:text-right flex flex-col"
+        className="mt-12 w-1/2 md:text-right flex flex-col"
       >
         <h2 className="text-bold text-2xl -tracking-widest text-textColor">
           دوره آموزش کودکان
@@ -15,7 +15,7 @@ export const Detail = () => {
       </div>
       <div
         // style={{ direction: "rtl" }}
-        className="mt-12 pr-12 w-1/2 md:text-right flex flex-col"
+        className="mt-12 w-1/2 md:text-right flex flex-col"
       >
         <h2 className="text-bold text-2xl -tracking-widest text-textColor">
           دوره آموزش بزرگسالان
