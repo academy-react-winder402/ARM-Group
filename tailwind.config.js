@@ -24,6 +24,7 @@ export default {
         Dark_ContainerBG: "#1A1C1E",
         Dark_InputBG_1: "#121212",
         Dark_Border: "#4f5152",
+        Dark_HeaderBgColor: "#1e2022",
       },
       boxShadow: {
         "3xl": "1px 1px 6px 0px #adb5bd",

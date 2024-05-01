@@ -1,13 +1,34 @@
 import { useEffect } from "react";
 import "./ThemeModeBT.css";
-import toast from "react-hot-toast";
+
 function ThemeModeButt() {
+  const Mode = localStorage.getItem("Mode");
+
   const ThemeHandler = () => {
     document.documentElement.classList.toggle("dark");
+    if (Mode === "dark") {
+      localStorage.setItem("Mode", "light");
+    } else {
+      localStorage.setItem("Mode", "dark");
+    }
   };
 
+  useEffect(() => {
+    if (Mode == null) {
+      localStorage.setItem("Mode", "light");
+    }
+
+    /* Checking Butt */
+    if (Mode == "dark") {
+      document.getElementById("DarkModeButt").checked = true;
+      document.documentElement.classList.add("dark");
+    } else if (Mode == "light") {
+      document.getElementById("DarkModeButt").checked = false;
+    }
+  }, []);
+
   return (
-    <label className="theme-switch absolute left-[210px] top-[-7px]">
+    <label className="theme-switch absolute left-[210px] top-[-9px]">
       <input
         id="DarkModeButt"
         onClick={ThemeHandler}

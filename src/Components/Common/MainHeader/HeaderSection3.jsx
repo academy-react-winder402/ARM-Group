@@ -6,7 +6,7 @@ const HeaderSection3 = () => {
     <div className="flex justify-center gap-[5px] flex-nowrap mt-[13px]">
       <div className="HeaderPics bg-[url('./Image/HeaderIcons/searchLogo.svg')]"></div>
       {/* <div className="HeaderPics bg-[url('./Image/HeaderIcons/loginLogo.svg') ]"></div> */}
-      <div className="flex gap-[10px] mt-[4px] mr-[10px] text-[14px] text-[#727272]">
+      <div className="flex gap-[10px] mt-[4px] mr-[10px] text-[14px] text-[#727272] dark:text-Dark_TextColor_1">
         <NavLink
           to={"/LogIn"}
           className={({ isActive }) =>
@@ -25,7 +25,7 @@ const HeaderSection3 = () => {
           className={({ isActive }) =>
             [
               isActive
-                ? "transition text-[#D4AF37]"
+                ? "transition text-[#D4AF37] "
                 : "transition hover:scale-110 hover:text-[#D4AF37]",
             ].join(" ")
           }
