@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 
 import Sign_1 from "./Sign_Level_1/Container";
 import Sign_2 from "./Sign_Level_2/Container";
+import Sign_3 from "./Sign_Level_3/Container";
+
 import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
 import toast from "react-hot-toast";
@@ -57,6 +59,31 @@ export default function simple() {
       </Button>
     );
   };
+  const finishTemplate = (Finish) => {
+    return (
+      <Button
+        className="FormWizardButton w-[300px]"
+        style={{
+          background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+          fontSize: "14px",
+          fontWeight: "bold",
+          width: "200px",
+          /* position: "absolute",
+          left: "7%", */
+        }}
+        variant="contained"
+        onClick={Finish}
+      >
+        تکمیل ثبت نام
+      </Button>
+    );
+  };
+
+  const handleComplete = () => {
+    toast.success("ثبت نام شما با موفقیت انجام شد", {
+      style: { direction: "rtl", marginTop: "42px" },
+    });
+  };
 
   return (
     <>
@@ -64,9 +91,11 @@ export default function simple() {
         <FormWizard
           color="#009087"
           stepSize="xs"
-          startIndex={1}
+          startIndex={0}
           nextButtonTemplate={nextTemplate}
           backButtonTemplate={backTemplate}
+          finishButtonTemplate={finishTemplate}
+          onComplete={handleComplete}
         >
           <FormWizard.TabContent icon="ti-user">
             <Sign_1 />
@@ -81,7 +110,7 @@ export default function simple() {
           </FormWizard.TabContent>
 
           <FormWizard.TabContent icon="ti-check">
-            <h3>Last Tab</h3>
+            <Sign_3 />
           </FormWizard.TabContent>
         </FormWizard>
         {/* add style */}

@@ -36,6 +36,9 @@ const customTheme = (outerTheme) =>
               borderBottom:
                 "2px solid var(--TextField-brandBorderFocusedColor)",
             },
+            ".": {
+              backgroundColor: "white",
+            },
           },
         },
       },
