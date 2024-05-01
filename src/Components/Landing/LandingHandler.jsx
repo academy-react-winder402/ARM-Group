@@ -12,7 +12,7 @@ import MainAdvertising from "./Advertising/MainAdvertising.jsx";
 
 function LandingHandler() {
   return (
-    <>
+    <div className="cotainer md:w-[1300px] m-auto">
       <Svg />
       <SvgBackGround />
       <HeroSection />
@@ -23,9 +23,8 @@ function LandingHandler() {
       <Statistics />
       <MainAdvertising />
       <MainNews />
-    </>
+    </div>
   );
 }
-``;
 
 export default LandingHandler;

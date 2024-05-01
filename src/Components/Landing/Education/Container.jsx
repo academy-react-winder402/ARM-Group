@@ -1,10 +1,15 @@
-import { Header } from "./Header.jsx";
 import { Detail } from "./Detail.jsx";
+import { Subject } from "../../Common/Landing/Subject.jsx";
 
 export const Education = () => {
   return (
-    <div className="cotainer md:w-[1300px] m-auto md:mt-44 text-right">
-      <Header />
+    <div className="md:mt-44 text-right">
+      <div className="text-center">
+        <Subject
+          title="آموزش‌های متناسب با سنین مختلف"
+          description="متد‌های آموزشی متفاوت برای بهره‌مندی حداکثری سنین مختلف"
+        />
+      </div>
       <Detail />
     </div>
   );

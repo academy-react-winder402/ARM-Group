@@ -4,7 +4,7 @@
 import FormWizard from "react-form-wizard-component";
 import "react-form-wizard-component/dist/style.css";
 import { useEffect, useState } from "react";
-import "./ButtStyle.css";
+
 import Sign_1 from "./Sign_Level_1/Container";
 import Sign_2 from "./Sign_Level_2/Container";
 import { useSelector } from "react-redux";
@@ -24,14 +24,13 @@ export default function simple() {
   const nextTemplate = (GoNext) => {
     return (
       <Button
-        className="w-[100px] h-[40px]"
+        className="FormWizardButton"
         style={{
           background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
-          fontSize: "16px",
+          fontSize: "14px",
           fontWeight: "bold",
-          position: "absolute",
-          right: "9%",
-          bottom: "12%",
+          /* position: "absolute",
+          right: "7%", */
         }}
         variant="contained"
         onClick={GoNext}
@@ -40,20 +39,19 @@ export default function simple() {
       </Button>
     );
   };
-  const backTemplate = (e) => {
+  const backTemplate = (GoBack) => {
     return (
       <Button
-        className="w-[100px] h-[40px]"
+        className="FormWizardButton"
         style={{
           background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
-          fontSize: "16px",
+          fontSize: "14px",
           fontWeight: "bold",
-          position: "absolute",
-          left: "10%",
-          bottom: "5%",
+          /* position: "absolute",
+          left: "7%", */
         }}
         variant="contained"
-        onClick={e}
+        onClick={GoBack}
       >
         مرحله قبل
       </Button>
@@ -62,11 +60,11 @@ export default function simple() {
 
   return (
     <>
-      <div className="relative pb-24 mx-auto mt-[70px] bg-[#FBFBFB] w-[75%] h-auto border border-[#DCDCDC] rounded-[20px]">
+      <div className="relative pb-10 mx-auto mt-[40px] bg-[#FBFBFB] w-[75%] h-auto border border-[#DCDCDC] rounded-[20px]">
         <FormWizard
           color="#009087"
           stepSize="xs"
-          startIndex={0}
+          startIndex={1}
           nextButtonTemplate={nextTemplate}
           backButtonTemplate={backTemplate}
         >
@@ -79,7 +77,7 @@ export default function simple() {
             isValid={checkValidateTab()}
             validationError={errorMessages}
           >
-            <h3>Second Tab</h3>
+            <Sign_2 />
           </FormWizard.TabContent>
 
           <FormWizard.TabContent icon="ti-check">
@@ -89,6 +87,19 @@ export default function simple() {
         {/* add style */}
         <style>{`
         @import url("https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css");
+
+        .wizard-card-footer{
+          display: flex;
+          justify-content: end;
+          gap:30px;
+          margin-right: 120px;
+        }
+
+        .FormWizardButton {
+          width: 100px;
+          height: 40px;          
+        }
+
       `}</style>
       </div>
     </>
