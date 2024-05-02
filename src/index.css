@@ -88,12 +88,6 @@ body {
 
 /*----------------- Statistics classes --------------------*/
 @layer components{
-  .border{
-    @apply border-black bg-[1px]; 
-  }
-}
-
-@layer components{
   .StNumbers{
     @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px]; 
   }
