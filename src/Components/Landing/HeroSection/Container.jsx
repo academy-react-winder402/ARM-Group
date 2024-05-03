@@ -1,4 +1,9 @@
+import DefualtButton from "../../Common/DefualtButton";
+import { useNavigate } from "react-router-dom";
+
 function HeroSection() {
+  const navigate = useNavigate();
+
   return (
     <div
       className="h-[458px] mt-[30px] mx-auto w-[85%] text-right flex flex-col max-md:items-center md:justify-start"
@@ -9,9 +14,22 @@ function HeroSection() {
         آکادمی جامعه کوچکی است از ذهن های بزرگ برای رشد مراتب تخصص و دانستگی هدف
         تغییر سرنوشت هاست با درک دوباره لذت کدنویسی
       </p>
-      <button className="text-base text-center bg-[#E1C564] w-[180px] h-[40px] rounded-lg text-white shadow-lg hover:text-[#343a40] hover:bg-[#339af0]">
-        مشاهده دوره ها
-      </button>
+
+      <div className="w-[180px] h-[40px]  rounded-lg overflow-hidden">
+        <DefualtButton
+          innerHTML="مشاهده دوره ها"
+          Style={{
+            background: "linear-gradient(to right bottom, #D4AF37, #E1C564)",
+            fontSize: "16px",
+            fontFamily: "IranSanse",
+          }}
+          onClick={() => {
+            setTimeout(() => {
+              navigate("/Courses");
+            }, 300);
+          }}
+        />
+      </div>
     </div>
   );
 }

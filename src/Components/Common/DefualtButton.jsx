@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import Button from "@mui/material/Button";
 
-function DefualtButton({ innerHTML, onClick }) {
+function DefualtButton({ innerHTML, onClick, Style }) {
+  const Defualt_Style = {
+    background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+    fontSize: "16px",
+    fontFamily: "IranSanse",
+  };
+
   return (
     <Button
-      className="w-[100%] h-[40px]"
-      style={{
-        background: "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
-        fontSize: "16px",
-        fontWeight: "bold",
-      }}
+      className="w-[100%] hover:scale-[1.01] transition-all"
+      style={Style ? Style : Defualt_Style}
       variant="contained"
       onClick={() => (onClick ? onClick() : null)}
     >
