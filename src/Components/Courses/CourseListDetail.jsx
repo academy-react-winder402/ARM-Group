@@ -14,13 +14,17 @@ export const CourseListDetail = ({
   // FaBeer,
 }) => {
   return (
-    <div className="w-64 h-auto flex-none shadow-3xl rounded-xl p-1.5 cursor-pointer">
+    <div className="w-64 h-auto flex-none shadow-3xl rounded-xl p-1 cursor-pointer">
       <div className="h-44 bg-slate-500 rounded-xl">
         <img className="rounded-xl h-full w-full" src={courseImg} alt="image" />
       </div>
       <div className="h-auto rounded-xl">
-        <h2 className="py-3 text-sm text-textColor"> {title} </h2>
-        <p className="text-textPaleColor text-xs pb-1">{desc}</p>
+        <h2 className="py-3 text-sm text-textColor dark:text-[#adb5bd]">
+          {title}
+        </h2>
+        <p className="text-textPaleColor text-xs pb-1 dark:text-[#868e96]">
+          {desc}
+        </p>
         <div className="flex flex-row-reverse gap-2 items-center ml-2 mt-[-6px]">
           <div className="w-10 h-10 bg-slate-400 rounded-full">
             <img src={teacherImg} alt="teacher" />
