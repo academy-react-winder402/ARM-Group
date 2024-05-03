@@ -6,9 +6,9 @@ export const Details = () => {
       <div className="relative bg-[#FAFAF9] w-[87%] h-16 flex items-center justify-end shadow-md rounded-3xl text-xl pr-4 col-start-2 col-end-4 row-span-1 cursor-pointer">
         <p>مشاوره</p>
         <img
-          className="w-12 h-12 absolute left-6 top-[-16px]"
-          src="./Image/Landing/advice.svg"
-          alt=""
+          className="w-36 h-12 absolute left-6 top-[-16px]"
+          src="../../../../public/Image/Landing/advice.svg"
+          alt="مشاوره"
         />
       </div>
       <div className="relative bg-[#FAFAF9] w-[87%] h-16 flex items-center justify-end shadow-md rounded-3xl text-xl pr-4 col-start-4 col-end-6 row-span-1 cursor-pointer">
@@ -16,7 +16,7 @@ export const Details = () => {
         <img
           className="w-12 h-12 absolute left-6 top-[-16px]"
           src="./Image/Landing/test.svg"
-          alt=""
+          alt="آزمون"
         />
       </div>
       <div className="relative bg-[#FAFAF9] w-[87%] h-16 flex items-center justify-end shadow-md rounded-3xl text-xl pr-4 col-start-1 col-end-3 row-span-2 cursor-pointer">
@@ -24,7 +24,7 @@ export const Details = () => {
         <img
           className="w-12 h-12 absolute left-6 top-[-16px]"
           src="./Image/Landing/course.svg"
-          alt=""
+          alt="دوره های تخصصی"
         />
       </div>
       <div className="relative bg-[#FAFAF9] w-[87%] h-16 flex items-center justify-end shadow-md rounded-3xl text-xl pr-4 col-start-3 col-end-5 row-span-2 cursor-pointer">
@@ -32,7 +32,7 @@ export const Details = () => {
         <img
           className="w-12 h-12 absolute left-6 top-[-16px]"
           src="./Image/Landing/jobs.svg"
-          alt=""
+          alt="فرصت‌های شغلی"
         />
       </div>
     </div>
