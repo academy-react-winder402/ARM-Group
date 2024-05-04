@@ -88,7 +88,7 @@ body {
   }
 }
 
-/*----------------- Statistics classes --------------------*/
+/*----------------- Landing / Statistics classes --------------------*/
 @layer components {
   .StNumbers {
     @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px];
@@ -103,7 +103,7 @@ body {
   }
 }
 
-/*----------------- Advertising classes --------------------*/
+/*----------------- Landing / Advertising classes --------------------*/
 @layer components {
   .SliderSpans {
     @apply bg-[#D8D8D8] w-[14px] h-[14px] block rounded-full;
@@ -118,12 +118,23 @@ body {
   }
 }
 
-/*----------------- News and Articles classes --------------------*/
+/*----------------- Landing / News and Articles classes --------------------*/
 @layer components {
   .borderStyle {
     @apply border-black border-[1px];
   }
   .RightNewsSpans {
     @apply inline-block w-[80px] h-[25px] rounded-[20px] mt-[15px] border-[#787878] border-[3px] float-right;
+  }
+}
+
+/*-----------------  Course / Filter  --------------------*/
+@layer components {
+  .FilterSecton_1 {
+    @apply mt-5 pl-4 pb-2 rounded-lg shadow-3xl  h-[60px];
+  }
+
+  .FilterSecton_1 > * {
+    @apply h-[100px];
   }
 }

@@ -1,20 +1,18 @@
+import { Box, Slider } from "@mui/material";
+
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Slider from "@mui/material/Slider";
 
-function valuetext(value) {
-  return `${value}°C`;
-}
-
-export const RangeSlider = () => {
+function PriceFilter() {
   const [value, setValue] = React.useState([20, 37]);
-
+  const valuetext = (value) => {
+    return `${value}°C`;
+  };
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <Box sx={{ width: 300 }}>
+    <Box className="w-[400px] h-[10px] border border-red-800">
       <Slider
         getAriaLabel={() => "Temperature range"}
         value={value}
@@ -24,4 +22,6 @@ export const RangeSlider = () => {
       />
     </Box>
   );
-};
+}
+
+export default PriceFilter;

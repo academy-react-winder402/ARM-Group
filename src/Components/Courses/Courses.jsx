@@ -1,5 +1,5 @@
 import { CourseHeader } from "./CourseHeader.jsx";
-import { FilterCourse } from "./FilterCourse.jsx";
+import { FilterCourse } from "./Filter/FilterCourse.jsx";
 import { CourseList } from "./CourseList.jsx";
 import { Fragment } from "react";
 
