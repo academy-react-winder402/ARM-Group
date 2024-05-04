@@ -1,4 +1,4 @@
-import { Box, Slider } from "@mui/material";
+import { Slider } from "@mui/material";
 
 import * as React from "react";
 
@@ -12,7 +12,7 @@ function PriceFilter() {
   };
 
   return (
-    <Box className="w-[400px] h-[10px] border border-red-800">
+    <div className="flex">
       <Slider
         getAriaLabel={() => "Temperature range"}
         value={value}
@@ -20,7 +20,8 @@ function PriceFilter() {
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
       />
-    </Box>
+      PriceFilter
+    </div>
   );
 }
 
