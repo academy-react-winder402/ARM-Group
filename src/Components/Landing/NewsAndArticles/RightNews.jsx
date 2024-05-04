@@ -2,12 +2,10 @@ import React from "react";
 
 export const RightNews = () => {
   return (
-    <div className="h-[435px] w-[395px]">
-      <img
-        src="/Image/NewsAndArticleSection/RightNews.svg"
-        alt=""
-        className="block w-[392px] h-[280px]"
-      />
+    <div className="w-[392px] h-[435px]">
+      <div className="w-[392px] h-[280px]">
+        <img className="inline-block w-[100%] h-[100%] rounded-[15px]" src="./Image/NewsAndArticleSection/RightNews.png"/>
+      </div>
       <div className="flex justify-between mt-[20px]">
         <span className="text-[10px] text-[#959595]">۱۴۰۰/۴/۲۳</span>
         <span className="inline-block w-[75px] h-[20px] text-[10px] text-[#FFFFFF] bg-[#7B7B7B] rounded-[13px] leading-[20px]">

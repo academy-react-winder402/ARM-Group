@@ -1,10 +1,10 @@
-import React from 'react'
-import Slider from './Slider'
-import SliderButtons from './SliderButtons'
+import React from 'react';
+import { Slider } from './Slider';
+import { SliderButtons } from './SliderButtons';
 
-const MainAdvertising = () => {
+export const MainAdvertising = () => {
   return (
-    <div className='border mt-[120px] h-[690px] w-[87.5%] mx-auto text-center'  style={{direction: 'rtl'}}>
+    <div className='mt-[120px] h-[690px] w-[87.5%] mx-auto text-center'  style={{direction: 'rtl'}}>
         <div className='text-[30px] text-[#5E5E5E] mt-[65px]'>با افتخار از آکادمی بحرالعلوم</div>
         <div className='text-[16px] text-[#7E7E7E] mt-[20px] mb-[70px]'>موفقیت و حضور دانش آموخته‌های ما در شرکت های مطرح</div>
         <div className='mr-[120px] text-right flex flex-nowrap'> 
@@ -21,5 +21,3 @@ const MainAdvertising = () => {
     </div>
   )
 }
-
-export default MainAdvertising

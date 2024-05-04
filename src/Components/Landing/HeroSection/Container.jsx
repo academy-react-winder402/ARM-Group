@@ -6,6 +6,7 @@ function HeroSection() {
 
   return (
     <div
+      className="w-[87.5%] mx-auto h-[458px] mt-[30px] text-right flex flex-col max-md:items-center md:justify-start"
       className="h-[458px] mt-[30px] mx-auto w-[85%] text-right flex flex-col max-md:items-center md:justify-start"
       style={{ direction: "rtl" }}
     >
