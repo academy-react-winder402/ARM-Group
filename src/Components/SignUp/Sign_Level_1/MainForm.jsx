@@ -52,7 +52,6 @@ function MainForm() {
 
   useEffect(() => {
     dispatch(SetPhoneNumber(PhoneNumber));
-    console.log(PhoneNumber);
   }, [PhoneNumber]);
 
   return (
