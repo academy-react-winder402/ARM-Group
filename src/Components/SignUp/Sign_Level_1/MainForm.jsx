@@ -11,7 +11,7 @@ function MainForm() {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [Code, setCode] = useState("");
   const dispatch = useDispatch();
-  const Errortxt = document.querySelectorAll(".InputHolder > span");
+  var Errortxt = document.querySelectorAll(".InputHolder > span");
 
   const ShowPhoneErr = (innerHTML) => {
     Errortxt[0].classList.remove("HideError");
@@ -37,6 +37,7 @@ function MainForm() {
         const CodeInput = document.getElementById("CodeInput");
         CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
         CodeInput.classList.remove("invisible", "opacity-0", "h-0");
+        CodeInput.classList.add("mb-9");
 
         HidePhoneErr();
       } else {
@@ -46,28 +47,33 @@ function MainForm() {
   };
 
   useEffect(() => {
+    Errortxt = document.querySelectorAll(".InputHolder > span");
+  }, []);
+
+  useEffect(() => {
     dispatch(SetPhoneNumber(PhoneNumber));
     console.log(PhoneNumber);
   }, [PhoneNumber]);
 
   return (
     <form action="">
-      <div className="mt-[55px] w-[100%] m-auto">
+      <div className="mt-[55px] w-[100%] m-auto ">
         <h3
           dir="rtl"
           className="text-[#727272] text[17px] text-right indent-[15px]  mb-[10px]"
         >
           شماره تلفن
         </h3>
-        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder overflow-visible mb-10 bg-[url('./Image/SignUp/mobile-notch.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
+            className="rounded-[50px]"
             placeholder="شماره تلفن خود را وارد کنید"
             dir="rtl"
             type="text"
             value={PhoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
-          <span className="HideError text-[10px] text-red-700 absolute left-[40px] top-[-30px]  "></span>
+          <span className="ShowError text-[10px] text-red-700 absolute left-[40px] top-[-30px]  "></span>
         </div>
 
         <h3
@@ -79,7 +85,7 @@ function MainForm() {
         </h3>
         <div
           id="CodeInput"
-          className=" transition-all InputHolder mb-10 m-auto border w-[70%] invisible opacity-0 h-0"
+          className=" transition-all InputHolder  m-auto border w-[70%] invisible opacity-0 h-0"
         >
           <input
             className="text-center indent-0 tracking-[10px]"

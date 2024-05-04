@@ -13,20 +13,6 @@ function MainForm() {
   const Errortxt = document.querySelectorAll(".InputHolder > span");
   const dispatch = useDispatch();
 
-  const ShowPhoneErr = (innerHTML) => {
-    Errortxt[0].classList.remove("HideError");
-    Errortxt[0].classList.add("ShowError");
-    Errortxt[0].classList.add("scale-down-center");
-    Errortxt[0].innerHTML = innerHTML;
-    setTimeout(() => {
-      Errortxt[0].classList.remove("scale-down-center");
-    }, 1000);
-  };
-  const HidePhoneErr = () => {
-    Errortxt[0].classList.add("HideError");
-    Errortxt[0].classList.remove("ShowError");
-  };
-
   useEffect(() => {
     dispatch(SetNameAndFamily(NameAndFamily));
     console.log(NameAndFamily);
@@ -45,7 +31,7 @@ function MainForm() {
         >
           نام و نام خانوادگی
         </h3>
-        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/profileLogIn.svg')] dark:bg-[url('./Image/LogIn/profileLogIn-Dark.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
             placeholder="نام و نام خانوادگی خود را وارد کنید"
             dir="rtl"
