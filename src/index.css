@@ -132,7 +132,7 @@ body {
 @layer components {
   .FilterSecton_1 {
     @apply mt-5 pl-[10px] pr-[10px] pb-2 rounded-lg shadow-3xl
-      h-[70px] flex gap-4 bg-white;
+      h-[70px] flex gap-4 bg-white text-[#808080];
   }
 
   .FilterSecton_1 > label {
@@ -146,18 +146,26 @@ body {
   }
 
   .FilterSecton_1 > input:checked + label {
-    @apply flex-grow-[3];
+    @apply flex-grow-[10];
   }
 
   .CostumSelect {
     @apply bg-[#F2F2F2] w-[100%] h-[100%]
-    rounded-[10px] relative text-[14px] flex justify-around;
+    rounded-[10px] relative text-[14px] flex justify-start pr-5 pl-10;
   }
 
   .CostumSelect > div {
-    @apply invisible opacity-0 transition-all
+    @apply invisible opacity-0 transition-all duration-[0.3s]
     w-[100%] pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
-    top-[130%];
+    top-[130%] right-0;
+  }
+
+  .CostumSelect > span {
+    @apply truncate max-w-[160px];
+  }
+
+  .CostumSelect > img {
+    @apply transition-all duration-[0.5s] w-[15px] h-[9px] mt-5 absolute left-3;
   }
 
   .CostumSelect > div.show {

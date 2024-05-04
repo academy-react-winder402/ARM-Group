@@ -12,14 +12,14 @@ function PriceFilter() {
   };
 
   return (
-    <div className="flex">
-      <Slider
+    <div className="flex justify-center">
+      {/* <Slider
         getAriaLabel={() => "Temperature range"}
         value={value}
         onChange={handleChange}
         valueLabelDisplay="auto"
         getAriaValueText={valuetext}
-      />
+      /> */}
       PriceFilter
     </div>
   );

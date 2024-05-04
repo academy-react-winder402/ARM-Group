@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 
 function SelectSort() {
   const [Options] = useState([
-    { value: "0", innerHTML: "هیچکدام" },
+    { value: "0", innerHTML: "هیچکدام", defaultHTML: "مرتب سازی" },
     { value: "1", innerHTML: "مورد قابل انتخاب 1" },
     { value: "2", innerHTML: "مورد قابل انتخاب 2" },
     { value: "3", innerHTML: "مورد قابل انتخاب 3" },
@@ -41,18 +41,17 @@ function SelectSort() {
           <li
             key={key}
             onClick={() => {
-              Select(option.value, option.innerHTML);
+              Select(
+                option.value,
+                option.defaultHTML ? option.defaultHTML : option.innerHTML
+              );
             }}
           >
             {option.innerHTML}
           </li>
         ))}
       </div>
-      <img
-        src="./public/Image/Course/SelectArrow.png"
-        className="w-[15px] h-[9px] mt-5 mr-[30%] transition-all"
-        alt=""
-      />
+      <img src="./public/Image/Course/SelectArrow.png" alt="" />
     </ul>
   );
 }
