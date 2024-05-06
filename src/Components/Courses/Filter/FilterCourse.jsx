@@ -13,17 +13,17 @@ function FilterCourse() {
       </label>
 
       <input id="F/[2]" name="RadioInputs" type="radio" />
-      <label className="max-w-[300px] min-w-[50px]" htmlFor="F/[2]">
+      <label className="max-w-[250px] min-w-[50px]" htmlFor="F/[2]">
         <SelectCategorie />
       </label>
 
       <input id="F/[3]" name="RadioInputs" type="radio" />
-      <label className="max-w-[300px] min-w-[50px]" htmlFor="F/[3]">
+      <label className="max-w-[250px] min-w-[50px]" htmlFor="F/[3]">
         <SelectOstad />
       </label>
 
       <input id="F/[4]" name="RadioInputs" type="radio" />
-      <label className="max-w-[300px] min-w-[50px]" htmlFor="F/[4]">
+      <label className="max-w-[250px] min-w-[50px]" htmlFor="F/[4]">
         <SelectSort />
       </label>
 
