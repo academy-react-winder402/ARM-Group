@@ -1,3 +1,5 @@
+import "./Style/Style.css";
+
 import { CourseHeader } from "./CourseHeader.jsx";
 import { FilterCourse } from "./Filter/FilterCourse.jsx";
 import { CourseList } from "./CourseList.jsx";

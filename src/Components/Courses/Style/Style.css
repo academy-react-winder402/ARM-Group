@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*-----------------  Course / Filter  --------------------*/
+/* Filter section 1: */
+@layer components {
+  .FilterSecton_1 {
+    @apply mt-5 pl-[10px] pr-[10px] pb-2 rounded-lg shadow-3xl
+        h-[70px] flex gap-4 bg-white text-[#808080];
+  }
+
+  .FilterSecton_1 > label {
+    @apply w-[200px] h-[50px] mt-[10px] cursor-pointer hover:flex-grow-[1.5]
+       transition-all duration-[0.5s] rounded-[10px] bg-[#F2F2F2] 
+      text-center leading-[50px]  flex-grow-[1];
+  }
+
+  .FilterSecton_1 > input {
+    @apply hidden;
+  }
+
+  .FilterSecton_1 > input:checked + label {
+    @apply flex-grow-[10];
+  }
+
+  .CostumSelect {
+    @apply bg-[#F2F2F2] w-[100%] h-[100%]
+      rounded-[10px] relative text-[14px] flex justify-start pr-5 pl-10;
+  }
+
+  .CostumSelect > div {
+    @apply invisible opacity-0 transition-all duration-[0.3s]
+      w-[100%] pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
+      top-[130%] right-0;
+  }
+
+  .CostumSelect > span {
+    @apply truncate max-w-[160px];
+  }
+
+  .CostumSelect > img {
+    @apply transition-all duration-[0.5s] w-[15px] h-[9px] mt-5 absolute left-3;
+  }
+
+  .CostumSelect > div.show {
+    @apply visible opacity-100;
+  }
+
+  .CostumSelect > div > li {
+    @apply w-[90%] h-[40px] leading-[40px] m-auto pr-4 mt-1 
+      text-right rounded-[10px] hover:bg-[#E8E8E8];
+  }
+
+  .CostumSelect > div > li.selected {
+    @apply bg-[#E8E8E8];
+  }
+}
+
+/* Filter section 2: */
+@layer components {
+  .FilterSecton_2 {
+    @apply mt-[15px]  
+        h-[50px] flex text-[#808080] /* border border-black */;
+  }
+
+  .FilterSecton_2 > div {
+    @apply h-full text-center;
+  }
+
+  .CostumButtFilter {
+    @apply w-[50px] min-w-[50px] bg-white rounded-[9px] shadow-3xl mr-4;
+  }
+
+  .SelectedButView {
+    @apply fill-[#575757] scale-[110];
+  }
+}

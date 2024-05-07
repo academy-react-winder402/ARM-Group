@@ -1,5 +1,5 @@
 import { Box, Slider } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function PriceFilter() {
   const [value, setValue] = useState([30, 70]);
