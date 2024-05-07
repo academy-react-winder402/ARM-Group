@@ -3,7 +3,7 @@ import LogIn from "../../Pages/LogIn/LogIn.jsx";
 import SignUp from "../../Pages/SignUp/SignUp.jsx";
 import ForgetPass from "../../Pages/ForgetPass/ForgetPass.jsx";
 import Courses from "../../Pages/Courses/Courses.jsx";
-import Article from "../../Pages/Article/Article.jsx";
+import Article from "../../Pages/Articless/Article.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
 
 /* LayOuts: */

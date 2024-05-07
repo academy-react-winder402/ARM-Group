@@ -1,4 +1,4 @@
-import Articles from "../../Components/Articles/Articles";
+import Articles from "../../Components/Articless/Articles";
 
 function Article() {
   return <Articles />;
