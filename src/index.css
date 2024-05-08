@@ -130,6 +130,13 @@ body {
 
 /*----------------- Article Page --------------------*/
 @layer components {
+  /* .article:nth-child(1) {
+    @apply h-[290px];
+    .lastComment {
+      @apply hidden;
+    }
+  } */
+
   /* Common Views */
   .view1,
   .view2,

@@ -1,7 +1,7 @@
 function View() {
   return (
     <>
-      <div className="view2">
+      <div className="view3 article ">
         <div>
           <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
         </div>
