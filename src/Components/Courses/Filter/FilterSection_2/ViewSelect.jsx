@@ -1,9 +1,25 @@
+import { useState } from "react";
+
 function ViewSelect() {
+  const [Selection, SetSelection] = useState({
+    ListBut: "",
+    GridBut: "SelectedButView",
+    SubClass: "List",
+  });
+
+  const ListViewHandler = () => {
+    SetSelection({ ListBut: "SelectedButView", GridBut: "", SubClass: "Grid" });
+  };
+  const GridViewHandler = () => {
+    SetSelection({ ListBut: "", GridBut: "SelectedButView", SubClass: "List" });
+  };
+
   return (
     <>
-      <div className="w-full h-full flex gap-5 justify-center pt-[14px]">
+      <div className="w-full h-full flex gap-4 justify-center">
         <svg
-          className="cursor-pointer w-[20px] h-[20px] fill-[#b1b1b1]"
+          onClick={ListViewHandler}
+          className={Selection.ListBut}
           xmlns="http://www.w3.org/2000/svg"
           width="20"
           height="20"
@@ -33,10 +49,8 @@ function ViewSelect() {
 
         <svg
           id="apps"
-          onClick={() => {
-            alert();
-          }}
-          className="cursor-pointer w-[20px] h-[20px] fill-[#b1b1b1]"
+          onClick={GridViewHandler}
+          className={Selection.GridBut}
           xmlns="http://www.w3.org/2000/svg"
           width="27.25"
           height="27.25"
@@ -64,6 +78,22 @@ function ViewSelect() {
             data-name="Path 57"
             d="M20.948,13H17.542A4.542,4.542,0,0,0,13,17.542v3.406a4.542,4.542,0,0,0,4.542,4.542h3.406a4.542,4.542,0,0,0,4.542-4.542V17.542A4.542,4.542,0,0,0,20.948,13Zm2.271,7.948a2.271,2.271,0,0,1-2.271,2.271H17.542a2.271,2.271,0,0,1-2.271-2.271V17.542a2.271,2.271,0,0,1,2.271-2.271h3.406a2.271,2.271,0,0,1,2.271,2.271Z"
             transform="translate(1.76 1.76)"
+          />
+        </svg>
+
+        <svg
+          className={Selection.SubClass}
+          xmlns="http://www.w3.org/2000/svg"
+          width="10"
+          height="5"
+          viewBox="0 0 10 5"
+        >
+          <path
+            id="Subtraction_1"
+            data-name="Subtraction 1"
+            d="M-2682,5h-10a5.006,5.006,0,0,1,5-5,5.006,5.006,0,0,1,5,5Z"
+            transform="translate(2692)"
+            fill="#91accf"
           />
         </svg>
       </div>

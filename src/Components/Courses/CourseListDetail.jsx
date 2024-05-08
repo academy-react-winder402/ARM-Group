@@ -14,7 +14,7 @@ export const CourseListDetail = ({
   // FaBeer,
 }) => {
   return (
-    <div className="w-64 h-auto flex-none shadow-3xl rounded-xl p-1 cursor-pointer">
+    <div className="w-[270px] p-2  h-auto flex-none shadow-3xl rounded-xl cursor-pointer">
       <div className="h-44 bg-slate-500 rounded-xl">
         <img className="rounded-xl h-full w-full" src={courseImg} alt="image" />
       </div>

@@ -12,7 +12,7 @@ const Courses = () => {
         className=" w-[95%]  mt-10 mx-auto px-8"
         style={{ direction: "rtl" }}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-14">
           <CourseHeader />
           <FilterCourse />
           <CourseList />

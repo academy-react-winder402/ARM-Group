@@ -65,14 +65,40 @@
   }
 
   .FilterSecton_2 > div {
-    @apply h-full text-center;
+    @apply h-full;
   }
 
   .CostumButtFilter {
-    @apply w-[50px] min-w-[50px] bg-white rounded-[9px] shadow-3xl mr-4;
+    @apply min-w-[100px] max-w-[100px] bg-white rounded-[9px] shadow-3xl mr-4;
   }
 
-  .SelectedButView {
-    @apply fill-[#575757] scale-[110];
+  .CostumButtFilter > div {
+    @apply relative overflow-hidden;
+  }
+
+  .CostumButtFilter > div > svg:nth-child(1),
+  .CostumButtFilter > div > svg:nth-child(2) {
+    @apply fill-[#B1B1B1] cursor-pointer w-[20px] h-[20px]
+     transition-all duration-[0.2s] mt-[14px];
+  }
+
+  .CostumButtFilter > div > svg:nth-child(2) {
+    @apply w-[25px] h-[25px]  mt-[11px];
+  }
+
+  .CostumButtFilter > div > svg:nth-child(3) {
+    @apply absolute bottom-[-1px] transition-all duration-[0.5s]  left-0 scale-[2];
+  }
+
+  .CostumButtFilter > div > svg:nth-child(3).Grid {
+    @apply left-[65px];
+  }
+
+  .CostumButtFilter > div > svg:nth-child(3).List {
+    @apply left-[27%];
+  }
+
+  .CostumButtFilter > div > svg.SelectedButView {
+    @apply scale-[1.1] fill-[#575757];
   }
 }
