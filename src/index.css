@@ -141,6 +141,20 @@ body {
   .view2 > div > img {
     @apply h-[85px] w-full rounded-2xl;
   }
+  .view1,
+  .view2 {
+    @apply flex-col w-[225px];
+  }
+  .view1 > div:nth-child(1),
+  .view2 > div:nth-child(1),
+  .view3 > div:nth-child(1) {
+    @apply relative;
+  }
+  .view1 .grouping,
+  .view2 .grouping,
+  .view3 .grouping {
+    @apply w-[80px] h-6 bg-[#F5F5F5] shadow-3xl rounded-2xl flex justify-center items-center text-textMidColor text-[11px];
+  }
   .view1 > div > h2,
   .view2 > div > h2,
   .view3 > div > h2 {
@@ -152,17 +166,23 @@ body {
   .view3 > div > p {
     display: -webkit-box;
     max-width: 240px;
-    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: #9a9a9a;
     font-size: 11px;
   }
+  .view1 > div > p,
+  .view3 > div > p {
+    -webkit-line-clamp: 3;
+  }
+  .view2 > div > p {
+    -webkit-line-clamp: 5;
+  }
 
   .view1 > div > div,
   .view2 > div > div,
   .view3 > div > div {
-    @apply flex my-2 px-2;
+    @apply flex mt-4 px-2;
   }
   .view1 .author,
   .view2 .author,
@@ -206,7 +226,7 @@ body {
   .view1 .date,
   .view2 .date,
   .view3 .date {
-    @apply flex items-center justify-between;
+    @apply flex items-center justify-between mt-3;
   }
   .view1 .date > img,
   .view2 .date > img,
@@ -226,12 +246,18 @@ body {
 
   /* Diffrent View */
 
-  .view1,
-  .view2 {
-    @apply flex-col w-[225px];
+  .view1 .grouping {
+    @apply absolute top-16 left-4;
   }
+  .view2 .grouping {
+    @apply absolute top-12 left-4;
+  }
+  .view3 .grouping {
+    @apply absolute top-4 right-2;
+  }
+
   .view3 {
-    @apply h-[290px] w-[500px] flex-row-reverse gap-2;
+    @apply h-[270px] w-[500px] flex-row-reverse gap-2;
   }
   .view3 > div {
     @apply w-1/2 rounded-2xl pr-4;
@@ -257,29 +283,29 @@ body {
     @apply flex gap-3 text-[11px] text-textMidColor;
   }
   .view1 {
-    @apply h-[290px];
+    @apply h-[270px];
   }
   .view1 .lastComment {
     @apply hidden;
   }
   .view2 {
-    @apply h-[480px];
+    @apply h-[540px];
   }
 
   .view2 > div > div {
-    @apply my-6;
+    @apply my-8;
   }
   .view2 .lastComment {
     @apply text-textMidColor text-[10px] flex flex-col;
   }
   .view2 .lastComment > p {
-    @apply mt-4 mb-1;
+    @apply mt-4 mb-2;
   }
   .view2 .lastComment > .child {
-    @apply relative h-[100px];
+    @apply relative h-[120px];
   }
   .view2 .lastComment > .child > div {
-    @apply border-2 absolute border-[#e9ecef] rounded-xl p-0.5;
+    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1;
   }
   .view2 .lastComment > .child > div > div {
     @apply flex items-center gap-1;
@@ -288,7 +314,7 @@ body {
     @apply w-[30px] h-[30px] rounded-lg;
   }
   .view2 .lastComment > .child > div > span {
-    @apply inline-block my-1.5;
+    @apply inline-block my-4 leading-5;
   }
   .view3 .date {
     @apply flex-row;
