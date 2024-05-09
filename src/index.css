@@ -228,7 +228,7 @@ body {
 
   .view1,
   .view2 {
-    @apply flex-col w-[215px];
+    @apply flex-col w-[225px];
   }
   .view3 {
     @apply h-[290px] w-[500px] flex-row-reverse gap-2;
@@ -263,7 +263,7 @@ body {
     @apply hidden;
   }
   .view2 {
-    @apply h-[490px];
+    @apply h-[480px];
   }
 
   .view2 > div > div {
@@ -275,16 +275,19 @@ body {
   .view2 .lastComment > p {
     @apply mt-4 mb-1;
   }
-  .view2 .lastComment > div {
-    @apply border-2 border-[#e9ecef] rounded-xl p-0.5;
+  .view2 .lastComment > .child {
+    @apply relative h-[100px];
   }
-  .view2 .lastComment > div > div {
+  .view2 .lastComment > .child > div {
+    @apply border-2 absolute border-[#e9ecef] rounded-xl p-0.5;
+  }
+  .view2 .lastComment > .child > div > div {
     @apply flex items-center gap-1;
   }
   .view2 .lastComment img {
     @apply w-[30px] h-[30px] rounded-lg;
   }
-  .view2 .lastComment > div > span {
+  .view2 .lastComment > .child > div > span {
     @apply inline-block my-1.5;
   }
   .view3 .date {
