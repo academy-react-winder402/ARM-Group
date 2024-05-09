@@ -1,5 +1,7 @@
+import "./Style/Style.css";
+
 import { CourseHeader } from "./CourseHeader.jsx";
-import { FilterCourse } from "./FilterCourse.jsx";
+import { FilterCourse } from "./Filter/FilterCourse.jsx";
 import { CourseList } from "./CourseList.jsx";
 import { Fragment } from "react";
 
@@ -7,10 +9,10 @@ const Courses = () => {
   return (
     <Fragment>
       <section
-        className="container max-sm:w-[400px] w-[1300px] mt-10 mx-auto px-8"
+        className=" w-[95%]  mt-10 mx-auto px-8"
         style={{ direction: "rtl" }}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-14">
           <CourseHeader />
           <FilterCourse />
           <CourseList />

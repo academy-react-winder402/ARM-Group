@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: IranSanse;
-  src: url(./Font/IranSans.ttf);
+  src: url(./Font/IRANSans.ttf);
 }
 
 body {
@@ -88,7 +88,7 @@ body {
   }
 }
 
-/*----------------- Statistics classes --------------------*/
+/*----------------- Landing / Statistics classes --------------------*/
 @layer components {
   .StNumbers {
     @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px];
@@ -103,7 +103,7 @@ body {
   }
 }
 
-/*----------------- Advertising classes --------------------*/
+/*----------------- Landing / Advertising classes --------------------*/
 @layer components {
   .SliderSpans {
     @apply bg-[#D8D8D8] w-[14px] h-[14px] block rounded-full;
@@ -118,7 +118,7 @@ body {
   }
 }
 
-/*----------------- News and Articles classes --------------------*/
+/*----------------- Landing / News and Articles classes --------------------*/
 @layer components {
   .borderStyle {
     @apply border-black border-[1px];
