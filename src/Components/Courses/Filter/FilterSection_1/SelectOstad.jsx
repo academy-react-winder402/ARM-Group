@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Badge from "../../../Common/Badge/Badge";
 
 function SelectOstad() {
   const [Options] = useState([
@@ -66,6 +67,10 @@ function SelectOstad() {
     }
   };
 
+  /* const DeleteFilterHandler = () => {
+    Select(0);
+  }; */
+
   useEffect(() => {
     setSelectedOstad(0);
   }, []);
@@ -104,6 +109,9 @@ function SelectOstad() {
           </li>
         ))}
       </div>
+
+      <Badge innerHTML="حذف همه" className="w-fit  Badge" />
+
       <img src="./public/Image/Course/SelectArrow.png" alt="" />
     </ul>
   );

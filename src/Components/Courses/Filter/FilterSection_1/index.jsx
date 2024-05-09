@@ -18,7 +18,7 @@ function index() {
       </label>
 
       <input id="F/[3]" name="RadioInputs" type="radio" />
-      <label className="max-w-[250px] min-w-[50px]" htmlFor="F/[3]">
+      <label className="max-w-[350px] min-w-[50px]" htmlFor="F/[3]">
         <SelectOstad />
       </label>
 

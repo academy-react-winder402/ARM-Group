@@ -24,9 +24,14 @@ function SelectCategorie() {
       innerHTML;
 
     let optionsLI = document.querySelectorAll("#SelectCategorie > div > li");
-    for (var x = 0; x < Options.length; x++) {
+
+    Options.map((items, key) => {
+      optionsLI[key].classList.remove("selected");
+    });
+    /* for (var x = 0; x < Options.length; x++) {
       optionsLI[x].classList.remove("selected");
-    }
+    } */
+
     optionsLI[value].classList.add("selected");
 
     toast(value + "Selcted");

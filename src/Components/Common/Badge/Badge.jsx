@@ -1,9 +1,23 @@
-function DeleteAllButt() {
+/* eslint-disable react/prop-types */
+
+function Badge(props) {
+  /* const DeletAllHandler = () => {
+    toast.success("Delete All");
+  }; */
+
   return (
-    <div className="w-[140px] h-[30px] pt-[6px] pr-2 rounded-[16px] text-[#FF8E8E] flex gap-4 text-[12px] bg-white">
-      <span> حذف تمامی فیلتر‌ها</span>
+    <div
+      onClick={props.onClick && props.onClick}
+      className={
+        "cursor-pointer transition-all hover:scale-105 h-[30px] pt-[6px] px-2 rounded-[16px] text-[#FF8E8E] flex gap-4 text-[12px] bg-white " +
+        (props.className ? props.className : "")
+      }
+    >
+      <span className="leading-[20px]">
+        {props.innerHTML && props.innerHTML}{" "}
+      </span>
       <svg
-        className="w-[10px] h-fit"
+        className="w-[10px] mt-1 h-fit"
         xmlns="http://www.w3.org/2000/svg"
         width="7.071"
         height="7.071"
@@ -40,4 +54,4 @@ function DeleteAllButt() {
   );
 }
 
-export default DeleteAllButt;
+export default Badge;

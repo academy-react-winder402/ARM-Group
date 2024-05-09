@@ -29,7 +29,7 @@
       rounded-[10px] relative text-[14px] flex justify-start pr-5 pl-10;
   }
 
-  .CostumSelect > div {
+  .CostumSelect > div:not(.Badge) {
     @apply invisible opacity-0 transition-all duration-[0.3s]
       w-[100%] pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
       top-[130%] right-0;
@@ -73,7 +73,7 @@
   }
 
   .CostumButtFilter > div {
-    @apply relative overflow-hidden;
+    @apply relative;
   }
 
   .CostumButtFilter > div > svg:nth-child(1),
