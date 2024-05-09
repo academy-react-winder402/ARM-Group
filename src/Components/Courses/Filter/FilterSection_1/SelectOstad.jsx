@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import { useState } from "react";
 import Badge from "../../../Common/Badge/Badge";
 
-function SelectOstad() {
+function SelectOstad({ DeleteStatus }) {
   const [Options] = useState([
     { value: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
     { value: 1, innerHTML: "استاد 1" },
@@ -67,13 +68,19 @@ function SelectOstad() {
     }
   };
 
-  /* const DeleteFilterHandler = () => {
+  const DeleteFilterHandler = () => {
     Select(0);
-  }; */
+    let SelectDiv = document.querySelectorAll("#SelectOstad > div")[0];
+    SelectDiv.classList.toggle("show");
+  };
 
   useEffect(() => {
     setSelectedOstad(0);
   }, []);
+
+  useEffect(() => {
+    Select(0);
+  }, [DeleteStatus]);
 
   useEffect(() => {
     console.log(SelectedOstad);
@@ -95,7 +102,7 @@ function SelectOstad() {
   }, [SelectedOstad]);
 
   return (
-    <ul onClick={ClickHandler} id="SelectOstad" className="CostumSelect">
+    <ul onClick={ClickHandler} id="SelectOstad" className="CostumSelect pl-24">
       <span>انتخاب استاد</span>
       <div>
         {Options.map((option, key) => (
@@ -110,7 +117,14 @@ function SelectOstad() {
         ))}
       </div>
 
-      <Badge innerHTML="حذف همه" className="w-fit  Badge" />
+      {SelectedOstad > 0 ? (
+        <Badge
+          innerHTML="حذف همه"
+          className="w-fit Badge absolute left-5 top-[10px] "
+          Size="Small"
+          onClick={DeleteFilterHandler}
+        />
+      ) : null}
 
       <img src="./public/Image/Course/SelectArrow.png" alt="" />
     </ul>

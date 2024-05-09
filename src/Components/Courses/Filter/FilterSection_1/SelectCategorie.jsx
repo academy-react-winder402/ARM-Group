@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-function SelectCategorie() {
+function SelectCategorie({ DeleteStatus }) {
   const [Options] = useState([
     { value: "0", innerHTML: "همه", defaultHTML: "دسته بندی" },
     { value: "1", innerHTML: "مورد قابل انتخاب 1" },
@@ -34,7 +35,7 @@ function SelectCategorie() {
 
     optionsLI[value].classList.add("selected");
 
-    toast(value + "Selcted");
+    /* toast(value + "Selcted"); */
   };
 
   useEffect(() => {
@@ -42,6 +43,12 @@ function SelectCategorie() {
       .querySelectorAll("#SelectCategorie > div > li")[0]
       .classList.add("selected");
   }, []);
+
+  useEffect(() => {
+    if (DeleteStatus == true) {
+      Select(0, "دسته بندی");
+    }
+  }, [DeleteStatus]);
 
   return (
     <ul onClick={ClickHandler} id="SelectCategorie" className="CostumSelect">

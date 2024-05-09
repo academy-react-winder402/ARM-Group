@@ -9,12 +9,14 @@ function Badge(props) {
     <div
       onClick={props.onClick && props.onClick}
       className={
-        "cursor-pointer transition-all hover:scale-105 h-[30px] pt-[6px] px-2 rounded-[16px] text-[#FF8E8E] flex gap-4 text-[12px] bg-white " +
-        (props.className ? props.className : "")
+        "cursor-pointer transition-all min-w-fit hover:scale-105 h-[30px] pt-[6px] px-2 rounded-[16px] text-[#FF8E8E] flex gap-4 text-[12px] bg-white " +
+        (props.className ? props.className : "") +
+        " " +
+        (props.Size == "Small" ? "scale-[0.6] hover:scale-[0.65]" : "")
       }
     >
       <span className="leading-[20px]">
-        {props.innerHTML && props.innerHTML}{" "}
+        {props.innerHTML && props.innerHTML}
       </span>
       <svg
         className="w-[10px] mt-1 h-fit"

@@ -4,9 +4,21 @@ import VaziatButt from "./VaziatButt";
 import Badge from "../../../Common/Badge/Badge";
 import toast from "react-hot-toast";
 
-function index() {
+/* redux: */
+import { useDispatch } from "react-redux";
+import { toggleDeleteAll } from "../../../../Redux/Slices/CourseFilter";
+
+function Index() {
+  /* const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll); */
+  const Dispatch = useDispatch();
+
   const DeletAllHandler = () => {
-    toast.success("Delete All");
+    Dispatch(toggleDeleteAll());
+    setTimeout(() => {
+      Dispatch(toggleDeleteAll());
+    }, 100);
+
+    toast.success("All Filters Deleted");
   };
 
   return (
@@ -34,4 +46,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

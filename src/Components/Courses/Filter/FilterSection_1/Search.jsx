@@ -1,11 +1,24 @@
-function Search() {
+/* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
+
+function Search({ DeleteStatus }) {
+  const [SearchValue, setSearchValue] = useState("sdfasdf");
+
   const CheckCurrRadio = () => {
     document.getElementById("F/[1]").checked = true;
   };
 
+  useEffect(() => {
+    setSearchValue("");
+  }, [DeleteStatus]);
+
   return (
     <div className="w-[100%] h-[100%] flex pl-3 pr-3">
       <input
+        value={SearchValue}
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+        }}
         onClick={CheckCurrRadio}
         type="text"
         placeholder="دنبال چیز خاصی میگردی؟"

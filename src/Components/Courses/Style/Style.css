@@ -69,7 +69,7 @@
   }
 
   .CostumButtFilter {
-    @apply min-w-[100px] max-w-[100px] bg-white rounded-[9px] shadow-3xl mr-4;
+    @apply min-w-[100px] max-w-[100px] bg-white overflow-hidden rounded-[9px] shadow-3xl mr-4;
   }
 
   .CostumButtFilter > div {

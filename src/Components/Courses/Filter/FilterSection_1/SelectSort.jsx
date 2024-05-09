@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-function SelectSort() {
+function SelectSort({ DeleteStatus }) {
   const [Options] = useState([
     { value: "0", innerHTML: "هیچکدام", defaultHTML: "مرتب سازی" },
     { value: "1", innerHTML: "مورد قابل انتخاب 1" },
@@ -32,6 +33,10 @@ function SelectSort() {
       .querySelectorAll("#SelectSort > div > li")[0]
       .classList.add("selected");
   }, []);
+
+  useEffect(() => {
+    Select(0, "مرتب سازی");
+  }, [DeleteStatus]);
 
   return (
     <ul onClick={ClickHandler} id="SelectSort" className="CostumSelect">
