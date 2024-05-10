@@ -1,6 +1,8 @@
 import { Subject } from "../Common/Landing/Subject.jsx";
 import { Details } from "./Details.jsx";
 import { Index } from "./Suggest/Index.jsx";
+import Filter from "./Filter/index.jsx";
+
 
 function Articles() {
   return (
@@ -14,6 +16,9 @@ function Articles() {
           description="متن مرتبط با بخش خبر  ها"
         />
       </div>
+
+      <Filter />
+
       <Details />
       <Index />
     </div>

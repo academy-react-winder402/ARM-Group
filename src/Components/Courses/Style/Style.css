@@ -6,12 +6,12 @@
 /* Filter section 1: */
 @layer components {
   .FilterSecton_1 {
-    @apply mt-5 pl-[10px] pr-[10px] pb-2 rounded-lg shadow-3xl
-        h-[70px] flex gap-4 bg-white text-[#808080];
+    @apply mt-5 pl-[10px] pr-[10px]  rounded-lg shadow-3xl
+        h-[55px] w-[1120] flex gap-4 bg-white text-[#808080];
   }
 
   .FilterSecton_1 > label {
-    @apply w-[200px] h-[50px] mt-[10px] cursor-pointer hover:flex-grow-[1.5]
+    @apply w-[200px] h-[40px] mt-[8px] cursor-pointer hover:flex-grow-[1.5]
        transition-all duration-[0.5s] rounded-[10px] bg-[#F2F2F2] 
       text-center leading-[50px]  flex-grow-[1];
   }
@@ -25,13 +25,13 @@
   }
 
   .CostumSelect {
-    @apply bg-[#F2F2F2] w-[100%] h-[100%]
+    @apply bg-transparent w-[100%] h-[100%] items-center
       rounded-[10px] relative text-[14px] flex justify-start pr-5 pl-10;
   }
 
   .CostumSelect > div:not(.Badge) {
     @apply invisible opacity-0 transition-all duration-[0.3s]
-      w-[100%] pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
+      w-[100%] z-50 pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
       top-[130%] right-0;
   }
 
@@ -40,7 +40,7 @@
   }
 
   .CostumSelect > img {
-    @apply transition-all duration-[0.5s] w-[15px] h-[9px] mt-5 absolute left-3;
+    @apply transition-all duration-[0.5s] w-[15px] h-[9px]  absolute left-3;
   }
 
   .CostumSelect > div.show {
@@ -59,7 +59,7 @@
 
 /* Filter section 2: */
 @layer components {
-  .FilterSecton_2 {
+  .FilterSection_2 {
     @apply mt-[15px]  
         h-[50px] flex text-[#808080] /* border border-black */;
   }
@@ -69,7 +69,7 @@
   }
 
   .CostumButtFilter {
-    @apply min-w-[100px] max-w-[100px] bg-white overflow-hidden rounded-[9px] shadow-3xl mr-4;
+    @apply min-w-[100px] max-w-[100px] bg-white rounded-[9px] shadow-3xl mr-4;
   }
 
   .CostumButtFilter > div {
