@@ -17,7 +17,14 @@ export const HeaderSection2 = () => {
         دوره ها
       </NavLink>
 
-      <span className="cursor-pointer">مقالات</span>
+      <NavLink
+        to={"/Article"}
+        className={({ isActive }) => [isActive ? "SelectedMenu" : ""].join(" ")}
+      >
+        مقالات
+      </NavLink>
+
+      {/* <span className="cursor-pointer">مقالات</span> */}
       <span className="cursor-pointer"> درباره ما</span>
       <span className="cursor-pointer">تماس با ما</span>
     </div>

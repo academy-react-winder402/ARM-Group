@@ -127,3 +127,227 @@ body {
     @apply inline-block w-[80px] h-[25px] rounded-[20px] mt-[15px] border-[#787878] border-[3px] float-right;
   }
 }
+
+/*----------------- Article Page --------------------*/
+@layer components {
+  /* .article:nth-child(1) {
+    @apply h-[290px];
+    .lastComment {
+      @apply hidden;
+    }
+  } */
+
+  /* Common Views */
+  .view1,
+  .view2,
+  .view3 {
+    @apply p-1 rounded-2xl shadow-3xl flex;
+  }
+
+  .view1 > div > img,
+  .view2 > div > img {
+    @apply h-[85px] w-full rounded-2xl;
+  }
+  .view1,
+  .view2 {
+    @apply flex-col w-[225px];
+  }
+  .view1 > div:nth-child(1),
+  .view2 > div:nth-child(1),
+  .view3 > div:nth-child(1) {
+    @apply relative;
+  }
+  .view1 .grouping,
+  .view2 .grouping,
+  .view3 .grouping {
+    @apply w-[80px] h-6 bg-[#F5F5F5] shadow-3xl rounded-2xl flex justify-center items-center text-textMidColor text-[11px];
+  }
+  .view1 > div > h2,
+  .view2 > div > h2,
+  .view3 > div > h2 {
+    @apply text-textColor px-2 text-base my-2;
+  }
+
+  .view1 > div > p,
+  .view2 > div > p,
+  .view3 > div > p {
+    display: -webkit-box;
+    max-width: 240px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: #9a9a9a;
+    font-size: 11px;
+  }
+  .view1 > div > p,
+  .view3 > div > p {
+    -webkit-line-clamp: 3;
+  }
+  .view2 > div > p {
+    -webkit-line-clamp: 5;
+  }
+
+  .view1 > div > div,
+  .view2 > div > div,
+  .view3 > div > div {
+    @apply flex mt-4 px-2;
+  }
+  .view1 .author,
+  .view2 .author,
+  .view3 .author {
+    @apply flex gap-2 w-[75%] items-center;
+  }
+
+  .view1 .author > img,
+  .view2 .author > img,
+  .view3 .author > img {
+    @apply w-9 h-9 rounded-lg;
+  }
+  .view1 .author > span,
+  .view2 .author > span,
+  .view3 .author > span {
+    @apply text-[11px] text-textMidColor;
+  }
+  .view1 .score,
+  .view2 .score,
+  .view3 .score {
+    @apply flex gap-2 text-[11px] text-textMidColor;
+  }
+  .view1 .comment,
+  .view1 .like,
+  .view2 .comment,
+  .view2 .like {
+    @apply flex justify-between text-[11px] text-textMidColor;
+  }
+  .view1 .comment span,
+  .view1 .like span,
+  .view2 .comment span,
+  .view2 .like span {
+    @apply w-1/2;
+  }
+  .view1 .comment img,
+  .view1 .like img,
+  .view2 .comment img,
+  .view2 .like img {
+    @apply w-[18px] h-[18px];
+  }
+  .view1 .date,
+  .view2 .date,
+  .view3 .date {
+    @apply flex items-center justify-between mt-3;
+  }
+  .view1 .date > img,
+  .view2 .date > img,
+  .view3 .date > img {
+    @apply w-[18px] h-[18px] text-textMidColor text-[10px];
+  }
+  .view1 .date > span,
+  .view2 .date > span,
+  .view3 .date > span {
+    @apply text-textMidColor text-[10px];
+  }
+  .view1 .date > div,
+  .view2 .date > div,
+  .view3 .date > div {
+    @apply w-[1px] h-3 bg-textMidColor;
+  }
+
+  /* Diffrent View */
+
+  .view1 .grouping {
+    @apply absolute top-16 left-4;
+  }
+  .view2 .grouping {
+    @apply absolute top-12 left-4;
+  }
+  .view3 .grouping {
+    @apply absolute top-4 right-2;
+  }
+
+  .view3 {
+    @apply h-[270px] w-[500px] flex-row-reverse gap-2;
+  }
+  .view3 > div {
+    @apply w-1/2 rounded-2xl pr-4;
+  }
+  .view3 > div > img {
+    @apply h-full w-full rounded-xl;
+  }
+  .view3 > div > div {
+    @apply flex-col gap-2 my-2 px-2;
+  }
+  .view3 .author {
+    @apply mt-4;
+  }
+  .view1 .score,
+  .view2 .score {
+    @apply flex-col w-[25%];
+  }
+  .view3 .score {
+    @apply flex-row justify-between w-[100px];
+  }
+  .view3 .comment,
+  .view3 .like {
+    @apply flex gap-3 text-[11px] text-textMidColor;
+  }
+  .view1 {
+    @apply h-[270px];
+  }
+  .view1 .lastComment {
+    @apply hidden;
+  }
+  .view2 {
+    @apply h-[540px];
+  }
+
+  .view2 > div > div {
+    @apply my-8;
+  }
+  .view2 .lastComment {
+    @apply text-textMidColor text-[10px] flex flex-col;
+  }
+  .view2 .lastComment > p {
+    @apply mt-4 mb-2;
+  }
+  .view2 .lastComment > .child {
+    @apply relative h-[120px];
+  }
+  .view2 .lastComment > .child > div {
+    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1;
+  }
+  .view2 .lastComment > .child > div > div {
+    @apply flex items-center gap-1;
+  }
+  .view2 .lastComment img {
+    @apply w-[30px] h-[30px] rounded-lg;
+  }
+  .view2 .lastComment > .child > div > span {
+    @apply inline-block my-4 leading-5;
+  }
+  .view3 .date {
+    @apply flex-row;
+  }
+  .view3 .lastComment {
+    @apply hidden;
+  }
+
+  .view1 .lastCommentView3,
+  .view2 .lastCommentView3 {
+    @apply hidden;
+  }
+  .view3 .lastCommentView3 {
+    @apply text-textMidColor text-[10px] my-6  relative;
+  }
+  .view3 .lastCommentView3 > div {
+    @apply absolute right-20 bg-white top-[-10px] w-[360px] h-[45px] border-2 border-[#F6F6F6] shadow-sm flex items-center;
+  }
+  .view3 .lastCommentView3 > div {
+    border-radius: 10px 20px 20px 10px;
+  }
+
+  .view3 .lastCommentView3 img {
+    @apply w-9 h-9 rounded-full mr-0.5;
+  }
+  .view3 .lastCommentView3 > div > div {
+    @apply flex flex-col mr-3 leading-5;
+  }
+}
