@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import { CourseListDetail } from "./CourseListDetail.jsx";
+import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
+import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
+
 // import { FaBeer } from "react-icons/fa";
 // import { ReactComponent as Svg } from "./icon.svg";
 
@@ -141,6 +143,8 @@ export const CourseList = () => {
           />
         );
       })}
+
+      <SecondCourseList />
     </div>
   );
 };
