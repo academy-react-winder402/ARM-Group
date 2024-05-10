@@ -1,11 +1,13 @@
 import { Subject } from "../Common/Landing/Subject.jsx";
 import { Details } from "./Details.jsx";
+import { Index } from "./Suggest/Index.jsx";
 import Filter from "./Filter/index.jsx";
+
 
 function Articles() {
   return (
     <div
-      className="container max-sm:w-[400px] w-[1230px] mx-auto"
+      className="container max-sm:w-[400px] w-[1120px] mx-auto"
       style={{ direction: "rtl" }}
     >
       <div className="text-center">
@@ -18,6 +20,7 @@ function Articles() {
       <Filter />
 
       <Details />
+      <Index />
     </div>
   );
 }
