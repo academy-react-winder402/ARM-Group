@@ -1,9 +1,8 @@
 function Butt() {
   return (
-    <div className="flex justify-around">
-      <span>بازه زمانی</span>
+    <div className="flex items-center h-full justify-around">
+      <span className="block">بازه زمانی</span>
       <svg
-        className="mt-[12px]"
         xmlns="http://www.w3.org/2000/svg"
         width="24"
         height="24"

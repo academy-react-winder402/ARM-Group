@@ -51,6 +51,7 @@ function Index() {
         <CustomSelect
           Options={Options_Page}
           type="SimpleSelect"
+          IsNumberType
           Id="SelectCardInPage"
         />
       </div>
