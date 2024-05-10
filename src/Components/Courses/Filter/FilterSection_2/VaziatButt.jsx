@@ -1,12 +1,13 @@
 function VaziatButt() {
   return (
-    <div className="flex gap-2 cursor-pointer w-full h-full justify-center">
-      <span className="mt-[10px]">وضعیت</span>
+    <div className="flex items-center gap-2 cursor-pointer w-full h-full justify-center">
+      <span>وضعیت</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="18.667"
         height="14.531"
         viewBox="0 0 18.667 14.531"
+        className="mb-[10px]"
       >
         <g
           id="Group_133"

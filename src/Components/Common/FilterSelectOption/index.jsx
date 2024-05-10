@@ -130,7 +130,7 @@ function Index(props) {
       {SelectedOptions > 0 ? (
         <Badge
           innerHTML="حذف همه"
-          className="w-fit Badge absolute left-5 top-[10px] "
+          className="w-fit Badge absolute left-5 "
           Size="Small"
           onClick={DeleteFilterHandler}
         />
