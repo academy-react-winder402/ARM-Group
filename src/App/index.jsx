@@ -8,6 +8,8 @@ import { Provider } from "react-redux";
 import store from "../Redux/store";
 import { Toaster } from "react-hot-toast";
 
+import { NextUIProvider } from "@nextui-org/react";
+
 function App() {
   const [IsLoggedIn] = useState(false);
 
@@ -16,7 +18,9 @@ function App() {
       <div>
         <Toaster />
       </div>
-      <RouterProvider router={IsLoggedIn ? null : Public} />
+      <NextUIProvider>
+        <RouterProvider router={IsLoggedIn ? null : Public} />
+      </NextUIProvider>
     </Provider>
   );
 }

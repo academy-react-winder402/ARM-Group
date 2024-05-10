@@ -1,5 +1,6 @@
 import PriceFilter from "./PriceFilter";
-import Search from "./Search";
+//import Search from "./Search";
+import Search from "../../../Common/Search";
 
 import CustomSelect from "../../../Common/FilterSelectOption";
 

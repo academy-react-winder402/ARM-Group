@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
-function Search({ DeleteStatus }) {
-  const [SearchValue, setSearchValue] = useState("sdfasdf");
+function Index({ DeleteStatus }) {
+  const [SearchValue, setSearchValue] = useState("");
 
   const CheckCurrRadio = () => {
     document.getElementById("F/[1]").checked = true;
@@ -13,7 +13,7 @@ function Search({ DeleteStatus }) {
   }, [DeleteStatus]);
 
   return (
-    <div className="w-[100%] h-[100%] flex pl-3 pr-3">
+    <div className="w-[100%] h-[100%] flex items-center relative pl-3 pr-3">
       <input
         value={SearchValue}
         onChange={(e) => {
@@ -30,7 +30,7 @@ function Search({ DeleteStatus }) {
         width="20"
         height="20"
         viewBox="0 0 20 20"
-        className="block w-[20px] h-[20px] mt-[15px]"
+        className="block w-[20px] h-[20px] absolute left-3 "
       >
         <path
           id="search_1_"
@@ -44,4 +44,4 @@ function Search({ DeleteStatus }) {
   );
 }
 
-export default Search;
+export default Index;
