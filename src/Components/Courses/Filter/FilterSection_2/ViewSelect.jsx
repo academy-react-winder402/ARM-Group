@@ -1,17 +1,25 @@
 import { useState } from "react";
 
+/* redux */
+import { useDispatch } from "react-redux";
+import { SetCardView } from "../../../../Redux/Slices/CourseFilter";
+
 function ViewSelect() {
   const [Selection, SetSelection] = useState({
     ListBut: "",
     GridBut: "SelectedButView",
-    SubClass: "List",
+    SubClass: "Grid",
   });
 
+  const Dispatch = useDispatch();
+
   const ListViewHandler = () => {
-    SetSelection({ ListBut: "SelectedButView", GridBut: "", SubClass: "Grid" });
+    SetSelection({ ListBut: "SelectedButView", GridBut: "", SubClass: "List" });
+    Dispatch(SetCardView("ListView"));
   };
   const GridViewHandler = () => {
-    SetSelection({ ListBut: "", GridBut: "SelectedButView", SubClass: "List" });
+    SetSelection({ ListBut: "", GridBut: "SelectedButView", SubClass: "Grid" });
+    Dispatch(SetCardView("GridView"));
   };
 
   return (

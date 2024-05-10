@@ -91,14 +91,21 @@
   }
 
   .CostumButtFilter > div > svg:nth-child(3).Grid {
-    @apply left-[65px];
+    @apply left-[27%];
   }
 
   .CostumButtFilter > div > svg:nth-child(3).List {
-    @apply left-[27%];
+    @apply left-[65px];
   }
 
   .CostumButtFilter > div > svg.SelectedButView {
     @apply scale-[1.1] fill-[#575757];
+  }
+
+  .ShowCards {
+    @apply visible opacity-100;
+  }
+  .HideCards {
+    @apply invisible opacity-0;
   }
 }

@@ -8,6 +8,7 @@ import CustomSelect from "../../../Common/FilterSelectOption";
 /* redux: */
 import { useDispatch } from "react-redux";
 import { toggleDeleteAll } from "../../../../Redux/Slices/CourseFilter";
+
 import { useState } from "react";
 
 function Index() {
