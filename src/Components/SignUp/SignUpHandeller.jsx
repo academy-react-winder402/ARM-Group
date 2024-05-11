@@ -87,7 +87,7 @@ export default function simple() {
 
   return (
     <>
-      <div className="w-full h-full">
+      <div className="w-full h-full mt-[120px]">
         <div className="relative pb-10 mx-auto  mt-[40px] bg-[#FBFBFB] w-[75%] h-fit border border-[#DCDCDC] rounded-[20px]">
           <FormWizard
             color="#009087"

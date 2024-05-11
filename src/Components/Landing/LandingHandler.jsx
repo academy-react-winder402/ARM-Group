@@ -11,7 +11,7 @@ import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
 
 function LandingHandler() {
   return (
-    <div className="cotainer m-auto">
+    <div className="cotainer m-auto mt-[80px]">
       <Svg />
       <SvgBackGround />
       <HeroSection />

@@ -6,7 +6,7 @@ import Filter from "./Filter/index.jsx";
 function Articles() {
   return (
     <div
-      className="container max-sm:w-[400px] w-[1120px] mx-auto"
+      className="container max-sm:w-[400px] w-[1120px] mx-auto mt-[80px]"
       style={{ direction: "rtl" }}
     >
       <div className="text-center">
