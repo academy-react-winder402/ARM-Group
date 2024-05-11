@@ -87,34 +87,35 @@ export default function simple() {
 
   return (
     <>
-      <div className="relative pb-10 mx-auto  mt-[40px] bg-[#FBFBFB] w-[75%] h-fit border border-[#DCDCDC] rounded-[20px]">
-        <FormWizard
-          color="#009087"
-          stepSize="xs"
-          startIndex={0}
-          nextButtonTemplate={nextTemplate}
-          backButtonTemplate={backTemplate}
-          finishButtonTemplate={finishTemplate}
-          onComplete={handleComplete}
-        >
-          <FormWizard.TabContent icon="ti-user">
-            <Sign_1 />
-          </FormWizard.TabContent>
-
-          <FormWizard.TabContent
-            icon="ti-settings"
-            isValid={checkValidateTab()}
-            validationError={errorMessages}
+      <div className="w-full h-full">
+        <div className="relative pb-10 mx-auto  mt-[40px] bg-[#FBFBFB] w-[75%] h-fit border border-[#DCDCDC] rounded-[20px]">
+          <FormWizard
+            color="#009087"
+            stepSize="xs"
+            startIndex={0}
+            nextButtonTemplate={nextTemplate}
+            backButtonTemplate={backTemplate}
+            finishButtonTemplate={finishTemplate}
+            onComplete={handleComplete}
           >
-            <Sign_2 />
-          </FormWizard.TabContent>
+            <FormWizard.TabContent icon="ti-user">
+              <Sign_1 />
+            </FormWizard.TabContent>
 
-          <FormWizard.TabContent icon="ti-check">
-            <Sign_3 />
-          </FormWizard.TabContent>
-        </FormWizard>
-        {/* add style */}
-        <style>{`
+            <FormWizard.TabContent
+              icon="ti-settings"
+              isValid={checkValidateTab()}
+              validationError={errorMessages}
+            >
+              <Sign_2 />
+            </FormWizard.TabContent>
+
+            <FormWizard.TabContent icon="ti-check">
+              <Sign_3 />
+            </FormWizard.TabContent>
+          </FormWizard>
+          {/* add style */}
+          <style>{`
         @import url("https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css");
 
         .wizard-card-footer{
@@ -130,6 +131,7 @@ export default function simple() {
         }
 
       `}</style>
+        </div>
       </div>
     </>
   );
