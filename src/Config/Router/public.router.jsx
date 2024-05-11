@@ -9,6 +9,7 @@ import Landing from "../../Pages/Landing/Landing.jsx";
 /* LayOuts: */
 import Header from "../../App/LayOut/Header.jsx";
 import Footer_Header from "../../App/LayOut/Header_Footer.jsx";
+import Dashbord from "../../App/LayOut/Dashbord.jsx";
 
 const Public = new createBrowserRouter([
   { path: "/", element: <Navigate to="/Home" /> },
@@ -18,6 +19,7 @@ const Public = new createBrowserRouter([
       { path: "/LogIn", element: <LogIn /> },
       { path: "/SignUp", element: <SignUp /> },
       { path: "/ForgetPass", element: <ForgetPass /> },
+      { path: "/Dashbord", element: <Dashbord /> },
     ],
   },
   {
