@@ -113,7 +113,12 @@ function Index(props) {
   }, [SelectedOptions]);
 
   return (
-    <ul onClick={ClickHandler} id={Id} className="CostumSelect">
+    <ul
+      style={props.IsNumberType && { fontSize: "20px", fontWeight: "bold" }}
+      onClick={ClickHandler}
+      id={Id}
+      className="CostumSelect"
+    >
       <span>{Options[0].defaultHTML}</span>
       <div>
         {Options.map((option, key) => (

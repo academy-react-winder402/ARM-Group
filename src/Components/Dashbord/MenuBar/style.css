@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.DashbordMenu > a {
+  @apply w-full h-[35px] rounded-[8px] flex justify-end gap-[8px]
+   items-center p-[10px] mt-1 cursor-pointer fill-[#A7A7A7] text-[#A7A7A7]
+   border-2 border-transparent transition-all duration-[0.2s];
+}
+
+.DashbordMenu > a.SignOut {
+  @apply absolute w-[200px] bottom-3 left-1 hover:border-[#FFA7A7];
+}
+
+.DashbordMenu > a.SignOut > svg {
+  @apply absolute left-2;
+}
+
+.DashbordMenu > a.Selected {
+  @apply fill-[#757575] text-[#6D6D6D] bg-[#F2F2F2];
+}
+
+.DashbordMenu > a:hover {
+  @apply border-[#DFDFDF];
+}
