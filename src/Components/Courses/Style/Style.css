@@ -26,7 +26,7 @@
 
   .CostumSelect {
     @apply bg-transparent w-[100%] h-[100%] items-center
-      rounded-[10px] relative text-[14px] flex justify-start pr-5 pl-10;
+      rounded-[10px] relative text-[15px] flex justify-start pr-5 pl-10;
   }
 
   .CostumSelect > div:not(.Badge) {
@@ -91,14 +91,21 @@
   }
 
   .CostumButtFilter > div > svg:nth-child(3).Grid {
-    @apply left-[65px];
+    @apply left-[27%];
   }
 
   .CostumButtFilter > div > svg:nth-child(3).List {
-    @apply left-[27%];
+    @apply left-[65px];
   }
 
   .CostumButtFilter > div > svg.SelectedButView {
     @apply scale-[1.1] fill-[#575757];
+  }
+
+  .ShowCards {
+    @apply visible opacity-100;
+  }
+  .HideCards {
+    @apply invisible opacity-0;
   }
 }

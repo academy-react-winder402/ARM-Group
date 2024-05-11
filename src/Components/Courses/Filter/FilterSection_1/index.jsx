@@ -4,10 +4,12 @@ import Search from "../../../Common/Search";
 
 import CustomSelect from "../../../Common/FilterSelectOption";
 
-import { useSelector } from "react-redux";
 import { useState } from "react";
 
 import Butt from "./TimeFilter/Butt";
+
+/* Redux */
+import { useSelector } from "react-redux";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);

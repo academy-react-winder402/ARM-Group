@@ -119,6 +119,9 @@ function Index(props) {
         {Options.map((option, key) => (
           <li
             key={key}
+            style={
+              props.IsNumberType && { textAlign: "center", padding: "0px" }
+            }
             onClick={() => {
               Select(option.value, option.innerHTML);
             }}

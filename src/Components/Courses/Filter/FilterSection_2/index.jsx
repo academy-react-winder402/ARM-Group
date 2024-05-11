@@ -8,6 +8,7 @@ import CustomSelect from "../../../Common/FilterSelectOption";
 /* redux: */
 import { useDispatch } from "react-redux";
 import { toggleDeleteAll } from "../../../../Redux/Slices/CourseFilter";
+
 import { useState } from "react";
 
 function Index() {
@@ -51,6 +52,7 @@ function Index() {
         <CustomSelect
           Options={Options_Page}
           type="SimpleSelect"
+          IsNumberType
           Id="SelectCardInPage"
         />
       </div>

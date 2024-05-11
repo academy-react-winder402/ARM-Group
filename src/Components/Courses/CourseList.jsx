@@ -1,10 +1,14 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
 
 // import { FaBeer } from "react-icons/fa";
 // import { ReactComponent as Svg } from "./icon.svg";
+
+/* redux */
+import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
 
 export const CourseList = () => {
   // eslint-disable-next-line no-unused-vars
@@ -122,29 +126,52 @@ export const CourseList = () => {
       // FaBeer: { FaBeer },
     },
   ]);
-  return (
-    <div className="mt-[30px] flex flex-wrap max-md:justify-center justify-between  gap-10 h-auto">
-      {courses.map((item, key) => {
-        return (
-          <CourseListDetail
-            key={key}
-            courseImg={item.courseImg}
-            title={item.title}
-            desc={item.desc}
-            teacherImg={item.teacherImg}
-            dateDay={item.dateDay}
-            dateMonth={item.dateMonth}
-            dateYear={item.dateYear}
-            startDate={item.startDate}
-            price={item.price}
-            comment={item.comment}
-            like={item.like}
-            // FaBeer={FaBeer}
-          />
-        );
-      })}
+  const CardView = useSelector((state) => state.CourseFilter.CardView);
 
-      <SecondCourseList />
+  useEffect(() => {
+    let cardViewer = document.getElementById("CardViewer");
+
+    cardViewer.classList.remove("HideCards");
+    cardViewer.classList.add("ShowCards");
+  }, [CardView]);
+
+  const ListViewCards = () => {
+    return (
+      <>
+        <SecondCourseList />
+        <SecondCourseList />
+        <SecondCourseList />
+      </>
+    );
+  };
+
+  return (
+    <div
+      id="CardViewer"
+      className="HideCards mt-[30px] transition-all duration-[0.5] flex flex-wrap max-md:justify-center justify-between gap-10 h-auto"
+    >
+      {CardView == "GridView" &&
+        courses.map((item, key) => {
+          return (
+            <CourseListDetail
+              key={key}
+              courseImg={item.courseImg}
+              title={item.title}
+              desc={item.desc}
+              teacherImg={item.teacherImg}
+              dateDay={item.dateDay}
+              dateMonth={item.dateMonth}
+              dateYear={item.dateYear}
+              startDate={item.startDate}
+              price={item.price}
+              comment={item.comment}
+              like={item.like}
+              // FaBeer={FaBeer}
+            />
+          );
+        })}
+
+      {CardView == "ListView" && <ListViewCards />}
     </div>
   );
 };
