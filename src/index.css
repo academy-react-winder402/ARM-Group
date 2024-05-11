@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: IranSanse;
-  src: url(./Font/IRANSans.ttf);
+  src: url(../public/Font/IRANSans.ttf);
 }
 
 body {

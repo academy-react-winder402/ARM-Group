@@ -143,7 +143,7 @@ function Index(props) {
           onClick={DeleteFilterHandler}
         />
       ) : null}
-      <img src="./public/Image/Course/SelectArrow.png" alt="" />
+      <img src="../../../../public/Image/Course/SelectArrow.png" alt="" />
     </ul>
   );
 }

@@ -4,7 +4,7 @@ import Pagination from "../../Common/Pagination";
 
 function Index() {
   const [Options_Category] = useState([
-    { value: "0", innerHTML: "همه", defaultHTML: "همه موضوعات" },
+    { value: "0", innerHTML: "همه", defaultHTML: "دسته بندی" },
     { value: "1", innerHTML: "خبر و مقاله" },
     { value: "2", innerHTML: "دوره آموزشی" },
   ]);
@@ -27,7 +27,7 @@ function Index() {
       <div className="bg-white pt-[47px] w-full h-[507px] mt-[15px] rounded-[10px]">
         <div dir="rtl" className="flex gap-[10px] w-[869px] m-auto h-[42px]">
           <h1 className="text-[20px] text-[#4E4B4B] mt-2 flex-grow-[10]">
-            کامنت های من
+            دوره های من
           </h1>
           <div className="flex-grow-[2] max-w-[160px] text-[#808080] indent-0 rounded-[10px] cursor-pointer bg-[#F2F2F2]">
             <CustomSelect

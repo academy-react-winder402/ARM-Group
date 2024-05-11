@@ -31,10 +31,7 @@ function MenuBar() {
       </div>
 
       <ul className="DashbordMenu w-[200px] h-[220px] m-auto mt-[35px]">
-        <NavLink
-          to={"/Dashbord"}
-          className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}
-        >
+        <NavLink>
           <span>داشبورد</span> <DashboardPanelIcon />
         </NavLink>
         <NavLink>
@@ -43,7 +40,10 @@ function MenuBar() {
         <NavLink>
           <span>مدیریت رمز عبور</span> <FingerPrintIcon />
         </NavLink>
-        <NavLink>
+        <NavLink
+          to={"/Dashbord/Courses"}
+          className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}
+        >
           <span>دوره های آموزشی</span> <ELearningIcon />
         </NavLink>
         <NavLink>
