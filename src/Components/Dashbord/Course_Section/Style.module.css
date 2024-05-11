@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .OnvanHolder {
+    @apply w-[849px] h-[52px] bg-[#EFEFEF] rounded-[9px] pl-[10px] m-auto flex;
+  }
+  .OnvanHolder > span {
+    @apply text-[#565656] indent-[15px] h-full flex items-center;
+  }
+
+  .ItemsHolder {
+    @apply w-[850px] h-[225px] mt-3 m-auto;
+  }
+  .ItemsHolder > div {
+    @apply w-full h-[80px] rounded-[9px] pl-[10px] pr-[10px] flex;
+  }
+  .ItemsHolder > div:nth-child(2n) {
+    @apply bg-[#F8F8F8];
+  }
+  .ItemsHolder > div > span {
+    @apply text-[#565656] indent-[15px] h-full;
+  }
+  .ItemsHolder > div > span:not(:nth-child(5)) {
+    @apply text-[#565656] indent-[15px] flex items-center;
+  }
+  .ItemsHolder > div > span > svg {
+    @apply cursor-pointer transition-all hover:scale-[1.1];
+  }
+}
