@@ -5,7 +5,7 @@ function index() {
       width="280"
       height="40"
       viewBox="0 0 280 40"
-      className="absolute bottom-6 left-[28%]"
+      className=""
     >
       <g id="Group_145" data-name="Group 145" transform="translate(-387 -608)">
         <rect
