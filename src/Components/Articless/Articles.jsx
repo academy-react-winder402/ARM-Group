@@ -3,7 +3,6 @@ import { Details } from "./Details.jsx";
 import { Index } from "./Suggest/Index.jsx";
 import Filter from "./Filter/index.jsx";
 
-
 function Articles() {
   return (
     <div

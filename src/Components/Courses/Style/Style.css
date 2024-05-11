@@ -7,7 +7,7 @@
 @layer components {
   .FilterSecton_1 {
     @apply mt-5 pl-[10px] pr-[10px]  rounded-lg shadow-3xl
-        h-[55px] w-[1120] flex gap-4 bg-white text-[#808080];
+        h-[55px] flex gap-4 bg-white text-[#808080];
   }
 
   .FilterSecton_1 > label {
