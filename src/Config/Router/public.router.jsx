@@ -4,6 +4,7 @@ import SignUp from "../../Pages/SignUp/SignUp.jsx";
 import ForgetPass from "../../Pages/ForgetPass/ForgetPass.jsx";
 import Courses from "../../Pages/Courses/Courses.jsx";
 import Article from "../../Pages/Articless/Article.jsx";
+import ArticleDetail from "../../Pages/ArticleDetail/index.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
 
 /* LayOuts: */
@@ -26,6 +27,7 @@ const Public = new createBrowserRouter([
       { path: "/Home", element: <Landing /> },
       { path: "/Courses", element: <Courses /> },
       { path: "/Article", element: <Article /> },
+      { path: "/ArticleDetail", element: <ArticleDetail /> },
     ],
   },
 ]);
