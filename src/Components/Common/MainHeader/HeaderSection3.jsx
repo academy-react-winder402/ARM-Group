@@ -4,7 +4,7 @@ import ThemeModeButt from "./ThemeModeButt";
 const HeaderSection3 = () => {
   return (
     <div className="flex justify-center gap-[5px] flex-nowrap mt-[13px]">
-      <div className="HeaderPics bg-[url('./Image/HeaderIcons/searchLogo.svg')]"></div>
+      <div className="HeaderPics bg-[url('./Image/HeaderIcons/searchLogo.svg')] dark:bg-[#212529]"></div>
       {/* <div className="HeaderPics bg-[url('./Image/HeaderIcons/loginLogo.svg') ]"></div> */}
       <div className="flex gap-[10px] mt-[4px] mr-[10px] text-[14px] text-[#727272] dark:text-Dark_TextColor_1">
         <NavLink

@@ -28,7 +28,7 @@ export const CourseListDetail = ({
         </p>
 
         <div className="flex flex-row-reverse gap-2 items-center ml-2 mt-[-6px]">
-          <div className="w-10 h-10 bg-slate-400 rounded-full">
+          <div className="w-10 h-10 bg-slate-400 rounded-full overflow-hidden">
             <img src={teacherImg} alt="teacher" />
           </div>
           <p className="text-xs text-textPaleColor">مدرس دوره</p>

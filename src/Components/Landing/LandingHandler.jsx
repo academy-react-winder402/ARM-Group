@@ -16,7 +16,7 @@ import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
 function LandingHandler() {
   return (
     <>
-      <div className="absolute w-[85%] top-0 right-1/2 translate-x-1/2  hidden sm:block  xl:mt-24 mt-80 mx-auto">
+      <div className="svgHolder absolute w-[85%] top-0 right-1/2 translate-x-1/2  max-lg:hidden  xl:mt-24 mt-80 mx-auto">
         <PathMotion
           progressObject={[
             { percent: 5, line: 11, flow: 0 },
@@ -36,8 +36,8 @@ function LandingHandler() {
             { percent: 75, line: 5, flow: 85 },
             { percent: 80, line: 3, flow: 90 },
             { percent: 85, line: 1, flow: 92 },
-            { percent: 87, line: 2, flow: 93 },
-            { percent: 90, line: 2, flow: 93 },
+            { percent: 87, line: 2, flow: 95 },
+            { percent: 90, line: 2, flow: 100 },
           ]}
         >
           {ReactComponent}
