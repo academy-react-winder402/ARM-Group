@@ -148,7 +148,7 @@ export const CourseList = () => {
   return (
     <div
       id="CardViewer"
-      className="HideCards mt-[30px] transition-all duration-[0.5] flex flex-wrap max-md:justify-center justify-between gap-10 h-auto"
+      className="HideCards mt-[30px] transition-all duration-[0.5] flex flex-wrap max-md:justify-center justify-evenly lg:justify-between gap-10 h-auto"
     >
       {CardView == "GridView" &&
         courses.map((item, key) => {
