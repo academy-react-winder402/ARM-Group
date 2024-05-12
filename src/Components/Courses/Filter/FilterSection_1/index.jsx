@@ -77,7 +77,11 @@ function Index() {
       </label>
 
       <input id="F/[5]" name="RadioInputs" type="radio" />
-      <label className="max-w-[400px] min-w-[300px]" htmlFor="F/[5]">
+      <label
+        className="max-w-[400px] min-w-[300px] "
+        style={{ backgroundColor: "transparent" }}
+        htmlFor="F/[5]"
+      >
         <PriceFilter />
       </label>
     </div>

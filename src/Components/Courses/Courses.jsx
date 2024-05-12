@@ -9,7 +9,7 @@ const Courses = () => {
   return (
     <Fragment>
       <section
-        className=" w-[95%]  mt-10 mx-auto px-8 mt-[120px]"
+        className=" w-[95%] mx-auto px-8 mt-[120px]"
         style={{ direction: "rtl" }}
       >
         <div className="flex flex-col mb-14">

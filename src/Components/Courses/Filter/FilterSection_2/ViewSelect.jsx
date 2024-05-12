@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 /* redux */
-import { useDispatch } from "react-redux";
 import { SetCardView } from "../../../../Redux/Slices/CourseFilter";
+import { useDispatch, useSelector } from "react-redux";
 
 function ViewSelect() {
   const [Selection, SetSelection] = useState({
@@ -12,15 +13,36 @@ function ViewSelect() {
   });
 
   const Dispatch = useDispatch();
+  const CardView = useSelector((state) => state.CourseFilter.CardView);
 
   const ListViewHandler = () => {
     SetSelection({ ListBut: "SelectedButView", GridBut: "", SubClass: "List" });
     Dispatch(SetCardView("ListView"));
+    toast.success("View selected To ListView");
   };
   const GridViewHandler = () => {
     SetSelection({ ListBut: "", GridBut: "SelectedButView", SubClass: "Grid" });
     Dispatch(SetCardView("GridView"));
+    toast.success("View selected To GridView");
   };
+
+  /* getting screen width lively */
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    CardView == "ListView" && screenWidth < 767 && GridViewHandler();
+  }, [screenWidth]);
 
   return (
     <>

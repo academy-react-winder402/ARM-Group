@@ -14,7 +14,7 @@ function RightSide() {
   ]);
 
   return (
-    <div className="w-1/2 px-8">
+    <div className="w-1/2 max-lg:w-3/5 px-8">
       <TopText />
       <Statistics statistics={statistics} />
       <FirstDescription />

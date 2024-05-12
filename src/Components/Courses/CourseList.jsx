@@ -3,9 +3,6 @@ import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
 
-// import { FaBeer } from "react-icons/fa";
-// import { ReactComponent as Svg } from "./icon.svg";
-
 /* redux */
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
@@ -128,12 +125,13 @@ export const CourseList = () => {
   ]);
   const CardView = useSelector((state) => state.CourseFilter.CardView);
 
-  useEffect(() => {
+  /* this was for animations */
+  /* useEffect(() => {
     let cardViewer = document.getElementById("CardViewer");
 
     cardViewer.classList.remove("HideCards");
     cardViewer.classList.add("ShowCards");
-  }, [CardView]);
+  }, [CardView]); */
 
   const ListViewCards = () => {
     return (
@@ -148,7 +146,7 @@ export const CourseList = () => {
   return (
     <div
       id="CardViewer"
-      className="HideCards mt-[30px] transition-all duration-[0.5] flex flex-wrap max-md:justify-center justify-evenly lg:justify-between gap-10 h-auto"
+      className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap max-md:justify-center justify-evenly lg:justify-between gap-10 h-auto"
     >
       {CardView == "GridView" &&
         courses.map((item, key) => {

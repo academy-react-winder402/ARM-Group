@@ -117,7 +117,10 @@ function Index(props) {
       style={props.IsNumberType && { fontSize: "20px", fontWeight: "bold" }}
       onClick={ClickHandler}
       id={Id}
-      className="CostumSelect"
+      className={
+        "CostumSelect " +
+        (props.type === "MultiSelect" && SelectedOptions > 0 && "pl-[95px]")
+      }
     >
       <span>{Options[0].defaultHTML}</span>
       <div>
