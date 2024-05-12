@@ -22,7 +22,8 @@ function Index({ DeleteStatus }) {
         onClick={CheckCurrRadio}
         type="text"
         placeholder="دنبال چیز خاصی میگردی؟"
-        className="bg-transparent w-[90%] text-[13px] outline-0 "
+        className="bg-transparent w-[90%] text-[13px]"
+        style={{ outline: "none" }}
       />
 
       <svg
