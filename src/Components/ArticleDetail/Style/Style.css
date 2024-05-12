@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .comments {
+    @apply text-sm text-textColor flex justify-center items-center gap-2;
+  }
+  .comments input {
+    @apply hidden;
+  }
+  .comments label {
+    @apply cursor-pointer transition-all duration-100;
+  }
+  .comments input:checked + label {
+    @apply border-b-2 border-[#91ACCF] pb-1;
+  }
+}

@@ -32,7 +32,7 @@ function Index() {
 
   return (
     <div className="FilterSection_2 ">
-      <div className="flex-grow-[6] text-[10px] leading-[40px] ">
+      <div className="hidden lg:block flex-grow-[6] text-[10px] leading-[40px] ">
         تعداد ۴۸ نتیجه از ۲۳۰ دوره طبق جستتجوی شما برای شما یافت شد
       </div>
 

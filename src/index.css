@@ -141,7 +141,7 @@ body {
   .view1,
   .view2,
   .view3 {
-    @apply p-1 rounded-2xl shadow-3xl flex;
+    @apply p-1 rounded-2xl shadow-lg flex;
   }
 
   .view1 > div > img,
