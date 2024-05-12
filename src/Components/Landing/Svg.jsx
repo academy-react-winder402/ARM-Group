@@ -1,4 +1,4 @@
-export const Svg = () => {
+const landingOneLine = () => {
   return (
     <img
       className="absolute top-[155px] left-[150px] max-lg:hidden"
@@ -7,3 +7,5 @@ export const Svg = () => {
     />
   );
 };
+
+export { landingOneLine };

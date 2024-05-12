@@ -63,7 +63,7 @@ function MainForm() {
         >
           شماره تلفن
         </h3>
-        <div className="InputHolder overflow-visible mb-10 bg-[url('./Image/SignUp/mobile-notch.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder overflow-visible mb-10 bg-[url('./Image/SignUp/mobile-notch.svg')] dark:bg-[url('/Image/SignUp/mobile-notch-Dark.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
             className="rounded-[50px]"
             placeholder="شماره تلفن خود را وارد کنید"

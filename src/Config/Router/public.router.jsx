@@ -14,7 +14,7 @@ import Header from "../../App/LayOut/Header.jsx";
 import Footer_Header from "../../App/LayOut/Header_Footer.jsx";
 
 const Public = new createBrowserRouter([
-  { path: "/", element: <Navigate to="/Dashbord/Comments" /> },
+  { path: "/", element: <Navigate to="/Home" /> },
   {
     element: <Header />,
     children: [

@@ -33,7 +33,7 @@ function MainForm() {
         >
           رمز عبور
         </h3>
-        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/lock.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
+        <div className="InputHolder mb-10 bg-[url('./Image/LogIn/lock.svg')] dark:bg-[url('/Image/LogIn/lock-Dark.svg')] bg-no-repeat bg-[10px_7px] border w-[100%]">
           <input
             placeholder="رمز عبور خود را وارد کنید"
             dir="rtl"
