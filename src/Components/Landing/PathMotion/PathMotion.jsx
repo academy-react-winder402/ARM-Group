@@ -9,7 +9,7 @@ const PathMotion = ({
     { percent: 50, line: 1, flow: 14 },
     // { percent: 50, line: 50, flow: 50 },
   ],
-  transitionDuration = "2s",
+  transitionDuration = "1s",
   height,
   width,
 }) => {

@@ -145,7 +145,7 @@ body {
   .view1,
   .view2,
   .view3 {
-    @apply p-1 rounded-2xl shadow-lg flex bg-white;
+    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#212529];
   }
 
   .view1 > div > img,
@@ -259,13 +259,13 @@ body {
   /* Diffrent View */
 
   .view1 .grouping {
-    @apply absolute top-16 left-4;
+    @apply absolute top-16 left-4 dark:bg-[#212529];
   }
   .view2 .grouping {
-    @apply absolute top-12 left-4;
+    @apply absolute top-12 left-4 dark:bg-[#212529];
   }
   .view3 .grouping {
-    @apply absolute top-4 right-0;
+    @apply absolute top-4 right-0 dark:bg-[#212529];
   }
 
   .view3 {
@@ -346,14 +346,14 @@ body {
     @apply text-textMidColor text-[10px] my-6  relative;
   }
   .view3 .lastCommentView3 > div {
-    @apply absolute right-[70PX] bg-white top-[-15px] w-[336px] h-[45px] border-2 border-[#F6F6F6] shadow-sm flex items-center;
+    @apply absolute right-[70PX] bg-white dark:bg-[#212529] top-[-15px] w-[336px] h-[45px] border-2 dark:border-[#495057] border-[#F6F6F6] shadow-sm flex items-center;
   }
   .view3 .lastCommentView3 > div {
     border-radius: 10px 20px 20px 10px;
   }
 
   .view3 .lastCommentView3 img {
-    @apply w-9 h-9 rounded-full mr-0.5;
+    @apply w-9 h-9 rounded-full mr-0.5 dark:bg-[#495057];
   }
   .view3 .lastCommentView3 > div > div {
     @apply flex flex-col mr-3 leading-5;

@@ -20,10 +20,10 @@ function LandingHandler() {
         <PathMotion
           progressObject={[
             { percent: 5, line: 11, flow: 0 },
-            { percent: 10, line: 5, flow: 10 },
+            { percent: 10, line: 5, flow: 15 },
             { percent: 15, line: 5, flow: 19 },
-            { percent: 20, line: 5, flow: 32 },
-            { percent: 25, line: 5, flow: 35 },
+            { percent: 20, line: 5, flow: 35 },
+            { percent: 25, line: 5, flow: 37 },
             { percent: 30, line: 5, flow: 43 },
             { percent: 35, line: 5, flow: 45 },
             { percent: 40, line: 5, flow: 50 },

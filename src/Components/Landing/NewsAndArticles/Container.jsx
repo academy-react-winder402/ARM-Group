@@ -2,6 +2,7 @@ import React from "react";
 import "../../../index.css";
 import { RightNews } from "./RightNews";
 import { LeftNews } from "./LeftNews";
+import { NavLink } from "react-router-dom";
 
 export const MainNews = () => {
   return (
@@ -21,9 +22,13 @@ export const MainNews = () => {
         و بیش از<span className="text-[48px] text-[#787878]">۱۳۰</span> خبر،
         مقاله و نکته آموزشی دیگر{" "}
       </div>
-      <button className="block w-[180px] h-[40px] text-[#fff] bg-[#E1C564] rounded-[10px] mx-auto">
+
+      <NavLink
+        to={"/Article"}
+        className="block w-[180px] relative flex items-center justify-center cursor-pointer h-[40px] text-[#fff] bg-[#E1C564] rounded-[10px] mx-auto"
+      >
         مشاهده مقالات
-      </button>
+      </NavLink>
     </div>
   );
 };
