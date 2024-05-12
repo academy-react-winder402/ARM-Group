@@ -1,8 +1,8 @@
 import React from "react";
 
 // import { Svg } from "./Svg";
-// import { ReactComponent as landingOneLine } from "./MainPath.svg";
-//import { PathMotion } from "./PathMotion/PathMotion";
+import ReactComponent from "./MainPath.svg";
+import { PathMotion } from "./PathMotion/PathMotion";
 import { SvgBackGround } from "./SvgBackGround.jsx";
 import { HeroSection } from "./HeroSection/Container.jsx";
 import { Product } from "./Product/Container.jsx";
@@ -16,8 +16,35 @@ import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
 function LandingHandler() {
   return (
     <>
+      <div className="absolute w-[85%] top-0 right-1/2 translate-x-1/2  hidden sm:block  xl:mt-24 mt-80 mx-auto">
+        <PathMotion
+          progressObject={[
+            { percent: 5, line: 11, flow: 0 },
+            { percent: 10, line: 5, flow: 10 },
+            { percent: 15, line: 5, flow: 19 },
+            { percent: 20, line: 5, flow: 32 },
+            { percent: 25, line: 5, flow: 35 },
+            { percent: 30, line: 5, flow: 43 },
+            { percent: 35, line: 5, flow: 45 },
+            { percent: 40, line: 5, flow: 50 },
+            { percent: 45, line: 5, flow: 55 },
+            { percent: 50, line: 5, flow: 57 },
+            { percent: 55, line: 5, flow: 60 },
+            { percent: 60, line: 5, flow: 65 },
+            { percent: 65, line: 5, flow: 75 },
+            { percent: 70, line: 5, flow: 80 },
+            { percent: 75, line: 5, flow: 85 },
+            { percent: 80, line: 3, flow: 90 },
+            { percent: 85, line: 1, flow: 92 },
+            { percent: 87, line: 2, flow: 93 },
+            { percent: 90, line: 2, flow: 93 },
+          ]}
+        >
+          {ReactComponent}
+        </PathMotion>
+      </div>
       <div className="cotainer m-auto mt-[80px]">
-        <SvgBackGround />
+        {/* <SvgBackGround /> */}
         <HeroSection />
         <Product />
         <Education />

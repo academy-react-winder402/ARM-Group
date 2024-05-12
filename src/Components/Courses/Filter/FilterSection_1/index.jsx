@@ -1,13 +1,10 @@
 import PriceFilter from "./PriceFilter";
 //import Search from "./Search";
 import Search from "../../../Common/Search";
-
+import Modal from "./TimeFilter/Modal/Modal";
 import CustomSelect from "../../../Common/FilterSelectOption";
-
 import { useState } from "react";
-
 import Butt from "./TimeFilter/Butt";
-
 /* Redux */
 import { useSelector } from "react-redux";
 
@@ -74,6 +71,7 @@ function Index() {
       <input id="F/[6]" name="RadioInputs" type="radio" />
       <label className="max-w-[150px] min-w-[100px]" htmlFor="F/[6]">
         <Butt />
+        <Modal />
       </label>
 
       <input id="F/[5]" name="RadioInputs" type="radio" />

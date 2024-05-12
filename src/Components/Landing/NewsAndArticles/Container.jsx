@@ -6,7 +6,7 @@ import { LeftNews } from "./LeftNews";
 export const MainNews = () => {
   return (
     <div
-      className="mt-[100px] w-[87.5%] h-[920px] mx-auto text-center mb-[115px]"
+      className="mt-[200px] w-[87.5%] h-[920px] mx-auto text-center mb-[115px]"
       style={{ direction: "rtl" }}
     >
       <div className="text-[30px] text-[#5E5E5E] mt-[65px]">اخبار و مقالات</div>

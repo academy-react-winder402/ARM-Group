@@ -15,10 +15,10 @@ export const CourseListDetail = ({
 }) => {
   return (
     <div className="w-[250px] p-[5px]  h-[405] flex-none shadow-3xl rounded-[11px] cursor-pointer">
-      <div className="w-[240px]  h-[147] bg-slate-500 rounded-[11px]">
+      <div className="w-[240px]  h-[147px] object-cover bg-slate-500 rounded-[11px]">
         <img className="rounded-xl h-full w-full" src={courseImg} alt="image" />
       </div>
-      <div className="h-auto rounded-xl">
+      <div className="h-auto rounded-xl px-[10px]">
         <h2 className="py-3 text-sm text-textColor dark:text-[#adb5bd]">
           {title}
         </h2>

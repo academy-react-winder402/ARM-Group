@@ -9,7 +9,7 @@ const PathMotion = ({
     { percent: 50, line: 1, flow: 14 },
     // { percent: 50, line: 50, flow: 50 },
   ],
-  transitionDuration = "0.2s",
+  transitionDuration = "2s",
   height,
   width,
 }) => {
@@ -19,6 +19,9 @@ const PathMotion = ({
   });
   const [throPercent, sethroPercent] = useState(0);
   const [pathLength, setPathLength] = useState(1000);
+  useEffect(() => {
+    console.log(throPercent);
+  }, [throPercent]);
 
   const svgRef = useRef();
   const pathRef = useRef();
@@ -49,16 +52,17 @@ const PathMotion = ({
       window.removeEventListener("scroll", calculateScrollPosition);
     };
   }, []);
+
   const renderedSvg = { ...children.render("", "") };
   const path = { ...renderedSvg.props.children[1].props };
   const viewBoxValue = renderedSvg.props.viewBox;
 
   return (
-    <div ref={svgRef} className=" relative">
-      <span className=" fixed top-30 left-10">{throPercent}</span>
+    <div ref={svgRef} className=" ">
+      {/* <span className=" fixed top-30 left-10">{throPercent}</span>
       <span className=" fixed top-36 left-10">
         {((drawValue.set + drawValue.offset) / pathLength) * 100}
-      </span>
+      </span> */}
       {/* <span>test</span> */}
       <svg
         className=" w-full"
@@ -102,6 +106,7 @@ const PathMotion = ({
             pathLength: pathLength,
             vectorEffect: "non-scaling-stroke",
             transitionDuration: transitionDuration,
+            strokeLinecap: "round",
           }}
         />
       </svg>

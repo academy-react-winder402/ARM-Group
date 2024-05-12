@@ -6,7 +6,7 @@ import { TextArea } from "./TextArea.jsx";
 
 function TopDescription() {
   return (
-    <div className="h-[1120px] p-1 mb-4 rounded-[15px] shadow-lg">
+    <div className="h-[1120px] bg-white p-1 mb-4 rounded-[15px] shadow-lg">
       <Header />
       <LikeComment />
       <div className="h-[130px] mt-6 text-textMidColor pr-2">

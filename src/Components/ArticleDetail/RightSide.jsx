@@ -5,13 +5,13 @@ import { RightDetail } from "./RightDetail.jsx";
 function RightSide() {
   return (
     <div className="w-[212px] flex flex-col gap-3">
-      <div className="h-[470px] pr-3 border">
+      {/* <div className="h-[470px] pr-3 border">
         <Header
           textSize="text-base text-textColor mb-[-10px]"
           title="یه عنوان"
         />
         <RightDetail />
-      </div>
+      </div> */}
 
       <HeaderBox />
       <View1 />
