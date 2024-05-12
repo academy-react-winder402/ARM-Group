@@ -5,7 +5,6 @@ function LikeComment() {
         <span className="font-medium">زمان مطالعه</span>
         <img src="./Image/Article/clock-three.png" className="w-5 h-5" alt="" />
       </div>
-
       <div className="flex gap-2 items-center">
         <span>۱۳۰</span>
         <img src="./Image/Article/heart.png" className="w-5 h-5" alt="" />

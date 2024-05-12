@@ -9,12 +9,12 @@ function LikeDislike() {
           className="w-7 h-6"
         />
       </div>
-      <div className="w-[2px] bg-textColor"></div>
+      <span>|</span>
       <div className="flex gap-2">
         <span>۳۰</span>
         <img
-          src="../../../../public/Image/ArticleDetail/hand.png"
-          alt="Yes"
+          src="./Image/ArticleDetail/hand.png"
+          alt="No"
           className="w-7 h-6"
         />
       </div>
