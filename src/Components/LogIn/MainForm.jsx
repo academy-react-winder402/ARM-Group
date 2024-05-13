@@ -5,11 +5,13 @@ import {
   EmailValidation,
   PasswordValidation,
 } from "../../Core/Validations/login.validation";
+import { loginAPI } from "../../Core/Services/api/auth";
 
 function MainForm() {
   const [EmailPhone, setEmailPhone] = useState("");
   const [Password, setPassword] = useState("");
-  var Errortxt = document.querySelectorAll(".InputHolder > span");
+
+  /* var Errortxt = document.querySelectorAll(".InputHolder > span");
 
   const ShowError = (innerHTML, i) => {
     if (i === 3) {
@@ -51,8 +53,22 @@ function MainForm() {
     }
   };
 
+  const LogInUser = async () => {
+    const userObj = {
+      phoneOrGmail: "3535bahr2089@gmail.com",
+      password: "1234",
+      rememberMe: true,
+    };
+
+    const user = await loginAPI(userObj);
+
+    console.log(user);
+  }; */
+
   useEffect(() => {
     Errortxt = document.querySelectorAll(".InputHolder > span");
+
+    LogInUser();
   }, []);
 
   return (
