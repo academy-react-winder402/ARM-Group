@@ -61,13 +61,11 @@ body {
            mix-blend-darken  w-[40%] h-3/4;
   }
 
-  .ShowError {
-    opacity: 1;
-    visibility: visible;
-  }
-  .HideError {
-    opacity: 0;
-    visibility: hidden;
+  .Error {
+    -webkit-animation: scale-down-center 0.4s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    animation: scale-down-center 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    @apply text-[10px] text-red-700 absolute mr-[100px] mt-[-25px];
   }
 
   /* Animations */
