@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.svgHolder div {
+  @apply max-2xl:hidden;
+}

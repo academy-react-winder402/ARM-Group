@@ -4,7 +4,7 @@ import { SliderButtons } from "./SliderButtons";
 export const MainAdvertising = () => {
   return (
     <div
-      className="mt-[120px] h-[690px] w-[87.5%] mx-auto text-center"
+      className="mt-[250px] relative h-[690px] w-[87.5%] mx-auto text-center"
       style={{ direction: "rtl" }}
     >
       <div className="text-[30px] text-[#5E5E5E] mt-[65px]">

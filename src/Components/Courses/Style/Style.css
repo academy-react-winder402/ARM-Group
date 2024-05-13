@@ -8,13 +8,13 @@
   .FilterSecton_1 {
     @apply mt-5 rounded-lg shadow-3xl
          h-fit p-[10px] flex flex-wrap items-center 
-        justify-center gap-x-4 gap-y-4 bg-white text-[#808080];
+        justify-center gap-x-4 gap-y-4 bg-white dark:bg-[#212529] text-[#808080];
   }
 
   .FilterSecton_1 > label {
     @apply w-[150px] h-[40px] cursor-pointer hover:flex-grow-[1.5]
        transition-all duration-[0.5s] rounded-[10px] bg-[#F2F2F2] 
-      text-center leading-[50px] flex-grow-[1];
+      text-center leading-[50px] flex-grow-[1] dark:bg-[#343a40];
   }
 
   .FilterSecton_1 > input {
@@ -70,7 +70,7 @@
   }
 
   .CostumButtFilter {
-    @apply min-w-[100px] max-w-[100px] bg-white rounded-[9px] shadow-3xl mr-4;
+    @apply min-w-[100px] max-w-[100px] bg-white rounded-[9px] shadow-3xl mr-4 dark:bg-[#212529];
   }
 
   .CostumButtFilter > div {

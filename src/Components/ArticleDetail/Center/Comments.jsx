@@ -3,7 +3,7 @@ import { CommentDetail } from "./CommentDetail.jsx";
 function Comments() {
   return (
     <div>
-      <div className="h-[540px] rounded-[15px] shadow-lg px-[14px] py-5">
+      <div className="h-[540px] bg-white rounded-[15px] shadow-lg px-[14px] py-5">
         <div className="flex justify-between ">
           <h3 className="text-xl text-textColor w-20">نظرات</h3>
           <div className="comments w-[250px] h-7">

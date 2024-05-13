@@ -34,6 +34,10 @@ body {
     transition-all duration-[0.5s];
   }
 
+  .InputHolder > input {
+    border-radius: 0 10px 10px 0;
+  }
+
   .ResponsiveIMG {
     @apply block mt-[50px] max-md:hidden
            max-lg:w-1/3 max-lg:h-[300px] max-lg:mt-[100px]  
@@ -72,7 +76,7 @@ body {
   .HeaderPics {
     @apply cursor-pointer bg-no-repeat bg-[20px] 
       bg-center h-[30px] w-[45px] rounded-[15px]
-     bg-[#FAFAF9] border-[#F2F2F1] border-[2px]
+     bg-[#FAFAF9] border-[#F2F2F1] dark:border-[#495057] border-[2px]
      drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.2)];
   }
 
@@ -141,7 +145,7 @@ body {
   .view1,
   .view2,
   .view3 {
-    @apply p-1 rounded-2xl shadow-lg flex bg-white;
+    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#212529];
   }
 
   .view1 > div > img,
@@ -255,13 +259,13 @@ body {
   /* Diffrent View */
 
   .view1 .grouping {
-    @apply absolute top-16 left-4;
+    @apply absolute top-16 left-4 dark:bg-[#212529];
   }
   .view2 .grouping {
-    @apply absolute top-12 left-4;
+    @apply absolute top-12 left-4 dark:bg-[#212529];
   }
   .view3 .grouping {
-    @apply absolute top-4 right-0;
+    @apply absolute top-4 right-0 dark:bg-[#212529];
   }
 
   .view3 {
@@ -342,14 +346,14 @@ body {
     @apply text-textMidColor text-[10px] my-6  relative;
   }
   .view3 .lastCommentView3 > div {
-    @apply absolute right-[70PX] bg-white top-[-15px] w-[336px] h-[45px] border-2 border-[#F6F6F6] shadow-sm flex items-center;
+    @apply absolute right-[70PX] bg-white dark:bg-[#212529] top-[-15px] w-[336px] h-[45px] border-2 dark:border-[#495057] border-[#F6F6F6] shadow-sm flex items-center;
   }
   .view3 .lastCommentView3 > div {
     border-radius: 10px 20px 20px 10px;
   }
 
   .view3 .lastCommentView3 img {
-    @apply w-9 h-9 rounded-full mr-0.5;
+    @apply w-9 h-9 rounded-full mr-0.5 dark:bg-[#495057];
   }
   .view3 .lastCommentView3 > div > div {
     @apply flex flex-col mr-3 leading-5;

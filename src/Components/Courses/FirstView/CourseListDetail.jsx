@@ -15,10 +15,10 @@ export const CourseListDetail = ({
 }) => {
   return (
     <div className="w-[250px] p-[5px]  h-[405] flex-none shadow-3xl rounded-[11px] cursor-pointer">
-      <div className="w-[240px]  h-[147] bg-slate-500 rounded-[11px]">
+      <div className="w-[240px]  h-[147px] object-cover bg-slate-500 rounded-[11px]">
         <img className="rounded-xl h-full w-full" src={courseImg} alt="image" />
       </div>
-      <div className="h-auto rounded-xl">
+      <div className="h-auto rounded-xl px-[10px]">
         <h2 className="py-3 text-sm text-textColor dark:text-[#adb5bd]">
           {title}
         </h2>
@@ -28,7 +28,7 @@ export const CourseListDetail = ({
         </p>
 
         <div className="flex flex-row-reverse gap-2 items-center ml-2 mt-[-6px]">
-          <div className="w-10 h-10 bg-slate-400 rounded-full">
+          <div className="w-10 h-10 bg-slate-400 rounded-full overflow-hidden">
             <img src={teacherImg} alt="teacher" />
           </div>
           <p className="text-xs text-textPaleColor">مدرس دوره</p>
