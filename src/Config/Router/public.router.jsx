@@ -3,6 +3,7 @@ import LogIn from "../../Pages/LogIn/LogIn.jsx";
 import SignUp from "../../Pages/SignUp/SignUp.jsx";
 import ForgetPass from "../../Pages/ForgetPass/ForgetPass.jsx";
 import Courses from "../../Pages/Courses/Courses.jsx";
+import CourseDetails from "../../Pages/CoursesDetail/index.jsx";
 import Article from "../../Pages/Articless/Article.jsx";
 import ArticleDetail from "../../Pages/ArticleDetail/index.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
@@ -12,10 +13,8 @@ import Dashbord_Courses from "../../Pages/Dashbord/Courses/index.jsx";
 /* LayOuts: */
 import Header from "../../App/LayOut/Header.jsx";
 import Footer_Header from "../../App/LayOut/Header_Footer.jsx";
-import Details from "../../Components/Details/Details.jsx";
 
 const Public = new createBrowserRouter([
-  {path:"/Details", element: <Details />},
   { path: "/", element: <Navigate to="/Dashbord/Comments" /> },
   {
     element: <Header />,
@@ -38,6 +37,7 @@ const Public = new createBrowserRouter([
     children: [
       { path: "/Home", element: <Landing /> },
       { path: "/Courses", element: <Courses /> },
+      { path: "/CoursesDetail", element: <CourseDetails /> },
       { path: "/Article", element: <Article /> },
       { path: "/ArticleDetail", element: <ArticleDetail /> },
     ],
