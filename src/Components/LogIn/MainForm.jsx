@@ -1,39 +1,47 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DefualtButton from "../Common/DefualtButton";
-import { PhoneValidation } from "../../Core/Validations/SingUp.validation";
-import {
-  EmailValidation,
-  PasswordValidation,
-} from "../../Core/Validations/login.validation";
 import { loginAPI } from "../../Core/Services/api/auth";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import RememberMe from "../Common/RememberMe";
 import toast from "react-hot-toast";
+import { SetItem } from "../../Core/Services/common/Storage.Services";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 function MainForm() {
-  const LogInUser = async () => {
-    const userObj = {
-      phoneOrGmail: "3535bahr2089@gmail.com",
-      password: "1234",
-      rememberMe: true,
-    };
+  const navigate = useNavigate();
+  const [isLoad, setIsload] = useState(false);
+  const validation = yup.object({
+    phoneOrGmail: yup
+      .string()
+      .required("ایمیل یا شماره همراه خود را وارد کنید" + " * "),
+    password: yup.string().required("رمز عبور الزامیست" + " * "),
+  });
 
+  const LogInUser = async (userObj) => {
+    setIsload(true);
     const user = await loginAPI(userObj);
+    setIsload(false);
 
-    console.log(user);
+    if (user.success === true) {
+      toast.success("ورود با موفقیت انجام شد");
+      SetItem("token", user.token);
+      navigate("/");
+    } else {
+      toast.error("اطلاعات حساب کاربری یا رمز عبور نادست است");
+    }
   };
-  const onSubmit = () => {
-    console.log("submit");
+  const onSubmit = (values) => {
+    console.log(values);
+    LogInUser(values);
   };
-
-  useEffect(() => {
-    //LogInUser();
-  }, []);
 
   return (
     <Formik
-      initialValues={{ Gmail: "", Password: "", RememberMe: Boolean }}
+      initialValues={{ phoneOrGmail: "", password: "", rememberMe: true }}
       onSubmit={onSubmit}
+      validationSchema={validation}
     >
       <Form>
         <div className="mt-[55px] w-[100%] m-auto">
@@ -48,13 +56,13 @@ function MainForm() {
               placeholder="ایمیل یا شماره تلفن خود را وارد کنید"
               dir="rtl"
               type="text"
-              name="Gmail"
-              id="Gmail"
+              name="phoneOrGmail"
+              id="phoneOrGmail"
             />
             <ErrorMessage
-              name="Gmail"
+              name="phoneOrGmail"
               component={"span"}
-              className="ShowError text-[10px] text-red-700 absolute mr-[100px] mt-[-35px]"
+              className="Error"
             />
           </div>
         </div>
@@ -71,21 +79,36 @@ function MainForm() {
             <Field
               placeholder="رمز عبور خود را وارد کنید"
               dir="rtl"
-              type="text"
-              name="Password"
-              id="Password"
+              type="password"
+              name="password"
+              id="password"
             />
             <ErrorMessage
-              name="Password"
+              name="password"
               component={"span"}
-              className="ShowError text-[10px] text-red-700 absolute mr-[100px] mt-[-35px]"
+              className="Error"
             />
           </div>
         </div>
 
-        <RememberMe />
+        <RememberMe name="rememberMe" id="rememberMe" />
 
-        <DefualtButton sumbit innerHTML="ورود به حساب" />
+        {isLoad ? (
+          <DefualtButton
+            sumbit
+            Style={{
+              background:
+                "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+              height: "40px",
+              paddingBottom: "20px",
+              fontSize: "16px",
+              fontFamily: "IranSanse",
+            }}
+            innerHTML={<PropagateLoader color="white" />}
+          />
+        ) : (
+          <DefualtButton sumbit innerHTML="ورود به حساب" />
+        )}
       </Form>
     </Formik>
   );

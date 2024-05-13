@@ -16,7 +16,17 @@ function App() {
   return (
     <Provider store={store}>
       <div>
-        <Toaster />
+        <Toaster
+          toastOptions={{
+            className: "",
+            style: {
+              padding: "20px",
+              direction: "rtl",
+              display: "flex",
+              gap: "20px",
+            },
+          }}
+        />
       </div>
       <NextUIProvider>
         <RouterProvider router={IsLoggedIn ? null : Public} />
