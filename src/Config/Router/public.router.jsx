@@ -12,8 +12,10 @@ import Dashbord_Courses from "../../Pages/Dashbord/Courses/index.jsx";
 /* LayOuts: */
 import Header from "../../App/LayOut/Header.jsx";
 import Footer_Header from "../../App/LayOut/Header_Footer.jsx";
+import Details from "../../Components/Details/Details.jsx";
 
 const Public = new createBrowserRouter([
+  {path:"/Details", element: <Details />},
   { path: "/", element: <Navigate to="/Dashbord/Comments" /> },
   {
     element: <Header />,

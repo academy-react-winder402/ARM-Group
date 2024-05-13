@@ -355,3 +355,14 @@ body {
     @apply flex flex-col mr-3 leading-5;
   }
 }
+
+
+/*----------------- Course Details --------------------*/
+@layer components{
+  .CourseDetailstexts{
+    @apply text-[40px] text-[#5E5E5E];
+  }
+  .CourseDetailstexts2{
+    @apply text-[19px] text-[#9F9F9F];
+  }
+}
