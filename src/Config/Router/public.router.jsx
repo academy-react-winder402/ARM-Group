@@ -3,6 +3,7 @@ import LogIn from "../../Pages/LogIn/LogIn.jsx";
 import SignUp from "../../Pages/SignUp/SignUp.jsx";
 import ForgetPass from "../../Pages/ForgetPass/ForgetPass.jsx";
 import Courses from "../../Pages/Courses/Courses.jsx";
+import CourseDetails from "../../Pages/CoursesDetail/index.jsx";
 import Article from "../../Pages/Articless/Article.jsx";
 import ArticleDetail from "../../Pages/ArticleDetail/index.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
@@ -36,6 +37,7 @@ const Public = new createBrowserRouter([
     children: [
       { path: "/Home", element: <Landing /> },
       { path: "/Courses", element: <Courses /> },
+      { path: "/CoursesDetail", element: <CourseDetails /> },
       { path: "/Article", element: <Article /> },
       { path: "/ArticleDetail", element: <ArticleDetail /> },
     ],

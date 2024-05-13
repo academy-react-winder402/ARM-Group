@@ -6,6 +6,23 @@
   font-family: IranSanse;
   src: url(../public/Font/IRANSans.ttf);
 }
+@font-face {
+  font-family: IranSans_Bold;
+  src: url(../public/Font/IRANSans_Bold.ttf);
+}
+@font-face {
+  font-family: IranSans_Light;
+  src: url(../public/Font/IRANSans_Light.ttf);
+}
+@font-face {
+  font-family: IranSans_Medium;
+  src: url(../public/Font/IRANSans_Medium.ttf);
+}
+@font-face {
+  font-family: IranSans_UltraLight;
+  src: url(../public/Font/IRANSans_UltraLight.ttf);
+}
+
 
 body {
   background-color: #f5f5f4;
@@ -359,3 +376,15 @@ body {
     @apply flex flex-col mr-3 leading-5;
   }
 }
+
+
+/*----------------- Course Details --------------------*/
+@layer components{
+  .CourseDetailstexts{
+    @apply text-[40px] text-[#5E5E5E] font-bold;
+  }
+  .CourseDetailstexts2{
+    @apply text-[18px] text-[#9F9F9F];
+  }
+}
+
