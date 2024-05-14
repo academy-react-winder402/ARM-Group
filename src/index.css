@@ -386,3 +386,12 @@ body {
   }
 }
 
+/*----------------- Landing / Statistics classes --------------------*/
+@layer components{
+  .ShowScrolBtn{
+    @apply opacity-100;
+  }
+  .HideScrolBtn{
+    @apply opacity-0;
+  }
+}
