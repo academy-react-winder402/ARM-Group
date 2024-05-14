@@ -12,6 +12,7 @@ import { Course } from "./Course/Container.jsx";
 import { MainNews } from "./NewsAndArticles/Container.jsx";
 import { Statistics } from "./Statistics/Statistics.jsx";
 import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
+import ScrolBtn from "./ScrolBtn/ScrolBtn.jsx";
 
 function LandingHandler() {
   return (
@@ -45,6 +46,7 @@ function LandingHandler() {
       </div>
       <div className="cotainer m-auto mt-[80px]">
         {/* <SvgBackGround /> */}
+        <ScrolBtn />
         <HeroSection />
         <Product />
         <Education />
