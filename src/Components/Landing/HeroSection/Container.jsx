@@ -8,6 +8,7 @@ function HeroSection() {
     <div
       className="h-[458px] mt-[30px] mx-auto w-[85%] text-right flex flex-col max-md:items-center md:justify-start"
       style={{ direction: "rtl" }}
+      data-aos="fade-down"
     >
       <h1 className="text-3xl text-textColor mt-16 dark:text-Dark_TextColor_1">
         آکادمی بحرالعلوم

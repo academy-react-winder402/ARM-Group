@@ -17,6 +17,7 @@
     "@mui/x-date-pickers": "^7.3.1",
     "@nextui-org/react": "^2.3.6",
     "@reduxjs/toolkit": "^2.2.3",
+    "aos": "^2.3.4",
     "axios": "^1.6.8",
     "dayjs": "^1.11.11",
     "formik": "^2.4.6",

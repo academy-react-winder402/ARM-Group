@@ -4,6 +4,7 @@ export const Course = () => {
     <div
       className="cotainer md:w-[1300px] h-[800px] m-auto mt-[480px] text-right mb-10"
       dir="rtl"
+      data-aos="fade-down"
     >
       <div className="h-[800px] mt-72 text-right mb-10" dir="rtl">
         <div className="text-center mx-auto w-1/2">
