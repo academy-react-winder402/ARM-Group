@@ -16,7 +16,7 @@ const MainFooter = () => {
       </div>
       <FooterIcons />
       <BorderDiv />
-      <div className="text-[16px] text-center mt-[5px]">Sepehr Academy</div>
+      <div className="text-[16px] text-center mt-[5px] dark:text-Dark_TextColor_1">Sepehr Academy</div>
     </div>
   );
 };

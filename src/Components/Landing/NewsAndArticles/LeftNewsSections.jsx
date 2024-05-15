@@ -10,10 +10,10 @@ export const LeftNewsSections = () => {
         </div>
         <div className="mt-[-21px] mr-[15px] flex flex-nowrap">
           <img className="border-[1px] border-black w-[42px] h-[42px] rounded-full" src="" alt="" />
-          <span className="mt-[25px] text-[10px] text-[#787878]">نام نویسنده</span>
+          <span className="mt-[25px] text-[10px] text-[#787878] dark:text-Dark_TextColor_2">نام نویسنده</span>
         </div>
       </div>
-      <div className="text-[14px] text-[#777777] text-right">عنوان خبر یا مقاله  لورم ایپسوم متن ساختگی با تولید سادگی ، و .... و</div>
+      <div className="text-[14px] text-[#777777] text-right dark:text-Dark_TextColor_2">عنوان خبر یا مقاله  لورم ایپسوم متن ساختگی با تولید سادگی ، و .... و</div>
     </div>
   );
 };

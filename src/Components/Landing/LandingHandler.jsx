@@ -13,8 +13,24 @@ import { MainNews } from "./NewsAndArticles/Container.jsx";
 import { Statistics } from "./Statistics/Statistics.jsx";
 import { MainAdvertising } from "./Advertising/MainAdvertising.jsx";
 import ScrolBtn from "./ScrolBtn/ScrolBtn.jsx";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+import Aos from "aos";
 
 function LandingHandler() {
+  window.addEventListener("scroll", () =>{
+    AOS.refresh();
+  });
+
+  useEffect(() => {
+    AOS.init({
+      offset: 200,
+      duration: 800,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
+  }, []);
   return (
     <>
       <div className="svgHolder absolute w-[85%] top-0 right-1/2 translate-x-1/2  max-lg:hidden  xl:mt-24 mt-80 mx-auto">
