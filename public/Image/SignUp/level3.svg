@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="240.008" viewBox="0 0 16 240.008">
+  <g id="Group_148" data-name="Group 148" transform="translate(-1120 -3774.496)">
+    <g id="Ellipse_39" data-name="Ellipse 39" transform="translate(1120 3959)" fill="#fbfbfb" stroke="#e5e5e5" stroke-width="2">
+      <circle cx="8" cy="8" r="8" stroke="none"/>
+      <circle cx="8" cy="8" r="7" fill="none"/>
+    </g>
+    <g id="Group_147" data-name="Group 147">
+      <line id="Line_7" data-name="Line 7" x1="1" y2="240" transform="translate(1127.5 3774.5)" fill="none" stroke="#e5e5e5" stroke-width="2"/>
+      <g id="Ellipse_37" data-name="Ellipse 37" transform="translate(1120 3814)" fill="#fbfbfb" stroke="#e5e5e5" stroke-width="2">
+        <circle cx="8" cy="8" r="8" stroke="none"/>
+        <circle cx="8" cy="8" r="7" fill="none"/>
+      </g>
+      <g id="Ellipse_38" data-name="Ellipse 38" transform="translate(1120 3887)" fill="#fbfbfb" stroke="#e5e5e5" stroke-width="2">
+        <circle cx="8" cy="8" r="8" stroke="none"/>
+        <circle cx="8" cy="8" r="7" fill="none"/>
+      </g>
+      <circle id="Ellipse_40" data-name="Ellipse 40" cx="5" cy="5" r="5" transform="translate(1123 3962)" fill="#23dcbd"/>
+    </g>
+  </g>
+</svg>
