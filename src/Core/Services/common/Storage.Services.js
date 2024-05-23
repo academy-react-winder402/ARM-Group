@@ -21,7 +21,7 @@ const RemoveItem = (key) => {
   localStorage.removeItem(key);
 };
 
-const ClearStorage = (key) => {
+const ClearStorage = () => {
   localStorage.clear();
 };
 
