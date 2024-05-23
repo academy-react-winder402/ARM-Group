@@ -120,6 +120,7 @@ body {
 @layer components {
   .StNumbers {
     @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px];
+    font-family: IranSanse;
   }
 
   .StNumbers {
