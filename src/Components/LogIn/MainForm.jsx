@@ -103,6 +103,7 @@ function MainForm() {
               paddingBottom: "20px",
               fontSize: "16px",
               fontFamily: "IranSanse",
+              width: "100%",
             }}
             innerHTML={<PropagateLoader color="white" />}
           />

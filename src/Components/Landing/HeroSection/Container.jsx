@@ -25,6 +25,7 @@ function HeroSection() {
             background: "linear-gradient(to right bottom, #D4AF37, #E1C564)",
             fontSize: "16px",
             fontFamily: "IranSanse",
+            width: "100%",
           }}
           onClick={() => {
             setTimeout(() => {

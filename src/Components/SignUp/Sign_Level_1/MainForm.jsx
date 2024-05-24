@@ -18,7 +18,7 @@ function MainForm({ setStep }) {
   const [PhoneNumber, setPhoneNumber] = useState("");
   const [Code, setCode] = useState();
   const [TrueCode] = useState("12345");
-  const [CodeTime] = useState(10);
+  const [CodeTime] = useState(30);
   const [IsPhoneValid, setIsPhoneValid] = useState(false);
   const [ShowTimer, setShowTimer] = useState(false);
   const dispatch = useDispatch();
@@ -75,12 +75,12 @@ function MainForm({ setStep }) {
   };
 
   const Submit = () => {
-    if (Code == TrueCode) {
+    /* if (Code == TrueCode) {
       dispatch(SetLevel(2));
       toast.success("کد تایید شد");
     } else {
       toast.error("کد وارد شده اشتباه میباشد");
-    }
+    } */
   };
 
   const SendCodeApi = async () => {
@@ -179,6 +179,7 @@ function MainForm({ setStep }) {
                   paddingBottom: "20px",
                   fontSize: "16px",
                   fontFamily: "IranSanse",
+                  width: "100%",
                 }}
                 innerHTML={<PropagateLoader color="white" />}
               />
