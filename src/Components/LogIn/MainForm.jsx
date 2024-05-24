@@ -24,7 +24,7 @@ function MainForm() {
     const user = await loginAPI(userObj);
     setIsload(false);
 
-    if (user.success === true) {
+    if (user.success) {
       toast.success("ورود با موفقیت انجام شد");
       SetItem("token", user.token);
       navigate("/");
@@ -32,6 +32,7 @@ function MainForm() {
       toast.error("اطلاعات حساب کاربری یا رمز عبور نادست است");
     }
   };
+
   const onSubmit = (values) => {
     console.log(values);
     LogInUser(values);
@@ -95,7 +96,6 @@ function MainForm() {
 
         {isLoad ? (
           <DefualtButton
-            sumbit
             Style={{
               background:
                 "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
