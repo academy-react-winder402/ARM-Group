@@ -88,10 +88,20 @@ body {
 /*----------------- Header classes --------------------*/
 @layer components {
   .HeaderPics {
-    @apply cursor-pointer bg-no-repeat bg-[20px] 
-      bg-center h-[30px] w-[45px] rounded-[15px]
-     bg-[#FAFAF9] border-[#F2F2F1] dark:border-[#495057] border-[2px]
+    @apply cursor-pointer bg-no-repeat 
+      bg-center h-[30px] w-[45px] rounded-[15px] relative
+     bg-[#FAFAF9] border-[#F2F2F1] 
+     border-[2px] dark:border-[#495057] 
      drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.2)];
+  }
+
+  .HeaderPics > div {
+    @apply bg-[#FFFFFF] rounded-[8px] w-[90px] h-[65px] invisible opacity-0 transition-all
+    drop-shadow-[-3px_3px_6px_rgba(0,0,0,0.2)] absolute bottom-[-85px] duration-[0.5s] left-[-25px];
+  }
+
+  .HeaderPics:hover > div {
+    @apply visible opacity-100 bottom-[-70px];
   }
 
   .SelectedMenu {
@@ -110,6 +120,7 @@ body {
 @layer components {
   .StNumbers {
     @apply text-[64px] text-[#5E5E5E] block max-[1000px]:text-[50px];
+    font-family: IranSanse;
   }
 
   .StNumbers {
