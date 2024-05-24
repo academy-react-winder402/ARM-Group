@@ -6,7 +6,10 @@ import ReactCodeInput from "react-code-input";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { PhoneValidation } from "../../../Core/Validations/SingUp.validation";
 import toast from "react-hot-toast";
-import { SendVerifyMessage } from "../../../Core/Services/api/Auth/SignUp";
+import {
+  SendVerifyMessage,
+  VerifyMessage,
+} from "../../../Core/Services/api/Auth/SignUp";
 import PropagateLoader from "react-spinners/PropagateLoader";
 
 /* redux */
@@ -74,7 +77,15 @@ function MainForm({ setStep }) {
     setIsPhoneValid(true);
   };
 
-  const Submit = () => {
+  const Submit = async () => {
+    let CodeVerify = { phoneNumber: PhoneNumber, verifyCode: Code };
+
+    setIsload(true);
+    const Verify = await SendVerifyMessage(CodeVerify);
+    setIsload(false);
+
+    console.log(Verify.message);
+
     /* if (Code == TrueCode) {
       dispatch(SetLevel(2));
       toast.success("کد تایید شد");
