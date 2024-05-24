@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DefualtButton from "../Common/DefualtButton";
-import { loginAPI } from "../../Core/Services/api/auth";
+import { loginAPI } from "../../Core/Services/api/Auth/auth";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import RememberMe from "../Common/RememberMe";
 import toast from "react-hot-toast";
