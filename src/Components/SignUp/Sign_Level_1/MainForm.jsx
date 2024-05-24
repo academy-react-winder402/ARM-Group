@@ -1,16 +1,28 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
 import { SetPhoneNumber } from "../../../Redux/Slices/FormSlice";
 import DefualtButton from "../../Common/DefualtButton";
-
+import ReactCodeInput from "react-code-input";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import { PhoneValidation } from "../../../Core/Validations/SingUp.validation";
 import toast from "react-hot-toast";
+import { SendVerifyMessage } from "../../../Core/Services/api/Auth/SignUp";
+import PropagateLoader from "react-spinners/PropagateLoader";
 
-function MainForm() {
+/* redux */
+import { SetLevel } from "../../../Redux/Slices/SignUpFormSlice";
+import { useDispatch } from "react-redux";
+
+function MainForm({ setStep }) {
+  const [isLoad, setIsload] = useState(false);
   const [PhoneNumber, setPhoneNumber] = useState("");
-  const [Code, setCode] = useState("");
+  const [Code, setCode] = useState();
+  const [TrueCode] = useState("12345");
+  const [CodeTime] = useState(10);
+  const [IsPhoneValid, setIsPhoneValid] = useState(false);
+  const [ShowTimer, setShowTimer] = useState(false);
   const dispatch = useDispatch();
+
   var Errortxt = document.querySelectorAll(".InputHolder > span");
 
   const ShowPhoneErr = (innerHTML) => {
@@ -21,6 +33,7 @@ function MainForm() {
       Errortxt[0].classList.remove("scale-down-center");
     }, 1000);
   };
+
   const HidePhoneErr = () => {
     Errortxt[0].classList.add("HideError");
     Errortxt[0].classList.remove("ShowError");
@@ -31,18 +44,63 @@ function MainForm() {
       ShowPhoneErr("شماره موبایل خود را وارد کنید *");
     } else {
       if (PhoneValidation(PhoneNumber)) {
-        toast.success("We Sent Code to " + PhoneNumber);
-
-        const CodeTitle = document.getElementById("CodeTitle");
-        const CodeInput = document.getElementById("CodeInput");
-        CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
-        CodeInput.classList.remove("invisible", "opacity-0", "h-0");
-        CodeInput.classList.add("mb-9");
-
-        HidePhoneErr();
+        /* Api Fetching */
+        SendCodeApi();
       } else {
         ShowPhoneErr("شماره موبایل خود را به درستی وارد کنید *");
       }
+    }
+  };
+
+  const ShowCodeInput = () => {
+    const CodeTitle = document.getElementById("CodeTitle");
+    const CodeInput = document.getElementById("CodeInput");
+    CodeTitle.classList.remove("invisible", "opacity-0", "h-0");
+    CodeInput.classList.remove("invisible", "opacity-0", "h-0");
+    CodeInput.classList.add("mb-10");
+
+    HidePhoneErr();
+
+    /* change step image */
+    setStep(2);
+
+    /* enable timer */
+    setShowTimer(true);
+    setTimeout(() => {
+      setShowTimer(false);
+    }, CodeTime * 1000);
+
+    /* enable submit */
+    setIsPhoneValid(true);
+  };
+
+  const Submit = () => {
+    if (Code == TrueCode) {
+      dispatch(SetLevel(2));
+      toast.success("کد تایید شد");
+    } else {
+      toast.error("کد وارد شده اشتباه میباشد");
+    }
+  };
+
+  const SendCodeApi = async () => {
+    let PhoneObj = { phoneNumber: PhoneNumber };
+
+    setIsload(true);
+    const Phone = await SendVerifyMessage(PhoneObj);
+    setIsload(false);
+
+    //console.log(Phone.success);
+
+    if (Phone.message == "لطفا اندکی دیگر تلاش کنید.") {
+      toast.error("لطفا اندکی دیگر تلاش کنید");
+    }
+    if (Phone.message == "درخواست نامعتبر") {
+      toast.error("شماره موبایل از قبل وارد شده");
+    }
+    if (Phone.message == "لطفا  کد تایید را وارد نمایید") {
+      toast.success("کد با موفقیت ارسال شد");
+      ShowCodeInput();
     }
   };
 
@@ -78,25 +136,63 @@ function MainForm() {
         <h3
           dir="rtl"
           id="CodeTitle"
-          className="text-[#727272] transition-all text-center indent-[15px]  mb-[10px] invisible opacity-0 h-0"
+          className="text-[#727272] transition-all  indent-[15px]  mb-[10px] invisible opacity-0 h-0"
         >
           کد تایید
         </h3>
         <div
           id="CodeInput"
-          className=" transition-all InputHolder  m-auto border w-[70%] invisible opacity-0 h-0"
+          className="flex justify-center invisible opacity-0 h-0 transition-all"
         >
-          <input
-            className="text-center indent-0 tracking-[10px]"
-            style={{ width: "100%" }}
-            dir="rtl"
-            type="text"
+          <ReactCodeInput
+            type="number"
             value={Code}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={setCode}
+            fields={5}
           />
         </div>
 
-        <DefualtButton innerHTML="دریافت کد" onClick={SendCodeHandler} />
+        {ShowTimer ? (
+          <div className="relative">
+            <DefualtButton innerHTML="دریافت مجدد کد" className="opacity-50" />
+
+            <div className="absolute top-[7px] left-2 text-[10px]">
+              <CountdownCircleTimer
+                isPlaying
+                duration={CodeTime}
+                size={28}
+                strokeWidth={15}
+                strokeLinecap="butt"
+                colors={"#45D4B2"}
+                trailColor="white"
+              ></CountdownCircleTimer>
+            </div>
+          </div>
+        ) : (
+          <>
+            {isLoad ? (
+              <DefualtButton
+                Style={{
+                  background:
+                    "linear-gradient(to right bottom, #0DA39480, #40BE5D)",
+                  height: "40px",
+                  paddingBottom: "20px",
+                  fontSize: "16px",
+                  fontFamily: "IranSanse",
+                }}
+                innerHTML={<PropagateLoader color="white" />}
+              />
+            ) : (
+              <DefualtButton innerHTML="دریافت کد" onClick={SendCodeHandler} />
+            )}
+          </>
+        )}
+
+        {IsPhoneValid ? (
+          <div className="mt-2">
+            <DefualtButton innerHTML="مرحله بعد" onClick={Submit} />
+          </div>
+        ) : null}
       </div>
     </form>
   );

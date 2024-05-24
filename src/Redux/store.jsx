@@ -2,11 +2,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import FormReducer from "./Slices/FormSlice";
 import CourseFilterReducer from "./Slices/CourseFilter";
+import SignUpFormReducer from "./Slices/SignUpFormSlice";
 
 const store = configureStore({
   reducer: {
     Form: FormReducer,
     CourseFilter: CourseFilterReducer,
+    SignUpForm: SignUpFormReducer,
   },
 });
 
