@@ -35,12 +35,12 @@ function Index() {
   return (
     <div className=" FilterSecton_1 ">
       <input id="F/[1]" name="RadioInputs" type="radio" />
-      <label className="max-w-[400px] min-w-[200px]" htmlFor="F/[1]">
+      <label className="max-w-[400px] min-w-[190px]" htmlFor="F/[1]">
         <Search DeleteStatus={DeleteStatus} />
       </label>
 
       <input id="F/[2]" name="RadioInputs" type="radio" />
-      <label className="max-w-[250px] min-w-[50px]" htmlFor="F/[2]">
+      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[2]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
           Options={Options_Category}
@@ -50,7 +50,7 @@ function Index() {
       </label>
 
       <input id="F/[3]" name="RadioInputs" type="radio" />
-      <label className="max-w-[270px] min-w-[50px]" htmlFor="F/[3]">
+      <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[3]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
           Options={Options_Ostad}
@@ -60,7 +60,7 @@ function Index() {
       </label>
 
       <input id="F/[4]" name="RadioInputs" type="radio" />
-      <label className="max-w-[180px] min-w-[50px]" htmlFor="F/[4]">
+      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[4]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
           Options={Options_Sort}
@@ -70,14 +70,14 @@ function Index() {
       </label>
 
       <input id="F/[6]" name="RadioInputs" type="radio" />
-      <label className="max-w-[150px] min-w-[100px]" htmlFor="F/[6]">
+      <label className="max-w-[130px] min-w-[100px]" htmlFor="F/[6]">
         <Butt />
         <Modal />
       </label>
 
       <input id="F/[5]" name="RadioInputs" type="radio" />
       <label
-        className="max-w-[400px] min-w-[300px] "
+        className="max-w-[400px] min-w-[240px] "
         style={{ backgroundColor: "transparent" }}
         htmlFor="F/[5]"
       >
