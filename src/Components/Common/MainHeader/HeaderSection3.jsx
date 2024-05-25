@@ -44,7 +44,7 @@ const HeaderSection3 = () => {
           </div>
         </div>
       ) : (
-        <div className="flex gap-[10px] mt-[4px] mr-[10px] text-[14px] text-[#727272] dark:text-Dark_TextColor_1">
+        <div className="w-[100px] flex gap-[10px] mt-[4px] mr-[10px] text-[14px] text-[#727272] dark:text-Dark_TextColor_1">
           <NavLink
             to={"/LogIn"}
             className={({ isActive }) =>
@@ -73,7 +73,9 @@ const HeaderSection3 = () => {
         </div>
       )}
 
-      <ThemeModeButt />
+      <div className="flex items-center w-[60px] relative">
+        <ThemeModeButt />
+      </div>
     </div>
   );
 };
