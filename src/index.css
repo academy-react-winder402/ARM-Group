@@ -167,14 +167,6 @@ body {
 }
 
 /*----------------- Landing / News and Articles classes --------------------*/
-@layer components {
-  .borderStyle {
-    @apply border-black border-[1px];
-  }
-  .RightNewsSpans {
-    @apply inline-block w-[80px] h-[25px] rounded-[20px] mt-[15px] border-[#787878] border-[3px] float-right;
-  }
-}
 
 /*----------------- Article Page --------------------*/
 @layer components {

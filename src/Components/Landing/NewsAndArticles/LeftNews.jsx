@@ -7,6 +7,7 @@ export const LeftNews = () => {
       <div className="flex flex-col justify-between">
         <LeftNewsSections />
         <LeftNewsSections />
+        <LeftNewsSections />
       </div>
     </div>
   );
