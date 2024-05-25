@@ -1,35 +1,53 @@
-import { useState } from "react";
-import DefualtButton from "../../Common/DefualtButton";
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import toast from "react-hot-toast";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import DefualtButton from "../../Common/DefualtButton";
 import * as yup from "yup";
+
+import { Register } from "../../../Core/Services/api/Auth/SignUp";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+/* redux */
+import { useSelector } from "react-redux";
+
 function MainForm() {
+  const CurrPhoneNumber = useSelector((state) => state.SignUpForm.PhoneNumber);
   const navigate = useNavigate();
   const [isLoad, setIsload] = useState(false);
+
   const validation = yup.object({
-    gmail: yup.string().required("ایمیل خود را وارد کنید" + " * "),
+    gmail: yup
+      .string()
+      .email("ایمیل خود را به درستی وارد کنید")
+      .required("ایمیل خود را وارد کنید" + " * "),
     password: yup.string().required("رمز عبور الزامیست" + " * "),
   });
 
-  const LogInUser = async (userObj) => {
+  const LastVerify = async (userObj) => {
     setIsload(true);
-    const user = await loginAPI(userObj);
+    const user = await Register(userObj);
     setIsload(false);
 
-    if (user.success === true) {
-      toast.success("ورود با موفقیت انجام شد");
-      SetItem("token", user.token);
-      navigate("/");
+    if (user.success) {
+      toast.success("ثبت نام با موفقیت انجام شد");
+      navigate("/LogIn");
+      toast("لطفا وارد شوید");
+      //console.log(user);
     } else {
-      toast.error("اطلاعات حساب کاربری یا رمز عبور نادست است");
+      toast.error("ثبت نام با موفقیت انجام نشد دوباره امتحان کنید");
     }
   };
+
   const onSubmit = (values) => {
-    console.log(values);
-    LogInUser(values);
+    const UserObj = {
+      password: values.password,
+      gmail: values.gmail,
+      phoneNumber: CurrPhoneNumber,
+    };
+
+    //console.log(UserObj);
+    LastVerify(UserObj);
   };
 
   return (
