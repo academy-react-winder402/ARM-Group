@@ -81,15 +81,24 @@ function MainForm({ setStep }) {
     let CodeVerify = { phoneNumber: PhoneNumber, verifyCode: Code };
 
     setIsload(true);
-    const Verify = await SendVerifyMessage(CodeVerify);
+    const Verify = await VerifyMessage(CodeVerify);
     setIsload(false);
 
-    console.log(Verify.message);
+    console.log(CodeVerify);
+    console.log(Verify);
+
+    if (Verify.success) {
+      toast.success("کد تایید شد");
+      dispatch(SetLevel(2));
+    } else {
+      toast.error("کد تایید صحیح نیست یا از زمان کد گذشته");
+    }
 
     /* if (Code == TrueCode) {
       dispatch(SetLevel(2));
       toast.success("کد تایید شد");
     } else {
+      "کد تایید صحیح نیست یا از زمان کد گذشته"
       toast.error("کد وارد شده اشتباه میباشد");
     } */
   };
