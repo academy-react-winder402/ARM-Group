@@ -25,7 +25,7 @@ export const Statistics = () => {
   return (
     <div
       className="mt-[480px] h-[690px] md:w-[87.5%] mx-auto text-center"
-      style={{ direction: "rtl" }}
+      style={{ direction: "rtl", fontFamily: "IransnsNumber" }}
       data-aos="fade-down"
     >
       <div className="mt-[35px] text-[30px] text-[#5E5E5E] dark:text-Dark_TextColor_1">
@@ -44,7 +44,7 @@ export const Statistics = () => {
         </div>
         <div>
           <span className="StNumbers dark:text-Dark_TextColor_1 ">
-            {courseCount}
+            <CountUp duration={5} end={courseCount} />
           </span>
           <span className="StTexts dark:text-Dark_TextColor_1">
             دوره آموزشی
@@ -58,7 +58,7 @@ export const Statistics = () => {
         </div>
         <div>
           <span className="StNumbers dark:text-Dark_TextColor_1">
-            {newsCount}
+            <CountUp duration={5} end={newsCount} />
           </span>
           <span className="StTexts dark:text-Dark_TextColor_1">اخبار</span>
         </div>
