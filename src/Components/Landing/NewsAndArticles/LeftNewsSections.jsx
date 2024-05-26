@@ -2,18 +2,23 @@ import React from "react";
 
 export const LeftNewsSections = () => {
   return (
-    <div>
-      <div>
-        <div className="w-[160px] h-[125px]">
-          <span className="inline-block absolute mr-[0px] text-[10px] text-[#FFFFFF] bg-[#707070] w-[75px] h-[20px] rounded-[13px]">تکنولوژی</span>
-          <img className="border-[1px] border-black inline-block w-[160px] h-[100%] rounded-[15px]" src="" alt="" />
-        </div>
-        <div className="mt-[-21px] mr-[15px] flex flex-nowrap">
-          <img className="border-[1px] border-black w-[42px] h-[42px] rounded-full" src="" alt="" />
-          <span className="mt-[25px] text-[10px] text-[#787878] dark:text-Dark_TextColor_2">نام نویسنده</span>
+    <div className="flex gap-5 h-[125px]">
+      <div className="w-[160px] rounded-[15px] shadow-md">
+        <img src="" className="h-auto" alt="" />
+      </div>
+      <div className="w-[310px] flex gap-2 flex-col">
+        <span className="bg-[#7B7B7B] text-white flex items-center justify-center w-[75px] h-[20px] text-[10px] rounded-[13px]">
+          تکنولوژی
+        </span>
+        <p className="text-[#777777] text-[14px] text-right pr-4 leading-6">
+          عنوان خبر یا مقاله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+          صنعت چاپ، و .... و
+        </p>
+        <div className="flex items-center gap-4">
+          <div className="w-[42px] h-[42px] rounded-full shadow-md"></div>
+          <span className="text-[#787878] text-[14px]">نام نویسنده</span>
         </div>
       </div>
-      <div className="text-[14px] text-[#777777] text-right dark:text-Dark_TextColor_2">عنوان خبر یا مقاله  لورم ایپسوم متن ساختگی با تولید سادگی ، و .... و</div>
     </div>
   );
 };
