@@ -107,6 +107,22 @@ body {
   .SelectedMenu {
     @apply text-[#D4AF37] border-b-4 border-[#D4AF37] transition-all;
   }
+  .SideMenu {
+    @apply text-[#D4AF37] scale-125 transition-all;
+  }
+  #hamburgerMenu.hide {
+    @apply h-0 invisible delay-200;
+  }
+  #hamburgerMenu.hide > div {
+    @apply opacity-0 delay-0 duration-300;
+  }
+
+  #hamburgerMenu.show {
+    @apply h-[700px] visible;
+  }
+  #hamburgerMenu.show > div {
+    @apply opacity-100;
+  }
 }
 
 /*----------------- Footer classes --------------------*/

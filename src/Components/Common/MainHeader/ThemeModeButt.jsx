@@ -28,7 +28,7 @@ function ThemeModeButt() {
   }, []);
 
   return (
-    <label className="theme-switch absolute left-[210px] top-[-9px]">
+    <label className="theme-switch absolute left-[-60px] top-[-23px]">
       <input
         id="DarkModeButt"
         onClick={ThemeHandler}
