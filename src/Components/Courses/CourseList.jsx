@@ -2,174 +2,87 @@
 import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
+import { GetByPagination } from "../../Core/Services/api/Course/GetByPagination.js";
+
+/* Skeleton */
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Style from "./Style/Skeleton.module.css";
 
 /* redux */
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 
 export const CourseList = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [courses, setCourses] = useState([
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
+  const [SkeletonList] = useState([
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
   ]);
+  const [courses, setCourses] = useState([]);
   const CardView = useSelector((state) => state.CourseFilter.CardView);
 
-  /* this was for animations */
-  /* useEffect(() => {
-    let cardViewer = document.getElementById("CardViewer");
+  const GetCourses = async () => {
+    const Courses = await GetByPagination();
+    setCourses(Courses.courseFilterDtos);
+    console.log(Courses.courseFilterDtos);
+  };
 
-    cardViewer.classList.remove("HideCards");
-    cardViewer.classList.add("ShowCards");
-  }, [CardView]); */
+  useEffect(() => {
+    GetCourses();
+  }, []);
 
-  const ListViewCards = () => {
-    return (
-      <>
-        <SecondCourseList />
-        <SecondCourseList />
-        <SecondCourseList />
-      </>
-    );
+  const GridCourseSkeleton = () => {
+    if (courses.length > 0) {
+      return courses.map((item) => {
+        return (
+          <CourseListDetail
+            key={item.courseId}
+            courseImg={item.tumbImageAddress}
+            title={item.title}
+            desc={item.describe}
+            teacherImg={
+              "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
+            }
+            teacherName={item.teacherName}
+            price={item.cost}
+            comment={item.commandCount}
+            like={item.likeCount}
+            /* Static (Without API): */
+            dateDay={12}
+            dateMonth={"اردیبهشت"}
+            dateYear={1403}
+            startDate={2}
+          />
+        );
+      });
+    } else {
+      return SkeletonList.map((a, key) => (
+        <div key={key} className={Style.Skeleton}>
+          <Skeleton height={"147px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+          <Skeleton height={"70px"} duration={0.5} />
+          <Skeleton height={"50px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+        </div>
+      ));
+    }
   };
 
   return (
     <div
       id="CardViewer"
-      className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-between gap-[40px] h-auto"
+      className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
     >
-      {CardView == "GridView" &&
-        courses.map((item, key) => {
-          return (
-            <CourseListDetail
-              key={key}
-              courseImg={item.courseImg}
-              title={item.title}
-              desc={item.desc}
-              teacherImg={item.teacherImg}
-              dateDay={item.dateDay}
-              dateMonth={item.dateMonth}
-              dateYear={item.dateYear}
-              startDate={item.startDate}
-              price={item.price}
-              comment={item.comment}
-              like={item.like}
-              // FaBeer={FaBeer}
-            />
-          );
-        })}
+      {CardView == "GridView" && GridCourseSkeleton()}
 
-      {CardView == "ListView" && <ListViewCards />}
+      {CardView == "ListView" && <SecondCourseList />}
     </div>
   );
 };

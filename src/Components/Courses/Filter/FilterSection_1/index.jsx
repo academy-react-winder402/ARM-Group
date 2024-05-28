@@ -1,16 +1,19 @@
 import PriceFilter from "./PriceFilter";
-//import Search from "./Search";
 import Search from "../../../Common/Search";
 import Modal from "./TimeFilter/Modal/Modal";
 import CustomSelect from "../../../Common/FilterSelectOption";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Butt from "./TimeFilter/Butt";
 
 /* Redux */
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { SetSearch } from "../../../../Redux/Slices/CourseFilter";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);
+  const SearchQuery = useSelector((state) => state.CourseFilter.Search);
+  const [SearchFilter, SetSearchFilter] = useState();
+
   const [Options_Category] = useState([
     { value: "0", innerHTML: "همه", defaultHTML: "دسته بندی" },
     { value: "1", innerHTML: "مورد قابل انتخاب 1" },
@@ -31,6 +34,11 @@ function Index() {
     { value: 4, innerHTML: "استاد 4" },
     { value: 5, innerHTML: "استاد 5" },
   ]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(SearchQuery);
+  }, [SearchQuery]);
 
   return (
     <div className=" FilterSecton_1 ">

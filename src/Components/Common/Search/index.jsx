@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
-function Index({ DeleteStatus }) {
+function Index({ DeleteStatus, SetSearchState }) {
   const [SearchValue, setSearchValue] = useState("");
 
   const CheckCurrRadio = () => {
@@ -11,6 +11,10 @@ function Index({ DeleteStatus }) {
   useEffect(() => {
     setSearchValue("");
   }, [DeleteStatus]);
+
+  useEffect(() => {
+    SetSearchState ? SetSearchState(SearchValue) : null;
+  }, [SearchValue]);
 
   return (
     <div className="w-[100%] h-[100%] flex items-center relative pl-3 pr-3">

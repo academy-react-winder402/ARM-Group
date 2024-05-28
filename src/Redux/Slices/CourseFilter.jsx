@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   DeleteAll: false,
   CardView: "GridView",
+  Search: null,
 };
 
 const CourseFilterSlice = createSlice({
@@ -18,8 +19,13 @@ const CourseFilterSlice = createSlice({
     SetCardView: (state, actions) => {
       state.CardView = actions.payload;
     },
+
+    SetSearch: (state, actions) => {
+      state.Search = actions.payload;
+    },
   },
 });
 
-export const { toggleDeleteAll, SetCardView } = CourseFilterSlice.actions;
+export const { toggleDeleteAll, SetCardView, SetSearch } =
+  CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

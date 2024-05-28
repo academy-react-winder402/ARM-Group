@@ -1,0 +1,59 @@
+.Skeleton {
+  width: 250px;
+  height: 405px;
+
+  border-radius: 10px;
+
+  border: 2px solid #e2e2e6;
+  background-color: #ffffff;
+
+  overflow: hidden;
+
+  position: relative;
+  box-shadow: none;
+}
+
+.Skeleton > span {
+  position: absolute;
+}
+
+.Skeleton > span:nth-child(1) {
+  width: 250px;
+  top: -5px;
+}
+
+.Skeleton > span:nth-child(2) {
+  width: 220px;
+  top: 37%;
+  left: 12px;
+}
+
+.Skeleton > span:nth-child(3) {
+  width: 220px;
+  top: 46%;
+  left: 12px;
+}
+
+.Skeleton > span:nth-child(4) {
+  width: 50px;
+  height: 50px;
+
+  top: 70%;
+  left: 12px;
+
+  border-radius: 100%;
+  transform: rotate(90deg);
+  overflow: hidden;
+}
+
+.Skeleton > span:nth-child(5) {
+  width: 160px;
+  top: 72%;
+  right: 12px;
+}
+
+.Skeleton > span:nth-child(6) {
+  width: 220px;
+  top: 85%;
+  right: 12px;
+}
