@@ -8,6 +8,7 @@ import Butt from "./TimeFilter/Butt";
 /* Redux */
 import { useSelector } from "react-redux";
 import { SetSearch } from "../../../../Redux/Slices/CourseFilter";
+import { GetAllTeacher } from "../../../../Core/Services/api/Course/GetAllTeacher";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);
@@ -24,15 +25,26 @@ function Index() {
     { value: "2", innerHTML: "مورد قابل انتخاب 2" },
     { value: "3", innerHTML: "مورد قابل انتخاب 3" },
   ]);
-  const [Options_Ostad] = useState([
-    { value: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
-    { value: 1, innerHTML: "استاد 1" },
-    { value: 2, innerHTML: "استاد 2" },
-    { value: 3, innerHTML: "استاد 3" },
-    { value: 4, innerHTML: "استاد 4" },
-    { value: 5, innerHTML: "استاد 5" },
-  ]);
-  //const dispatch = useDispatch();
+  const [Options_Ostad, setOptions_Ostad] = useState([{}]);
+
+  const GetFilters = async () => {
+    /* Getting Teacher filter */
+    const Teachers = await GetAllTeacher();
+    let TeacherObj = [
+      { value: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
+    ];
+    Teachers.map((item, key) => {
+      TeacherObj.push({
+        value: key + 1,
+        TeacherId: item.teacherId,
+        innerHTML: item.fullName,
+      });
+    });
+    setOptions_Ostad(TeacherObj);
+
+  useEffect(() => {
+    GetFilters();
+  }, []);
 
   return (
     <div className=" FilterSecton_1 ">
@@ -42,11 +54,12 @@ function Index() {
       </label>
 
       <input id="F/[2]" name="RadioInputs" type="radio" />
-      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[2]">
+      <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[2]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
           Options={Options_Category}
-          type="SimpleSelect"
+          type="MultiSelect"
+          MultiSelectName="دسته بندی"
           Id="SelectCategorie"
         />
       </label>
@@ -57,6 +70,7 @@ function Index() {
           DeleteStatus={DeleteStatus}
           Options={Options_Ostad}
           type="MultiSelect"
+          MultiSelectName="استاد"
           Id="SelectOstad"
         />
       </label>

@@ -19,22 +19,23 @@ function Index(props) {
 
   const ShowSelectedOptions = () => {
     let SelectionText;
+    let BaseText = props.MultiSelectName + " انتخاب شده";
 
     switch (SelectedOptions) {
       case 1:
-        SelectionText = "یک استاد انتخاب شده";
+        SelectionText = " یک " + BaseText;
         break;
       case 2:
-        SelectionText = "دو استاد انتخاب شده";
+        SelectionText = " دو " + BaseText;
         break;
       case 3:
-        SelectionText = "سه استاد انتخاب شده";
+        SelectionText = " سه " + BaseText;
         break;
       case 4:
-        SelectionText = "چهار استاد انتخاب شده";
+        SelectionText = " چهار " + BaseText;
         break;
       case 5:
-        SelectionText = "پنج استاد انتخاب شده";
+        SelectionText = " پنج " + BaseText;
         break;
     }
     return SelectionText;

@@ -31,10 +31,8 @@ export const CourseList = () => {
   ]);
   const [courses, setCourses] = useState([]);
   const dispatch = useDispatch();
-
   const CardView = useSelector((state) => state.CourseFilter.CardView);
   const SearchQuery = useSelector((state) => state.CourseFilter.Search);
-  const ApiPath = useSelector((state) => state.CourseFilter.ApiPath);
   const IsLoading = useSelector((state) => state.CourseFilter.IsLoading);
 
   function PathGenerator() {
@@ -56,7 +54,7 @@ export const CourseList = () => {
   };
 
   useEffect(() => {
-    GetCourses(ApiPath);
+    GetCourses("/Home/GetCoursesWithPagination");
   }, []);
 
   /* this state for prevent running search functions for first time: */
@@ -71,7 +69,7 @@ export const CourseList = () => {
   }, [SearchQuery]);
 
   const GridCourseSkeleton = () => {
-    if (IsLoading) {
+    if (IsLoading && courses.length > 0) {
       return courses.map((item) => {
         return (
           <CourseListDetail
@@ -94,6 +92,12 @@ export const CourseList = () => {
           />
         );
       });
+    } else if (courses.length == 0 && SearchQuery != "") {
+      return (
+        <h1 className="m-auto mt-[100px] mb-[100px] opacity-60 text-[28px]">
+          موردی با فیلتر شما یافت نشد
+        </h1>
+      );
     } else {
       return SkeletonList.map((a, key) => (
         <div key={key} className={Style.Skeleton}>

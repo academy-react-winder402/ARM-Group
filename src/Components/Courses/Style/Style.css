@@ -33,7 +33,7 @@
   .CostumSelect > div:not(.Badge) {
     @apply invisible opacity-0 transition-all duration-[0.3s]
       w-[100%] z-50 pt-2 pb-3 h-fit absolute rounded-[10px] bg-white
-      top-[130%] right-0;
+      top-[130%] right-0 max-h-[250px] overflow-scroll;
   }
 
   .CostumSelect > span {

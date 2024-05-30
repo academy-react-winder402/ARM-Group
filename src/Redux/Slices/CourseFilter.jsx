@@ -5,8 +5,6 @@ const initialState = {
   IsLoading: false,
   CardView: "GridView",
   Search: "",
-  Filter: false,
-  ApiPath: "/Home/GetCoursesWithPagination",
 };
 
 const CourseFilterSlice = createSlice({
