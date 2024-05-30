@@ -2,8 +2,11 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   DeleteAll: false,
+  IsLoading: false,
   CardView: "GridView",
-  Search: null,
+  Search: "",
+  Filter: false,
+  ApiPath: "/Home/GetCoursesWithPagination",
 };
 
 const CourseFilterSlice = createSlice({
@@ -16,6 +19,12 @@ const CourseFilterSlice = createSlice({
         : (state.DeleteAll = false);
     },
 
+    toggleIsLoading: (state) => {
+      state.IsLoading == false
+        ? (state.IsLoading = true)
+        : (state.IsLoading = false);
+    },
+
     SetCardView: (state, actions) => {
       state.CardView = actions.payload;
     },
@@ -23,9 +32,23 @@ const CourseFilterSlice = createSlice({
     SetSearch: (state, actions) => {
       state.Search = actions.payload;
     },
+
+    SetApiPath: (state, actions) => {
+      state.ApiPath = actions.payload;
+    },
+
+    SetFilter: (state, actions) => {
+      state.Filter = actions.payload;
+    },
   },
 });
 
-export const { toggleDeleteAll, SetCardView, SetSearch } =
-  CourseFilterSlice.actions;
+export const {
+  toggleDeleteAll,
+  toggleIsLoading,
+  SetCardView,
+  SetSearch,
+  SetApiPath,
+  SetFilter,
+} = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

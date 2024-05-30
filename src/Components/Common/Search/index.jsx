@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
+/* redux */
+import { useDispatch } from "react-redux";
+
 function Index({ DeleteStatus, SetSearchState }) {
   const [SearchValue, setSearchValue] = useState("");
+  const dispatch = useDispatch();
 
   const CheckCurrRadio = () => {
     document.getElementById("F/[1]").checked = true;
@@ -13,7 +17,7 @@ function Index({ DeleteStatus, SetSearchState }) {
   }, [DeleteStatus]);
 
   useEffect(() => {
-    SetSearchState ? SetSearchState(SearchValue) : null;
+    SetSearchState ? dispatch(SetSearchState(SearchValue)) : null;
   }, [SearchValue]);
 
   return (

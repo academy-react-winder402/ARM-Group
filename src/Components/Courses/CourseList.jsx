@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
 import { GetByPagination } from "../../Core/Services/api/Course/GetByPagination.js";
+import toast from "react-hot-toast";
 
 /* Skeleton */
 import Skeleton from "react-loading-skeleton";
@@ -10,8 +11,12 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Style from "./Style/Skeleton.module.css";
 
 /* redux */
-import { useSelector } from "react-redux";
-import toast from "react-hot-toast";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  toggleIsLoading,
+  SetApiPath,
+} from "../../Redux/Slices/CourseFilter.jsx";
+import slotShouldForwardProp from "@mui/material/styles/slotShouldForwardProp.js";
 
 export const CourseList = () => {
   const [SkeletonList] = useState([
@@ -25,20 +30,48 @@ export const CourseList = () => {
     { Skeleton: "" },
   ]);
   const [courses, setCourses] = useState([]);
-  const CardView = useSelector((state) => state.CourseFilter.CardView);
+  const dispatch = useDispatch();
 
-  const GetCourses = async () => {
-    const Courses = await GetByPagination();
+  const CardView = useSelector((state) => state.CourseFilter.CardView);
+  const SearchQuery = useSelector((state) => state.CourseFilter.Search);
+  const ApiPath = useSelector((state) => state.CourseFilter.ApiPath);
+  const IsLoading = useSelector((state) => state.CourseFilter.IsLoading);
+
+  function PathGenerator() {
+    let NewPath;
+    let DefaultPath = "/Home/GetCoursesWithPagination";
+    if (SearchQuery != "") {
+      NewPath = DefaultPath + "?Query=" + SearchQuery;
+      return NewPath;
+    } else {
+      return DefaultPath;
+    }
+  }
+
+  const GetCourses = async (Path) => {
+    const Courses = await GetByPagination(Path);
+    dispatch(toggleIsLoading());
     setCourses(Courses.courseFilterDtos);
     console.log(Courses.courseFilterDtos);
   };
 
   useEffect(() => {
-    GetCourses();
+    GetCourses(ApiPath);
   }, []);
 
+  /* this state for prevent running search functions for first time: */
+  const [FirstLoading, setFirstLoading] = useState(true);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      dispatch(toggleIsLoading());
+      GetCourses(PathGenerator());
+    }
+  }, [SearchQuery]);
+
   const GridCourseSkeleton = () => {
-    if (courses.length > 0) {
+    if (IsLoading) {
       return courses.map((item) => {
         return (
           <CourseListDetail

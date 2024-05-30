@@ -6,13 +6,11 @@ import { useEffect, useState } from "react";
 import Butt from "./TimeFilter/Butt";
 
 /* Redux */
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { SetSearch } from "../../../../Redux/Slices/CourseFilter";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);
-  const SearchQuery = useSelector((state) => state.CourseFilter.Search);
-  const [SearchFilter, SetSearchFilter] = useState();
 
   const [Options_Category] = useState([
     { value: "0", innerHTML: "همه", defaultHTML: "دسته بندی" },
@@ -34,17 +32,13 @@ function Index() {
     { value: 4, innerHTML: "استاد 4" },
     { value: 5, innerHTML: "استاد 5" },
   ]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    console.log(SearchQuery);
-  }, [SearchQuery]);
+  //const dispatch = useDispatch();
 
   return (
     <div className=" FilterSecton_1 ">
       <input id="F/[1]" name="RadioInputs" type="radio" />
       <label className="max-w-[400px] min-w-[190px]" htmlFor="F/[1]">
-        <Search DeleteStatus={DeleteStatus} />
+        <Search DeleteStatus={DeleteStatus} SetSearchState={SetSearch} />
       </label>
 
       <input id="F/[2]" name="RadioInputs" type="radio" />
