@@ -1,5 +1,12 @@
 import { Box, Slider } from "@mui/material";
 import { useState } from "react";
+import styled from "styled-components";
+
+const PrettoSlider = styled(Slider)({
+  "& .MuiSlider-valueLabel": {
+    fontSize: 22,
+  },
+});
 
 function PriceFilter() {
   const [value, setValue] = useState([30, 70]);
@@ -8,7 +15,7 @@ function PriceFilter() {
     return `${value}°C`;
   };
 
-  const minDistance = 10;
+  const minDistance = 20;
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
@@ -32,9 +39,12 @@ function PriceFilter() {
         <span className="absolute left-0 top-[-27px] text-[9px]">
           حداقل: ۲۰۰.۰۰۰
         </span>
-        <Slider
+        <PrettoSlider
           style={{ color: "#91ACCF", height: "6px", scale: "0.8" }}
           getAriaLabel={() => "Minimum distance"}
+          step={200000}
+          min={100000}
+          max={3000000}
           value={value}
           onChange={handleChange}
           valueLabelDisplay="auto"

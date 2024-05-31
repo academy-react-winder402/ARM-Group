@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   DeleteAll: false,
-  IsLoading: false,
+  ShowDeleteAllBut: false,
   CardView: "GridView",
   Search: "",
   CourseLevel: 0,
@@ -18,10 +18,8 @@ const CourseFilterSlice = createSlice({
         : (state.DeleteAll = false);
     },
 
-    toggleIsLoading: (state) => {
-      state.IsLoading == false
-        ? (state.IsLoading = true)
-        : (state.IsLoading = false);
+    SetShowDeleteAllBut: (state, actions) => {
+      state.ShowDeleteAllBut = actions.payload;
     },
 
     SetCardView: (state, actions) => {
@@ -48,7 +46,7 @@ const CourseFilterSlice = createSlice({
 
 export const {
   toggleDeleteAll,
-  toggleIsLoading,
+  SetShowDeleteAllBut,
   SetCardView,
   SetSearch,
   SetApiPath,
