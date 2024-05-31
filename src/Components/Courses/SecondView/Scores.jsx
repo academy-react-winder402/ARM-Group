@@ -1,46 +1,39 @@
-import { useState } from "react";
-
-function Scores() {
-  const [scores, setScores] = useState([
-    {
-      id: 1,
-      number: "۷۶",
-      img: "../../../../public/Image/Course/comment.svg",
-      title: "کامنت",
-    },
-    {
-      id: 2,
-      number: "۳.۴",
-      img: "../../../../public/Image/Course/star.svg",
-      title: "رتبه",
-    },
-    {
-      id: 3,
-      number: "۱۳۰",
-      img: "../../../../public/Image/Course/heart.svg",
-      title: "لایک",
-    },
-    {
-      id: 4,
-      number: "۱۳۰",
-      img: "../../../../public/Image/Course/user.svg",
-      title: "کاربر",
-    },
-  ]);
-
+/* eslint-disable react/prop-types */
+function Scores({
+  numberOfComment,
+  numberOfScore,
+  numberOfLike,
+  numberOfUser,
+}) {
   return (
     <div>
       <img src="./Image/Course/Group 123.svg" alt="line" />
       <div className="flex justify-between mr-6 my-2">
-        {scores.map((item) => {
-          return (
-            <div className="flex gap-1.5" key={item.id}>
-              <span className="text-textMidColor text-xs">{item.number}</span>
-              <img src={item.img} alt="comment" />
-              <span className="text-textMidColor text-xs">{item.title}</span>
-            </div>
-          );
-        })}
+        <>
+          <div className="flex gap-1.5">
+            <span className="text-textMidColor text-xs">{numberOfComment}</span>
+            <img
+              src="../../../../public/Image/Course/comment.svg"
+              alt="comment"
+            />
+            <span className="text-textMidColor text-xs">کامنت</span>
+          </div>
+          <div className="flex gap-1.5">
+            <span className="text-textMidColor text-xs">{numberOfScore}</span>
+            <img src="../../../../public/Image/Course/star.svg" alt="star" />
+            <span className="text-textMidColor text-xs">رتبه</span>
+          </div>
+          <div className="flex gap-1.5">
+            <span className="text-textMidColor text-xs">{numberOfLike}</span>
+            <img src="../../../../public/Image/Course/heart.svg" alt="like" />
+            <span className="text-textMidColor text-xs">لایک</span>
+          </div>
+          <div className="flex gap-1.5">
+            <span className="text-textMidColor text-xs">{numberOfUser}</span>
+            <img src="../../../../public/Image/Course/user.svg" alt="user" />
+            <span className="text-textMidColor text-xs">کاربر</span>
+          </div>
+        </>
       </div>
     </div>
   );

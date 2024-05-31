@@ -1,15 +1,19 @@
 /* eslint-disable react/prop-types */
-function Statistics({ statistics }) {
+function Statistics({ numberOfStudent, numbers, numberInfo }) {
   return (
     <div className="flex justify-between my-4 mr-6">
-      {statistics.map((item) => {
-        return (
-          <div className="flex items-center gap-0.5" key={item.id}>
-            <span className="text-[32px] text-[#878787]">{item.number}</span>
-            <span className="text-xs text-textMidColor">{item.title}</span>
-          </div>
-        );
-      })}
+      <div className="flex items-center gap-2 text-[#878787]">
+        <span className="text-[32px]">{numberOfStudent}</span>
+        <span className="text-xs text-textMidColor">دانشجو تا کنون</span>
+      </div>
+      <div className="flex items-center gap-2 text-[#878787]">
+        <span className="text-[32px]">{numbers}</span>
+        <span className="text-xs text-textMidColor">تعداد برگذاری</span>
+      </div>
+      <div className="flex items-center gap-2 text-[#878787]">
+        <span className="text-[32px]">{numberInfo}</span>
+        <span className="text-xs text-textMidColor">اطلاعات مهم</span>
+      </div>
     </div>
   );
 }
