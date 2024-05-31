@@ -7,31 +7,27 @@ import Butt from "./TimeFilter/Butt";
 
 /* Redux */
 import { useSelector } from "react-redux";
-import { SetSearch } from "../../../../Redux/Slices/CourseFilter";
+import {
+  SetCourseLevel,
+  SetSearch,
+} from "../../../../Redux/Slices/CourseFilter";
+
+/* Apis */
 import { GetAllTeacher } from "../../../../Core/Services/api/Course/GetAllTeacher";
+import { GetTechnologies } from "../../../../Core/Services/api/Course/GetTechnologies";
+import { GetLevels } from "../../../../Core/Services/api/Course/GetLevels";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);
 
-  const [Options_Category] = useState([
-    { value: "0", innerHTML: "همه", defaultHTML: "دسته بندی" },
-    { value: "1", innerHTML: "مورد قابل انتخاب 1" },
-    { value: "2", innerHTML: "مورد قابل انتخاب 2" },
-    { value: "3", innerHTML: "مورد قابل انتخاب 3" },
-  ]);
-  const [Options_Sort] = useState([
-    { value: "0", innerHTML: "هیچکدام", defaultHTML: "مرتب سازی" },
-    { value: "1", innerHTML: "مورد قابل انتخاب 1" },
-    { value: "2", innerHTML: "مورد قابل انتخاب 2" },
-    { value: "3", innerHTML: "مورد قابل انتخاب 3" },
-  ]);
+  const [Options_Levels, SetOptions_Levels] = useState([{}]);
   const [Options_Ostad, setOptions_Ostad] = useState([{}]);
+  const [Options_Category, setOptions_Category] = useState([{}]);
 
-  const GetFilters = async () => {
-    /* Getting Teacher filter */
+  const GetTeacher = async () => {
     const Teachers = await GetAllTeacher();
     let TeacherObj = [
-      { value: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
+      { value: 0, id: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
     ];
     Teachers.map((item, key) => {
       TeacherObj.push({
@@ -41,9 +37,40 @@ function Index() {
       });
     });
     setOptions_Ostad(TeacherObj);
+  };
+  const GetCategory = async () => {
+    const Technologies = await GetTechnologies();
+    let TechnologiesObj = [
+      { value: 0, id: 0, innerHTML: "همه", defaultHTML: "دسته بندی" },
+    ];
+    Technologies.map((item, key) => {
+      TechnologiesObj.push({
+        value: key + 1,
+        id: item.id,
+        innerHTML: item.techName,
+      });
+    });
+    setOptions_Category(TechnologiesObj);
+  };
+  const GetCourseLevels = async () => {
+    const Levels = await GetLevels();
+    let LevelsObj = [
+      { value: 0, id: 0, innerHTML: "همه", defaultHTML: "سطح دوره" },
+    ];
+    Levels.map((item, key) => {
+      LevelsObj.push({
+        value: key + 1,
+        id: item.id,
+        innerHTML: item.levelName,
+      });
+    });
+    SetOptions_Levels(LevelsObj);
+  };
 
   useEffect(() => {
-    GetFilters();
+    GetTeacher();
+    GetCategory();
+    GetCourseLevels();
   }, []);
 
   return (
@@ -79,9 +106,10 @@ function Index() {
       <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[4]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
-          Options={Options_Sort}
+          Options={Options_Levels}
           type="SimpleSelect"
           Id="SelectSort"
+          SetFilter={SetCourseLevel}
         />
       </label>
 

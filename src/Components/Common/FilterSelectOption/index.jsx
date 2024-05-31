@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Badge from "../Badge/Badge";
+import { useDispatch } from "react-redux";
 
 function Index(props) {
   const Options = props.Options;
   const Id = props.Id;
   const [SelectedOptions, setSelectedOptions] = useState(0);
+  const dispatch = useDispatch();
 
   const ClickHandler = () => {
     let SelectDiv = document.querySelectorAll("#" + Id + " > div")[0];
@@ -75,6 +77,8 @@ function Index(props) {
       });
 
       optionsLI[value].classList.add("selected");
+
+      props.SetFilter ? dispatch(props.SetFilter(Options[value].id)) : null;
     }
   };
 

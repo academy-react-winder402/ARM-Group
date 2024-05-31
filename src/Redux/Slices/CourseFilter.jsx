@@ -5,6 +5,7 @@ const initialState = {
   IsLoading: false,
   CardView: "GridView",
   Search: "",
+  CourseLevel: 0,
 };
 
 const CourseFilterSlice = createSlice({
@@ -38,6 +39,10 @@ const CourseFilterSlice = createSlice({
     SetFilter: (state, actions) => {
       state.Filter = actions.payload;
     },
+
+    SetCourseLevel: (state, actions) => {
+      state.CourseLevel = actions.payload;
+    },
   },
 });
 
@@ -48,5 +53,6 @@ export const {
   SetSearch,
   SetApiPath,
   SetFilter,
+  SetCourseLevel,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

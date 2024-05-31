@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
@@ -12,10 +13,7 @@ import Style from "./Style/Skeleton.module.css";
 
 /* redux */
 import { useSelector, useDispatch } from "react-redux";
-import {
-  toggleIsLoading,
-  SetApiPath,
-} from "../../Redux/Slices/CourseFilter.jsx";
+import { toggleIsLoading } from "../../Redux/Slices/CourseFilter.jsx";
 import slotShouldForwardProp from "@mui/material/styles/slotShouldForwardProp.js";
 
 export const CourseList = () => {
@@ -33,17 +31,33 @@ export const CourseList = () => {
   const dispatch = useDispatch();
   const CardView = useSelector((state) => state.CourseFilter.CardView);
   const SearchQuery = useSelector((state) => state.CourseFilter.Search);
+  const CourseLevel = useSelector((state) => state.CourseFilter.CourseLevel);
   const IsLoading = useSelector((state) => state.CourseFilter.IsLoading);
 
   function PathGenerator() {
-    let NewPath;
+    let FilterArr = [];
+    let NewPath = "";
     let DefaultPath = "/Home/GetCoursesWithPagination";
+
     if (SearchQuery != "") {
-      NewPath = DefaultPath + "?Query=" + SearchQuery;
-      return NewPath;
-    } else {
-      return DefaultPath;
+      let Path = "Query=" + SearchQuery;
+      FilterArr.push(Path);
     }
+    if (CourseLevel != 0) {
+      let Path = "courseLevelId=" + CourseLevel;
+      FilterArr.push(Path);
+    }
+
+    if (FilterArr.length == 1) {
+      NewPath = DefaultPath + "?" + FilterArr[0];
+    } else if (FilterArr.length > 1) {
+      NewPath = DefaultPath + "?" + FilterArr[0];
+      for (let i = 1; i < FilterArr.length; i++) {
+        NewPath = NewPath + "&" + FilterArr[i];
+      }
+    }
+
+    return NewPath != "" ? NewPath : DefaultPath;
   }
 
   const GetCourses = async (Path) => {
@@ -66,7 +80,7 @@ export const CourseList = () => {
       dispatch(toggleIsLoading());
       GetCourses(PathGenerator());
     }
-  }, [SearchQuery]);
+  }, [SearchQuery, CourseLevel]);
 
   const GridCourseSkeleton = () => {
     if (IsLoading && courses.length > 0) {
