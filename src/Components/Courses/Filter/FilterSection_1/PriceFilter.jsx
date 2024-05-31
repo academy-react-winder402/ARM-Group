@@ -1,29 +1,41 @@
 import { Box, Slider } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+
+/* redux */
+import { useDispatch, useSelector } from "react-redux";
+import { SetPriceFilter } from "../../../../Redux/Slices/CourseFilter";
 
 const PrettoSlider = styled(Slider)({
   "& .MuiSlider-valueLabel": {
-    fontSize: 22,
+    fontSize: 18,
     fontFamily: "IransnsNumber",
   },
 });
 
 function PriceFilter() {
+  const DeleteAll = useSelector((state) => state.CourseFilter.DeleteAll);
   const [value, setValue] = useState([0, 4000000]);
+  const dispatch = useDispatch();
 
-  const minDistance = 20;
+  const minDistance = 500000;
   const handleChange = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
       return;
     }
-
     if (activeThumb === 0) {
       setValue([Math.min(newValue[0], value[1] - minDistance), value[1]]);
     } else {
       setValue([value[0], Math.max(newValue[1], value[0] + minDistance)]);
     }
+
+    /* Set With Redux */
+    dispatch(SetPriceFilter(value));
   };
+
+  useEffect(() => {
+    DeleteAll && setValue([0, 4000000]);
+  }, [DeleteAll]);
 
   return (
     <div className="flex justify-center relative">
@@ -39,7 +51,7 @@ function PriceFilter() {
         <PrettoSlider
           style={{ color: "#91ACCF", height: "6px", scale: "0.8" }}
           getAriaLabel={() => "Minimum distance"}
-          step={200000}
+          step={500000}
           min={0}
           max={4000000}
           value={value}
@@ -48,7 +60,7 @@ function PriceFilter() {
           valueLabelFormat={(value) =>
             Intl.NumberFormat({
               maximumSignificantDigits: 3,
-            }).format(value)
+            }).format(value) + " تومان "
           }
           disableSwap
         />

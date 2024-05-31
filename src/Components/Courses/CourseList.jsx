@@ -33,6 +33,7 @@ export const CourseList = () => {
   const CardView = useSelector((state) => state.CourseFilter.CardView);
   const SearchQuery = useSelector((state) => state.CourseFilter.Search);
   const CourseLevel = useSelector((state) => state.CourseFilter.CourseLevel);
+  const PriceFilter = useSelector((state) => state.CourseFilter.PriceFilter);
 
   function PathGenerator() {
     let FilterArr = [];
@@ -47,6 +48,11 @@ export const CourseList = () => {
       let Path = "courseLevelId=" + CourseLevel;
       FilterArr.push(Path);
     }
+    if (PriceFilter.length > 0) {
+      let Path1 = "CostDown=" + PriceFilter[0];
+      let Path2 = "CostUp=" + PriceFilter[1];
+      FilterArr.push(Path1, Path2);
+    }
 
     if (FilterArr.length == 1) {
       NewPath = DefaultPath + "?" + FilterArr[0];
@@ -60,6 +66,7 @@ export const CourseList = () => {
     /* Visible Delete All delete Button: */
     FilterArr.length > 0 && dispatch(SetShowDeleteAllBut(true));
 
+    console.log(NewPath);
     return NewPath != "" ? NewPath : DefaultPath;
   }
 
@@ -88,7 +95,7 @@ export const CourseList = () => {
     } else {
       GetCourses(PathGenerator());
     }
-  }, [SearchQuery, CourseLevel]);
+  }, [SearchQuery, CourseLevel, PriceFilter]);
 
   const GridCourseSkeleton = () => {
     let ShowingStatus;

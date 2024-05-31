@@ -6,6 +6,7 @@ const initialState = {
   CardView: "GridView",
   Search: "",
   CourseLevel: 0,
+  PriceFilter: [],
 };
 
 const CourseFilterSlice = createSlice({
@@ -41,6 +42,10 @@ const CourseFilterSlice = createSlice({
     SetCourseLevel: (state, actions) => {
       state.CourseLevel = actions.payload;
     },
+
+    SetPriceFilter: (state, actions) => {
+      state.PriceFilter = actions.payload;
+    },
   },
 });
 
@@ -52,5 +57,6 @@ export const {
   SetApiPath,
   SetFilter,
   SetCourseLevel,
+  SetPriceFilter,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;
