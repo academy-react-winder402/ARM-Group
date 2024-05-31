@@ -5,15 +5,12 @@ import styled from "styled-components";
 const PrettoSlider = styled(Slider)({
   "& .MuiSlider-valueLabel": {
     fontSize: 22,
+    fontFamily: "IransnsNumber",
   },
 });
 
 function PriceFilter() {
-  const [value, setValue] = useState([30, 70]);
-
-  const valuetext = (value) => {
-    return `${value}°C`;
-  };
+  const [value, setValue] = useState([0, 4000000]);
 
   const minDistance = 20;
   const handleChange = (event, newValue, activeThumb) => {
@@ -43,12 +40,16 @@ function PriceFilter() {
           style={{ color: "#91ACCF", height: "6px", scale: "0.8" }}
           getAriaLabel={() => "Minimum distance"}
           step={200000}
-          min={100000}
-          max={3000000}
+          min={0}
+          max={4000000}
           value={value}
           onChange={handleChange}
           valueLabelDisplay="auto"
-          getAriaValueText={valuetext}
+          valueLabelFormat={(value) =>
+            Intl.NumberFormat({
+              maximumSignificantDigits: 3,
+            }).format(value)
+          }
           disableSwap
         />
       </Box>

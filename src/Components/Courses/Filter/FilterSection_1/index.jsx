@@ -121,7 +121,7 @@ function Index() {
 
       <input id="F/[5]" name="RadioInputs" type="radio" />
       <label
-        className="max-w-[400px] min-w-[240px] "
+        className="max-w-[400px] min-w-[260px] "
         style={{ backgroundColor: "transparent" }}
         htmlFor="F/[5]"
       >
