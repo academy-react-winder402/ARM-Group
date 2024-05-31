@@ -110,3 +110,14 @@
     @apply invisible opacity-0;
   }
 }
+
+@layer components {
+  .FirsViewP {
+    display: -webkit-box;
+
+    height: 50px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+  }
+}

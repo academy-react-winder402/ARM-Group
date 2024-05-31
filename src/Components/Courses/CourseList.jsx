@@ -28,6 +28,8 @@ export const CourseList = () => {
     { Skeleton: "" },
   ]);
   const [courses, setCourses] = useState([]);
+  const [NothingFound, setNothingFound] = useState(false);
+
   const dispatch = useDispatch();
   const CardView = useSelector((state) => state.CourseFilter.CardView);
   const SearchQuery = useSelector((state) => state.CourseFilter.Search);
@@ -61,10 +63,11 @@ export const CourseList = () => {
   }
 
   const GetCourses = async (Path) => {
+    setCourses([]);
     const Courses = await GetByPagination(Path);
-    dispatch(toggleIsLoading());
+    //dispatch(toggleIsLoading());
     setCourses(Courses.courseFilterDtos);
-    console.log(Courses.courseFilterDtos);
+    //console.log(Courses.courseFilterDtos);
   };
 
   useEffect(() => {
@@ -83,11 +86,23 @@ export const CourseList = () => {
   }, [SearchQuery, CourseLevel]);
 
   const GridCourseSkeleton = () => {
-    if (IsLoading && courses.length > 0) {
+    if (courses.length == 0) {
+      return SkeletonList.map((a, key) => (
+        <div key={key} className={Style.Skeleton}>
+          <Skeleton height={"147px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+          <Skeleton height={"70px"} duration={0.5} />
+          <Skeleton height={"50px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+          <Skeleton height={"30px"} duration={0.5} />
+        </div>
+      ));
+    } else if (courses.length > 0) {
       return courses.map((item) => {
         return (
           <CourseListDetail
             key={item.courseId}
+            CourseId={item.courseId}
             courseImg={item.tumbImageAddress}
             title={item.title}
             desc={item.describe}
@@ -106,23 +121,12 @@ export const CourseList = () => {
           />
         );
       });
-    } else if (courses.length == 0 && SearchQuery != "") {
+    } else {
       return (
         <h1 className="m-auto mt-[100px] mb-[100px] opacity-60 text-[28px]">
           موردی با فیلتر شما یافت نشد
         </h1>
       );
-    } else {
-      return SkeletonList.map((a, key) => (
-        <div key={key} className={Style.Skeleton}>
-          <Skeleton height={"147px"} duration={0.5} />
-          <Skeleton height={"30px"} duration={0.5} />
-          <Skeleton height={"70px"} duration={0.5} />
-          <Skeleton height={"50px"} duration={0.5} />
-          <Skeleton height={"30px"} duration={0.5} />
-          <Skeleton height={"30px"} duration={0.5} />
-        </div>
-      ));
     }
   };
 

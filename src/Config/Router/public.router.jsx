@@ -37,7 +37,7 @@ const Public = new createBrowserRouter([
     children: [
       { path: "/Home", element: <Landing /> },
       { path: "/Courses", element: <Courses /> },
-      { path: "/CoursesDetail", element: <CourseDetails /> },
+      { path: "/CoursesDetail/:id", element: <CourseDetails /> },
       { path: "/Article", element: <Article /> },
       { path: "/ArticleDetail", element: <ArticleDetail /> },
     ],
