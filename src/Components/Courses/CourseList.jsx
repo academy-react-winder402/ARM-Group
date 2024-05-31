@@ -1,175 +1,157 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
-
-/* redux */
-import { useSelector } from "react-redux";
+import { GetByPagination } from "../../Core/Services/api/Course/GetByPagination.js";
 import toast from "react-hot-toast";
 
+/* Skeleton */
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Style from "./Style/Skeleton.module.css";
+
+/* redux */
+import { useSelector, useDispatch } from "react-redux";
+import { SetShowDeleteAllBut } from "../../Redux/Slices/CourseFilter.jsx";
+
 export const CourseList = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [courses, setCourses] = useState([
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
-    {
-      courseImg: "./Image/Course/react.jpg",
-      title: "دوره تخصصی ریکت",
-      desc: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
-      teacherImg: "./Image/Course/teacher.png",
-      dateDay: 10,
-      dateMonth: "اردیبهشت",
-      dateYear: 1401,
-      startDate: 4,
-      price: "1,500,000",
-      comment: 68,
-      like: 190,
-      // FaBeer: { FaBeer },
-    },
+  const [SkeletonList] = useState([
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
+    { Skeleton: "" },
   ]);
+  const [courses, setCourses] = useState([]);
+  const [NothingFound, setNothingFound] = useState(false);
+
+  const dispatch = useDispatch();
   const CardView = useSelector((state) => state.CourseFilter.CardView);
+  const SearchQuery = useSelector((state) => state.CourseFilter.Search);
+  const CourseLevel = useSelector((state) => state.CourseFilter.CourseLevel);
 
-  /* this was for animations */
-  /* useEffect(() => {
-    let cardViewer = document.getElementById("CardViewer");
+  function PathGenerator() {
+    let FilterArr = [];
+    let NewPath = "";
+    let DefaultPath = "/Home/GetCoursesWithPagination";
 
-    cardViewer.classList.remove("HideCards");
-    cardViewer.classList.add("ShowCards");
-  }, [CardView]); */
+    if (SearchQuery != "") {
+      let Path = "Query=" + SearchQuery;
+      FilterArr.push(Path);
+    }
+    if (CourseLevel != 0) {
+      let Path = "courseLevelId=" + CourseLevel;
+      FilterArr.push(Path);
+    }
 
-  const ListViewCards = () => {
-    return (
-      <>
-        <SecondCourseList />
-        <SecondCourseList />
-        <SecondCourseList />
-      </>
-    );
+    if (FilterArr.length == 1) {
+      NewPath = DefaultPath + "?" + FilterArr[0];
+    } else if (FilterArr.length > 1) {
+      NewPath = DefaultPath + "?" + FilterArr[0];
+      for (let i = 1; i < FilterArr.length; i++) {
+        NewPath = NewPath + "&" + FilterArr[i];
+      }
+    }
+
+    /* Visible Delete All delete Button: */
+    FilterArr.length > 0 && dispatch(SetShowDeleteAllBut(true));
+
+    return NewPath != "" ? NewPath : DefaultPath;
+  }
+
+  const GetCourses = async (Path) => {
+    setCourses([]);
+    const Courses = await GetByPagination(Path);
+
+    setTimeout(() => {
+      setCourses(Courses.courseFilterDtos);
+
+      if (Courses.courseFilterDtos.length == 0) {
+        setNothingFound(true);
+      } else setNothingFound(false);
+    }, 500);
+  };
+
+  useEffect(() => {
+    GetCourses("/Home/GetCoursesWithPagination");
+  }, []);
+
+  /* this state for prevent running search functions for first time: */
+  const [FirstLoading, setFirstLoading] = useState(true);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      GetCourses(PathGenerator());
+    }
+  }, [SearchQuery, CourseLevel]);
+
+  const GridCourseSkeleton = () => {
+    let ShowingStatus;
+
+    if (courses.length == 0) ShowingStatus = "Skeleton";
+    if (courses.length > 0) ShowingStatus = "Products";
+    if (courses.length == 0 && NothingFound == true) ShowingStatus = "NotFound";
+
+    switch (ShowingStatus) {
+      case "Products":
+        return courses.map((item) => {
+          return (
+            <CourseListDetail
+              key={item.courseId}
+              CourseId={item.courseId}
+              courseImg={item.tumbImageAddress}
+              title={item.title}
+              desc={item.describe}
+              teacherImg={
+                "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
+              }
+              teacherName={item.teacherName}
+              price={item.cost}
+              comment={item.commandCount}
+              like={item.likeCount}
+              /* Static (Without API): */
+              dateDay={12}
+              dateMonth={"اردیبهشت"}
+              dateYear={1403}
+              startDate={2}
+            />
+          );
+        });
+      case "Skeleton":
+        return SkeletonList.map((a, key) => (
+          <div key={key} className={Style.Skeleton}>
+            <Skeleton height={"147px"} duration={0.5} />
+            <Skeleton height={"30px"} duration={0.5} />
+            <Skeleton height={"70px"} duration={0.5} />
+            <Skeleton height={"50px"} duration={0.5} />
+            <Skeleton height={"30px"} duration={0.5} />
+            <Skeleton height={"30px"} duration={0.5} />
+          </div>
+        ));
+      case "NotFound":
+        return (
+          <h1 className="m-auto mt-[100px] mb-[100px] opacity-60 text-[28px]">
+            موردی با فیلتر شما یافت نشد
+          </h1>
+        );
+    }
   };
 
   return (
-    <div
-      id="CardViewer"
-      className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap  justify-around  gap-10 h-auto"
-    >
-      {CardView == "GridView" &&
-        courses.map((item, key) => {
-          return (
-            <CourseListDetail
-              key={key}
-              courseImg={item.courseImg}
-              title={item.title}
-              desc={item.desc}
-              teacherImg={item.teacherImg}
-              dateDay={item.dateDay}
-              dateMonth={item.dateMonth}
-              dateYear={item.dateYear}
-              startDate={item.startDate}
-              price={item.price}
-              comment={item.comment}
-              like={item.like}
-              // FaBeer={FaBeer}
-            />
-          );
-        })}
+    <>
+      <div
+        id="CardViewer"
+        className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
+      >
+        {CardView == "GridView" && GridCourseSkeleton()}
 
-      {CardView == "ListView" && <ListViewCards />}
-    </div>
+        {CardView == "ListView" && <SecondCourseList />}
+      </div>
+    </>
   );
 };

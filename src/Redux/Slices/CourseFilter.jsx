@@ -2,7 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   DeleteAll: false,
+  ShowDeleteAllBut: false,
   CardView: "GridView",
+  Search: "",
+  CourseLevel: 0,
 };
 
 const CourseFilterSlice = createSlice({
@@ -15,11 +18,39 @@ const CourseFilterSlice = createSlice({
         : (state.DeleteAll = false);
     },
 
+    SetShowDeleteAllBut: (state, actions) => {
+      state.ShowDeleteAllBut = actions.payload;
+    },
+
     SetCardView: (state, actions) => {
       state.CardView = actions.payload;
+    },
+
+    SetSearch: (state, actions) => {
+      state.Search = actions.payload;
+    },
+
+    SetApiPath: (state, actions) => {
+      state.ApiPath = actions.payload;
+    },
+
+    SetFilter: (state, actions) => {
+      state.Filter = actions.payload;
+    },
+
+    SetCourseLevel: (state, actions) => {
+      state.CourseLevel = actions.payload;
     },
   },
 });
 
-export const { toggleDeleteAll, SetCardView } = CourseFilterSlice.actions;
+export const {
+  toggleDeleteAll,
+  SetShowDeleteAllBut,
+  SetCardView,
+  SetSearch,
+  SetApiPath,
+  SetFilter,
+  SetCourseLevel,
+} = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

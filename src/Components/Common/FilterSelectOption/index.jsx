@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Badge from "../Badge/Badge";
+import { useDispatch } from "react-redux";
 
 function Index(props) {
   const Options = props.Options;
   const Id = props.Id;
   const [SelectedOptions, setSelectedOptions] = useState(0);
+  const dispatch = useDispatch();
 
   const ClickHandler = () => {
     let SelectDiv = document.querySelectorAll("#" + Id + " > div")[0];
@@ -19,22 +21,23 @@ function Index(props) {
 
   const ShowSelectedOptions = () => {
     let SelectionText;
+    let BaseText = props.MultiSelectName + " انتخاب شده";
 
     switch (SelectedOptions) {
       case 1:
-        SelectionText = "یک استاد انتخاب شده";
+        SelectionText = " یک " + BaseText;
         break;
       case 2:
-        SelectionText = "دو استاد انتخاب شده";
+        SelectionText = " دو " + BaseText;
         break;
       case 3:
-        SelectionText = "سه استاد انتخاب شده";
+        SelectionText = " سه " + BaseText;
         break;
       case 4:
-        SelectionText = "چهار استاد انتخاب شده";
+        SelectionText = " چهار " + BaseText;
         break;
       case 5:
-        SelectionText = "پنج استاد انتخاب شده";
+        SelectionText = " پنج " + BaseText;
         break;
     }
     return SelectionText;
@@ -74,6 +77,8 @@ function Index(props) {
       });
 
       optionsLI[value].classList.add("selected");
+
+      props.SetFilter ? dispatch(props.SetFilter(Options[value].id)) : null;
     }
   };
 

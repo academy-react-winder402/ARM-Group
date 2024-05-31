@@ -4,12 +4,18 @@ import VaziatButt from "./VaziatButt";
 import Badge from "../../../Common/Badge/Badge";
 import toast from "react-hot-toast";
 import CustomSelect from "../../../Common/FilterSelectOption";
+
 /* redux: */
-import { toggleDeleteAll } from "../../../../Redux/Slices/CourseFilter";
-import { useDispatch } from "react-redux";
+import {
+  toggleDeleteAll,
+  SetShowDeleteAllBut,
+} from "../../../../Redux/Slices/CourseFilter";
+import { useDispatch, useSelector } from "react-redux";
 
 function Index() {
-  /* const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll); */
+  const DeleteButStatus = useSelector(
+    (state) => state.CourseFilter.ShowDeleteAllBut
+  );
   const Dispatch = useDispatch();
 
   const DeletAllHandler = () => {
@@ -18,7 +24,8 @@ function Index() {
       Dispatch(toggleDeleteAll());
     }, 100);
 
-    toast.success("All Filters Deleted");
+    Dispatch(SetShowDeleteAllBut(false));
+    toast.success("تمامی فیلتر ها پاک شد");
   };
   const [Options_Page] = useState([
     { value: "0", innerHTML: "۲۴", defaultHTML: "۲۴" },
@@ -33,11 +40,13 @@ function Index() {
       </div>
 
       <div className="flex-grow-[10] pr-20 pt-3">
-        <Badge
-          onClick={DeletAllHandler}
-          innerHTML="حذف تمامی فیلتر‌ها"
-          className=" min-w-[110px] max-w-[140px]"
-        />
+        {DeleteButStatus == true ? (
+          <Badge
+            onClick={DeletAllHandler}
+            innerHTML="حذف تمامی فیلتر‌ها"
+            className="scale-down-center min-w-[110px] max-w-[140px]"
+          />
+        ) : null}
       </div>
 
       <div className="flex-grow-[1] overflow-hidden CostumButtFilter">

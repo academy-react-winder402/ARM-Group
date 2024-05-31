@@ -3,19 +3,22 @@ import "./Style/Style.css";
 import { CourseHeader } from "./CourseHeader.jsx";
 import { FilterCourse } from "./Filter/FilterCourse.jsx";
 import { CourseList } from "./CourseList.jsx";
+
 import { Fragment } from "react";
+import DefualtPagination from "../Common/Pagination/index.jsx";
 
 const Courses = () => {
   return (
     <Fragment>
       <section
-        className=" w-[95%] mx-auto px-8 mt-[120px]"
+        className=" w-[1250px] mx-auto px-8 mt-[120px]"
         style={{ direction: "rtl" }}
       >
         <div className="flex flex-col mb-14">
           <CourseHeader />
           <FilterCourse />
           <CourseList />
+          <DefualtPagination />
         </div>
       </section>
     </Fragment>
