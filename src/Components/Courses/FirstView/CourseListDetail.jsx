@@ -11,7 +11,7 @@ export const CourseListDetail = ({
   dateDay,
   dateMonth,
   dateYear,
-  startDate,
+  levelName,
   price,
   comment,
   like,
@@ -62,9 +62,9 @@ export const CourseListDetail = ({
             <span> {dateMonth} </span>
             <span>{dateYear}</span>
           </div>
-          <div className="flex flex-row-reverse flex-1 pl-2">
-            <span className="mr-1"> ماه تا شروع </span>
-            <span> {startDate} </span>
+          <div className="flex flex-row-reverse flex-1 pl-2 text-[12px]">
+            <span className="font-bold"> {levelName} </span>
+            <span className="ml-1"> سطح : </span>
           </div>
         </div>
 

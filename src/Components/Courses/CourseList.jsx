@@ -147,11 +147,11 @@ export const CourseList = () => {
               price={item.cost}
               comment={item.commandCount}
               like={item.likeCount}
+              levelName={item.levelName}
               /* Static (Without API): */
               dateDay={12}
               dateMonth={"اردیبهشت"}
               dateYear={1403}
-              startDate={2}
             />
           );
         });
