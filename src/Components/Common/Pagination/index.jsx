@@ -22,9 +22,19 @@ function Index({ TotalCount, PerPageCount, SetPageNumber, PageNumberState }) {
   };
 
   useEffect(() => {
+    /* For Show Landing On Page 1 */
     const items = document.getElementsByClassName("PaginationItems");
     items[0].classList.add("SelectedItem");
   }, []);
+
+  useEffect(() => {
+    console.log(PageNumberState + " Selected");
+    const items = document.getElementsByClassName("PaginationItems");
+    for (let i = 0; i < items.length; i++) {
+      items[i].classList.remove("SelectedItem");
+    }
+    items[PageNumberState - 1].classList.add("SelectedItem");
+  }, [PageNumberState]);
 
   return (
     <div className="w-fit h-f flex gap-2 m-auto flex-row-reverse mt-[100px]">

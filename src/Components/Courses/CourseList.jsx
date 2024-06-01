@@ -187,7 +187,6 @@ export const CourseList = () => {
     if (FirstLoading) {
       setFirstLoading(false);
     } else {
-      /* Setting For First Page */
       dispatch(SetPageNumber(1));
 
       /* this filter with pagination */
@@ -197,7 +196,20 @@ export const CourseList = () => {
         behavior: "smooth",
       });
     }
-  }, [SearchQuery, CourseLevel, PriceFilter, PerPageCount, PageNumber]);
+  }, [SearchQuery, CourseLevel, PriceFilter]);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      /* this filter with pagination */
+      GetCourses(PathGenerator());
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [PageNumber, PerPageCount]);
 
   return (
     <>
@@ -205,7 +217,7 @@ export const CourseList = () => {
         id="CardViewer"
         className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
       >
-        {CardView == "GridView" && GridCourseSkeleton()}
+        {CardView == "GridView" ? GridCourseSkeleton() : null}
 
         {CardView == "ListView" && <SecondCourseList />}
       </div>
