@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { CourseListDetail } from "./FirstView/CourseListDetail.jsx";
 import { SecondCourseList } from "./SecondView/SecondCourseList.jsx";
 import { GetByPagination } from "../../Core/Services/api/Course/GetByPagination.js";
+import DefualtPagination from "../Common/Pagination/index.jsx";
+
 import toast from "react-hot-toast";
 
 /* Skeleton */
@@ -13,7 +15,11 @@ import Style from "./Style/Skeleton.module.css";
 
 /* redux */
 import { useSelector, useDispatch } from "react-redux";
-import { SetShowDeleteAllBut } from "../../Redux/Slices/CourseFilter.jsx";
+import {
+  SetShowDeleteAllBut,
+  SetItemsCount,
+  SetPageNumber,
+} from "../../Redux/Slices/CourseFilter.jsx";
 
 export const CourseList = () => {
   const [SkeletonList] = useState([
@@ -35,10 +41,29 @@ export const CourseList = () => {
   const CourseLevel = useSelector((state) => state.CourseFilter.CourseLevel);
   const PriceFilter = useSelector((state) => state.CourseFilter.PriceFilter);
 
+  /* Paginations: */
+  const PerPageCount = useSelector((state) => state.CourseFilter.ItemPerPage);
+  const PageNumber = useSelector((state) => state.CourseFilter.PageNumber);
+  const ItemsCount = useSelector((state) => state.CourseFilter.ItemsCount);
+
   function PathGenerator() {
     let FilterArr = [];
     let NewPath = "";
     let DefaultPath = "/Home/GetCoursesWithPagination";
+
+    const NewPathGenerator = () => {
+      NewPath = "";
+      if (FilterArr.length == 1) {
+        NewPath = DefaultPath + "?" + FilterArr[0];
+      } else if (FilterArr.length > 1) {
+        NewPath = DefaultPath + "?" + FilterArr[0];
+        for (let i = 1; i < FilterArr.length; i++) {
+          NewPath = NewPath + "&" + FilterArr[i];
+        }
+      } else {
+        NewPath = DefaultPath;
+      }
+    };
 
     if (SearchQuery != "") {
       let Path = "Query=" + SearchQuery;
@@ -54,15 +79,24 @@ export const CourseList = () => {
       FilterArr.push(Path1, Path2);
     }
 
-    if (FilterArr.length == 1) {
-      NewPath = DefaultPath + "?" + FilterArr[0];
-    } else if (FilterArr.length > 1) {
-      NewPath = DefaultPath + "?" + FilterArr[0];
-      for (let i = 1; i < FilterArr.length; i++) {
-        NewPath = NewPath + "&" + FilterArr[i];
-      }
-    }
+    /* Now Getting Filters items count For Pagination */
+    NewPathGenerator();
+    //console.log("before pagination = " + NewPath);
+    GetCourseForPagination(NewPath);
 
+    if (PerPageCount > 0) {
+      let Path = "RowsOfPage=" + PerPageCount;
+      FilterArr.push(Path);
+    }
+    if (PageNumber > 0) {
+      let Path = "PageNumber=" + PageNumber;
+      FilterArr.push(Path);
+    }
+    /* Now We Make New Path with Pagination */
+    NewPathGenerator();
+    //console.log("before pagination = " + NewPath);
+
+    //console.log(NewPath);
     /* Visible Delete All delete Button: */
     FilterArr.length > 0 && dispatch(SetShowDeleteAllBut(true));
 
@@ -83,19 +117,11 @@ export const CourseList = () => {
     }, 500);
   };
 
-  useEffect(() => {
-    GetCourses("/Home/GetCoursesWithPagination");
-  }, []);
-
-  /* this state for prevent running search functions for first time: */
-  const [FirstLoading, setFirstLoading] = useState(true);
-  useEffect(() => {
-    if (FirstLoading) {
-      setFirstLoading(false);
-    } else {
-      GetCourses(PathGenerator());
-    }
-  }, [SearchQuery, CourseLevel, PriceFilter]);
+  const GetCourseForPagination = async (path) => {
+    const Courses = await GetByPagination(path);
+    /* Set All Items Count */
+    dispatch(SetItemsCount(Courses.courseFilterDtos.length));
+  };
 
   const GridCourseSkeleton = () => {
     let ShowingStatus;
@@ -149,6 +175,30 @@ export const CourseList = () => {
     }
   };
 
+  useEffect(() => {
+    /* Getting All Items for Pagination */
+    GetCourseForPagination("/Home/GetCoursesWithPagination");
+
+    GetCourses("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=24");
+  }, []);
+  /* this state for prevent running search functions for first time: */
+  const [FirstLoading, setFirstLoading] = useState(true);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      /* Setting For First Page */
+      dispatch(SetPageNumber(1));
+
+      /* this filter with pagination */
+      GetCourses(PathGenerator());
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  }, [SearchQuery, CourseLevel, PriceFilter, PerPageCount, PageNumber]);
+
   return (
     <>
       <div
@@ -159,6 +209,15 @@ export const CourseList = () => {
 
         {CardView == "ListView" && <SecondCourseList />}
       </div>
+
+      {ItemsCount ? (
+        <DefualtPagination
+          TotalCount={ItemsCount}
+          PerPageCount={PerPageCount}
+          SetPageNumber={SetPageNumber}
+          PageNumberState={PageNumber}
+        />
+      ) : null}
     </>
   );
 };

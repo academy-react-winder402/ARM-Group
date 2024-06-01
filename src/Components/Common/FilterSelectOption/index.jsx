@@ -18,7 +18,6 @@ function Index(props) {
       .querySelectorAll("#" + Id + " > img")[0]
       .classList.toggle("rotate-180");
   };
-
   const ShowSelectedOptions = () => {
     let SelectionText;
     let BaseText = props.MultiSelectName + " انتخاب شده";
@@ -42,7 +41,6 @@ function Index(props) {
     }
     return SelectionText;
   };
-
   const Select = (value, innerHTML) => {
     document.querySelectorAll("#" + Id + " > span")[0].innerHTML = innerHTML;
 
@@ -81,7 +79,6 @@ function Index(props) {
       props.SetFilter ? dispatch(props.SetFilter(Options[value].id)) : null;
     }
   };
-
   const DeleteFilterHandler = () => {
     Select(0);
     let SelectDiv = document.querySelectorAll("#" + Id + " > div")[0];
@@ -119,7 +116,13 @@ function Index(props) {
 
   return (
     <ul
-      style={props.IsNumberType && { fontSize: "20px", fontWeight: "bold" }}
+      style={
+        props.IsNumberType && {
+          cursor: "pointer",
+          fontSize: "20px",
+          fontWeight: "bold",
+        }
+      }
       onClick={ClickHandler}
       id={Id}
       className={
@@ -133,7 +136,11 @@ function Index(props) {
           <li
             key={key}
             style={
-              props.IsNumberType && { textAlign: "center", padding: "0px" }
+              props.IsNumberType && {
+                cursor: "pointer",
+                textAlign: "center",
+                padding: "0px",
+              }
             }
             onClick={() => {
               Select(option.value, option.innerHTML);

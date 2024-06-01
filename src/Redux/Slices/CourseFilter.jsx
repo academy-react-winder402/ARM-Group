@@ -7,6 +7,9 @@ const initialState = {
   Search: "",
   CourseLevel: 0,
   PriceFilter: [],
+  ItemPerPage: 24,
+  PageNumber: 1,
+  ItemsCount: null,
 };
 
 const CourseFilterSlice = createSlice({
@@ -31,12 +34,12 @@ const CourseFilterSlice = createSlice({
       state.Search = actions.payload;
     },
 
-    SetApiPath: (state, actions) => {
-      state.ApiPath = actions.payload;
+    SetItemPerPage: (state, actions) => {
+      state.ItemPerPage = actions.payload;
     },
 
-    SetFilter: (state, actions) => {
-      state.Filter = actions.payload;
+    SetPageNumber: (state, actions) => {
+      state.PageNumber = actions.payload;
     },
 
     SetCourseLevel: (state, actions) => {
@@ -46,6 +49,10 @@ const CourseFilterSlice = createSlice({
     SetPriceFilter: (state, actions) => {
       state.PriceFilter = actions.payload;
     },
+
+    SetItemsCount: (state, actions) => {
+      state.ItemsCount = actions.payload;
+    },
   },
 });
 
@@ -54,9 +61,10 @@ export const {
   SetShowDeleteAllBut,
   SetCardView,
   SetSearch,
-  SetApiPath,
-  SetFilter,
   SetCourseLevel,
   SetPriceFilter,
+  SetItemsCount,
+  SetItemPerPage,
+  SetPageNumber,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

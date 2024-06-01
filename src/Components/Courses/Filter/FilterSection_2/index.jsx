@@ -9,6 +9,7 @@ import CustomSelect from "../../../Common/FilterSelectOption";
 import {
   toggleDeleteAll,
   SetShowDeleteAllBut,
+  SetItemPerPage,
 } from "../../../../Redux/Slices/CourseFilter";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -28,9 +29,9 @@ function Index() {
     toast.success("تمامی فیلتر ها پاک شد");
   };
   const [Options_Page] = useState([
-    { value: "0", innerHTML: "۲۴", defaultHTML: "۲۴" },
-    { value: "1", innerHTML: "۱۲" },
-    { value: "2", innerHTML: "۸" },
+    { value: "0", id: 24, innerHTML: "۲۴", defaultHTML: "۲۴" },
+    { value: "1", id: 12, innerHTML: "۱۲" },
+    { value: "2", id: 8, innerHTML: "۸" },
   ]);
 
   return (
@@ -59,6 +60,7 @@ function Index() {
           type="SimpleSelect"
           IsNumberType
           Id="SelectCardInPage"
+          SetFilter={SetItemPerPage}
         />
       </div>
 
