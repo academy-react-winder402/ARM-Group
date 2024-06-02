@@ -9,6 +9,7 @@ const initialState = {
   Teacher: 0,
   Sorting: "",
   Category: [],
+  Type: 0,
   PriceFilter: [],
   ItemPerPage: 24,
   PageNumber: 1,
@@ -61,6 +62,10 @@ const CourseFilterSlice = createSlice({
       state.Category = actions.payload;
     },
 
+    SetType: (state, actions) => {
+      state.Type = actions.payload;
+    },
+
     SetPriceFilter: (state, actions) => {
       state.PriceFilter = actions.payload;
     },
@@ -84,5 +89,6 @@ export const {
   SetTeacher,
   SetSorting,
   SetCategory,
+  SetType,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;

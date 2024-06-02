@@ -13,12 +13,14 @@ import {
   SetTeacher,
   SetSorting,
   SetCategory,
+  SetType,
 } from "../../../../Redux/Slices/CourseFilter";
 
 /* Apis */
 import { GetAllTeacher } from "../../../../Core/Services/api/Course/GetAllTeacher";
 import { GetTechnologies } from "../../../../Core/Services/api/Course/GetTechnologies";
 import { GetLevels } from "../../../../Core/Services/api/Course/GetLevels";
+import { GetCourseType } from "../../../../Core/Services/api/Course/GetCourseType";
 
 function Index() {
   const DeleteStatus = useSelector((state) => state.CourseFilter.DeleteAll);
@@ -26,6 +28,7 @@ function Index() {
   const [Options_Levels, SetOptions_Levels] = useState([{}]);
   const [Options_Ostad, setOptions_Ostad] = useState([{}]);
   const [Options_Category, setOptions_Category] = useState([{}]);
+  const [Options_Type, setOptions_Type] = useState([{}]);
   const [Options_Sord] = useState([
     { value: 0, id: "", innerHTML: "هیچکدام", defaultHTML: "مرتب سازی" },
     { value: 1, id: "Active", innerHTML: "دوره های فعال" },
@@ -47,6 +50,22 @@ function Index() {
       });
     });
     setOptions_Ostad(TeacherObj);
+  };
+  const GetCourseTypes = async () => {
+    const CourseTypes = await GetCourseType();
+    let CourseTypesObj = [
+      { value: 0, id: 0, innerHTML: "همه", defaultHTML: "نوع دوره" },
+    ];
+    CourseTypes.map((item, key) => {
+      CourseTypesObj.push({
+        value: key + 1,
+        id: item.id,
+        innerHTML: item.typeName,
+      });
+    });
+    setOptions_Type(CourseTypesObj);
+
+    console.log(CourseTypesObj);
   };
   const GetCategory = async () => {
     const Technologies = await GetTechnologies();
@@ -81,6 +100,7 @@ function Index() {
     GetTeacher();
     GetCategory();
     GetCourseLevels();
+    GetCourseTypes();
   }, []);
 
   return (
@@ -138,7 +158,7 @@ function Index() {
       <div className=" FilterSecton_1 mt-2 w-[800px] m-auto">
         {/* Select Level */}
         <input id="F/[11]" name="RadioInputs" type="radio" />
-        <label className="max-w-[260px] min-w-[100px]" htmlFor="F/[11]">
+        <label className="max-w-[160px] min-w-[100px]" htmlFor="F/[11]">
           <CustomSelect
             DeleteStatus={DeleteStatus}
             Options={Options_Category}
@@ -146,6 +166,18 @@ function Index() {
             MultiSelectName="دسته بندی"
             Id="SelectCategory"
             SetFilter={SetCategory}
+          />
+        </label>
+
+        {/* Select Type */}
+        <input id="F/[12]" name="RadioInputs" type="radio" />
+        <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[12]">
+          <CustomSelect
+            DeleteStatus={DeleteStatus}
+            Options={Options_Type}
+            type="SimpleSelect"
+            Id="SelectType"
+            SetFilter={SetType}
           />
         </label>
 
