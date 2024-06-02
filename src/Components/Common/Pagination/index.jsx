@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 /* redux */
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 /* eslint-disable react/prop-types */
 function Index({ TotalCount, PerPageCount, SetPageNumber, PageNumberState }) {

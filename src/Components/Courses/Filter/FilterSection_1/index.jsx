@@ -11,6 +11,8 @@ import {
   SetCourseLevel,
   SetSearch,
   SetTeacher,
+  SetSorting,
+  SetCategory,
 } from "../../../../Redux/Slices/CourseFilter";
 
 /* Apis */
@@ -24,11 +26,18 @@ function Index() {
   const [Options_Levels, SetOptions_Levels] = useState([{}]);
   const [Options_Ostad, setOptions_Ostad] = useState([{}]);
   const [Options_Category, setOptions_Category] = useState([{}]);
+  const [Options_Sord] = useState([
+    { value: 0, id: "", innerHTML: "هیچکدام", defaultHTML: "مرتب سازی" },
+    { value: 1, id: "Active", innerHTML: "دوره های فعال" },
+    { value: 2, id: "LastUpdate", innerHTML: "آخرین تغییرات" },
+    { value: 3, id: "Cost", innerHTML: "بر اساس قیمت" },
+    { value: 4, id: "CourseRate", innerHTML: "بر اساس محبوبیت " },
+  ]);
 
   const GetTeacher = async () => {
     const Teachers = await GetAllTeacher();
     let TeacherObj = [
-      { value: 0, id: 0, innerHTML: "همه", defaultHTML: "انتخاب استاد" },
+      { value: 0, id: 0, innerHTML: "هیچکدام", defaultHTML: "انتخاب استاد" },
     ];
     Teachers.map((item, key) => {
       TeacherObj.push({
@@ -75,60 +84,82 @@ function Index() {
   }, []);
 
   return (
-    <div className=" FilterSecton_1 ">
-      <input id="F/[1]" name="RadioInputs" type="radio" />
-      <label className="max-w-[400px] min-w-[190px]" htmlFor="F/[1]">
-        <Search DeleteStatus={DeleteStatus} SetSearchState={SetSearch} />
-      </label>
+    <>
+      <div className=" FilterSecton_1 ">
+        {/* Search */}
+        <input id="F/[1]" name="RadioInputs" type="radio" />
+        <label className="max-w-[500px] min-w-[400px]" htmlFor="F/[1]">
+          <Search DeleteStatus={DeleteStatus} SetSearchState={SetSearch} />
+        </label>
 
-      <input id="F/[2]" name="RadioInputs" type="radio" />
-      <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[2]">
-        <CustomSelect
-          DeleteStatus={DeleteStatus}
-          Options={Options_Category}
-          type="MultiSelect"
-          MultiSelectName="دسته بندی"
-          Id="SelectCategorie"
-        />
-      </label>
+        {/* Select Ostad */}
+        <input id="F/[3]" name="RadioInputs" type="radio" />
+        <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[3]">
+          <CustomSelect
+            DeleteStatus={DeleteStatus}
+            Options={Options_Ostad}
+            type="SimpleSelect"
+            Id="SelectOstad"
+            SetFilter={SetTeacher}
+          />
+        </label>
 
-      <input id="F/[3]" name="RadioInputs" type="radio" />
-      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[3]">
-        <CustomSelect
-          DeleteStatus={DeleteStatus}
-          Options={Options_Ostad}
-          type="SimpleSelect"
-          Id="SelectOstad"
-          SetFilter={SetTeacher}
-        />
-      </label>
+        {/* Select Level */}
+        <input id="F/[4]" name="RadioInputs" type="radio" />
+        <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[4]">
+          <CustomSelect
+            DeleteStatus={DeleteStatus}
+            Options={Options_Levels}
+            type="SimpleSelect"
+            Id="SelectLevel"
+            SetFilter={SetCourseLevel}
+          />
+        </label>
 
-      <input id="F/[4]" name="RadioInputs" type="radio" />
-      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[4]">
-        <CustomSelect
-          DeleteStatus={DeleteStatus}
-          Options={Options_Levels}
-          type="SimpleSelect"
-          Id="SelectSort"
-          SetFilter={SetCourseLevel}
-        />
-      </label>
+        {/* Select Sort */}
+        <input id="F/[7]" name="RadioInputs" type="radio" />
+        <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[7]">
+          <CustomSelect
+            DeleteStatus={DeleteStatus}
+            Options={Options_Sord}
+            type="SimpleSelect"
+            Id="SelectSort"
+            SetFilter={SetSorting}
+          />
+        </label>
 
-      <input id="F/[6]" name="RadioInputs" type="radio" />
-      <label className="max-w-[130px] min-w-[100px]" htmlFor="F/[6]">
-        <Butt />
-        <Modal />
-      </label>
+        {/* Select Time Filter */}
+        <input id="F/[6]" name="RadioInputs" type="radio" />
+        <label className="max-w-[130px] min-w-[100px]" htmlFor="F/[6]">
+          <Butt />
+          <Modal />
+        </label>
+      </div>
+      <div className=" FilterSecton_1 mt-2 w-[800px] m-auto">
+        {/* Select Level */}
+        <input id="F/[11]" name="RadioInputs" type="radio" />
+        <label className="max-w-[260px] min-w-[100px]" htmlFor="F/[11]">
+          <CustomSelect
+            DeleteStatus={DeleteStatus}
+            Options={Options_Category}
+            type="MultiSelect"
+            MultiSelectName="دسته بندی"
+            Id="SelectCategory"
+            SetFilter={SetCategory}
+          />
+        </label>
 
-      <input id="F/[5]" name="RadioInputs" type="radio" />
-      <label
-        className="max-w-[400px] min-w-[260px] "
-        style={{ backgroundColor: "transparent" }}
-        htmlFor="F/[5]"
-      >
-        <PriceFilter />
-      </label>
-    </div>
+        {/* Pirce FIlter */}
+        <input id="F/[12]" name="RadioInputs" type="radio" />
+        <label
+          className="max-w-[600px] min-w-[260px] "
+          style={{ backgroundColor: "transparent" }}
+          htmlFor="F/[12]"
+        >
+          <PriceFilter />
+        </label>
+      </div>
+    </>
   );
 }
 

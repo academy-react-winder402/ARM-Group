@@ -7,6 +7,7 @@ function Index(props) {
   const Options = props.Options;
   const Id = props.Id;
   const [SelectedOptions, setSelectedOptions] = useState(0);
+  const SelectObj = [];
   const dispatch = useDispatch();
 
   const ClickHandler = () => {
@@ -41,8 +42,12 @@ function Index(props) {
     }
     return SelectionText;
   };
+
   const Select = (value, innerHTML) => {
     document.querySelectorAll("#" + Id + " > span")[0].innerHTML = innerHTML;
+    const CurrentCheck = document.querySelectorAll(
+      "#" + Id + " > div > li >  input"
+    );
 
     const optionsLI = document.querySelectorAll("#" + Id + " > div > li");
 
@@ -62,6 +67,27 @@ function Index(props) {
         optionsLI[value].classList.add("selected");
         setSelectedOptions(SelectedOptions + 1);
       }
+
+      /* SetForRedux */
+      if (value > 0) {
+        if (CurrentCheck[value].checked == false) {
+          CurrentCheck[value].checked = true;
+        } else {
+          CurrentCheck[value].checked = false;
+        }
+        for (let i = 1; i < Options.length; i++) {
+          if (CurrentCheck[i].checked) {
+            SelectObj.push(Options[i].id);
+          }
+        }
+      }
+      if (value == 0) {
+        for (let i = 0; i < Options.length; i++) {
+          CurrentCheck[i].checked = false;
+        }
+      }
+      console.log(SelectObj);
+      props.SetFilter ? dispatch(props.SetFilter(SelectObj)) : null;
     }
 
     if (props.type == "SimpleSelect") {
@@ -79,6 +105,7 @@ function Index(props) {
       props.SetFilter ? dispatch(props.SetFilter(Options[value].id)) : null;
     }
   };
+
   const DeleteFilterHandler = () => {
     Select(0);
     let SelectDiv = document.querySelectorAll("#" + Id + " > div")[0];
@@ -98,7 +125,7 @@ function Index(props) {
   }, [props.DeleteStatus]);
 
   useEffect(() => {
-    console.log(SelectedOptions);
+    //console.log(SelectedOptions);
 
     const All = document.querySelectorAll("#" + Id + " > div > li")[0]
       .classList;
@@ -147,6 +174,7 @@ function Index(props) {
             }}
           >
             {option.innerHTML}
+            <input key={"Input@" + key} type="checkbox" className="hidden" />
           </li>
         ))}
       </div>

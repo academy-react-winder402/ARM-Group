@@ -15,7 +15,7 @@ const PrettoSlider = styled(Slider)({
 
 function PriceFilter() {
   const DeleteAll = useSelector((state) => state.CourseFilter.DeleteAll);
-  const [value, setValue] = useState([0, 4000000]);
+  const [value, setValue] = useState([5000000, 15000000]);
   const dispatch = useDispatch();
 
   const minDistance = 500000;
@@ -34,18 +34,18 @@ function PriceFilter() {
   };
 
   useEffect(() => {
-    DeleteAll && setValue([0, 4000000]);
+    DeleteAll && setValue([5000000, 15000000]);
   }, [DeleteAll]);
 
   return (
     <div className="flex justify-center relative">
-      <span className="block absolute top-[-2px] right-3">قیمت :</span>
+      <span className="block absolute top-[-2px] right-[40px]">قیمت :</span>
 
       <Box className="w-[70%] h-[40px] mr-5 mt-[13px] relative">
-        <span className="absolute right-0 top-[-27px] text-[9px]">
-          حداکثر: ۴.۰۰۰.۰۰۰
+        <span className="absolute right-0 top-[-27px] text-[12px]">
+          حداکثر: ۲۰.۰۰۰.۰۰۰
         </span>
-        <span className="absolute left-0 top-[-27px] text-[9px]">
+        <span className="absolute left-0 top-[-27px] text-[12px]">
           حداقل: ۲۰۰.۰۰۰
         </span>
         <PrettoSlider
@@ -53,7 +53,7 @@ function PriceFilter() {
           getAriaLabel={() => "Minimum distance"}
           step={500000}
           min={0}
-          max={4000000}
+          max={20000000}
           value={value}
           onChange={handleChange}
           valueLabelDisplay="auto"
