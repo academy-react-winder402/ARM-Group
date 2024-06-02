@@ -40,6 +40,7 @@ export const CourseList = () => {
   const SearchQuery = useSelector((state) => state.CourseFilter.Search);
   const CourseLevel = useSelector((state) => state.CourseFilter.CourseLevel);
   const PriceFilter = useSelector((state) => state.CourseFilter.PriceFilter);
+  const Teacher = useSelector((state) => state.CourseFilter.Teacher);
 
   /* Paginations: */
   const PerPageCount = useSelector((state) => state.CourseFilter.ItemPerPage);
@@ -73,6 +74,10 @@ export const CourseList = () => {
       let Path = "courseLevelId=" + CourseLevel;
       FilterArr.push(Path);
     }
+    if (Teacher != 0) {
+      let Path = "TeacherId=" + Teacher;
+      FilterArr.push(Path);
+    }
     if (PriceFilter.length > 0) {
       let Path1 = "CostDown=" + PriceFilter[0];
       let Path2 = "CostUp=" + PriceFilter[1];
@@ -100,7 +105,7 @@ export const CourseList = () => {
     /* Visible Delete All delete Button: */
     FilterArr.length > 0 && dispatch(SetShowDeleteAllBut(true));
 
-    console.log(NewPath);
+    //console.log(NewPath);
     return NewPath != "" ? NewPath : DefaultPath;
   }
 
@@ -196,7 +201,7 @@ export const CourseList = () => {
         behavior: "smooth",
       });
     }
-  }, [SearchQuery, CourseLevel, PriceFilter]);
+  }, [SearchQuery, CourseLevel, PriceFilter, Teacher]);
   useEffect(() => {
     if (FirstLoading) {
       setFirstLoading(false);

@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import {
   SetCourseLevel,
   SetSearch,
+  SetTeacher,
 } from "../../../../Redux/Slices/CourseFilter";
 
 /* Apis */
@@ -32,7 +33,7 @@ function Index() {
     Teachers.map((item, key) => {
       TeacherObj.push({
         value: key + 1,
-        TeacherId: item.teacherId,
+        id: item.teacherId,
         innerHTML: item.fullName,
       });
     });
@@ -92,13 +93,13 @@ function Index() {
       </label>
 
       <input id="F/[3]" name="RadioInputs" type="radio" />
-      <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[3]">
+      <label className="max-w-[160px] min-w-[50px]" htmlFor="F/[3]">
         <CustomSelect
           DeleteStatus={DeleteStatus}
           Options={Options_Ostad}
-          type="MultiSelect"
-          MultiSelectName="استاد"
+          type="SimpleSelect"
           Id="SelectOstad"
+          SetFilter={SetTeacher}
         />
       </label>
 

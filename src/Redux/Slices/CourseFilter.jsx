@@ -6,6 +6,7 @@ const initialState = {
   CardView: "GridView",
   Search: "",
   CourseLevel: 0,
+  Teacher: null,
   PriceFilter: [],
   ItemPerPage: 24,
   PageNumber: 1,
@@ -46,6 +47,10 @@ const CourseFilterSlice = createSlice({
       state.CourseLevel = actions.payload;
     },
 
+    SetTeacher: (state, actions) => {
+      state.Teacher = actions.payload;
+    },
+
     SetPriceFilter: (state, actions) => {
       state.PriceFilter = actions.payload;
     },
@@ -66,5 +71,6 @@ export const {
   SetItemsCount,
   SetItemPerPage,
   SetPageNumber,
+  SetTeacher,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;
