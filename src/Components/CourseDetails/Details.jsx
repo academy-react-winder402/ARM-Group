@@ -1,7 +1,30 @@
-import React from "react";
+import { useEffect } from "react";
 import { DetailsSection1 } from "./DetailsSection1";
+import { useParams } from "react-router-dom";
+import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseById";
+
+/* redux */
+import { useDispatch, useSelector } from "react-redux";
+import { SetCourseObj } from "../../Redux/Slices/CourseDetail";
 
 const Details = () => {
+  const dispatch = useDispatch();
+  const params = useParams();
+  const Details = useSelector((state) => state.CourseDetail.CourseObj);
+
+  const GetCourseDetail = async (id) => {
+    const Details = await GetCourseById(id);
+    dispatch(SetCourseObj(Details));
+  };
+
+  useEffect(() => {
+    console.log(Details);
+  }, [Details]);
+
+  useEffect(() => {
+    GetCourseDetail(params.id);
+  }, []);
+
   return (
     <div
       className="w-[87.5%] mx-auto mt-[100px] pt-[1rem]"

@@ -1,4 +1,3 @@
-import React from "react";
 import Titles from "./Titles.jsx";
 import ImagesSection from "./ImagesSection";
 
