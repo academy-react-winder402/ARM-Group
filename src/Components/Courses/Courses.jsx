@@ -5,7 +5,6 @@ import { FilterCourse } from "./Filter/FilterCourse.jsx";
 import { CourseList } from "./CourseList.jsx";
 
 import { Fragment } from "react";
-import DefualtPagination from "../Common/Pagination/index.jsx";
 
 const Courses = () => {
   return (
@@ -18,7 +17,6 @@ const Courses = () => {
           <CourseHeader />
           <FilterCourse />
           <CourseList />
-          <DefualtPagination />
         </div>
       </section>
     </Fragment>

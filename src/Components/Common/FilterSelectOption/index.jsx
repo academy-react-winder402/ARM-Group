@@ -7,6 +7,7 @@ function Index(props) {
   const Options = props.Options;
   const Id = props.Id;
   const [SelectedOptions, setSelectedOptions] = useState(0);
+  const SelectObj = [];
   const dispatch = useDispatch();
 
   const ClickHandler = () => {
@@ -18,7 +19,6 @@ function Index(props) {
       .querySelectorAll("#" + Id + " > img")[0]
       .classList.toggle("rotate-180");
   };
-
   const ShowSelectedOptions = () => {
     let SelectionText;
     let BaseText = props.MultiSelectName + " انتخاب شده";
@@ -45,6 +45,9 @@ function Index(props) {
 
   const Select = (value, innerHTML) => {
     document.querySelectorAll("#" + Id + " > span")[0].innerHTML = innerHTML;
+    const CurrentCheck = document.querySelectorAll(
+      "#" + Id + " > div > li >  input"
+    );
 
     const optionsLI = document.querySelectorAll("#" + Id + " > div > li");
 
@@ -64,6 +67,27 @@ function Index(props) {
         optionsLI[value].classList.add("selected");
         setSelectedOptions(SelectedOptions + 1);
       }
+
+      /* SetForRedux */
+      if (value > 0) {
+        if (CurrentCheck[value].checked == false) {
+          CurrentCheck[value].checked = true;
+        } else {
+          CurrentCheck[value].checked = false;
+        }
+        for (let i = 1; i < Options.length; i++) {
+          if (CurrentCheck[i].checked) {
+            SelectObj.push(Options[i].id);
+          }
+        }
+      }
+      if (value == 0) {
+        for (let i = 0; i < Options.length; i++) {
+          CurrentCheck[i].checked = false;
+        }
+      }
+      console.log(SelectObj);
+      props.SetFilter ? dispatch(props.SetFilter(SelectObj)) : null;
     }
 
     if (props.type == "SimpleSelect") {
@@ -101,7 +125,7 @@ function Index(props) {
   }, [props.DeleteStatus]);
 
   useEffect(() => {
-    console.log(SelectedOptions);
+    //console.log(SelectedOptions);
 
     const All = document.querySelectorAll("#" + Id + " > div > li")[0]
       .classList;
@@ -119,7 +143,13 @@ function Index(props) {
 
   return (
     <ul
-      style={props.IsNumberType && { fontSize: "20px", fontWeight: "bold" }}
+      style={
+        props.IsNumberType && {
+          cursor: "pointer",
+          fontSize: "20px",
+          fontWeight: "bold",
+        }
+      }
       onClick={ClickHandler}
       id={Id}
       className={
@@ -133,13 +163,18 @@ function Index(props) {
           <li
             key={key}
             style={
-              props.IsNumberType && { textAlign: "center", padding: "0px" }
+              props.IsNumberType && {
+                cursor: "pointer",
+                textAlign: "center",
+                padding: "0px",
+              }
             }
             onClick={() => {
               Select(option.value, option.innerHTML);
             }}
           >
             {option.innerHTML}
+            <input key={"Input@" + key} type="checkbox" className="hidden" />
           </li>
         ))}
       </div>

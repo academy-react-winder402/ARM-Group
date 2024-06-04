@@ -6,6 +6,14 @@ const initialState = {
   CardView: "GridView",
   Search: "",
   CourseLevel: 0,
+  Teacher: 0,
+  Sorting: "",
+  Category: [],
+  Type: 0,
+  PriceFilter: [],
+  ItemPerPage: 24,
+  PageNumber: 1,
+  ItemsCount: null,
 };
 
 const CourseFilterSlice = createSlice({
@@ -30,16 +38,40 @@ const CourseFilterSlice = createSlice({
       state.Search = actions.payload;
     },
 
-    SetApiPath: (state, actions) => {
-      state.ApiPath = actions.payload;
+    SetItemPerPage: (state, actions) => {
+      state.ItemPerPage = actions.payload;
     },
 
-    SetFilter: (state, actions) => {
-      state.Filter = actions.payload;
+    SetPageNumber: (state, actions) => {
+      state.PageNumber = actions.payload;
     },
 
     SetCourseLevel: (state, actions) => {
       state.CourseLevel = actions.payload;
+    },
+
+    SetTeacher: (state, actions) => {
+      state.Teacher = actions.payload;
+    },
+
+    SetSorting: (state, actions) => {
+      state.Sorting = actions.payload;
+    },
+
+    SetCategory: (state, actions) => {
+      state.Category = actions.payload;
+    },
+
+    SetType: (state, actions) => {
+      state.Type = actions.payload;
+    },
+
+    SetPriceFilter: (state, actions) => {
+      state.PriceFilter = actions.payload;
+    },
+
+    SetItemsCount: (state, actions) => {
+      state.ItemsCount = actions.payload;
     },
   },
 });
@@ -49,8 +81,14 @@ export const {
   SetShowDeleteAllBut,
   SetCardView,
   SetSearch,
-  SetApiPath,
-  SetFilter,
   SetCourseLevel,
+  SetPriceFilter,
+  SetItemsCount,
+  SetItemPerPage,
+  SetPageNumber,
+  SetTeacher,
+  SetSorting,
+  SetCategory,
+  SetType,
 } = CourseFilterSlice.actions;
 export default CourseFilterSlice.reducer;
