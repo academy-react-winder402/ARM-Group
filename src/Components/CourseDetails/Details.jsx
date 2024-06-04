@@ -3,6 +3,7 @@ import { DetailsSection1 } from "./DetailsSection1";
 import { useParams } from "react-router-dom";
 import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseById";
 import AccordionBorder from "./Accordion";
+import { Comments } from "./Comments";
 import "./Style/style.css";
 
 /* redux */
@@ -142,7 +143,11 @@ const Details = () => {
             </div>
           </div>
           <div className="border border-green-500 w-[20%]">ارسال تسک</div>
-          <div className="border border-green-500 w-[20%]">کامنت ها</div>
+          <div className="w-[20%]">
+            <div className="w-[90%] m-auto">
+              <Comments />
+            </div>
+          </div>
           <div className="border border-green-500 w-[20%]">حسابداری</div>
         </div>
       </div>

@@ -13,3 +13,19 @@
     @apply border-b-[5px] scale-110 text-[#5E5E5E] border-[#91ACCF] pb-2 mb-[2px];
   }
 }
+
+/* Comments */
+@layer components {
+  .comments {
+    @apply text-sm text-textColor flex justify-center items-center gap-2;
+  }
+  .comments input {
+    @apply hidden;
+  }
+  .comments label {
+    @apply cursor-pointer transition-all duration-100;
+  }
+  .comments input:checked + label {
+    @apply border-b-2 border-[#91ACCF] pb-1;
+  }
+}
