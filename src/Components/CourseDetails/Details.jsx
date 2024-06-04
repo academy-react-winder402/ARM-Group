@@ -5,6 +5,7 @@ import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseByI
 import { GetCourseComments } from "../../Core/Services/api/CourseDetail/GetCourseComments";
 import AccordionBorder from "./Accordion";
 import { Comments } from "./Comments";
+import UploadTask from "./UploadTask";
 import "./Style/style.css";
 
 /* redux */
@@ -86,7 +87,7 @@ const Details = () => {
         </div>
       </div>
 
-      <div className="mt-[45px] h-[600px] overflow-x-hidden bg-[#FEFEFE] pt-[30px] rounded-[15px] relative ">
+      <div className="mt-[45px] h-[900px] overflow-x-hidden bg-[#FEFEFE] pt-[30px] rounded-[15px] relative ">
         <div className="SliderRadio w-[95%] h-[63px] pt-[17px] mx-auto flex flex-nowrap justify-between rounded-[8px] px-[35px] bg-[#FFFFFF] drop-shadow-[-5px_5px_10px_rgba(0,0,0,0.11)]">
           <input id="Radio0" type="radio" name="radio" />
           <label
@@ -156,9 +157,12 @@ const Details = () => {
               <AccordionBorder />
             </div>
           </div>
-          <div className="border border-green-500 w-[20%]">ارسال تسک</div>
+          <div className=" w-[20%] flex justify-center">
+            <UploadTask />
+          </div>
           <div className="w-[20%]">
             <div className="w-[90%] m-auto pb-10">
+              {/* {SliderStep == 3 && <Comments CommentObj={CommentObj} />} */}
               <Comments CommentObj={CommentObj} />
             </div>
           </div>
