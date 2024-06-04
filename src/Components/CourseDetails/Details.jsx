@@ -26,6 +26,9 @@ const Details = () => {
   }, [Details]);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
     GetCourseDetail(params.id);
     let firstMenu = document.getElementById("Radio0");
     firstMenu.checked = true;
