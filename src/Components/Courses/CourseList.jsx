@@ -180,8 +180,11 @@ export const CourseList = () => {
               />
             );
           });
+        } else {
+          return courses.map((item, key) => (
+            <SecondCourseList key={key} CourseObj={item} />
+          ));
         }
-        break;
       case "Skeleton":
         if (Status == "Grid") {
           return SkeletonList.map((a, key) => (
@@ -194,8 +197,17 @@ export const CourseList = () => {
               <Skeleton height={"30px"} duration={0.5} />
             </div>
           ));
+        } else {
+          return SkeletonList.map((a, key) => (
+            <div key={key} className={Style.Skeleton_2}>
+              <Skeleton height={"340px"} duration={0.5} />
+              <Skeleton height={"50px"} duration={0.5} />
+              <Skeleton height={"50px"} duration={0.5} />
+              <Skeleton height={"30px"} duration={0.5} />
+              <Skeleton height={"80px"} duration={0.5} />
+            </div>
+          ));
         }
-        break;
       case "NotFound":
         return (
           <h1 className="m-auto mt-[100px] mb-[100px] opacity-60 text-[28px]">
@@ -247,13 +259,8 @@ export const CourseList = () => {
         id="CardViewer"
         className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
       >
-        {/* {CardView == "GridView" ? CourseSkeleton("Grid") : null} */}
-
-        {/* {CardView == "ListView" && <SecondCourseList />} */}
-
-        {courses.map((item, key) => (
-          <SecondCourseList key={key} CourseObj={item} />
-        ))}
+        {CardView == "GridView" && CourseSkeleton("Grid")}
+        {CardView == "ListView" && CourseSkeleton("List")}
       </div>
 
       {ItemsCount ? (
