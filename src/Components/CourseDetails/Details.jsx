@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { DetailsSection1 } from "./DetailsSection1";
 import { useParams } from "react-router-dom";
 import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseById";
+import AccordionBorder from "./Accordion";
 import "./Style/style.css";
 
 /* redux */
@@ -132,7 +133,11 @@ const Details = () => {
           <div className="w-[20%] pt-5 pr-[40px] pl-[40px] text-[#5E5E5E] leading-10 ">
             <p>{Details.describe}</p>
           </div>
-          <div className="border border-green-500 w-[20%]">سرفصل ها</div>
+          <div className="w-[20%]">
+            <div className="px-[40px] ">
+              <AccordionBorder />
+            </div>
+          </div>
           <div className="border border-green-500 w-[20%]">ارسال تسک</div>
           <div className="border border-green-500 w-[20%]">کامنت ها</div>
           <div className="border border-green-500 w-[20%]">حسابداری</div>
