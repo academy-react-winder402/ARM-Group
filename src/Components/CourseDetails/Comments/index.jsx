@@ -1,7 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useEffect } from "react";
 import "../Style/style.css";
 import { CommentDetail } from "./CommentDetail.jsx";
-function Comments() {
+import { useSelector } from "react-redux";
+
+function Comments(props) {
+  const Details = useSelector((state) => state.CourseDetail.CourseObj);
+
   useEffect(() => {
     let DefCheck = document.getElementById("RadioA");
     DefCheck.checked = true;
@@ -21,7 +26,7 @@ function Comments() {
             <label htmlFor="RadioC">جدید ترین</label>
           </div>
           <div className="w-[120px] text-textColor h-7 flex gap-2 items-center">
-            <span className="text-xl">۷۶</span>
+            <span className="text-xl">{props.CommentObj.length}</span>
             <span className="text-sm">نظر ثبت شده</span>
           </div>
         </div>
@@ -32,7 +37,9 @@ function Comments() {
           className="mt-6"
         />
 
-        <CommentDetail />
+        {props.CommentObj.map((item, key) => (
+          <CommentDetail key={key} CommentObj={item} />
+        ))}
       </div>
     </div>
   );

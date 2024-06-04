@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { DetailsSection1 } from "./DetailsSection1";
 import { useParams } from "react-router-dom";
 import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseById";
+import { GetCourseComments } from "../../Core/Services/api/CourseDetail/GetCourseComments";
 import AccordionBorder from "./Accordion";
 import { Comments } from "./Comments";
 import "./Style/style.css";
+
+import DateObject from "react-date-object";
+import persian from "react-date-object/calendars/persian";
 
 /* redux */
 import { useDispatch, useSelector } from "react-redux";
@@ -16,15 +20,22 @@ const Details = () => {
   const params = useParams();
   const Details = useSelector((state) => state.CourseDetail.CourseObj);
   const [SliderStep, setSliderStep] = useState(0);
+  const [CommentObj, setCommentObj] = useState([]);
 
   const GetCourseDetail = async (id) => {
     const Details = await GetCourseById(id);
     dispatch(SetCourseObj(Details));
   };
 
-  useEffect(() => {
+  const GetCourseCommentsAPI = async (id) => {
+    const Details = await GetCourseComments(id);
+    setCommentObj(Details);
     console.log(Details);
-  }, [Details]);
+  };
+
+  useEffect(() => {
+    SliderStep == 3 && GetCourseCommentsAPI(params.id);
+  }, [SliderStep]);
 
   useEffect(() => {
     window.scrollTo({
@@ -33,6 +44,12 @@ const Details = () => {
     GetCourseDetail(params.id);
     let firstMenu = document.getElementById("Radio0");
     firstMenu.checked = true;
+
+    /*  */
+    const Now = new Date();
+    let CurrDay = Now.getMonth();
+
+    console.log(CurrDay);
   }, []);
 
   return (
@@ -144,8 +161,8 @@ const Details = () => {
           </div>
           <div className="border border-green-500 w-[20%]">ارسال تسک</div>
           <div className="w-[20%]">
-            <div className="w-[90%] m-auto">
-              <Comments />
+            <div className="w-[90%] m-auto pb-10">
+              <Comments CommentObj={CommentObj} />
             </div>
           </div>
           <div className="border border-green-500 w-[20%]">حسابداری</div>
