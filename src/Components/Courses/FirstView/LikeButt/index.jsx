@@ -1,9 +1,29 @@
+/* eslint-disable react/prop-types */
+
+import { useEffect } from "react";
 import "./Style.css";
 
-function index() {
+function Index({ userIsLiked, id, SetLike, SetDissLike }) {
+  const LikeHandler = (element) => {
+    const CurrCheck = document.getElementById(id);
+    CurrCheck.checked ? SetLike(element.id) : SetDissLike(element.id);
+  };
+
+  useEffect(() => {
+    if (userIsLiked) {
+      const CurrCheck = document.getElementById(id);
+      CurrCheck.checked = true;
+    }
+  }, []);
+
   return (
     <div className="heart-container" title="Like">
-      <input type="checkbox" className="checkbox" id="Give-It-An-Id" />
+      <input
+        type="checkbox"
+        className="checkbox"
+        id={id ? id : ""}
+        onClick={(e) => LikeHandler(e.target)}
+      />
       <div className="svg-container">
         <svg
           viewBox="0 0 24 24"
@@ -37,4 +57,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

@@ -2,6 +2,10 @@
 
 import { useNavigate } from "react-router-dom";
 import LikeButt from "./LikeButt";
+import { useEffect, useState } from "react";
+import { AddCourseFavorite } from "../../../Core/Services/api/Course/AddCourseFavorite";
+import { DeleteFavoriteCourse } from "../../../Core/Services/api/Course/DeleteFavoriteCourse";
+import toast from "react-hot-toast";
 
 export const CourseListDetail = ({
   courseImg,
@@ -16,7 +20,9 @@ export const CourseListDetail = ({
   price,
   comment,
   like,
+  CourseRate,
   CourseId,
+  userIsLiked,
 
   // FaBeer,
 }) => {
@@ -25,6 +31,45 @@ export const CourseListDetail = ({
   const ClickHandler = () => {
     navigate("/CoursesDetail/" + CourseId);
   };
+
+  const [LikeId, SetLikeId] = useState();
+  const [DissLikeId, SetDissLikeId] = useState();
+  const LikeHandler = async (id) => {
+    try {
+      const LikePost = await AddCourseFavorite({
+        courseId: id,
+      });
+      LikePost.success && toast.success("دوره مورد نظر لایک شد");
+    } catch (error) {
+      return error;
+    }
+  };
+  const DissLikeHandler = async (id) => {
+    try {
+      const LikePost = await DeleteFavoriteCourse(id);
+      LikePost.success &&
+        toast.success("دوره مورد نظر از علاقه مندی ها حذف شد ");
+    } catch (error) {
+      return error;
+    }
+  };
+  /* this state for prevent running search functions for first time: */
+  const [FirstLoading, setFirstLoading] = useState(true);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      LikeHandler(LikeId);
+    }
+  }, [LikeId]);
+  useEffect(() => {
+    if (FirstLoading) {
+      setFirstLoading(false);
+    } else {
+      DissLikeHandler(DissLikeId);
+    }
+  }, [DissLikeId]);
+
   return (
     <div className="w-[250px] p-[5px]  h-[405] flex-none shadow-3xl rounded-[11px] ">
       <div
@@ -135,7 +180,7 @@ export const CourseListDetail = ({
           </div>
 
           <div className="flex gap-2 items-center text-textMidColor">
-            <span>{comment}</span>
+            <span>{CourseRate}</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20.658"
@@ -153,7 +198,12 @@ export const CourseListDetail = ({
 
           <div className="flex gap-2 items-center text-textMidColor">
             <span>{like}</span>
-            <LikeButt />
+            <LikeButt
+              userIsLiked={userIsLiked}
+              id={CourseId}
+              SetLike={SetLikeId}
+              SetDissLike={SetDissLikeId}
+            />
           </div>
         </div>
       </div>

@@ -172,6 +172,8 @@ export const CourseList = () => {
                 price={item.cost}
                 comment={item.commandCount}
                 like={item.likeCount}
+                CourseRate={item.courseRate}
+                userIsLiked={item.userFavorite}
                 levelName={item.levelName}
                 /* Static (Without API): */
                 dateDay={12}
