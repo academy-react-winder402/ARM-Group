@@ -147,7 +147,7 @@ export const CourseList = () => {
     dispatch(SetItemsCount(Courses.courseFilterDtos.length));
   };
 
-  const GridCourseSkeleton = () => {
+  const CourseSkeleton = (Status) => {
     let ShowingStatus;
 
     if (courses.length == 0) ShowingStatus = "Skeleton";
@@ -156,40 +156,46 @@ export const CourseList = () => {
 
     switch (ShowingStatus) {
       case "Products":
-        return courses.map((item) => {
-          return (
-            <CourseListDetail
-              key={item.courseId}
-              CourseId={item.courseId}
-              courseImg={item.tumbImageAddress}
-              title={item.title}
-              desc={item.describe}
-              teacherImg={
-                "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
-              }
-              teacherName={item.teacherName}
-              price={item.cost}
-              comment={item.commandCount}
-              like={item.likeCount}
-              levelName={item.levelName}
-              /* Static (Without API): */
-              dateDay={12}
-              dateMonth={"اردیبهشت"}
-              dateYear={1403}
-            />
-          );
-        });
+        if (Status == "Grid") {
+          return courses.map((item) => {
+            return (
+              <CourseListDetail
+                key={item.courseId}
+                CourseId={item.courseId}
+                courseImg={item.tumbImageAddress}
+                title={item.title}
+                desc={item.describe}
+                teacherImg={
+                  "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
+                }
+                teacherName={item.teacherName}
+                price={item.cost}
+                comment={item.commandCount}
+                like={item.likeCount}
+                levelName={item.levelName}
+                /* Static (Without API): */
+                dateDay={12}
+                dateMonth={"اردیبهشت"}
+                dateYear={1403}
+              />
+            );
+          });
+        }
+        break;
       case "Skeleton":
-        return SkeletonList.map((a, key) => (
-          <div key={key} className={Style.Skeleton}>
-            <Skeleton height={"147px"} duration={0.5} />
-            <Skeleton height={"30px"} duration={0.5} />
-            <Skeleton height={"70px"} duration={0.5} />
-            <Skeleton height={"50px"} duration={0.5} />
-            <Skeleton height={"30px"} duration={0.5} />
-            <Skeleton height={"30px"} duration={0.5} />
-          </div>
-        ));
+        if (Status == "Grid") {
+          return SkeletonList.map((a, key) => (
+            <div key={key} className={Style.Skeleton}>
+              <Skeleton height={"147px"} duration={0.5} />
+              <Skeleton height={"30px"} duration={0.5} />
+              <Skeleton height={"70px"} duration={0.5} />
+              <Skeleton height={"50px"} duration={0.5} />
+              <Skeleton height={"30px"} duration={0.5} />
+              <Skeleton height={"30px"} duration={0.5} />
+            </div>
+          ));
+        }
+        break;
       case "NotFound":
         return (
           <h1 className="m-auto mt-[100px] mb-[100px] opacity-60 text-[28px]">
@@ -241,9 +247,13 @@ export const CourseList = () => {
         id="CardViewer"
         className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
       >
-        {CardView == "GridView" ? GridCourseSkeleton() : null}
+        {/* {CardView == "GridView" ? CourseSkeleton("Grid") : null} */}
 
-        {CardView == "ListView" && <SecondCourseList />}
+        {/* {CardView == "ListView" && <SecondCourseList />} */}
+
+        {courses.map((item, key) => (
+          <SecondCourseList key={key} CourseObj={item} />
+        ))}
       </div>
 
       {ItemsCount ? (
