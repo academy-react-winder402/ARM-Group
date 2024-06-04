@@ -7,9 +7,6 @@ import AccordionBorder from "./Accordion";
 import { Comments } from "./Comments";
 import "./Style/style.css";
 
-import DateObject from "react-date-object";
-import persian from "react-date-object/calendars/persian";
-
 /* redux */
 import { useDispatch, useSelector } from "react-redux";
 import { SetCourseObj } from "../../Redux/Slices/CourseDetail";
@@ -85,7 +82,7 @@ const Details = () => {
           <div>
             <CountUp duration={5} end={Details.commentCount} />
           </div>
-          <div className="text-[18px] font-normal"> تعداد کامنت ها </div>
+          <div className="text-[18px] font-normal">تعداد کامنت ها</div>
         </div>
       </div>
 
