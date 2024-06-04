@@ -27,8 +27,8 @@ const Titles = () => {
           className="w-[70px] h-[70px] rounded-[50%] absolute shadow-3xl"
           src={TeacherDetail.pictureAddress}
         />
-        <h2 className="text-right mt-[45px] mr-[70px] text-[#6E6E6E] text-[17px] whitespace-nowrap font-medium">
-          مدرس دوره: {Details.teacherName}
+        <h2 className="text-right mt-[45px] mr-[90px] text-[#6E6E6E] text-[17px] whitespace-nowrap font-medium">
+          مدرس دوره : {Details.teacherName}
         </h2>
       </div>
     </div>
