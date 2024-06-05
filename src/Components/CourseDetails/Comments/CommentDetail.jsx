@@ -113,7 +113,7 @@ function CommentDetail(props) {
               <span className="pl-3">{props.CommentObj.author}</span>
               <span>|</span>
               <span className="px-3">
-                {InsertDate.day} {MonthGenerator(InsertDate.Month)}{" "}
+                {InsertDate.day} {MonthGenerator(InsertDate.Month)}
                 {InsertDate.Year}
               </span>
               <span>|</span>
@@ -126,6 +126,7 @@ function CommentDetail(props) {
             <LikeDislike
               likeCount={props.CommentObj.likeCount}
               disslikeCount={props.CommentObj.disslikeCount}
+              Id={props.CommentObj.id}
             />
           </div>
           <p className="text-xs text-textColor leading-5">

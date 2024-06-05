@@ -18,6 +18,8 @@
     "@mui/x-date-pickers": "^7.3.1",
     "@nextui-org/react": "^2.3.6",
     "@reduxjs/toolkit": "^2.2.3",
+    "@tabler/icons-preact": "^3.5.0",
+    "@tabler/icons-react": "^3.5.0",
     "aos": "^2.3.4",
     "axios": "^1.6.8",
     "dayjs": "^1.11.11",

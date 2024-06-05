@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .LikeDissLikeButt input {
+    @apply hidden;
+  }
+  .LikeDissLikeButt label {
+    @apply cursor-pointer transition-all duration-100;
+  }
+  .LikeDissLikeButt input:checked + label {
+    @apply border-b-[5px] scale-110 text-[#5E5E5E] border-[#91ACCF] pb-2 mb-[2px];
+  }
+}

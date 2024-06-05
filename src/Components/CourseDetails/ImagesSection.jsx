@@ -20,7 +20,11 @@ const ImagesSection = () => {
     <div className="w-[50%] mb-[1rem]">
       <BigImage />
       <div className="mt-6 flex flex-row-reverse">
-        <LikeDislike likeCount={LikeValue} disslikeCount={DissLikeValue} />
+        <LikeDislike
+          likeCount={LikeValue}
+          disslikeCount={DissLikeValue}
+          Id={Details.CourseId}
+        />
         <div dir="ltr" className="ml-5">
           <Rating
             name="simple-controlled"

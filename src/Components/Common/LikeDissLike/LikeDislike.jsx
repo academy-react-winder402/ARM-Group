@@ -1,23 +1,75 @@
+//import { IconThumbUp } from "@tabler/icons-preact";
+import {
+  IconThumbDown,
+  IconThumbDownFilled,
+  IconThumbUp,
+  IconThumbUpFilled,
+} from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+
 /* eslint-disable react/prop-types */
-function LikeDislike({ likeCount, disslikeCount }) {
+function LikeDislike({ likeCount, disslikeCount, Id }) {
+  const [DissLike, setDissLike] = useState(false);
+  const [Like, setLike] = useState(false);
+
+  useEffect(() => {
+    console.log(DissLike);
+  }, [DissLike]);
+
+  const DissLikeHandler = () => {
+    if (DissLike == false) {
+      setDissLike(true);
+      setLike(false);
+    } else {
+      setDissLike(false);
+    }
+  };
+  const LikeHandler = () => {
+    if (Like == false) {
+      setLike(true);
+      setDissLike(false);
+    } else {
+      setLike(false);
+    }
+  };
+
   return (
-    <div className="flex gap-4 justify-end text-[15px] text-textColor ml-4">
-      <div className="flex gap-2">
-        <span>{likeCount}</span>
-        <img
-          src="../../../../public/Image/ArticleDetail/social-network.png"
-          alt="Yes"
-          className="w-7 h-6"
+    <div className="flex gap-2 justify-end text-[15px] text-textColor">
+      <div className="flex gap-2 pl-[5px]">
+        <span className="mt-1">{likeCount}</span>
+
+        <input
+          type="checkbox"
+          className="hidden"
+          onClick={LikeHandler}
+          id={"like" + Id}
         />
+        <label htmlFor={"like" + Id} className="cursor-pointer">
+          {Like == true ? (
+            <IconThumbUpFilled className="scale-[1.4] " />
+          ) : (
+            <IconThumbUp className=" scale-150" stroke={1} />
+          )}
+        </label>
       </div>
-      <span>|</span>
+
+      <span className="mt-[7px] ">|</span>
       <div className="flex gap-2">
-        <span>{disslikeCount}</span>
-        <img
-          src="../../../../public/Image/ArticleDetail/hand.png"
-          alt="No"
-          className="w-7 h-6"
+        <span className="mt-1">{disslikeCount}</span>
+
+        <input
+          type="checkbox"
+          className="hidden"
+          onClick={DissLikeHandler}
+          id={"Disslike_" + Id}
         />
+        <label htmlFor={"Disslike_" + Id} className="cursor-pointer">
+          {DissLike == true ? (
+            <IconThumbDownFilled className="scale-[1.4] mt-[5px]" />
+          ) : (
+            <IconThumbDown className=" scale-150 mt-[5px]" stroke={1} />
+          )}
+        </label>
       </div>
     </div>
   );
