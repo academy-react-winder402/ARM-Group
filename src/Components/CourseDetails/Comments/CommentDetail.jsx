@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
-import { LikeDislike } from "./LikeDislike.jsx";
+import { LikeDislike } from "../../Common/LikeDissLike/LikeDislike";
 
 /* DateConverter */
 import DateObject from "react-date-object";
@@ -123,7 +123,10 @@ function CommentDetail(props) {
               <span>|</span>
               <span className="pr-3">{InsertDate.HowFar}</span>
             </div>
-            <LikeDislike CommentObj={props.CommentObj} />
+            <LikeDislike
+              likeCount={props.CommentObj.likeCount}
+              disslikeCount={props.CommentObj.disslikeCount}
+            />
           </div>
           <p className="text-xs text-textColor leading-5">
             {props.CommentObj.describe}
@@ -131,14 +134,14 @@ function CommentDetail(props) {
         </div>
       </div>
       <div className="h-fit border-b border-[#C2C2C2] pr-12 flex justify-between items-center pb-2">
-        <div className="w-fit px-5 h-[25px] flex justify-center items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px]">
+        <div className="cursor-pointer hover:bg-[#dadada] w-fit px-5 h-[25px] flex justify-center items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px] ">
           {props.CommentObj.acceptReplysCount > 0 ? (
             <>مشاهده پاسخ ها ({props.CommentObj.acceptReplysCount})</>
           ) : (
             <>بدون پاسخ</>
           )}
         </div>
-        <div className="w-[100px] h-[25px] flex justify-center gap-2 items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px]">
+        <div className="w-[100px] cursor-pointer hover:bg-[#dadada] transition-all h-[25px] flex justify-center gap-2 items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px]">
           <span>پاسخ دادن</span>
           <img
             src="../../../../public/Image/ArticleDetail/redo.png"

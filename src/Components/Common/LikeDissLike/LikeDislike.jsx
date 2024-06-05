@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-function LikeDislike(props) {
+function LikeDislike({ likeCount, disslikeCount }) {
   return (
     <div className="flex gap-4 justify-end text-[15px] text-textColor ml-4">
       <div className="flex gap-2">
-        <span>{props.CommentObj.likeCount}</span>
+        <span>{likeCount}</span>
         <img
           src="../../../../public/Image/ArticleDetail/social-network.png"
           alt="Yes"
@@ -12,7 +12,7 @@ function LikeDislike(props) {
       </div>
       <span>|</span>
       <div className="flex gap-2">
-        <span>{props.CommentObj.disslikeCount}</span>
+        <span>{disslikeCount}</span>
         <img
           src="../../../../public/Image/ArticleDetail/hand.png"
           alt="No"
