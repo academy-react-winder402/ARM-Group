@@ -24,7 +24,7 @@ export const Statistics = () => {
 
   return (
     <div
-      className="mt-[480px] h-[690px] md:w-[87.5%] mx-auto text-center"
+      className="mt-[480px] h-[690px] md:w-[87.5%] mx-auto text-center border"
       style={{ direction: "rtl", fontFamily: "IransnsNumber" }}
       data-aos="fade-down"
     >
