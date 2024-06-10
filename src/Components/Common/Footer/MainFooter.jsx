@@ -10,13 +10,15 @@ const MainFooter = () => {
       <div className="max-[1000px]:hidden">
         <BorderDiv />
       </div>
-      <div className="flex flex-nowrap justify-between gap-[30px] max-[1000px]:flex-wrap max-[1000px]:flex-row-reverse">
+      <div className="flex flex-col md:flex-row justify-between items-center px-6">
         <LeftFooter />
         <RightFooter />
       </div>
       <FooterIcons />
       <BorderDiv />
-      <div className="text-[16px] text-center mt-[5px] dark:text-Dark_TextColor_1">Sepehr Academy</div>
+      <div className="text-[16px] text-center mt-[5px] dark:text-Dark_TextColor_1">
+        Sepehr Academy
+      </div>
     </div>
   );
 };
