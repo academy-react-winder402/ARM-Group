@@ -10,8 +10,8 @@ export const Deatails = () => {
         />
       </div>
 
-      <div className="h-[650px] flex flex-col gap-y-16 items-center xl:grid gap-x-52 grid-cols-2 grid-rows-5 text-3xl text-center">
-        <div className="h-[200px] w-[510px] col-start-1 row-span-2 max-md:mt-16">
+      <div className="flex flex-col gap-y-16 items-center xl:grid gap-x-52 grid-cols-2 grid-rows-5 text-3xl text-center">
+        <div className="w-[510px] col-start-1 row-span-2 max-md:mt-16">
           <div className="flex max-md:flex-col max-md:gap-4">
             <img
               className="h-28"
@@ -27,7 +27,7 @@ export const Deatails = () => {
             چینش مسیری برای شکوفا نمودن ذوق برنامه سازی در دانش پژوهان
           </p>
         </div>
-        <div className="h-[200px] w-[510px] col-start-2 row-start-2 row-span-2 max-md:mt-16">
+        <div className="w-[510px] col-start-2 row-start-2 row-span-2 max-md:mt-16">
           <div className="flex max-md:flex-col max-md:gap-4">
             <img
               className="h-28"
@@ -43,7 +43,7 @@ export const Deatails = () => {
             برای تحریک ذهنیت خلاق در طول فرآیند آموزش
           </p>
         </div>
-        <div className="h-[200px] w-[510px] col-start-1 row-start-3 row-span-2 max-md:mt-16">
+        <div className="w-[510px] col-start-1 row-start-3 row-span-2 max-md:mt-16">
           <div className="flex max-md:flex-col max-md:gap-4">
             <img
               className="h-28"
@@ -60,7 +60,7 @@ export const Deatails = () => {
             عمیق با ابزارهای مدیریت پروژه ، مدیریت سورس تیمی و دورکاری
           </p>
         </div>
-        <div className="h-[200px] w-[510px] col-start-2 row-start-4 row-span-2 max-md:mt-24">
+        <div className="w-[510px] col-start-2 row-start-4 row-span-2 max-md:mt-24">
           <div className="flex max-md:flex-col max-md:gap-4">
             <img
               className="h-28"
