@@ -19,7 +19,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 
 function LandingHandler() {
-  window.addEventListener("scroll", () =>{
+  window.addEventListener("scroll", () => {
     AOS.refresh();
   });
 
@@ -27,7 +27,7 @@ function LandingHandler() {
     AOS.init({
       offset: 200,
       duration: 800,
-      easing: 'ease-in-sine',
+      easing: "ease-in-sine",
       delay: 100,
     });
   }, []);
@@ -60,7 +60,7 @@ function LandingHandler() {
           {ReactComponent}
         </PathMotion>
       </div>
-      <div className="cotainer m-auto mt-[80px]">
+      <div className="cotainer mx-auto mt-[80px]">
         {/* <SvgBackGround /> */}
         <ScrolBtn />
         <HeroSection />
