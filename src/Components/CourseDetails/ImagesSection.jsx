@@ -3,6 +3,8 @@ import { LikeDislike } from "../Common/LikeDissLike/LikeDislike.jsx";
 import { useEffect, useState } from "react";
 import { Rating } from "@mui/material";
 import { useSelector } from "react-redux";
+import { AddCourseLike } from "../../Core/Services/api/CourseDetail/AddCourseLike.js";
+import { DeleteCourseLike } from "../../Core/Services/api/CourseDetail/DeleteCourseLike.js";
 
 const ImagesSection = () => {
   const Details = useSelector((state) => state.CourseDetail.CourseObj);
@@ -23,7 +25,12 @@ const ImagesSection = () => {
         <LikeDislike
           likeCount={LikeValue}
           disslikeCount={DissLikeValue}
+          setLikeFnc={AddCourseLike}
+          setDissLikeFnc={DeleteCourseLike}
           Id={Details.CourseId}
+          LikeId={Details.courseId}
+          LikeStatus={Details.currentUserLike == "1" ? true : false}
+          DissLikeStatus={Details.currentUserDissLike == "1" ? true : false}
         />
         <div dir="ltr" className="ml-5">
           <Rating

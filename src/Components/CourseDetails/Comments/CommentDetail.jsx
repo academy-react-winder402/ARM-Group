@@ -1,10 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { LikeDislike } from "../../Common/LikeDissLike/LikeDislike";
+import { GetReplyComments } from "../../Core/Services/api/Comments/GetReplyComments";
 
 /* DateConverter */
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
+import { Details } from "@mui/icons-material";
 
 function CommentDetail(props) {
   const [InsertDate, setInsertDate] = useState({
@@ -12,6 +14,7 @@ function CommentDetail(props) {
     Month: null,
     day: null,
   });
+  const [Reply, setReply] = useState([]);
 
   const MonthGenerator = (MonthNumber) => {
     switch (MonthNumber) {
@@ -88,6 +91,61 @@ function CommentDetail(props) {
     });
   };
 
+  const GetReply = () => {
+    const Reply = GetReplyComments(
+      props.CommentObj.courseId,
+      props.CommentObj.id
+    );
+    console.log(Reply.response);
+  };
+
+  const ItemsResponse = () => {
+    return (
+      <div className="flex flex-col gap-4 h-fit mt-8">
+        <div className="h-fit flex gap-2">
+          <img
+            src="../../../../public/Image/ArticleDetail/ArticleDetailBg.png"
+            alt="BackGround"
+            className="w-[50px] h-[50px] rounded-[8px]"
+          />
+          <div className="w-full">
+            <div className="flex justify-between mt-1 mb-1">
+              <div
+                className="flex text-textColor text-xs"
+                style={{ fontFamily: "IransnsNumber" }}
+              >
+                <h1 className="font-bold ml-[100px] ">
+                  {props.CommentObj.title}
+                </h1>
+                <span className="pl-3">{props.CommentObj.author}</span>
+                <span>|</span>
+                <span className="px-3">
+                  {InsertDate.day} {MonthGenerator(InsertDate.Month)}
+                  {InsertDate.Year}
+                </span>
+                <span>|</span>
+                <span className="px-3">
+                  ساعت {InsertDate.Minute} : {InsertDate.Hour}
+                </span>
+                <span>|</span>
+                <span className="pr-3">{InsertDate.HowFar}</span>
+              </div>
+              <LikeDislike
+                likeCount={props.CommentObj.likeCount}
+                disslikeCount={props.CommentObj.disslikeCount}
+                Id={props.CommentObj.id}
+              />
+            </div>
+            <p className="text-xs text-textColor leading-5">
+              {props.CommentObj.describe}
+            </p>
+          </div>
+        </div>
+        <div className="h-fit border-b border-[#C2C2C2] pr-12 flex justify-between items-center pb-2"></div>
+      </div>
+    );
+  };
+
   useEffect(() => {
     console.log(props.CommentObj);
     InsertDateGenerator();
@@ -136,7 +194,10 @@ function CommentDetail(props) {
           </div>
         </div>
         <div className="h-fit border-b border-[#C2C2C2] pr-12 flex justify-between items-center pb-2">
-          <div className="cursor-pointer hover:bg-[#dadada] w-fit px-5 h-[25px] flex justify-center items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px] ">
+          <div
+            onClick={GetReply}
+            className="cursor-pointer hover:bg-[#dadada] w-fit px-5 h-[25px] flex justify-center items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px] "
+          >
             {props.CommentObj.acceptReplysCount > 0 ? (
               <>مشاهده پاسخ ها ({props.CommentObj.acceptReplysCount})</>
             ) : (
@@ -153,6 +214,7 @@ function CommentDetail(props) {
           </div>
         </div>
       </div>
+      {}
     </>
   );
 }

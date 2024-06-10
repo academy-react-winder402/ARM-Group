@@ -6,20 +6,34 @@ import {
   IconThumbUpFilled,
 } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 /* eslint-disable react/prop-types */
-function LikeDislike({ likeCount, disslikeCount, Id }) {
-  const [DissLike, setDissLike] = useState(false);
-  const [Like, setLike] = useState(false);
+function LikeDislike({
+  likeCount,
+  disslikeCount,
+  Id,
+  setLikeFnc,
+  setDissLikeFnc,
+  LikeId,
+  LikeStatus,
+  DissLikeStatus,
+}) {
+  const [DissLike, setDissLike] = useState(LikeStatus ? true : false);
+  const [Like, setLike] = useState(DissLikeStatus ? true : false);
 
   useEffect(() => {
     console.log(DissLike);
+    console.log(LikeStatus);
+    console.log(DissLikeStatus);
   }, [DissLike]);
 
   const DissLikeHandler = () => {
     if (DissLike == false) {
       setDissLike(true);
       setLike(false);
+
+      setDissLikeFnc(LikeId);
     } else {
       setDissLike(false);
     }
@@ -28,6 +42,7 @@ function LikeDislike({ likeCount, disslikeCount, Id }) {
     if (Like == false) {
       setLike(true);
       setDissLike(false);
+      setLikeFnc(LikeId);
     } else {
       setLike(false);
     }
