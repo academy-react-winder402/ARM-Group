@@ -167,6 +167,7 @@ export const CourseList = () => {
               <CourseListDetail
                 key={item.courseId}
                 CourseId={item.courseId}
+                deleteId={item.userFavoriteId}
                 courseImg={item.tumbImageAddress}
                 title={item.title}
                 desc={item.describe}

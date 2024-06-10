@@ -3,10 +3,10 @@
 import { useEffect } from "react";
 import "./Style.css";
 
-function Index({ userIsLiked, id, SetLike, SetDissLike }) {
+function Index({ userIsLiked, id, SetLike, SetDissLike, deleteId }) {
   const LikeHandler = (element) => {
     const CurrCheck = document.getElementById(id);
-    CurrCheck.checked ? SetLike(element.id) : SetDissLike(element.id);
+    CurrCheck.checked ? SetLike(element.id) : SetDissLike(deleteId);
   };
 
   useEffect(() => {

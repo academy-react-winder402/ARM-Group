@@ -23,6 +23,7 @@ export const CourseListDetail = ({
   CourseRate,
   CourseId,
   userIsLiked,
+  deleteId,
 
   // FaBeer,
 }) => {
@@ -52,6 +53,7 @@ export const CourseListDetail = ({
     } catch (error) {
       return error;
     }
+    console.log(id);
   };
   /* this state for prevent running search functions for first time: */
   const [FirstLoading, setFirstLoading] = useState(true);
@@ -201,6 +203,7 @@ export const CourseListDetail = ({
             <LikeButt
               userIsLiked={userIsLiked}
               id={CourseId}
+              deleteId={deleteId}
               SetLike={SetLikeId}
               SetDissLike={SetDissLikeId}
             />

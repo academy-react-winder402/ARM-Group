@@ -5,7 +5,9 @@ export const DeleteFavoriteCourse = async (id) => {
     let formData = new FormData();
     formData.append("CourseFavoriteId", id);
 
-    const response = await http.delete("Course/DeleteCourseFavorite", formData);
+    const response = await http.delete("Course/DeleteCourseFavorite", {
+      data: formData,
+    });
 
     return response;
   } catch (error) {
