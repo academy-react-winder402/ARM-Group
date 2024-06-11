@@ -9,6 +9,7 @@ import ArticleDetail from "../../Pages/ArticleDetail/index.jsx";
 import Landing from "../../Pages/Landing/Landing.jsx";
 import Dashbord_Comment from "../../Pages/Dashbord/Comments/index.jsx";
 import Dashbord_Courses from "../../Pages/Dashbord/Courses/index.jsx";
+import Dashbord_User from "../../Pages/Dashbord/User/index.jsx";
 
 /* LayOuts: */
 import Header from "../../App/LayOut/Header.jsx";
@@ -29,6 +30,10 @@ const Public = new createBrowserRouter([
       {
         path: "/Dashbord/Courses",
         element: <Dashbord_Courses />,
+      },
+      {
+        path: "/Dashbord/User",
+        element: <Dashbord_User />,
       },
     ],
   },

@@ -31,7 +31,10 @@ function MenuBar() {
       </div>
 
       <ul className="DashbordMenu w-[200px] h-[220px] m-auto mt-[35px]">
-        <NavLink>
+        <NavLink
+          to={"/Dashbord/User"}
+          className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}
+        >
           <span>داشبورد</span> <DashboardPanelIcon />
         </NavLink>
         <NavLink>
