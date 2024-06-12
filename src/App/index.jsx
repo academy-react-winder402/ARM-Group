@@ -9,9 +9,13 @@ import store from "../Redux/store";
 import { Toaster } from "react-hot-toast";
 
 import { NextUIProvider } from "@nextui-org/react";
+import ReactQueryTest from "../Components/ReactQueryTest";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function App() {
   const [IsLoggedIn] = useState(false);
+
+  //const queryClient = new QueryClient();
 
   return (
     <Provider store={store}>
@@ -32,6 +36,10 @@ function App() {
         <RouterProvider router={IsLoggedIn ? null : Public} />
       </NextUIProvider>
     </Provider>
+
+    // {/* <QueryClientProvider client={queryClient}>
+    //   <ReactQueryTest />
+    // </QueryClientProvider> */}
   );
 }
 

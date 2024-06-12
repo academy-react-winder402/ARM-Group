@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { LikeDislike } from "../../Common/LikeDissLike/LikeDislike";
-import { GetReplyComments } from "../../Core/Services/api/Comments/GetReplyComments";
+//import { GetReplyComments } from "../../Core/Services/api/Comments/GetReplyComments";
 
 /* DateConverter */
 import DateObject from "react-date-object";
