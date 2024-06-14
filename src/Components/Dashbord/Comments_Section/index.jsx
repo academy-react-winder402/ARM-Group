@@ -70,9 +70,9 @@ function Index() {
           </div>
         </div>
 
-        <div className=" w-full h-[65px] flex justify-center items-end">
+        {/* <div className=" w-full h-[65px] flex justify-center items-end">
           <Pagination />
-        </div>
+        </div> */}
       </div>
     </div>
   );

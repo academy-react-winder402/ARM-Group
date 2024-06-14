@@ -1,28 +1,53 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { DetailsSection1 } from "./DetailsSection1";
 import { useParams } from "react-router-dom";
 import { GetCourseById } from "../../Core/Services/api/CourseDetail/GetCourseById";
+import { GetCourseComments } from "../../Core/Services/api/CourseDetail/GetCourseComments";
+import AccordionBorder from "./Accordion";
+import { Comments } from "./Comments";
+import UploadTask from "./UploadTask";
+import "./Style/style.css";
 
 /* redux */
 import { useDispatch, useSelector } from "react-redux";
 import { SetCourseObj } from "../../Redux/Slices/CourseDetail";
+import CountUp from "react-countup";
 
 const Details = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const Details = useSelector((state) => state.CourseDetail.CourseObj);
+  const [SliderStep, setSliderStep] = useState(0);
+  const [CommentObj, setCommentObj] = useState([]);
 
   const GetCourseDetail = async (id) => {
     const Details = await GetCourseById(id);
     dispatch(SetCourseObj(Details));
   };
 
-  useEffect(() => {
+  const GetCourseCommentsAPI = async (id) => {
+    const Details = await GetCourseComments(id);
+    setCommentObj(Details);
     console.log(Details);
-  }, [Details]);
+  };
 
   useEffect(() => {
+    SliderStep == 3 && GetCourseCommentsAPI(params.id);
+  }, [SliderStep]);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
     GetCourseDetail(params.id);
+    let firstMenu = document.getElementById("Radio0");
+    firstMenu.checked = true;
+
+    /*  */
+    const Now = new Date();
+    let CurrDay = Now.getMonth();
+
+    console.log(CurrDay);
   }, []);
 
   return (
@@ -31,79 +56,117 @@ const Details = () => {
       style={{ direction: "rtl" }}
     >
       <DetailsSection1 />
-      <div className="h-[95px] pt-[10px] mt-[115px]">
-        <div className="w-[44%] h-[100%] float-right">
-          <h1 className="mt-[-10px] text-[24px] text-[#5E5E5E] font-bold">
-            خلاصه وضعیت دوره
-          </h1>
-          <div className="mt-[10px]">
-            <p className="float-right text-[#7E7E7E] font-medium xxx">
-              درصد انجام تمارین: ۷۸٪{" "}
-            </p>
-            <span className="w-[81px] h-[30px] text-center inline float-right mr-[1rem] rounded-[15px] border-[3px] border-[#DF9CD2] text-[#808080] text-[15px]">
-              متوسط
-            </span>
-          </div>
-        </div>
-        <div className="w-[56%] h-[100%] float-right text-[14px] text-[#6E6E6E]">
-          <div className="flex flex-row flex-nowrap mr-[100px]">
-            <div className="flex flex-row flex-nowrap">
-              <span className="">تعداد روز های دوره</span>
-              <span>۲۳۰</span>
-              <span>روز</span>
-            </div>
-            <div className="w-[231.5px] h-[4px] mt-[8px] mr-[3px] rounded-[1rem] bg-[#DBDBDB] overflow-hidden">
-              <div className="bg-[#69EECE] w-[50%] h-[100%] float-left"></div>
-            </div>
-            <div className="flex flex-row flex-nowrap gap-[5px]">
-              <span>روز‌های باقی مانده</span>
-              <span>۸۰</span>
-              <span>روز</span>
-            </div>
-          </div>
-          <div className="flex flex-row flex-nowrap mt-[15px] mr-[100px]">
-            <div className="flex flex-row flex-nowrap">
-              <span>شهریه دوره</span>
-              <span>۴.۲۰۰.۰۰۰</span>
-              <span>تومان</span>
-            </div>
-            <div className="w-[231.5px] h-[4px] mt-[12px] mr-[3px] rounded-[1rem] bg-[#DBDBDB] overflow-hidden">
-              <div className="bg-[#F3DD6D] w-[50%] h-[100%] float-left"></div>
-            </div>
-            <div className="flex flex-row flex-nowrap">
-              <span>باقی‌مانده شهریه</span>
-              <span>۲.۱۰۰.۰۰۰</span>تومان<span></span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div className="flex flex-nowrap justify-between text-center pt-[35px] px-[65px]">
+      <div
+        className="flex flex-nowrap justify-between text-center pt-[35px] px-[65px]"
+        style={{ fontFamily: "IransnsNumber" }}
+      >
         <div className="CourseDetailstexts">
-          <div>۳۴۰</div>
+          <div>
+            <CountUp duration={5} end={Details.currentRegistrants} />
+          </div>
           <div className="text-[18px] font-normal">تعداد دانشجو</div>
         </div>
         <div className="CourseDetailstexts">
-          <div>۱۴</div>
+          <div>
+            <CountUp duration={5} end={4} />
+          </div>
           <div className="text-[18px] font-normal">سرفصل آموزشی</div>
         </div>
         <div className="CourseDetailstexts">
-          <div>۱۲</div>
-          <div className="text-[18px] font-normal">جلسه فعلی</div>
+          <div>
+            <CountUp duration={5} end={Details.capacity} />
+          </div>
+          <div className="text-[18px] font-normal"> تعداد دانشجو مانده </div>
         </div>
         <div className="CourseDetailstexts">
-          <div>۱۲</div>
-          <div className="text-[18px] font-normal">جلسات باقی مانده</div>
+          <div>
+            <CountUp duration={5} end={Details.commentCount} />
+          </div>
+          <div className="text-[18px] font-normal">تعداد کامنت ها</div>
         </div>
       </div>
 
-      <div className="mt-[45px] h-[500px] bg-[#FEFEFE] pt-[30px] rounded-[15px] ">
-        <div className="w-[95%] h-[63px] pt-[17px] mx-auto flex flex-nowrap justify-between rounded-[8px] px-[35px] bg-[#FFFFFF] drop-shadow-[-5px_5px_10px_rgba(0,0,0,0.11)]">
-          <div className="CourseDetailstexts2">توضیحات</div>
-          <div className="CourseDetailstexts2">سرفصل ها</div>
-          <div className="CourseDetailstexts2">ارسال تسک</div>
-          <div className="CourseDetailstexts2">نمرات من</div>
-          <div className="CourseDetailstexts2">حسابداری</div>
+      <div className="mt-[45px] h-[900px] overflow-x-hidden bg-[#FEFEFE] pt-[30px] rounded-[15px] relative ">
+        <div className="SliderRadio w-[95%] h-[63px] pt-[17px] mx-auto flex flex-nowrap justify-between rounded-[8px] px-[35px] bg-[#FFFFFF] drop-shadow-[-5px_5px_10px_rgba(0,0,0,0.11)]">
+          <input id="Radio0" type="radio" name="radio" />
+          <label
+            className="CourseDetailstexts2"
+            onClick={() => {
+              setSliderStep(0);
+            }}
+            htmlFor="Radio0"
+          >
+            توضیحات
+          </label>
+
+          <input id="Radio1" type="radio" name="radio" />
+          <label
+            onClick={() => {
+              setSliderStep(1);
+            }}
+            htmlFor="Radio1"
+            className="CourseDetailstexts2"
+          >
+            سرفصل ها
+          </label>
+
+          <input id="Radio2" type="radio" name="radio" />
+          <label
+            onClick={() => {
+              setSliderStep(2);
+            }}
+            htmlFor="Radio2"
+            className="CourseDetailstexts2"
+          >
+            ارسال تسک
+          </label>
+
+          <input id="Radio3" type="radio" name="radio" />
+          <label
+            onClick={() => {
+              setSliderStep(3);
+            }}
+            htmlFor="Radio3"
+            className="CourseDetailstexts2"
+          >
+            کامنت ها
+          </label>
+
+          <input id="Radio4" type="radio" name="radio" />
+          <label
+            onClick={() => {
+              setSliderStep(4);
+            }}
+            htmlFor="Radio4"
+            className="CourseDetailstexts2"
+          >
+            حسابداری
+          </label>
+        </div>
+
+        <div
+          className="h-fit top-[20%] w-[500%] flex absolute transition-all duration-[1s]"
+          style={{ right: SliderStep * -100 + "%" }}
+        >
+          <div className="w-[20%] pt-5 pr-[40px] pl-[40px] text-[#5E5E5E] leading-10 ">
+            <p>{Details.describe}</p>
+          </div>
+          <div className="w-[20%]">
+            <div className="px-[40px] ">
+              <AccordionBorder />
+            </div>
+          </div>
+          <div className=" w-[20%] flex justify-center">
+            <UploadTask />
+          </div>
+          <div className="w-[20%]">
+            <div className="w-[90%] m-auto pb-10">
+              {/* {SliderStep == 3 && <Comments CommentObj={CommentObj} />} */}
+              <Comments CommentObj={CommentObj} />
+            </div>
+          </div>
+          <div className="border border-green-500 w-[20%]">حسابداری</div>
         </div>
       </div>
     </div>

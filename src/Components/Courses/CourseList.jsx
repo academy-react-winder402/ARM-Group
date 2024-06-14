@@ -139,6 +139,11 @@ export const CourseList = () => {
         setNothingFound(true);
       } else setNothingFound(false);
     }, 500);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const GetCourseForPagination = async (path) => {
@@ -162,6 +167,7 @@ export const CourseList = () => {
               <CourseListDetail
                 key={item.courseId}
                 CourseId={item.courseId}
+                deleteId={item.userFavoriteId}
                 courseImg={item.tumbImageAddress}
                 title={item.title}
                 desc={item.describe}
@@ -172,6 +178,8 @@ export const CourseList = () => {
                 price={item.cost}
                 comment={item.commandCount}
                 like={item.likeCount}
+                CourseRate={item.courseRate}
+                userIsLiked={item.userFavorite}
                 levelName={item.levelName}
                 /* Static (Without API): */
                 dateDay={12}
@@ -220,7 +228,6 @@ export const CourseList = () => {
   useEffect(() => {
     /* Getting All Items for Pagination */
     GetCourseForPagination("/Home/GetCoursesWithPagination");
-
     GetCourses("/Home/GetCoursesWithPagination?PageNumber=1&RowsOfPage=24");
   }, []);
   /* this state for prevent running search functions for first time: */
@@ -245,11 +252,6 @@ export const CourseList = () => {
     } else {
       /* this filter with pagination */
       GetCourses(PathGenerator());
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
     }
   }, [PageNumber, PerPageCount]);
 
