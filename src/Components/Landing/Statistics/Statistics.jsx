@@ -24,7 +24,7 @@ export const Statistics = () => {
 
   return (
     <div
-      className="mt-[480px] h-[690px] md:w-[87.5%] mx-auto text-center"
+      className="xl:mt-[520px] mt-[300px] md:w-[87.5%] mx-auto text-center"
       style={{ direction: "rtl", fontFamily: "IransnsNumber" }}
       data-aos="fade-down"
     >
@@ -34,7 +34,7 @@ export const Statistics = () => {
       <div className="mt-[20px] text-[16px] text-[#7E7E7E] dark:text-Dark_TextColor_2">
         متن مرتبط
       </div>
-      <div className="mt-[140px] flex flex-nowrap justify-center gap-[100px]">
+      <div className="mt-[100px] sm:mt-[140px] flex max-sm:flex-col gap-10 sm:gap-24 flex-nowrap justify-center">
         <div>
           <span className="StNumbers dark:text-Dark_TextColor_1">
             <CountUp duration={5} end={studentCount} />

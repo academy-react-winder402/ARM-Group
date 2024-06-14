@@ -8,13 +8,15 @@ import { Subject } from "../../Common/Landing/Subject";
 export const MainNews = () => {
   return (
     <div
-      className="mt-[200px] w-[87.5%] h-[920px] mx-auto text-center mb-[115px]"
+      className="mt-[150px] w-[87.5%] mx-auto text-center mb-[115px]"
       style={{ direction: "rtl" }}
       data-aos="fade-down"
     >
-      <Subject title="اخبار و مقالات" description="مطالب روز حوزه تکنولوژی" />
+      <div>
+        <Subject title="اخبار و مقالات" description="مطالب روز حوزه تکنولوژی" />
+      </div>
 
-      <div className="mt-[70px] flex flex-nowrap justify-center gap-[30px] pt-[10px] px-[5%] max-[800px]:px-[0px] overflow-visible">
+      <div className="mt-[150px] flex flex-col max-lg:items-center lg:flex-row flex-nowrap justify-center gap-[30px] pt-[10px] px-[5%] max-[800px]:px-[0px] overflow-visible">
         <RightNews />
         <LeftNews />
       </div>
@@ -28,7 +30,7 @@ export const MainNews = () => {
 
       <NavLink
         to={"/Article"}
-        className="block w-[180px] relative flex items-center justify-center cursor-pointer h-[40px] text-[#fff] bg-[#E1C564] rounded-[10px] mx-auto"
+        className="w-[180px] relative flex items-center justify-center cursor-pointer h-[40px] text-[#fff] bg-[#E1C564] rounded-[10px] mx-auto"
       >
         مشاهده مقالات
       </NavLink>
