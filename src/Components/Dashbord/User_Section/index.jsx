@@ -1,6 +1,4 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// import { PieChart } from "react-minimal-pie-chart";
-// import type { PieChartProps } from 'react-minimal-pie-chart';
 
 import { useState } from "react";
 import PieChartWithCenterLabel from "./PieChartWithCenterLabel.jsx";
@@ -14,7 +12,7 @@ function index() {
     { id: 5, numbers: "۷" },
   ]);
   const [data] = useState([
-    { id: 1, title: "عنوان", number: "۴۳۰" },
+    { id: 1, title: "عنوان دیتا", number: "۴۳۰" },
     { id: 2, title: "", number: "" },
     { id: 3, title: "", number: "" },
     { id: 4, title: "", number: "" },
@@ -45,14 +43,20 @@ function index() {
             <div className="flex gap-2">
               <div className="w-[200px] flex flex-col gap-2">
                 <div className="h-[100px]">
-                  <div className="border h-1/2">
+                  <div className="h-1/2">
                     <div className="flex justify-between text-sm">
                       <span>هفته</span>
                       <span>چهارشنبه</span>
                     </div>
+                    <div className="h-2 w-ful bg-[#E1E1E1] rounded-[5px] mt-1">
+                      <div className="w-2/3 h-full bg-[#57C56D] rounded-[5px]"></div>
+                    </div>
                   </div>
-                  <div className="border h-1/2">
+                  <div className="h-1/2">
                     <p>ماه</p>
+                    <div className="h-2 w-ful bg-[#E1E1E1] rounded-[5px] mt-1">
+                      <div className="w-1/3 h-full bg-[#57C56D] rounded-[5px]"></div>
+                    </div>
                   </div>
                 </div>
                 <span className="text-sm">مناسبت روز</span>
@@ -97,16 +101,26 @@ function index() {
           {data.map((item) => {
             return (
               <div
-                className="w-[192px] h-[120px] rounded-[10px] bg-[#F5F5F4]"
+                className="w-[192px] h-[120px] rounded-[10px] bg-[#F5F5F4] relative"
                 key={item.id}
               >
-                {item.number}
+                <div className="flex justify-between p-3 h-10">
+                  <span className="text-sm">{item.title}</span>
+                  <img
+                    src="../../../../public/Image/Dashbord/User/newspaper.png"
+                    alt="newspaper"
+                  />
+                </div>
+                <span className="absolute right-1/2 translate-x-1/2 translate-y-3 text-4xl">
+                  {item.number}
+                </span>
+                {/* {item.number} */}
               </div>
             );
           })}
         </div>
         <h2 className="text-[20px]  font-semibold mt-[130px]">
-          دوره های آموزسی بر اساس سلیقه شما
+          دوره های آموزشی بر اساس سلیقه شما
         </h2>
         <div className="h-[470px] mt-[30px] border-2 border-[#C4CDD5] rounded-[15px]"></div>
         <h2 className="text-[20px]  font-semibold mt-[50px]">حسابداری</h2>
@@ -129,7 +143,9 @@ function index() {
             <div className="w-[148px] h-[93px] bg-[#F5F5F4] rounded-[10px]"></div>
             <div className="w-[148px] h-[93px] bg-[#F5F5F4] rounded-[10px]"></div>
           </div>
-          <div className="w-[250px] ml-8 border"></div>
+          <div className="w-[250px] ml-8">
+            <img src="../Image/Dashbord/User/Group149.png" alt="rang" />
+          </div>
         </div>
       </div>
     </div>
