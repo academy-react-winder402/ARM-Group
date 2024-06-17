@@ -205,7 +205,7 @@ body {
   .view1 > div > h2,
   .view2 > div > h2,
   .view3 > div > h2 {
-    @apply text-textColor px-2 text-base my-2;
+    @apply text-textColor px-2 text-sm my-2 h-[22px] overflow-hidden;
   }
 
   .view1 > div > p,
@@ -295,10 +295,10 @@ body {
   /* Diffrent View */
 
   .view1 .grouping {
-    @apply absolute top-16 left-4 dark:bg-[#212529];
+    @apply absolute top-[50px] left-2 dark:bg-[#212529];
   }
   .view2 .grouping {
-    @apply absolute top-12 left-4 dark:bg-[#212529];
+    @apply absolute top-[34px] left-2 dark:bg-[#212529];
   }
   .view3 .grouping {
     @apply absolute top-4 right-0 dark:bg-[#212529];

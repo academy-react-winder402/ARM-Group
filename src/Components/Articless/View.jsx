@@ -1,7 +1,120 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+// import axios from "axios";
+import { useEffect, useState } from "react";
+import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
+
 function View() {
+  const [articles, setArticles] = useState([]);
+
+  const getCard = async () => {
+    const articleApi = await getArticle();
+    setArticles(articleApi);
+    console.log(articleApi);
+    // console.log(articles);
+  };
+
+  useEffect(() => {
+    getCard();
+  }, []);
   return (
     <>
-      <div className="view1">
+      {articles.map((item, key) => {
+        return (
+          <div className="view1" key={key}>
+            <div>
+              <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
+              <div className="grouping">دسته بندی</div>
+            </div>
+            <div>
+              <h2>{item.title}</h2>
+              <p>
+                متن مرتبط با توضیحات دوره لورم ایپسوم متن ساختگی با تولید سادگی
+                نامفهوم از صنعت چاپ، متن مرتبط با توضیحات دوره لورم ایپسوم متن
+                ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
+              </p>
+              <div>
+                <div className="author">
+                  <img
+                    src="../../../public/Image/Article/backGround.png"
+                    alt="bg"
+                  />
+                  <span>عنوان خبر</span>
+                </div>
+                <div className="score">
+                  <div className="comment">
+                    <span>۷۶</span>
+                    <img
+                      src="../../../public/Image/Course/comment.png"
+                      alt="comment"
+                    />
+                  </div>
+                  <div className="like">
+                    <span>۱۳۰</span>
+                    <img
+                      src="../../../public/Image/Course/heart.png"
+                      alt="like"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="lastComment">
+                <p>آخرین نظرات</p>
+                <div className="child">
+                  <div>
+                    <div dir="ltr">
+                      <img
+                        src="../../../public/Image/Article/backGround.png"
+                        alt="Comment"
+                      />
+                      <span>نام نویسنده نظر</span>
+                    </div>
+                    <span>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                    </span>
+                  </div>
+                  <div>
+                    <div dir="ltr">
+                      <img
+                        src="../../../public/Image/Article/backGround.png"
+                        alt="Comment"
+                      />
+                      <span>نام نویسنده نظر</span>
+                    </div>
+                    <span>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="lastCommentView3">
+                <span>آخرین نظرات</span>
+                <div>
+                  <img
+                    src="../../../public/Image/Article/bgArticle.png"
+                    alt=""
+                  />
+                  <div>
+                    <span>نام نویسنده نظر</span>
+                    <span>
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div className="date">
+                <img src="../../../public/Image/Course/date.png" alt="" />
+                <span>۲۵ اردیبهشت ۱۴۰۳ </span>
+                <div></div>
+                <span>۳ روز پیش</span>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+
+      {/* <div className="view1">
         <div>
           <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
           <div className="grouping">دسته بندی</div>
@@ -19,7 +132,7 @@ function View() {
                 src="../../../public/Image/Article/backGround.png"
                 alt="bg"
               />
-              <span>نویسنده خبر</span>
+              <span>عنوان خبر</span>
             </div>
             <div className="score">
               <div className="comment">
@@ -850,7 +963,7 @@ function View() {
             <span>۳ روز پیش</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
