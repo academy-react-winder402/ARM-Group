@@ -4,7 +4,7 @@ function Header({ title, textSize }) {
     <>
       <h2
         className={
-          "text-2xl text-[#434343] font-semibold px-[12px] py-[10px] " +
+          "text-2xl text-[#434343] font-semibold px-[12px] py-[10px] dark:text-[#adb5bd]" +
           (textSize ? textSize : "")
         }
       >

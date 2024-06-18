@@ -205,7 +205,7 @@ body {
   .view1 > div > h2,
   .view2 > div > h2,
   .view3 > div > h2 {
-    @apply text-textColor px-2 text-sm my-2 h-[22px] overflow-hidden;
+    @apply text-textColor px-2 text-sm my-2 h-[22px] overflow-hidden dark:text-[#adb5bd];
   }
 
   .view1 > div > p,
