@@ -45,16 +45,16 @@ function Index() {
           <Badge
             onClick={DeletAllHandler}
             innerHTML="حذف تمامی فیلتر‌ها"
-            className="scale-down-center min-w-[110px] max-w-[140px]"
+            className="scale-down-center min-w-[110px] max-w-[140px] border"
           />
         ) : null}
       </div>
 
-      <div className="flex-grow-[1] overflow-hidden CostumButtFilter">
+      <div className="flex-grow-[1] max-sm:hidden overflow-hidden CostumButtFilter">
         <VaziatButt />
       </div>
 
-      <div className="flex-grow-[1] CostumButtFilter min-w-[85px] max-w-[85px]">
+      <div className="flex-grow-[1] max-sm:hidden CostumButtFilter min-w-[85px] max-w-[85px]">
         <CustomSelect
           Options={Options_Page}
           type="SimpleSelect"

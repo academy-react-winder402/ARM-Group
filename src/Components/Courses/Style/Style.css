@@ -62,7 +62,7 @@
 @layer components {
   .FilterSection_2 {
     @apply mt-[15px]  
-        h-[50px] flex text-[#808080] /* border border-black */;
+        h-[50px] flex flex-wrap text-[#808080] /* border border-black */;
   }
 
   .FilterSecton_2 > div {

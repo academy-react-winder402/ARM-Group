@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function FirstDescription({ numberCourse, activeCourse }) {
+function FirstDescription() {
   return (
     <div className="flex items-center">
       <div className="flex gap-2  w-2/3">
@@ -11,8 +11,7 @@ function FirstDescription({ numberCourse, activeCourse }) {
         <div className="flex flex-col justify-between">
           <span className="text-textMidColor text-xs">مدرس دوره</span>
           <div className="text-textPaleColor text-xs">
-            تعداد <span>{numberCourse}</span> دوره تا کنون و{" "}
-            <span>{activeCourse}</span> دوره فعال
+            تعداد <span>۲۵ </span> دوره تا کنون و<span>۳ </span> دوره فعال
           </div>
         </div>
       </div>

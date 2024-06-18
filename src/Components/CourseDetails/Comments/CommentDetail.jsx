@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { LikeDislike } from "../../Common/LikeDissLike/LikeDislike";
@@ -6,7 +8,7 @@ import { LikeDislike } from "../../Common/LikeDissLike/LikeDislike";
 /* DateConverter */
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
-import { Details } from "@mui/icons-material";
+// import { Details } from "@mui/icons-material";
 
 function CommentDetail(props) {
   const [InsertDate, setInsertDate] = useState({
@@ -14,7 +16,7 @@ function CommentDetail(props) {
     Month: null,
     day: null,
   });
-  const [Reply, setReply] = useState([]);
+  // const [Reply, setReply] = useState([]);
 
   const MonthGenerator = (MonthNumber) => {
     switch (MonthNumber) {

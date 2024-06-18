@@ -105,16 +105,16 @@ function Index() {
 
   return (
     <>
-      <div className=" FilterSecton_1 ">
+      <div className=" FilterSecton_1 xl:w-[1200px]">
         {/* Search */}
         <input id="F/[1]" name="RadioInputs" type="radio" />
-        <label className="max-w-[500px] min-w-[400px]" htmlFor="F/[1]">
+        <label className="max-w-[500px] md:min-w-[400px]" htmlFor="F/[1]">
           <Search DeleteStatus={DeleteStatus} SetSearchState={SetSearch} />
         </label>
 
         {/* Select Ostad */}
         <input id="F/[3]" name="RadioInputs" type="radio" />
-        <label className="max-w-[220px] min-w-[50px]" htmlFor="F/[3]">
+        <label className="max-w-[220px] min-w-[80px]" htmlFor="F/[3]">
           <CustomSelect
             DeleteStatus={DeleteStatus}
             Options={Options_Ostad}
@@ -155,7 +155,7 @@ function Index() {
           <Modal />
         </label>
       </div>
-      <div className=" FilterSecton_1 mt-2 w-[800px] m-auto">
+      <div className="FilterSecton_1 mt-2 max-sm:mt-6 max-w-[800px]">
         {/* Select Level */}
         <input id="F/[11]" name="RadioInputs" type="radio" />
         <label className="max-w-[160px] min-w-[100px]" htmlFor="F/[11]">

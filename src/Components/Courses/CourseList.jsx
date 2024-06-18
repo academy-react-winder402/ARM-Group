@@ -164,28 +164,29 @@ export const CourseList = () => {
         if (Status == "Grid") {
           return courses.map((item) => {
             return (
-              <CourseListDetail
-                key={item.courseId}
-                CourseId={item.courseId}
-                deleteId={item.userFavoriteId}
-                courseImg={item.tumbImageAddress}
-                title={item.title}
-                desc={item.describe}
-                teacherImg={
-                  "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
-                }
-                teacherName={item.teacherName}
-                price={item.cost}
-                comment={item.commandCount}
-                like={item.likeCount}
-                CourseRate={item.courseRate}
-                userIsLiked={item.userFavorite}
-                levelName={item.levelName}
-                /* Static (Without API): */
-                dateDay={12}
-                dateMonth={"اردیبهشت"}
-                dateYear={1403}
-              />
+              <div key={item.courseId}>
+                <CourseListDetail
+                  CourseId={item.courseId}
+                  deleteId={item.userFavoriteId}
+                  courseImg={item.tumbImageAddress}
+                  title={item.title}
+                  desc={item.describe}
+                  teacherImg={
+                    "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
+                  }
+                  teacherName={item.teacherName}
+                  price={item.cost}
+                  comment={item.commandCount}
+                  like={item.likeCount}
+                  CourseRate={item.courseRate}
+                  userIsLiked={item.userFavorite}
+                  levelName={item.levelName}
+                  /* Static (Without API): */
+                  dateDay={12}
+                  dateMonth={"اردیبهشت"}
+                  dateYear={1403}
+                />
+              </div>
             );
           });
         } else {
@@ -259,7 +260,7 @@ export const CourseList = () => {
     <>
       <div
         id="CardViewer"
-        className=" mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-start gap-[62px] h-auto"
+        className="mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-center md:justify-evenly lg:justify-center gap-[62px] h-auto border"
       >
         {CardView == "GridView" && CourseSkeleton("Grid")}
         {CardView == "ListView" && CourseSkeleton("List")}
