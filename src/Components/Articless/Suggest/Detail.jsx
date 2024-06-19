@@ -14,7 +14,9 @@ function Detail() {
               className="w-[70px] h-[70px] rounded-[8px]"
             />
             <div className="flex flex-col pr-3 gap-3">
-              <h3 className="text-base text-[#434343]">عنوان خبر</h3>
+              <h3 className="text-base text-[#434343] dark:text-[#adb5bd]">
+                عنوان خبر
+              </h3>
               <div className="w-[230px] flex gap-4 justify-between">
                 <span className="text-[#8A8A8A] text-[10px]">
                   ۲۵ اردیبهشت ۱۴۰۳

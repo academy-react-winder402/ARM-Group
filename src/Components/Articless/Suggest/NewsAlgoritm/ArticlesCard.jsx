@@ -12,7 +12,7 @@ function ArticlesCard({ className, data }) {
         <div>
           <div className="author">
             <img src="../../../public/Image/Article/backGround.png" alt="bg" />
-            <span>نویسنده خبر</span>
+            <span>{data.addUserFullName}</span>
           </div>
           <div className="score">
             <div className="comment">
@@ -39,10 +39,7 @@ function ArticlesCard({ className, data }) {
                 />
                 <span>{data.addUserFullName}</span>
               </div>
-              <span>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم
-                ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-              </span>
+              <span>{data.miniDescribe}</span>
             </div>
           </div>
         </div>
@@ -51,7 +48,7 @@ function ArticlesCard({ className, data }) {
           <div>
             <img src="../../../public/Image/Article/bgArticle.png" alt="" />
             <div>
-              <span>نام نویسنده نظر</span>
+              <span>{data.addUserFullName}</span>
               <span>
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
               </span>

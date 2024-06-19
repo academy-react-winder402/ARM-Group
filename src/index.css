@@ -181,7 +181,7 @@ body {
   .view1,
   .view2,
   .view3 {
-    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#212529];
+    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#343a40];
   }
 
   .view1 > div > img,
@@ -357,7 +357,7 @@ body {
     @apply relative h-[120px];
   }
   .view2 .lastComment > .child > div {
-    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1;
+    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1 w-full;
   }
   .view2 .lastComment > .child > div > div {
     @apply flex items-center gap-1;
