@@ -1,24 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 // import axios from "axios";
-import { useEffect, useState } from "react";
-import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
+// import { useEffect, useState } from "react";
+// import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
 
 function View() {
-  const [articles, setArticles] = useState([]);
+  // const [articles, setArticles] = useState([]);
 
-  const getCard = async () => {
-    const articleApi = await getArticle();
-    setArticles(articleApi);
-    console.log(articleApi);
-    // console.log(articles);
-  };
+  // const getCard = async () => {
+  //   const articleApi = await getArticle();
+  //   setArticles(articleApi);
+  //   console.log(articleApi);
+  //   // console.log(articles);
+  // };
 
-  useEffect(() => {
-    getCard();
-  }, []);
+  // useEffect(() => {
+  //   getCard();
+  // }, []);
   return (
     <>
-      {articles.map((item, key) => {
+      {/* {articles.map((item, key) => {
         return (
           <div className="view1" key={key}>
             <div>
@@ -112,9 +112,9 @@ function View() {
             </div>
           </div>
         );
-      })}
+      })} */}
 
-      {/* <div className="view1">
+      <div className="view1">
         <div>
           <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
           <div className="grouping">دسته بندی</div>
@@ -963,7 +963,7 @@ function View() {
             <span>۳ روز پیش</span>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
