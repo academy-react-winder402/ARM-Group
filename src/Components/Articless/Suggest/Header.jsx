@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-function Header({ title, textSize }) {
+function Header({ title, textSize, data }) {
   return (
     <>
       <h2
         className={
-          "text-2xl text-[#434343] font-semibold px-[12px] py-[10px] " +
+          "text-2xl text-[#434343] font-semibold px-[12px] py-[10px] dark:text-[#adb5bd]" +
           (textSize ? textSize : "")
         }
       >

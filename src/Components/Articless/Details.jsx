@@ -1,8 +1,9 @@
-import { View } from "./View.jsx";
-function Details() {
+import { NewsAlgoritm } from "./NewsAlgoritm/NewsAlgoritm.jsx";
+
+function Details({ data }) {
   return (
-    <div className="grid grid-cols-5 grid-rows-3 gap-4 h-[850px] mt-8">
-      <View />
+    <div className="max-w-7xl mx-auto mt-4">
+      <NewsAlgoritm data={data} />
     </div>
   );
 }

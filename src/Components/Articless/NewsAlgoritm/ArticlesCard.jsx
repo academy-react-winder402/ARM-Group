@@ -1,21 +1,18 @@
-function View1() {
+/* eslint-disable react/prop-types */
+function ArticlesCard({ className, data }) {
   return (
-    <div className="view1">
+    <div className={className}>
       <div>
         <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
-        <div className="grouping">دسته بندی</div>
+        <div className="grouping">{data.newsCatregoryName}</div>
       </div>
       <div>
-        <h2>عنوان خبر</h2>
-        <p>
-          متن مرتبط با توضیحات دوره لورم ایپسوم متن ساختگی با تولید سادگی
-          نامفهوم از صنعت چاپ، متن مرتبط با توضیحات دوره لورم ایپسوم متن ساختگی
-          با تولید سادگی نامفهوم از صنعت چاپ،
-        </p>
+        <h2>{data.title}</h2>
+        <p>{data.miniDescribe}</p>
         <div>
           <div className="author">
             <img src="../../../public/Image/Article/backGround.png" alt="bg" />
-            <span>نویسنده خبر</span>
+            <span>{data.addUserFullName}</span>
           </div>
           <div className="score">
             <div className="comment">
@@ -26,7 +23,7 @@ function View1() {
               />
             </div>
             <div className="like">
-              <span>۱۳۰</span>
+              <span>{data.currentLikeCount}</span>
               <img src="../../../public/Image/Course/heart.png" alt="like" />
             </div>
           </div>
@@ -40,25 +37,9 @@ function View1() {
                   src="../../../public/Image/Article/backGround.png"
                   alt="Comment"
                 />
-                <span>نام نویسنده نظر</span>
+                <span>{data.addUserFullName}</span>
               </div>
-              <span>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم
-                ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-              </span>
-            </div>
-            <div>
-              <div dir="ltr">
-                <img
-                  src="../../../public/Image/Article/backGround.png"
-                  alt="Comment"
-                />
-                <span>نام نویسنده نظر</span>
-              </div>
-              <span>
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ لورم
-                ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-              </span>
+              <span>{data.miniDescribe}</span>
             </div>
           </div>
         </div>
@@ -67,7 +48,7 @@ function View1() {
           <div>
             <img src="../../../public/Image/Article/bgArticle.png" alt="" />
             <div>
-              <span>نام نویسنده نظر</span>
+              <span>{data.addUserFullName}</span>
               <span>
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
               </span>
@@ -85,4 +66,4 @@ function View1() {
   );
 }
 
-export { View1 };
+export default ArticlesCard;

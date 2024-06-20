@@ -1,15 +1,10 @@
 import { Header } from "./Header.jsx";
-import { Detail } from "./Detail.jsx";
-function Suggest({ title }) {
+import { SuggestDetail } from "./SuggestDetail.jsx";
+function Suggest({ title, className, data }) {
   return (
-    <div className="w-[350px] bg-white h-[590px] shadow-3xl rounded-[12px] p-4 dark:bg-[#212529]">
+    <div className={className}>
       <Header title={title} />
-      <Detail />
-      <Detail />
-      <Detail />
-      <Detail />
-      <Detail />
-      <Detail />
+      <SuggestDetail />
     </div>
   );
 }

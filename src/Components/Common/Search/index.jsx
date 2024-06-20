@@ -30,7 +30,7 @@ function Index({ DeleteStatus, SetSearchState }) {
         onClick={CheckCurrRadio}
         type="text"
         placeholder="دنبال چیز خاصی میگردی؟"
-        className="bg-transparent w-[90%] text-[13px]"
+        className="bg-transparent w-[90%] text-[13px] dark:placeholder:text-[#868e96]"
         style={{ outline: "none" }}
       />
 

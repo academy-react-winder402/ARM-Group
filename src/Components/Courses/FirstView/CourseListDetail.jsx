@@ -73,7 +73,7 @@ export const CourseListDetail = ({
   }, [DissLikeId]);
 
   return (
-    <div className="w-[250px] p-[5px]  h-[405] flex-none shadow-3xl rounded-[11px] ">
+    <div className="w-[250px] p-[5px]  h-[405] flex-none shadow-3xl rounded-[11px]">
       <div
         className="w-[240px]  h-[147px] object-cover bg-slate-500 rounded-[11px] cursor-pointer transition-all hover:scale-[1.01]"
         onClick={ClickHandler}

@@ -181,7 +181,7 @@ body {
   .view1,
   .view2,
   .view3 {
-    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#212529];
+    @apply p-1 rounded-2xl shadow-lg flex bg-white dark:bg-[#343a40];
   }
 
   .view1 > div > img,
@@ -200,19 +200,22 @@ body {
   .view1 .grouping,
   .view2 .grouping,
   .view3 .grouping {
-    @apply w-[80px] h-6 bg-[#F5F5F5] shadow-3xl rounded-2xl flex justify-center items-center text-textMidColor text-[11px];
+    @apply w-auto h-6 bg-[#F5F5F5] shadow-3xl rounded-2xl flex justify-center items-center text-textMidColor text-[11px];
   }
   .view1 > div > h2,
   .view2 > div > h2,
   .view3 > div > h2 {
-    @apply text-textColor px-2 text-base my-2;
+    @apply text-textColor px-2 text-sm mt-2 mb-1 h-[22px] overflow-hidden dark:text-[#adb5bd];
   }
 
   .view1 > div > p,
   .view2 > div > p,
   .view3 > div > p {
     display: -webkit-box;
+    /* min-height: 25px; */
+    height: 32px;
     max-width: 240px;
+    /* border: 1px solid black; */
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: #9a9a9a;
@@ -221,16 +224,17 @@ body {
   }
   .view1 > div > p,
   .view3 > div > p {
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
   }
   .view2 > div > p {
     -webkit-line-clamp: 5;
+    height: 28px;
   }
 
   .view1 > div > div,
   .view2 > div > div,
   .view3 > div > div {
-    @apply flex mt-4 px-2;
+    @apply flex mt-3 px-2;
   }
   .view1 .author,
   .view2 .author,
@@ -295,17 +299,17 @@ body {
   /* Diffrent View */
 
   .view1 .grouping {
-    @apply absolute top-16 left-4 dark:bg-[#212529];
+    @apply absolute top-[54px] left-2 dark:bg-[#212529];
   }
   .view2 .grouping {
-    @apply absolute top-12 left-4 dark:bg-[#212529];
+    @apply absolute top-[34px] left-2 dark:bg-[#212529];
   }
   .view3 .grouping {
     @apply absolute top-4 right-0 dark:bg-[#212529];
   }
 
   .view3 {
-    @apply h-[270px] w-[439px] flex-row-reverse gap-2;
+    @apply h-[240px] w-[439px] flex-row-reverse gap-2;
   }
   .view3 > div {
     @apply w-1/2 rounded-2xl pr-1;
@@ -331,13 +335,13 @@ body {
     @apply flex gap-3 text-[11px] text-textMidColor;
   }
   .view1 {
-    @apply h-[270px];
+    @apply h-[240px];
   }
   .view1 .lastComment {
     @apply hidden;
   }
   .view2 {
-    @apply h-[560px];
+    @apply h-[495px];
   }
 
   .view2 > div > div {
@@ -353,7 +357,7 @@ body {
     @apply relative h-[120px];
   }
   .view2 .lastComment > .child > div {
-    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1;
+    @apply border-2 absolute border-[#e9ecef] rounded-xl p-1 w-full;
   }
   .view2 .lastComment > .child > div > div {
     @apply flex items-center gap-1;

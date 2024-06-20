@@ -1,4 +1,4 @@
-function SecondDescription({ dateDay, month, dateMonth, price }) {
+function SecondDescription({ dateDay, price }) {
   return (
     <div className="flex justify-between items-center my-5 gap-10">
       <div className="flex justify-around items-center w-[60%]">
@@ -6,11 +6,11 @@ function SecondDescription({ dateDay, month, dateMonth, price }) {
           <img src="./Image/Course/date.png" alt="date" className="w-6 h-6" />
 
           <div className="text-xs text-textMidColor">
-            <span>{dateDay}</span> <span>{month}</span> ۱۴۰۱
+            <span>{dateDay}</span> <span>-</span> ۱۴۰۱
           </div>
         </div>
         <div className="text-xs text-textMidColor">
-          <span>{dateMonth}</span> ماه تا شروع
+          <span>-</span> ماه تا شروع
         </div>
       </div>
       <div className="flex justify-evenly items-center w-[40%]">

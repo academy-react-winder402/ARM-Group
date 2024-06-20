@@ -39,7 +39,7 @@ function PriceFilter() {
 
   return (
     <div className="flex justify-center relative">
-      <span className="block absolute top-[-2px] right-[40px]">قیمت :</span>
+      <span className="block absolute top-[-2px] right-[0px]">قیمت :</span>
 
       <Box className="w-[70%] h-[40px] mr-5 mt-[13px] relative">
         <span className="absolute right-0 top-[-27px] text-[12px]">
