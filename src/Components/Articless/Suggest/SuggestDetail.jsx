@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../../Core/Services/api/Articlee/GetArticle";
 
-function Detail() {
+function SuggestDetail() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
@@ -67,4 +67,4 @@ function Detail() {
   );
 }
 
-export { Detail };
+export { SuggestDetail };
