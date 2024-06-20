@@ -1,10 +1,13 @@
 import http from "../../Interceptor";
 
-export const getArticle = async () => {
+export const getArticle = async (RowsOfPage, PageNumber) => {
   try {
-    const response = await http.get(
-      "/News?PageNumber=1&RowsOfPage=10&SortingCol=InsertDate&SortType=DESC"
-    );
+    const response = await http.get("/News", {
+      params: {
+        RowsOfPage,
+        PageNumber,
+      },
+    });
 
     return response.news;
   } catch (error) {

@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Header({ title, textSize }) {
+function Header({ title, textSize, data }) {
   return (
     <>
       <h2

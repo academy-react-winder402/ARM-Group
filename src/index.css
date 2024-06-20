@@ -212,8 +212,8 @@ body {
   .view2 > div > p,
   .view3 > div > p {
     display: -webkit-box;
-    min-height: 25px;
-    max-height: 30px;
+    /* min-height: 25px; */
+    height: 32px;
     max-width: 240px;
     /* border: 1px solid black; */
     -webkit-box-orient: vertical;
@@ -228,13 +228,13 @@ body {
   }
   .view2 > div > p {
     -webkit-line-clamp: 5;
-    min-height: 30px;
+    height: 28px;
   }
 
   .view1 > div > div,
   .view2 > div > div,
   .view3 > div > div {
-    @apply flex mt-4 px-2;
+    @apply flex mt-3 px-2;
   }
   .view1 .author,
   .view2 .author,
@@ -299,7 +299,7 @@ body {
   /* Diffrent View */
 
   .view1 .grouping {
-    @apply absolute top-[50px] left-2 dark:bg-[#212529];
+    @apply absolute top-[54px] left-2 dark:bg-[#212529];
   }
   .view2 .grouping {
     @apply absolute top-[34px] left-2 dark:bg-[#212529];

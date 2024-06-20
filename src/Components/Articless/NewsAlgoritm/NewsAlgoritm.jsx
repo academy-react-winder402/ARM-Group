@@ -42,7 +42,7 @@ const NewsAlgoritm = ({ data }) => {
       <div className=" relative  min-h-60">
         <div
           className={
-            " absolute top-0 right-0 min-h-60   rounded-lg " +
+            " sm:absolute top-0 right-0 min-h-60 max-sm:flex justify-center rounded-lg " +
             (variantNum == 2 ? `w-[calc(200%+${gap})]` : "w-full")
           }
         >
@@ -153,7 +153,7 @@ const NewsAlgoritm = ({ data }) => {
       dir="rtl"
       className={
         `gap-[${gap}]` +
-        " grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 border gap-y-4"
+        " grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-4"
       }
     >
       {dataToShow.map((item) => renderVariants(item.variant, item))}
