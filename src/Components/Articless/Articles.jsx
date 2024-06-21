@@ -12,7 +12,7 @@ function Articles() {
   const getCard = async () => {
     const articleApi = await getArticle();
     setData(articleApi);
-    console.log(articleApi);
+    // console.log(articleApi);
   };
 
   useEffect(() => {

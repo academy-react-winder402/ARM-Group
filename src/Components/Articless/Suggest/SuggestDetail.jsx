@@ -7,7 +7,7 @@ function SuggestDetail() {
   const getCard = async () => {
     const articleApi = await getArticle(6, 1);
     setData(articleApi);
-    console.log(articleApi);
+    // console.log(articleApi);
   };
 
   useEffect(() => {

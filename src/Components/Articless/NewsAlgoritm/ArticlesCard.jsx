@@ -1,7 +1,15 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from "react-router-dom";
+
 function ArticlesCard({ className, data }) {
+  const navigate = useNavigate();
+
+  const ClickHandler = () => {
+    navigate("/ArticleDetail/");
+  };
+
   return (
-    <div className={className}>
+    <div className={className} onClick={ClickHandler}>
       <div>
         <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
         <div className="grouping">{data.newsCatregoryName}</div>

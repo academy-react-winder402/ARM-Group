@@ -7,7 +7,7 @@ function ViewLeft() {
   const getCard = async () => {
     const articleApi = await getArticle(3, 1);
     setData(articleApi);
-    console.log(articleApi);
+    // console.log(articleApi);
   };
 
   useEffect(() => {

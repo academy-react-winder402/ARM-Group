@@ -7,7 +7,7 @@ function ViewRight() {
   const getCard = async () => {
     const articleApi = await getArticle(1, 1);
     setData(articleApi);
-    console.log(articleApi);
+    // console.log(articleApi);
   };
 
   useEffect(() => {

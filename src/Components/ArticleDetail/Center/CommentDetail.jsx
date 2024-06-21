@@ -4,7 +4,7 @@ function CommentDetail() {
     <div className="flex flex-col gap-4 h-[120px] mt-8">
       <div className="h-[90px] flex gap-2">
         <img
-          src="./Image/ArticleDetail/ArticleDetailBg.png"
+          src="../../../../public/Image/ArticleDetail/ArticleDetailBg.png"
           alt="BackGround"
           className="w-[50px] h-[50px] rounded-[8px]"
         />
@@ -35,7 +35,7 @@ function CommentDetail() {
         <div className="w-[100px] h-[25px] flex justify-center gap-2 items-center text-[11px] text-textColor bg-[#e9ecef] rounded-[15px]">
           <span>پاسخ دادن</span>
           <img
-            src="./Image/ArticleDetail/redo.png"
+            src="../../../../public/Image/ArticleDetail/redo.png"
             alt=""
             className="w-[15px] h-[13px]"
           />
