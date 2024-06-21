@@ -4,7 +4,7 @@ function Header() {
       <div className="relative">
         <img
           className="h-[300px]"
-          src="./Image/ArticleDetail/ArticleDetailBg.png"
+          src="../../../../public/Image/ArticleDetail/ArticleDetailBg.png"
           alt=""
         />
         <div className="text-[11px] text-textMidColor flex flex-col absolute left-[20px] bottom-[-40px]">
