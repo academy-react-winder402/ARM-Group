@@ -205,7 +205,7 @@ body {
   .view1 > div > h2,
   .view2 > div > h2,
   .view3 > div > h2 {
-    @apply text-textColor px-2 text-sm mt-2 mb-1 h-[22px] overflow-hidden dark:text-[#adb5bd];
+    @apply text-textColor px-2 text-sm mt-2 mb-1 h-[22px] overflow-hidden dark:text-[#adb5bd] hover:scale-110 hover:translate-x-[-10px];
   }
 
   .view1 > div > p,
@@ -386,7 +386,7 @@ body {
     @apply text-textMidColor text-[10px] my-6  relative;
   }
   .view3 .lastCommentView3 > div {
-    @apply absolute right-[70PX] bg-white dark:bg-[#212529] top-[-15px] w-[336px] h-[45px] border-2 dark:border-[#495057] border-[#F6F6F6] shadow-sm flex items-center;
+    @apply absolute right-[70PX] bg-white dark:bg-[#212529] top-[-15px] w-[336px] h-[45px] overflow-hidden border-2 dark:border-[#495057] border-[#F6F6F6] shadow-sm flex items-center;
   }
   .view3 .lastCommentView3 > div {
     border-radius: 10px 20px 20px 10px;

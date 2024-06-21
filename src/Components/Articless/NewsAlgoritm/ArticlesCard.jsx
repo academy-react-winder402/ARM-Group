@@ -11,10 +11,11 @@ function ArticlesCard({ className, data, teacherImg }) {
   };
 
   return (
-    <div className={className} onClick={ClickHandler}>
+    <div className={className}>
       <div>
         <img
           className="bg-[#868e96]"
+          onClick={ClickHandler}
           src={`${
             data.currentImageAddressTumb ? data.currentImageAddressTumb : ""
           }`}
@@ -22,8 +23,8 @@ function ArticlesCard({ className, data, teacherImg }) {
         <div className="grouping">{data.newsCatregoryName}</div>
       </div>
       <div>
-        <h2>{data.title}</h2>
-        <p>{data.miniDescribe}</p>
+        <h2 onClick={ClickHandler}>{data.title}</h2>
+        <p onClick={ClickHandler}>{data.miniDescribe}</p>
         <div>
           <div className="author">
             <img

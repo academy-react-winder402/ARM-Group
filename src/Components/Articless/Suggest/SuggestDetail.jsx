@@ -7,7 +7,7 @@ function SuggestDetail() {
   const getCard = async () => {
     const articleApi = await getArticle(6, 1);
     setData(articleApi);
-    // console.log(articleApi);
+    console.log(articleApi);
   };
 
   useEffect(() => {
@@ -20,9 +20,9 @@ function SuggestDetail() {
         <div key={key}>
           <div className="flex items-center h-[72px]">
             <img
-              src="../../../public/Image/Article/bgArticle.png"
-              alt="BackGround"
-              className="w-[70px] h-[70px] rounded-[8px]"
+              src={item.addUserProfileImage}
+              // alt="BackGround"
+              className="w-[70px] h-[70px] rounded-[8px] bg-[#868e96]"
             />
             <div className="flex flex-col pr-3 gap-3">
               <h3
@@ -30,7 +30,7 @@ function SuggestDetail() {
                 style={{
                   display: "-webkit-box",
                   maxWidth: "160px",
-                  maxHeight: "30px",
+                  maxHeight: "25px",
                 }}
               >
                 {item.title}
