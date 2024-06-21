@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
+import Pic from "../../../public/Image/Article/backGround.png";
 
 function ViewLeft() {
   const [data, setData] = useState([]);
@@ -19,7 +20,14 @@ function ViewLeft() {
       {data.map((item, key) => (
         <div className="view1" key={key}>
           <div>
-            <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
+            <img
+              src={`${
+                item.currentImageAddressTumb
+                  ? item.currentImageAddressTumb
+                  : Pic
+              }`}
+              alt="bg"
+            />
             <div className="grouping">{item.newsCatregoryName}</div>
           </div>
           <div>

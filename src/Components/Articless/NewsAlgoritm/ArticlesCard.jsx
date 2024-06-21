@@ -2,6 +2,7 @@
 import { style } from "@mui/system";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Pic from "../../../../public/Image/Article/backGround.png";
 
 function ArticlesCard({ className, data, teacherImg }) {
   const navigate = useNavigate();
@@ -14,10 +15,10 @@ function ArticlesCard({ className, data, teacherImg }) {
     <div className={className}>
       <div>
         <img
-          className="bg-[#868e96]"
+          // className="bg-[#868e96]"
           onClick={ClickHandler}
           src={`${
-            data.currentImageAddressTumb ? data.currentImageAddressTumb : ""
+            data.currentImageAddressTumb ? data.currentImageAddressTumb : Pic
           }`}
         />
         <div className="grouping">{data.newsCatregoryName}</div>
@@ -27,11 +28,7 @@ function ArticlesCard({ className, data, teacherImg }) {
         <p onClick={ClickHandler}>{data.miniDescribe}</p>
         <div>
           <div className="author">
-            <img
-              src={
-                "https://classapi.sepehracademy.ir/\\Pictures\\ProfileImageThumbnail\\photo_2024-05-12_20-55-14_4b0e7469-755c-4e16-8709-7e675c9852bf.jpg"
-              }
-            />
+            <img src="./Image/Article/backGround.png" />
             <span>{data.addUserFullName}</span>
           </div>
           <div className="score">
