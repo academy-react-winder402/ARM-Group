@@ -19,7 +19,11 @@ function Comments() {
             <span className="text-sm">نظر ثبت شده</span>
           </div>
         </div>
-        <img src="./Image/ArticleDetail/Line.png" alt="Line" className="mt-6" />
+        <img
+          src="../../../../public/Image/ArticleDetail/Line.png"
+          alt="Line"
+          className="mt-6"
+        />
 
         <CommentDetail />
         <CommentDetail />

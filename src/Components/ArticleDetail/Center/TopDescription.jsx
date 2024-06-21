@@ -13,7 +13,7 @@ function TopDescription() {
         <p className="text-[11px]">خروجی جیسون پارسر </p>
       </div>
       <img
-        src="./Image/ArticleDetail/Interested.png"
+        src="../../../../public/Image/ArticleDetail/Interested.png"
         alt="Interested"
         className="mt-16 mb-6"
       />
