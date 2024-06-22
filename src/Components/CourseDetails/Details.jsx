@@ -12,6 +12,7 @@ import "./Style/style.css";
 import { useDispatch, useSelector } from "react-redux";
 import { SetCourseObj } from "../../Redux/Slices/CourseDetail";
 import CountUp from "react-countup";
+import Describe from "./Describe";
 
 const Details = () => {
   const dispatch = useDispatch();
@@ -53,14 +54,12 @@ const Details = () => {
   return (
     <div
       className="w-[87.5%] mx-auto mt-[100px] pt-[1rem]"
-      style={{ direction: "rtl" }}
-    >
+      style={{ direction: "rtl" }}>
       <DetailsSection1 />
 
       <div
         className="flex flex-nowrap justify-between text-center pt-[35px] px-[65px]"
-        style={{ fontFamily: "IransnsNumber" }}
-      >
+        style={{ fontFamily: "IransnsNumber" }}>
         <div className="CourseDetailstexts">
           <div>
             <CountUp duration={5} end={Details.currentRegistrants} />
@@ -95,8 +94,7 @@ const Details = () => {
             onClick={() => {
               setSliderStep(0);
             }}
-            htmlFor="Radio0"
-          >
+            htmlFor="Radio0">
             توضیحات
           </label>
 
@@ -106,8 +104,7 @@ const Details = () => {
               setSliderStep(1);
             }}
             htmlFor="Radio1"
-            className="CourseDetailstexts2"
-          >
+            className="CourseDetailstexts2">
             سرفصل ها
           </label>
 
@@ -117,8 +114,7 @@ const Details = () => {
               setSliderStep(2);
             }}
             htmlFor="Radio2"
-            className="CourseDetailstexts2"
-          >
+            className="CourseDetailstexts2">
             ارسال تسک
           </label>
 
@@ -128,8 +124,7 @@ const Details = () => {
               setSliderStep(3);
             }}
             htmlFor="Radio3"
-            className="CourseDetailstexts2"
-          >
+            className="CourseDetailstexts2">
             کامنت ها
           </label>
 
@@ -139,19 +134,15 @@ const Details = () => {
               setSliderStep(4);
             }}
             htmlFor="Radio4"
-            className="CourseDetailstexts2"
-          >
+            className="CourseDetailstexts2">
             حسابداری
           </label>
         </div>
 
         <div
           className="h-fit top-[20%] w-[500%] flex absolute transition-all duration-[1s]"
-          style={{ right: SliderStep * -100 + "%" }}
-        >
-          <div className="w-[20%] pt-5 pr-[40px] pl-[40px] text-[#5E5E5E] leading-10 ">
-            <p>{Details.describe}</p>
-          </div>
+          style={{ right: SliderStep * -100 + "%" }}>
+          <Describe describe={Details.describe} />
           <div className="w-[20%]">
             <div className="px-[40px] ">
               <AccordionBorder />

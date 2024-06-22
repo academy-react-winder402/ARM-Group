@@ -3,7 +3,7 @@ import {
   GetItem,
   RemoveItem,
 } from "../../../Core/Services/common/Storage.Services";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -32,13 +32,14 @@ const HeaderSection3 = () => {
       {IsLogIn ? (
         <div className="HeaderPics bg-[url('./Image/HeaderIcons/Profile.svg')] dark:bg-[#212529]">
           <div className="flex flex-col text-center gap-2">
-            <h3 className="text-[#5E5E5E] mt-2 text-[14px]  hover:scale-105 transition-all">
+            <Link
+              to={"/Dashbord/User"}
+              className="text-[#5E5E5E] mt-2 text-[14px]  hover:scale-105 transition-all">
               پنل کاربری
-            </h3>
+            </Link>
             <h3
               onClick={LogOut}
-              className="text-[#FF0000] text-[12px] hover:scale-105 transition-all"
-            >
+              className="text-[#FF0000] text-[12px] hover:scale-105 transition-all">
               خروج از حساب
             </h3>
           </div>
@@ -53,8 +54,7 @@ const HeaderSection3 = () => {
                   ? "transition text-[#D4AF37]"
                   : "transition hover:scale-110 hover:text-[#D4AF37]",
               ].join(" ")
-            }
-          >
+            }>
             ورود
           </NavLink>
           <div> / </div>
@@ -66,8 +66,7 @@ const HeaderSection3 = () => {
                   ? "transition text-[#D4AF37] "
                   : "transition hover:scale-110 hover:text-[#D4AF37]",
               ].join(" ")
-            }
-          >
+            }>
             ثبت نام
           </NavLink>
         </div>
