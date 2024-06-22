@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
+import Pic from "../../../public/Image/Article/backGround.png";
 
 function ViewRight() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(1, 1);
+    const articleApi = await getArticle(2, 2);
     setData(articleApi);
     // console.log(articleApi);
   };
@@ -19,7 +20,14 @@ function ViewRight() {
       {data.map((item, key) => (
         <div className="view1" key={key}>
           <div>
-            <img src="../../../public/Image/Article/bgArticle.png" alt="bg" />
+            <img
+              src={`${
+                item.currentImageAddressTumb
+                  ? item.currentImageAddressTumb
+                  : Pic
+              }`}
+              alt="bg"
+            />
             <div className="grouping">دسته بندی</div>
           </div>
           <div>

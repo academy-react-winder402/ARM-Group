@@ -260,7 +260,7 @@ export const CourseList = () => {
     <>
       <div
         id="CardViewer"
-        className="mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-center md:justify-evenly lg:justify-center gap-[62px] h-auto border"
+        className="mt-[30px] transition-all duration-[0.5] flex flex-wrap justify-center md:justify-evenly lg:justify-center gap-[62px] h-auto"
       >
         {CardView == "GridView" && CourseSkeleton("Grid")}
         {CardView == "ListView" && CourseSkeleton("List")}
