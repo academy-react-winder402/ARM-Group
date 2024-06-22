@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Pic from "../../../../public/Image/Article/backGround.png";
 
-function ArticlesCard({ className, data, teacherImg }) {
+function ArticlesCard({ className, data }) {
   const navigate = useNavigate();
 
   const ClickHandler = () => {
@@ -15,7 +15,6 @@ function ArticlesCard({ className, data, teacherImg }) {
     <div className={className}>
       <div>
         <img
-          // className="bg-[#868e96]"
           onClick={ClickHandler}
           src={`${
             data.currentImageAddressTumb ? data.currentImageAddressTumb : Pic

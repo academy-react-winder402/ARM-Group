@@ -6,7 +6,7 @@ function ViewLeft() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(3, 1);
+    const articleApi = await getArticle(1, 3);
     setData(articleApi);
     // console.log(articleApi);
   };

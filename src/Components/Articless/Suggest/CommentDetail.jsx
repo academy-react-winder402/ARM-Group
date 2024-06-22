@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../../Core/Services/api/Articlee/GetArticle";
+import Pic from "../../../../public/Image/Article/backGround.png";
 
 function CommentDetail() {
   // const [detail] = useState([""]);
@@ -7,7 +8,7 @@ function CommentDetail() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(7, 1);
+    const articleApi = await getArticle(1, 7);
     setData(articleApi);
     // console.log(articleApi);
   };
@@ -26,8 +27,8 @@ function CommentDetail() {
           >
             <img
               className="w-[45px] h-[45px] rounded-full"
-              src="../../../../public/Image/Article/backGround.png"
-              alt="author"
+              src={item.addUserProfileImage ? item.addUserProfileImage : Pic}
+              // alt="author"
             />
             <div className="flex flex-col w-full gap-[10px] px-1">
               <div className="flex justify-between w-full">
@@ -41,7 +42,7 @@ function CommentDetail() {
                   />
                 </div>
               </div>
-              <span className="h-5 overflow-hidden">{item.miniDescribe}</span>
+              <span className="h-4 overflow-hidden">{item.miniDescribe}</span>
             </div>
           </div>
         </div>

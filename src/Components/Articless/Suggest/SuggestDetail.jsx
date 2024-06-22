@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../../Core/Services/api/Articlee/GetArticle";
+import Pic from "../../../../public/Image/Article/backGround.png";
 
 function SuggestDetail() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(6, 1);
+    const articleApi = await getArticle(1, 6);
     setData(articleApi);
     console.log(articleApi);
   };
@@ -20,7 +21,9 @@ function SuggestDetail() {
         <div key={key}>
           <div className="flex items-center h-[72px]">
             <img
-              src={item.addUserProfileImage}
+              src={`${
+                item.addUserProfileImage ? item.addUserProfileImage : Pic
+              }`}
               // alt="BackGround"
               className="w-[70px] h-[70px] rounded-[8px] bg-[#868e96]"
             />
