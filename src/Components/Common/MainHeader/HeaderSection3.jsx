@@ -27,19 +27,21 @@ const HeaderSection3 = () => {
 
   return (
     <div className="flex justify-center gap-[5px] flex-nowrap mt-[13px]">
-      <div className="HeaderPics bg-[url('./Image/HeaderIcons/searchLogo.svg')] dark:bg-[#212529]"></div>
+      {/* <div className="HeaderPics bg-[url('./Image/HeaderIcons/searchLogo.svg')] dark:bg-[#212529]"></div> */}
 
       {IsLogIn ? (
         <div className="HeaderPics bg-[url('./Image/HeaderIcons/Profile.svg')] dark:bg-[#212529]">
           <div className="flex flex-col text-center gap-2">
             <Link
               to={"/Dashbord/User"}
-              className="text-[#5E5E5E] mt-2 text-[14px]  hover:scale-105 transition-all">
+              className="text-[#5E5E5E] mt-2 text-[14px]  hover:scale-105 transition-all"
+            >
               پنل کاربری
             </Link>
             <h3
               onClick={LogOut}
-              className="text-[#FF0000] text-[12px] hover:scale-105 transition-all">
+              className="text-[#FF0000] text-[12px] hover:scale-105 transition-all"
+            >
               خروج از حساب
             </h3>
           </div>
@@ -54,7 +56,8 @@ const HeaderSection3 = () => {
                   ? "transition text-[#D4AF37]"
                   : "transition hover:scale-110 hover:text-[#D4AF37]",
               ].join(" ")
-            }>
+            }
+          >
             ورود
           </NavLink>
           <div> / </div>
@@ -66,7 +69,8 @@ const HeaderSection3 = () => {
                   ? "transition text-[#D4AF37] "
                   : "transition hover:scale-110 hover:text-[#D4AF37]",
               ].join(" ")
-            }>
+            }
+          >
             ثبت نام
           </NavLink>
         </div>
