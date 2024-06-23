@@ -3,7 +3,7 @@ function Header() {
     <>
       <div className="relative">
         <img
-          className="h-[300px]"
+          className="h-[300px] w-full"
           src="../../../../public/Image/ArticleDetail/ArticleDetailBg.png"
           alt=""
         />

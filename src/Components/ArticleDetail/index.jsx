@@ -5,12 +5,16 @@ import { LeftSide } from "./LeftSide.jsx";
 function Index() {
   return (
     <div
-      className="w-[1120px] h-[1700px] mx-auto flex gap-4 mt-[100px]"
+      className="container mx-auto flex justify-center gap-4 mt-[100px]"
       dir="rtl"
     >
-      <RightSide />
+      <div className="hidden md:block">
+        <RightSide />
+      </div>
       <Center />
-      <LeftSide />
+      <div className="hidden md:block">
+        <LeftSide />
+      </div>
     </div>
   );
 }

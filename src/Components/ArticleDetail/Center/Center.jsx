@@ -15,7 +15,7 @@ function Center() {
   //   getCard();
   // }, []);
   return (
-    <div className="w-[666px]">
+    <div className="container md:w-[400px] lg:w-[600px] xl:w-[700px]">
       <TopDescription />
       <Comments />
     </div>
