@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { GetTeacherById } from "../../Core/Services/api/Teacher/GetTeacherById";
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
+import { ReserveAdd } from "../../Core/Services/api/CourseDetail/GetCourseById";
 
 const Titles = () => {
   const Details = useSelector((state) => state.CourseDetail.CourseObj);
@@ -38,6 +39,11 @@ const Titles = () => {
   useEffect(() => {
     Details.teacherId && GetTeacher(Details.teacherId);
   }, [Details.teacherId]);
+
+  const ReserveHandler = async () => {
+    const Resreve = await ReserveAdd(Details.courseId);
+    console.log(Resreve);
+  };
 
   return (
     <div className="w-[50%]">
@@ -113,9 +119,18 @@ const Titles = () => {
               </span>
               <span className="text-[10px]"> تومان </span>
             </h1>
-            <div className="w-[184px] cursor-pointer hover:scale-[1.03] transition-all h-[35px] bg-[#0DA394] text-[#F2F2F2] text-[14px] rounded-[7px] flex justify-center items-center">
-              ثبت نام در این دوره
-            </div>
+            {Details.isCourseReseve == "1" ? (
+              <div className="w-[184px] cursor-pointer hover:scale-[1.03] transition-all h-[35px] bg-[#0DA394] text-[#F2F2F2] text-[14px] rounded-[7px] flex justify-center items-center">
+                ثبت نام شده
+              </div>
+            ) : (
+              <div
+                className="w-[184px] cursor-pointer hover:scale-[1.03] transition-all h-[35px] bg-[#0DA394] text-[#F2F2F2] text-[14px] rounded-[7px] flex justify-center items-center"
+                onClick={ReserveHandler}
+              >
+                ثبت نام در این دوره
+              </div>
+            )}
           </div>
         </div>
       </div>
