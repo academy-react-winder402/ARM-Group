@@ -1,16 +1,18 @@
 import { Header } from "./Header.jsx";
 import { ArticleTitle } from "./ArticleTitle.jsx";
 import { LikeComment } from "./LikeComment.jsx";
-import { LikeDislike } from "./LikeDislike.jsx";
+import { LikeDis } from "./LikeDis.jsx";
 import { TextArea } from "./TextArea.jsx";
 
-function TopDescription() {
+function TopDescription({ data }) {
   return (
-    <div className="h-[1120px] bg-white dark:bg-[#343a40] p-1 mb-4 rounded-[15px] shadow-lg">
-      <Header />
+    <div className=" bg-white dark:bg-[#343a40] p-1 mb-4 rounded-[15px] shadow-lg">
+      <Header data={data} />
       <LikeComment />
-      <div className="h-[130px] mt-6 text-textMidColor pr-2">
-        <p className="text-[11px] dark:text-[#ced4da]">خروجی جیسون پارسر </p>
+      <div className=" mt-6 text-textMidColor pr-2">
+        <p className="text-[12px] dark:text-[#ced4da] leading-7">
+          {data.describe}
+        </p>
       </div>
       <img
         src="../../../../public/Image/ArticleDetail/Interested.png"
@@ -24,9 +26,9 @@ function TopDescription() {
       <ArticleTitle />
       <ArticleTitle />
 
-      <LikeDislike />
+      {/* <LikeDislike /> */}
 
-      <TextArea />
+      {/* <TextArea /> */}
     </div>
   );
 }

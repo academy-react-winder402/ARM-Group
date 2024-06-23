@@ -10,7 +10,7 @@ function ArticlesCard({ className, data }) {
   const navigate = useNavigate();
 
   const ClickHandler = () => {
-    navigate("/ArticleDetail/");
+    navigate("/ArticleDetail/" + data.id);
   };
 
   return (

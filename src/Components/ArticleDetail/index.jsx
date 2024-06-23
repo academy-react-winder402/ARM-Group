@@ -1,6 +1,6 @@
-import { RightSide } from "./RightSide.jsx";
 import { Center } from "./Center/Center.jsx";
 import { LeftSide } from "./LeftSide.jsx";
+import { RightSide } from "./RightSide.jsx";
 
 function Index() {
   return (

@@ -54,7 +54,7 @@ const Public = new createBrowserRouter([
       { path: "/Courses", element: <Courses /> },
       { path: "/CoursesDetail/:id", element: <CourseDetails /> },
       { path: "/Article", element: <Article /> },
-      { path: "/ArticleDetail", element: <ArticleDetail /> },
+      { path: "/ArticleDetail/:id", element: <ArticleDetail /> },
     ],
   },
 ]);
