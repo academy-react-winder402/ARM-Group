@@ -6,9 +6,21 @@ import NewsPaperIcon from "../../../../public/Image/Dashbord/newsPaper";
 import CommentAltIcon from "../../../../public/Image/Dashbord/commentAlt";
 import SignOutAltIcon from "../../../../public/Image/Dashbord/signOutAlt";
 import { NavLink } from "react-router-dom";
+import { GetUserInfo } from "../../../Core/Services/api/Panel/GetUserInfo";
 import "./style.css";
+import { useEffect, useState } from "react";
 
 function MenuBar() {
+  const [UserInfo, setUserInfo] = useState({});
+  const GetInfo = async () => {
+    const info = await GetUserInfo();
+    setUserInfo(info);
+    //console.log(info);
+  };
+  useEffect(() => {
+    GetInfo();
+  }, []);
+
   return (
     <div className="bg-white relative w-[212px] h-[469px] rounded-[15px] drop-shadow-[-10px_10px_20px_balck]">
       <div className="w-[200px] h-[100px] m-auto mt-[5px]  relative">
@@ -26,7 +38,7 @@ function MenuBar() {
           }}
         ></div>
         <span className="text-[13px] text-[#A7A7A7] absolute bottom-0 right-16">
-          نام کاربر
+          {UserInfo.lName} {UserInfo.fName}
         </span>
       </div>
 
@@ -37,7 +49,10 @@ function MenuBar() {
         >
           <span>داشبورد</span> <DashboardPanelIcon />
         </NavLink>
-        <NavLink>
+        <NavLink
+          to={"/Dashbord/UserDetail"}
+          className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}
+        >
           <span>اطلاعات کاربری</span> <FileUserIcon />
         </NavLink>
         <NavLink>
@@ -49,9 +64,9 @@ function MenuBar() {
         >
           <span>دوره های آموزشی</span> <ELearningIcon />
         </NavLink>
-        <NavLink>
+        {/* <NavLink>
           <span>اخبار و مقالات</span> <NewsPaperIcon />
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to={"/Dashbord/Comments"}
           className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}

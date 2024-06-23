@@ -2,10 +2,11 @@ import Pagination from "../../Common/Pagination";
 import TopFilter from "./TopFilter";
 import Course_Item from "./Course_Item";
 import Style from "./Style.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { GetMyCoursesReserve } from "../../../Core/Services/api/Panel/GetUserInfo";
 
 function Index() {
-  const [Courses] = useState([
+  const [Courses, setCourses] = useState([
     {
       Id: 1,
       Onvan: "عنوان دوره آموزشی",
@@ -15,43 +16,15 @@ function Index() {
       Status: "Ended",
       Price: "۳۵۰.۰۰۰",
     },
-    {
-      Id: 2,
-      Onvan: "عنوان دوره آموزشی",
-      Category: "دسته بندی",
-      Ostad: "نام مدرس دوره",
-      Date: "  ۱۴۰۲/۱/۱",
-      Status: "NotEvenStart",
-      Price: "۳۵۰.۰۰۰",
-    },
-    {
-      Id: 3,
-      Onvan: "عنوان دوره آموزشی",
-      Category: "دسته بندی",
-      Ostad: "نام مدرس دوره",
-      Date: "  ۱۴۰۲/۱/۱",
-      Status: "InProgress",
-      Price: "۳۵۰.۰۰۰",
-    },
-    {
-      Id: 4,
-      Onvan: "عنوان دوره آموزشی",
-      Category: "دسته بندی",
-      Ostad: "نام مدرس دوره",
-      Date: "  ۱۴۰۲/۱/۱",
-      Status: "Ended",
-      Price: "۳۵۰.۰۰۰",
-    },
-    {
-      Id: 5,
-      Onvan: "عنوان دوره آموزشی",
-      Category: "دسته بندی",
-      Ostad: "نام مدرس دوره",
-      Date: "  ۱۴۰۲/۱/۱",
-      Status: "InProgress",
-      Price: "۳۵۰.۰۰۰",
-    },
   ]);
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      const info = await GetMyCoursesReserve();
+      setCourses(info);
+    };
+    fetchInfo();
+  }, []);
 
   return (
     <div className="w-[893px] h-fit relative">
@@ -68,11 +41,9 @@ function Index() {
         >
           <div className={Style.OnvanHolder}>
             <span className="w-[170px] mr-[80px]">عنوان دوره</span>
-            <span className="w-[145px]"> مدرس </span>
-            <span className="w-[95px]"> تاریخ </span>
+            <span className="w-[195px]"> مدرس </span>
+            <span className="w-[225px]"> تاریخ </span>
             <span className="w-[110px]"> وضعیت </span>
-            <span className="w-[145px]"> قیمت </span>
-            <span className="w-[100px]">عملیات</span>
           </div>
           <div className={Style.ItemsHolder}>
             {Courses.map((Obj) => (
