@@ -29,7 +29,7 @@ export const Statistics = () => {
       data-aos="fade-down"
     >
       <div className="mt-[35px] text-[30px] text-[#5E5E5E] dark:text-Dark_TextColor_1">
-        دوره های آموزشی ما
+        آکادمی بحرالعلوم از دید آمار
       </div>
       <div className="mt-[20px] text-[16px] text-[#7E7E7E] dark:text-Dark_TextColor_2">
         متن مرتبط

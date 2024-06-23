@@ -15,7 +15,7 @@ function SecondCourseList({ CourseObj }) {
         </span>
       </div>
 
-      <LeftSide />
+      <LeftSide CourseObj={CourseObj} />
     </div>
   );
 }

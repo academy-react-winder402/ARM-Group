@@ -22,16 +22,32 @@ export const MainAdvertising = () => {
         />
         <div>
           <p className="text-[24px] text-[#5E5E5E] mt-[10px] dark:text-Dark_TextColor_1">
-            نام دانشجو
+            مصطفی-جان
           </p>
           <p className="text-[18px] text-[#5E5E5E] mt-[20px] dark:text-Dark_TextColor_2">
-            از پاییز ۹۸ ... عنوان سمت فعلی در علی بابا
+            ست نیوزتست نیوزتست نیوزتست نیوزتست نیوزتست نیوزتست نیوزتست نیوزتست
+            نیوز
+          </p>
+        </div>
+      </div>
+      <div className="md:mr-[120px] text-right flex items-center gap-4 flex-nowrap mt-16">
+        <img
+          src="../../../../public/Image/Article/backGround.png"
+          alt=""
+          className="h-[100px] w-[100px] rounded-full"
+        />
+        <div>
+          <p className="text-[24px] text-[#5E5E5E] mt-[10px] dark:text-Dark_TextColor_1">
+            رضا-اکبری
+          </p>
+          <p className="text-[18px] text-[#5E5E5E] mt-[20px] dark:text-Dark_TextColor_2">
+            دوره دوره 313دوره 313دوره 313دوره 313دوره 313دوره 313 313
           </p>
         </div>
       </div>
       <div className="mt-[50px] px-[45px] h-[180px]">
         <Slider />
-        <SliderButtons />
+        {/* <SliderButtons /> */}
       </div>
     </div>
   );

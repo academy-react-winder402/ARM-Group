@@ -1,6 +1,6 @@
 import React from "react";
 
-export const RightNews = () => {
+export const RightNews = ({ data }) => {
   return (
     <div className="w-[392px] h-[435px]">
       <div className="w-[392px] h-[280px]">

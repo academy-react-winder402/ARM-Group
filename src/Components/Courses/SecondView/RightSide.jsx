@@ -22,12 +22,12 @@ function RightSide({ CourseObj }) {
         price={CourseObj.cost}
         // month={item.month}
       />
-      {/* <Scores
-        numberOfComment={item.numberOfComment}
-        numberOfScore={item.numberOfScore}
-        numberOfLike={item.numberOfLike}
-        numberOfUser={item.numberOfUser}
-      /> */}
+      <Scores
+        numberOfComment={CourseObj.likeCount}
+        numberOfScore={CourseObj.likeCount}
+        numberOfLike={CourseObj.likeCount}
+        numberOfUser={CourseObj.likeCount}
+      />
     </div>
   );
 }
