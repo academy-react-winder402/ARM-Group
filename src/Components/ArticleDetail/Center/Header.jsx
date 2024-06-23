@@ -16,7 +16,9 @@ function Header() {
           <span>نویسنده خبر</span>
         </div>
       </div>
-      <h3 className="text-xl text-textColor mt-2 p-2">عنوان خبر</h3>
+      <h3 className="text-xl text-textColor mt-2 p-2 dark:text-[#dee2e6]">
+        عنوان خبر
+      </h3>
     </>
   );
 }

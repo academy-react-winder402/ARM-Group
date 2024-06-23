@@ -10,18 +10,18 @@ function CommentDetail() {
         />
         <div className="w-full">
           <div className="flex justify-between mt-1 mb-3">
-            <div className="flex text-textColor text-xs">
+            <div className="flex text-textColor text-xs dark:text-[#ced4da]">
               <span className="pl-3">نام نویسنده نظر</span>
               <span>|</span>
               <span className="px-3"> ۲۵ اردیبهشت ۱۴۰۳ </span>
-              <span>|</span>
-              <span className="px-3">ساعت ۱۶:۲۴ </span>
-              <span>|</span>
-              <span className="pr-3">۲ روز پیش</span>
+              <span className="hidden md:block">|</span>
+              <span className="px-3 hidden md:block">ساعت ۱۶:۲۴ </span>
+              <span className="hidden md:block">|</span>
+              <span className="pr-3 hidden md:block">۲ روز پیش</span>
             </div>
             <LikeDislike />
           </div>
-          <p className="text-xs text-textColor">
+          <p className="text-xs text-textColor dark:text-[#adb5bd]">
             متن مرتبط با نظرات دوره لورم ایپسوم متن ساختگی با تولید سادگی
             نامفهوم از صنعت چاپ،ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
             صنعت چاپ،
