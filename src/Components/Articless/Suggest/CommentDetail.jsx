@@ -8,7 +8,7 @@ function CommentDetail() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(1, 7);
+    const articleApi = await getArticle(7, 1);
     setData(articleApi);
     // console.log(articleApi);
   };
