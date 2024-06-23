@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Subject } from "../Common/Landing/Subject.jsx";
 import { Details } from "./Details.jsx";
 import { Index } from "./Suggest/Index.jsx";
@@ -5,14 +6,39 @@ import Filter from "./Filter/index.jsx";
 
 import { useState, useEffect } from "react";
 import { getArticle } from "../../Core/Services/api/Articlee/GetArticle.js";
+// import { getArticleById } from "../../Core/Services/api/Articlee/GetArticleById.js";
 
 function Articles() {
   const [data, setData] = useState([]);
+  // const [NothingFound, setNothingFound] = useState(false);
+
+  // const GetArticle = async (id) => {
+  // setArticle([]);
+  //   const Articles = await getArticleById(id);
+
+  //   setData(Articles.detailsNewsDto);
+  //   console.log(Articles);
+  // setTimeout(() => {
+
+  //   if (Articles.courseFilterDtos.length == 0) {
+  //     setNothingFound(true);
+  //   } else setNothingFound(false);
+  // }, 500);
+
+  // window.scrollTo({
+  //   top: 0,
+  //   behavior: "smooth",
+  // });
+  // };
+
+  // useEffect(() => {
+  //   GetArticle();
+  // }, []);
 
   const getCard = async () => {
     const articleApi = await getArticle();
     setData(articleApi);
-    // console.log(articleApi);
+    console.log(articleApi);
   };
 
   useEffect(() => {

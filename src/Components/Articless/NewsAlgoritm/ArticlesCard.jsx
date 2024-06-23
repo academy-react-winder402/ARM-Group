@@ -3,6 +3,8 @@ import { style } from "@mui/system";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Pic from "../../../../public/Image/Article/backGround.png";
+import "./Style.css";
+import { Like } from "./Like.jsx";
 
 function ArticlesCard({ className, data }) {
   const navigate = useNavigate();
@@ -30,17 +32,21 @@ function ArticlesCard({ className, data }) {
             <img src="./Image/Article/backGround.png" />
             <span>{data.addUserFullName}</span>
           </div>
-          <div className="score">
+          <div
+            className="score"
+            style={{
+              fontFamily: "IransnsNumber",
+            }}
+          >
             <div className="comment">
-              <span>۷۶</span>
+              <span>--</span>
               <img
                 src="../../../public/Image/Course/comment.png"
                 alt="comment"
               />
             </div>
             <div className="like">
-              <span>{data.currentLikeCount}</span>
-              <img src="../../../public/Image/Course/heart.png" alt="like" />
+              <Like data={data} />
             </div>
           </div>
         </div>

@@ -228,7 +228,7 @@ body {
   }
   .view2 > div > p {
     -webkit-line-clamp: 5;
-    height: 28px;
+    height: 32px;
   }
 
   .view1 > div > div,
@@ -261,7 +261,7 @@ body {
   .view1 .like,
   .view2 .comment,
   .view2 .like {
-    @apply flex justify-between text-[11px] text-textMidColor;
+    @apply flex justify-between items-center text-[11px] text-textMidColor;
   }
   .view1 .comment span,
   .view1 .like span,
@@ -332,7 +332,7 @@ body {
   }
   .view3 .comment,
   .view3 .like {
-    @apply flex gap-3 text-[11px] text-textMidColor;
+    @apply flex gap-3 items-center text-[11px] text-textMidColor;
   }
   .view1 {
     @apply h-[240px];
@@ -354,7 +354,7 @@ body {
     @apply mt-4 mb-2;
   }
   .view2 .lastComment > .child {
-    @apply relative h-[120px];
+    @apply relative h-[115px];
   }
   .view2 .lastComment > .child > div {
     @apply border-2 absolute border-[#e9ecef] rounded-xl p-1 w-full;

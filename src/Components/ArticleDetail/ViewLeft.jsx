@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { getArticle } from "../../Core/Services/api/Articlee/GetArticle";
 import Pic from "../../../public/Image/Article/backGround.png";
+import { Like } from "../Articless/NewsAlgoritm/Like.jsx";
 
 function ViewLeft() {
   const [data, setData] = useState([]);
 
   const getCard = async () => {
-    const articleApi = await getArticle(1, 3);
+    const articleApi = await getArticle(3, 1);
     setData(articleApi);
     // console.log(articleApi);
   };
@@ -26,7 +27,6 @@ function ViewLeft() {
                   ? item.currentImageAddressTumb
                   : Pic
               }`}
-              alt="bg"
             />
             <div className="grouping">{item.newsCatregoryName}</div>
           </div>
@@ -35,26 +35,24 @@ function ViewLeft() {
             <p>{item.miniDescribe}</p>
             <div>
               <div className="author">
-                <img
-                  src="../../../public/Image/Article/backGround.png"
-                  alt="bg"
-                />
+                <img src="../../../public/Image/Article/backGround.png" />
                 <span>{item.addUserFullName}</span>
               </div>
-              <div className="score">
+              <div
+                className="score"
+                style={{
+                  fontFamily: "IransnsNumber",
+                }}
+              >
                 <div className="comment">
-                  <span>۷۶</span>
+                  <span>--</span>
                   <img
                     src="../../../public/Image/Course/comment.png"
                     alt="comment"
                   />
                 </div>
                 <div className="like">
-                  <span>{item.currentLikeCount}</span>
-                  <img
-                    src="../../../public/Image/Course/heart.png"
-                    alt="like"
-                  />
+                  <Like data={item} />
                 </div>
               </div>
             </div>
@@ -67,37 +65,19 @@ function ViewLeft() {
                       src="../../../public/Image/Article/backGround.png"
                       alt="Comment"
                     />
-                    <span>نام نویسنده نظر</span>
+                    <span>{item.addUserFullName}</span>
                   </div>
-                  <span>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                  </span>
-                </div>
-                <div>
-                  <div dir="ltr">
-                    <img
-                      src="../../../public/Image/Article/backGround.png"
-                      alt="Comment"
-                    />
-                    <span>نام نویسنده نظر</span>
-                  </div>
-                  <span>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                  </span>
+                  <span>{item.miniDescribe}</span>
                 </div>
               </div>
             </div>
             <div className="lastCommentView3">
               <span>آخرین نظرات</span>
               <div>
-                <img src="../../../public/Image/Article/bgArticle.png" alt="" />
+                <img src={item.addUserProfileImage} alt="" />
                 <div>
-                  <span>نام نویسنده نظر</span>
-                  <span>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
-                  </span>
+                  <span>{item.addUserFullName}</span>
+                  <span>{item.miniDescribe}</span>
                 </div>
               </div>
             </div>

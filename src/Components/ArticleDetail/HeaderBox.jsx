@@ -1,7 +1,7 @@
-function HeaderBox() {
+function HeaderBox({ title }) {
   return (
     <div className="h-[45px] flex items-center justify-between w-full px-2 shadow-3xl rounded-xl">
-      <h3 className="text-base font-bold text-textColor">یه عنوان دیگه</h3>
+      <h3 className="text-base font-bold text-textColor">{title}</h3>
       <img
         src="../../../public/Image/ArticleDetail/arrow-down-to-dotted-line.png"
         alt="Arrow Down"
