@@ -8,7 +8,10 @@ import { Scores } from "./Scores.jsx";
 
 function RightSide({ CourseObj }) {
   return (
-    <div className="w-1/2 max-lg:w-3/5 px-8">
+    <div
+      className="w-1/2 max-lg:w-3/5 px-8"
+      style={{ fontFamily: "IransnsNumber" }}
+    >
       <TopText
         title={CourseObj.title}
         desc={CourseObj.describe}
@@ -22,12 +25,11 @@ function RightSide({ CourseObj }) {
         price={CourseObj.cost}
         // month={item.month}
       />
-      {/* <Scores
-        numberOfComment={item.numberOfComment}
-        numberOfScore={item.numberOfScore}
-        numberOfLike={item.numberOfLike}
-        numberOfUser={item.numberOfUser}
-      /> */}
+      <Scores
+        numberOfComment={CourseObj.commandCount}
+        numberOfLike={CourseObj.likeCount}
+        numberOfUser={CourseObj.currentRegistrants}
+      />
     </div>
   );
 }

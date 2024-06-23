@@ -19,7 +19,7 @@ function Scores({
             <span className="text-textMidColor text-xs">کامنت</span>
           </div>
           <div className="flex gap-1.5">
-            <span className="text-textMidColor text-xs">{numberOfScore}</span>
+            <span className="text-textMidColor text-xs">--</span>
             <img src="../../../../public/Image/Course/star.svg" alt="star" />
             <span className="text-textMidColor text-xs">رتبه</span>
           </div>

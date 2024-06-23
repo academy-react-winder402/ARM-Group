@@ -2,7 +2,7 @@ import { Subject } from "../../Common/Landing/Subject";
 export const Course = () => {
   return (
     <div
-      className="cotainer md:w-[90%] xl:mt-[410px] mt-[300px] m-auto text-right mb-10"
+      className="cotainer md:w-[90%] xl:mt-[520px] mt-[300px] m-auto text-right mb-10"
       dir="rtl"
       data-aos="fade-down"
     >

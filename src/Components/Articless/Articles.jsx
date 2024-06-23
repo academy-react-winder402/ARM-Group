@@ -36,7 +36,7 @@ function Articles() {
   // }, []);
 
   const getCard = async () => {
-    const articleApi = await getArticle();
+    const articleApi = await getArticle(1700, 1);
     setData(articleApi);
     console.log(articleApi);
   };

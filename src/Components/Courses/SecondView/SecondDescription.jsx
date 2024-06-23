@@ -6,7 +6,7 @@ function SecondDescription({ dateDay, price }) {
           <img src="./Image/Course/date.png" alt="date" className="w-6 h-6" />
 
           <div className="text-xs text-textMidColor">
-            <span>{dateDay}</span> <span>-</span> ۱۴۰۱
+            <span>{dateDay}</span> <span>-</span>
           </div>
         </div>
         <div className="text-xs text-textMidColor">
