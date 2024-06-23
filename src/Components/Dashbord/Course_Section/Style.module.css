@@ -11,7 +11,7 @@
   }
 
   .ItemsHolder {
-    @apply w-[850px] h-[225px] mt-3 m-auto;
+    @apply w-[850px]  mt-3 m-auto;
   }
   .ItemsHolder > div {
     @apply w-full h-[80px] rounded-[9px] pl-[10px] pr-[10px] flex;

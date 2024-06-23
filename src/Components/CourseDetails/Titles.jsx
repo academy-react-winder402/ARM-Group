@@ -4,8 +4,11 @@ import { GetTeacherById } from "../../Core/Services/api/Teacher/GetTeacherById";
 import DateObject from "react-date-object";
 import persian from "react-date-object/calendars/persian";
 import { ReserveAdd } from "../../Core/Services/api/CourseDetail/GetCourseById";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const Titles = () => {
+  const navigate = useNavigate();
   const Details = useSelector((state) => state.CourseDetail.CourseObj);
   const [TeacherDetail, setTeacherDetail] = useState([]);
   const [InsertDate, setInsertDate] = useState({});
@@ -43,6 +46,8 @@ const Titles = () => {
   const ReserveHandler = async () => {
     const Resreve = await ReserveAdd(Details.courseId);
     console.log(Resreve);
+    toast.success("دوره مورد نظر با مفوقیت رزرو شد");
+    navigate("/Dashbord/Courses");
   };
 
   return (

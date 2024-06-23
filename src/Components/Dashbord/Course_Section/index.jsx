@@ -37,7 +37,7 @@ function Index() {
 
         <div
           dir="rtl"
-          className="border-[2px] border-[#C4CDD5] rounded-[15px] w-[869px] h-[472px] mt-[11px] pt-[8px]  m-auto"
+          className="border-[2px] border-[#C4CDD5] rounded-[15px] w-[869px] mt-[11px] pt-[8px]  m-auto"
         >
           <div className={Style.OnvanHolder}>
             <span className="w-[170px] mr-[80px]">عنوان دوره</span>
@@ -51,10 +51,6 @@ function Index() {
             ))}
           </div>
         </div>
-
-        {/* <div className=" w-full h-[65px] flex justify-center items-end">
-          <Pagination />
-        </div> */}
       </div>
     </div>
   );

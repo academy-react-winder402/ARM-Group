@@ -11,6 +11,7 @@ import Dashbord_Comment from "../../Pages/Dashbord/Comments/index.jsx";
 import Dashbord_Courses from "../../Pages/Dashbord/Courses/index.jsx";
 import Dashbord_User from "../../Pages/Dashbord/User/index.jsx";
 import UserDetail from "../../Pages/Dashbord/UserDetail/index.jsx";
+import ResetPass from "../../Pages/Dashbord/ResetPass/index.jsx";
 
 /* LayOuts: */
 import Header from "../../App/LayOut/Header.jsx";
@@ -39,6 +40,10 @@ const Public = new createBrowserRouter([
       {
         path: "/Dashbord/UserDetail",
         element: <UserDetail />,
+      },
+      {
+        path: "/Dashbord/ResetPass",
+        element: <ResetPass />,
       },
     ],
   },

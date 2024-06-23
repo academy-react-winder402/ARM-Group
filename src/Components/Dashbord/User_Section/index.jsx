@@ -107,33 +107,8 @@ function index() {
             </div>
           </div>
         </div>
-        <h2 className="mt-10 text-[20px]  font-semibold">
-          وضعیت دوره های آموزشی
-        </h2>
-        <div className="flex justify-center gap-20">
-          <div className="w-[300px] h-[220px] self-end flex flex-col justify-center gap-5">
-            {corseReserve.map((item) => {
-              return (
-                <div className="flex gap-2" key={item.id}>
-                  <div className="w-5 h-5 rounded-full bg-[#60CEAC]"></div>
-                  <div className="text-sm flex justify-between w-[80%]">
-                    <span>دوره های رزروشده</span>
-                    <span>{item.numbers}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="w-[300px] h-[300px] flex items-end">
-            <PieChartWithCenterLabel />
-          </div>
-        </div>
 
-        <h2 className="text-[20px]  font-semibold mt-[130px]">
-          دوره های آموزشی بر اساس سلیقه شما
-        </h2>
-        <div className="h-[470px] mt-[30px] border-2 border-[#C4CDD5] rounded-[15px]"></div>
-        <h2 className="text-[20px]  font-semibold mt-[50px]">حسابداری</h2>
+        <h2 className="text-[20px]  font-semibold mt-[150px]">حسابداری</h2>
         <div className="w-[300px] h-[130px] mx-auto flex justify-between items-center flex-wrap">
           {activeCourse.map((item) => {
             return (

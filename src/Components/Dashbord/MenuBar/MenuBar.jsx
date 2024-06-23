@@ -55,7 +55,10 @@ function MenuBar() {
         >
           <span>اطلاعات کاربری</span> <FileUserIcon />
         </NavLink>
-        <NavLink>
+        <NavLink
+          to={"/Dashbord/ResetPass"}
+          className={({ isActive }) => [isActive ? "Selected" : ""].join(" ")}
+        >
           <span>مدیریت رمز عبور</span> <FingerPrintIcon />
         </NavLink>
         <NavLink

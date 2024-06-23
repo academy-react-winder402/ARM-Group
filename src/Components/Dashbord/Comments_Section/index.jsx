@@ -8,37 +8,30 @@ function Index() {
   const [Comments] = useState([
     {
       Id: 1,
-      CommentText: "‍۱ متن کامنت",
-      CommentOnvan: "۱ موضوع کامنت",
-      Category: "دسته بندی",
+      CommentText: "کامنت تستی مهدی",
+      CommentOnvan: "کامنتتتتمکستیبمنسشیتبکتشسبک",
+      Category: " ۱۲ / تیر/۱۴۰۳   ",
       Answer: "پاسخ",
     },
     {
-      Id: 2,
-      CommentText: "۲ متن کامنت",
-      CommentOnvan: "۲ موضوع کامنت",
-      Category: "دسته بندی",
+      Id: 1,
+      CommentText: "ریپلایییییییییییییی ۱   ",
+      CommentOnvan: "شسب برای ریپلایی",
+      Category: " ۱۳ / خرداد /۱۴۰۳     ",
       Answer: "پاسخ",
     },
     {
-      Id: 3,
-      CommentText: "۳ متن کامنت",
-      CommentOnvan: "۳ موضوع کامنت",
-      Category: "دسته بندی",
+      Id: 1,
+      CommentText: "ریپلای تستی شماره یک",
+      CommentOnvan: "تست ریپلای",
+      Category: " ۳ / تیر/۱۴۰۳   ",
       Answer: "پاسخ",
     },
     {
-      Id: 4,
-      CommentText: "۴ متن کامنت",
-      CommentOnvan: "۴ موضوع کامنت",
-      Category: "دسته بندی",
-      Answer: "پاسخ",
-    },
-    {
-      Id: 5,
-      CommentText: "۵ متن کامنت",
-      CommentOnvan: "۵ موضوع کامنت",
-      Category: "دسته بندی",
+      Id: 1,
+      CommentText: "ریپلای تستی  ",
+      CommentOnvan: "تست ریپلای",
+      Category: " ۱۲ / تیر/۱۴۰۳   ",
       Answer: "پاسخ",
     },
   ]);
@@ -57,11 +50,8 @@ function Index() {
         >
           <div className={Style.OnvanHolder}>
             <span className="w-[263px] ">متن کامنت</span>
-            <span className="w-[177px]">موضوع کامنت</span>
-            <span className="w-[140px]">دسته بندی</span>
-            <span className="w-[120px]">پاسخ</span>
-            <span className="w-[75px]">لینک</span>
-            <span className="w-[75px]">مشاهده</span>
+            <span className="w-[377px]">موضوع کامنت</span>
+            <span className="w-[177px]">تاریخ</span>
           </div>
           <div className={Style.ItemsHolder}>
             {Comments.map((Obj) => (
