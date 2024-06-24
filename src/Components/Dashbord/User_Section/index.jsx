@@ -45,8 +45,11 @@ function index() {
         نکات و توضیحات لازم
       </div>
       <div
-        className="bg-white w-full h-[2000px] mt-4 rounded-[10px] pt-6 px-6"
+        className="bg-white w-full mt-4 rounded-[10px] pt-6 px-6 mb-20 pb-20"
         dir="rtl"
+        style={{
+          fontFamily: "IransnsNumber",
+        }}
       >
         <div className="flex justify-between">
           <div className="flex flex-col">
@@ -76,15 +79,15 @@ function index() {
                 <div className="h-[100px]">
                   <div className="h-1/2">
                     <div className="flex justify-between text-sm">
-                      <span>هفته</span>
-                      <span>چهارشنبه</span>
+                      <span>هفته : 1</span>
+                      <span>یکشنبه</span>
                     </div>
                     <div className="h-2 w-ful bg-[#E1E1E1] rounded-[5px] mt-1">
                       <div className="w-2/3 h-full bg-[#57C56D] rounded-[5px]"></div>
                     </div>
                   </div>
                   <div className="h-1/2">
-                    <p>ماه</p>
+                    <p>تیر</p>
                     <div className="h-2 w-ful bg-[#E1E1E1] rounded-[5px] mt-1">
                       <div className="w-1/3 h-full bg-[#57C56D] rounded-[5px]"></div>
                     </div>
@@ -99,7 +102,7 @@ function index() {
                     alt="calender"
                   />
                   <span className="text-4xl  absolute right-1/2 translate-x-1/2 translate-y-1/2">
-                    ۱۲
+                    3
                   </span>
                 </div>
                 <div className="text-2xl flex justify-center">خرداد</div>
