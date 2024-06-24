@@ -1,9 +1,20 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PieChartWithCenterLabel from "./PieChartWithCenterLabel.jsx";
+import { GetUserInfo } from "../../../Core/Services/api/Panel/GetUserInfo";
 
 function index() {
+  const [userInfo, setUserInfo] = useState({});
+
+  useEffect(() => {
+    const fetchInfo = async () => {
+      const info = await GetUserInfo();
+      setUserInfo(info);
+    };
+    fetchInfo();
+  }, []);
+
   const [corseReserve] = useState([
     { id: 1, numbers: "۷" },
     { id: 2, numbers: "۷" },
@@ -38,7 +49,27 @@ function index() {
         dir="rtl"
       >
         <div className="flex justify-between">
-          <span className="text-sm">کاربر گرامی خوش آمدید</span>
+          <div className="flex flex-col">
+            <span className="text-sm">{userInfo.lName} خوش آمدید</span>
+
+            <div className="mt-5 ">
+              <h1> شماره تماس :</h1>
+              <h1 className="text-[12px] mt-2">{userInfo.phoneNumber}</h1>
+            </div>
+            <div className="mt-5 ">
+              <h1> ایمیل :</h1>
+              <h1 className="text-[12px] mt-2">{userInfo.email}</h1>
+            </div>
+            <div className="mt-5 ">
+              <h1> درباره کاربر :</h1>
+              <h1 className="text-[12px] mt-2">{userInfo.userAbout}</h1>
+            </div>
+            <div className="mt-5 ">
+              <h1> محل سکونت :</h1>
+              <h1 className="text-[12px] mt-2">{userInfo.homeAdderess}</h1>
+            </div>
+          </div>
+
           <div className="w-[320px] h-[140px]">
             <div className="flex gap-2">
               <div className="w-[200px] flex flex-col gap-2">
@@ -97,28 +128,7 @@ function index() {
             <PieChartWithCenterLabel />
           </div>
         </div>
-        <div className="mt-16 flex justify-center flex-wrap gap-4">
-          {data.map((item) => {
-            return (
-              <div
-                className="w-[192px] h-[120px] rounded-[10px] bg-[#F5F5F4] relative"
-                key={item.id}
-              >
-                <div className="flex justify-between p-3 h-10">
-                  <span className="text-sm">{item.title}</span>
-                  <img
-                    src="../../../../public/Image/Dashbord/User/newspaper.png"
-                    alt="newspaper"
-                  />
-                </div>
-                <span className="absolute right-1/2 translate-x-1/2 translate-y-3 text-4xl">
-                  {item.number}
-                </span>
-                {/* {item.number} */}
-              </div>
-            );
-          })}
-        </div>
+
         <h2 className="text-[20px]  font-semibold mt-[130px]">
           دوره های آموزشی بر اساس سلیقه شما
         </h2>
