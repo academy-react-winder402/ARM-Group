@@ -12,11 +12,7 @@ function RightSide({ CourseObj }) {
       className="w-1/2 max-lg:w-3/5 px-8"
       style={{ fontFamily: "IransnsNumber" }}
     >
-      <TopText
-        title={CourseObj.title}
-        desc={CourseObj.describe}
-        tec={CourseObj.technologyList}
-      />
+      <TopText title={CourseObj.title} desc={CourseObj.describe} />
       <Statistics stu={CourseObj.currentRegistrants} />
       <FirstDescription />
       <SecondDescription
